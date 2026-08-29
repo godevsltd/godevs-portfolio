@@ -206,4 +206,5 @@ The theme is licensed under the [GNU General Public License v2 or later](LICENSE
 - [WordPress.org compliance](docs/WORDPRESS-ORG-COMPLIANCE.md)
 - [Issue tracker](https://github.com/godevs/godevs-portfolio/issues)
 #   g o d e v s - p o r t f o l i o  
+ #   g o d e v s - p o r t f o l i o  
  
