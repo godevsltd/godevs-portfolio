@@ -1,0 +1,220 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Editorial",
+	"description": "A pure black-on-white editorial identity — Newsreader for headings and body, oversized display, tight tracking, strong horizontal rules, no accent colour. For long-form writers, magazine-style portfolios, and content-first sites where the type is the design.",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "primary",    "name": "Primary",     "color": "#000000" },
+				{ "slug": "secondary",  "name": "Secondary",   "color": "#1F1F1F" },
+				{ "slug": "accent",      "name": "Accent",      "color": "#000000" },
+				{ "slug": "background",  "name": "Background",  "color": "#FFFFFF" },
+				{ "slug": "surface",     "name": "Surface",     "color": "#F5F5F5" },
+				{ "slug": "text",        "name": "Text",        "color": "#0A0A0A" },
+				{ "slug": "muted",       "name": "Muted Text",  "color": "#6B6B6B" },
+				{ "slug": "border",      "name": "Border",      "color": "#D4D4D4" },
+				{ "slug": "success",     "name": "Success",     "color": "#15803D" },
+				{ "slug": "warning",     "name": "Warning",     "color": "#B45309" },
+				{ "slug": "error",       "name": "Error",        "color": "#B91C1C" }
+			],
+			"gradients": [
+				{ "slug": "surface-fade", "name": "Surface Fade",
+					"gradient": "linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 100%)" },
+				{ "slug": "accent-fade",  "name": "Accent Fade",
+					"gradient": "linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0) 100%)" }
+			]
+		},
+		"custom": {
+			"radius": {
+				"sm": "0",
+				"md": "0",
+				"lg": "0",
+				"pill": "0"
+			},
+			"shadow": {
+				"sm": "none",
+				"md": "none",
+				"lg": "0 4px 16px rgba(0,0,0,0.08)"
+			}
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--heading)",
+			"fontSize": "1.125rem",
+			"lineHeight": "1.7"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "500",
+					"lineHeight": "1.1",
+					"letterSpacing": "-0.02em"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--primary)"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "500",
+					"fontSize": "var(--wp--preset--font-size--huge)",
+					"lineHeight": "1.0",
+					"letterSpacing": "-0.04em"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "500",
+					"fontSize": "var(--wp--preset--font-size--xxx-large)",
+					"lineHeight": "1.05",
+					"letterSpacing": "-0.03em"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "500",
+					"fontSize": "var(--wp--preset--font-size--xx-large)",
+					"lineHeight": "1.15"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "500",
+					"fontSize": "var(--wp--preset--font-size--x-large)"
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--primary)",
+					"text": "var(--wp--preset--color--background)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "500",
+					"fontSize": "var(--wp--preset--font-size--small)",
+					"letterSpacing": "0.02em"
+				},
+				"spacing": {
+					"padding": {
+						"top":    "0.75rem",
+						"bottom": "0.75rem",
+						"left":   "1.25rem",
+						"right":  "1.25rem"
+					}
+				},
+				"border": {
+					"radius": "0"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--secondary)"
+					}
+				}
+			},
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--primary)"
+				},
+				"typography": {
+					"textDecoration": "underline",
+					"textUnderlineOffset": "3px",
+					"textDecorationThickness": "1px"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--primary)"
+					},
+					"typography": {
+						"textDecoration": "underline"
+					}
+				}
+			},
+			"caption": {
+				"color": {
+					"text": "var(--wp--preset--color--muted)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic"
+				}
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "500",
+					"letterSpacing": "-0.02em"
+				}
+			},
+			"core/site-tagline": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic"
+				}
+			},
+			"core/post-title": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontWeight": "500",
+					"fontSize": "var(--wp--preset--font-size--huge)",
+					"lineHeight": "1.0",
+					"letterSpacing": "-0.04em"
+				}
+			},
+			"core/post-excerpt": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontSize": "var(--wp--preset--font-size--x-large)",
+					"lineHeight": "1.4"
+				}
+			},
+			"core/post-date": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic"
+				}
+			},
+			"core/quote": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic",
+					"fontWeight": "500"
+				},
+				"border": {
+					"left": {
+						"color": "var(--wp--preset--color--primary)",
+						"style": "solid",
+						"width": "2px"
+					}
+				}
+			},
+			"core/pullquote": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic",
+					"fontWeight": "500",
+					"fontSize": "var(--wp--preset--font-size--xxx-large)",
+					"lineHeight": "1.15"
+				}
+			},
+			"core/separator": {
+				"color": {
+					"text": "var(--wp--preset--color--primary)"
+				}
+			},
+			"core/search": {
+				"border": {
+					"radius": "0"
+				}
+			}
+		}
+	}
+}

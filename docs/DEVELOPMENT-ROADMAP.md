@@ -2,8 +2,10 @@
 
 The roadmap mirrors the seventeen-phase plan in the original product brief
 and tracks which phases have shipped, which are in flight, and which are
-downstream. v0.1.0 ships Phases 0–5. Everything else is v0.2+ and is
-included here so contributors know what comes next.
+downstream. v0.1.0 ships Phases 0–5. v0.2.0 extends Phase 5 with five
+additional patterns and ships Phase 6 (Style variations) with four new
+variations. Everything else is v0.3+ and is included here so contributors
+know what comes next.
 
 | Phase | Status | Owner | Notes |
 |-------|--------|-------|-------|
@@ -12,9 +14,9 @@ included here so contributors know what comes next.
 | 2 — Design system | ✅ shipped (v0.1) | GoDevs | Palette, typography, spacing, layout, buttons, global styles |
 | 3 — Core templates | ✅ shipped (v0.1) | GoDevs | Homepage, front page, page, single, archive, search, 404 |
 | 4 — Header & footer | ✅ shipped (v0.1) | GoDevs | Header, footer, mobile nav, CTA |
-| 5 — Pattern library | ✅ shipped (v0.1) | GoDevs | Hero, about, services, portfolio, testimonials, CTA, contact, footer |
-| 6 — Style variations | ⏳ v0.2 | GoDevs | Modern, Minimal, Dark, Creative, Corporate, Elegant, Editorial |
-| 7 — User experience | ⏳ v0.2 | GoDevs | Beginner setup, starter-site architecture, simplified customisation flow |
+| 5 — Pattern library | ✅ shipped (v0.1 + v0.2) | GoDevs | v0.1: hero, about, services, portfolio, testimonials, CTA, contact, footer. v0.2: stats, process, faq, team, timeline. Total: 13 patterns. |
+| 6 — Style variations | ✅ shipped (v0.1 + v0.2) | GoDevs | v0.1: Minimal, Dark. v0.2: Creative, Corporate, Elegant, Editorial. Total: 6 variations. |
+| 7 — User experience | ⏳ v0.3 | GoDevs | Beginner setup, starter-site architecture, simplified customisation flow |
 | 8 — Core plugin integration | ⏳ v0.3 | GoDevs | Portfolio, services, testimonials, team, case studies, business profile |
 | 9 — Starter sites | ⏳ v0.4+ | GoDevs | 10 → 20 → 50 → 75 → 100+ |
 | 10 — Advanced features | ⏳ v0.4+ | GoDevs | Advanced portfolio, case studies, resume, business sections, advanced CTAs, booking-ready |
@@ -122,9 +124,9 @@ Shipped in v0.1.0.
 
 ## Phase 5 — Pattern library ✅
 
-Shipped in v0.1.0.
+Shipped across v0.1.0 and v0.2.0.
 
-### Scope
+### Scope — v0.1.0 (eight patterns)
 - `patterns/hero.php`
 - `patterns/about.php`
 - `patterns/services.php`
@@ -134,25 +136,47 @@ Shipped in v0.1.0.
 - `patterns/contact.php`
 - `patterns/footer.php` (minimal footer alternative)
 
-### Exit criteria
-- All eight patterns appear in the Site Editor inserter.
-- All eight patterns insert without PHP errors.
-- All eight patterns are responsive at 375, 768, 1024, 1280, 1440, 1920.
+### Scope — v0.2.0 (five additional patterns)
+- `patterns/stats.php` — three-column stats row with large display numbers
+- `patterns/process.php` — four-step vertical process with numbered markers
+- `patterns/faq.php` — four-question FAQ using `core/details` block (no-JS accordion)
+- `patterns/team.php` — three-column team grid with portrait image placeholder
+- `patterns/timeline.php` — four-event vertical timeline with year marker
+
+### Exit criteria — v0.1
+- All eight v0.1 patterns appear in the Site Editor inserter.
+- All eight v0.1 patterns insert without PHP errors.
+- All eight v0.1 patterns are responsive at 375, 768, 1024, 1280, 1440, 1920.
 - Pattern copy is realistic, in English, and does not overclaim.
 
-## Phase 6 — Style variations (v0.2)
+### Exit criteria — v0.2
+- All five v0.2 patterns appear in the Site Editor inserter.
+- All five v0.2 patterns use design system tokens (no hardcoded hex or spacing).
+- All five v0.2 patterns use core blocks only (zero custom blocks registered).
+- The FAQ pattern uses the native `core/details` block for accessible, no-JS accordion behaviour.
+- The v0.1 patterns continue to work unchanged — switching between v0.1 and v0.2 patterns in the inserter does not break either set.
 
-### Scope
-- Modern (the implicit default in `theme.json`)
-- Minimal ✅ (shipped in v0.1)
-- Dark ✅ (shipped in v0.1)
-- Creative
-- Corporate
-- Elegant
-- Editorial
+## Phase 6 — Style variations ✅
 
-Each variation should be a deliberate redesign — typography, palette,
+Shipped across v0.1.0 and v0.2.0.
+
+### Scope — v0.1.0 (two variations)
+- Minimal ✅ — sans-serif headings (Inter replaces Newsreader), neutral palette, zero button radius, link underline default
+- Dark ✅ — inverted palette (near-black background, soft slate text), lightened coral accent
+
+### Scope — v0.2.0 (four additional variations)
+- Creative ✅ — warm cream background (`#FEF9F4`), vibrant orange accent (`#F97316`), italic Newsreader display, pill-shaped buttons (radius 999px)
+- Corporate ✅ — Inter throughout (sans-serif headings), steel blue accent (`#2563EB`), square buttons (radius 0), always-underlined links, smaller heading sizes, tighter spacing
+- Elegant ✅ — warm cream background (`#FAF7F2`), deep brown text (`#2A1F18`), gold accent (`#B8893E`), italic h1, generous line-height (1.75), square buttons with subtle shadow
+- Editorial ✅ — pure B/W palette (no accent colour), Newsreader for headings and body, oversized display with tight tracking (-0.04em on h1), larger body text (1.125rem), strong horizontal rules, no shadows
+
+The default "Modern" identity is the implicit v0.1 `theme.json` (no
+variation file — it is the base the variations override).
+
+Each variation is a deliberate redesign — typography, palette,
 component radius, link treatment, heading style — not a palette swap.
+Every v0.2 variation changes at least three axes from the list in
+`docs/DESIGN-SYSTEM.md` §10.
 
 ### Exit criteria
 - Each variation feels different enough from every other variation that
@@ -160,6 +184,10 @@ component radius, link treatment, heading style — not a palette swap.
 - Each variation passes the WCAG 2.1 AA contrast check on body text
   against background.
 - Each variation is documented in `docs/DESIGN-SYSTEM.md`.
+- Each variation re-binds the design tokens in a way that re-flows every
+  shipped pattern without pattern edits.
+- The v0.1 patterns and templates continue to render correctly under
+  every v0.2 variation.
 
 ## Phase 7 — User experience (v0.2)
 

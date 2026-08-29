@@ -36,26 +36,35 @@ godevs-portfolio/
 │   │   ├── INTER-OFL.txt      # Inter license (SIL OFL 1.1)
 │   │   ├── NEWSREADER-OFL.txt # Newsreader license (SIL OFL 1.1)
 │   │   └── README.md          # how to refresh the bundled fonts
-│   └── images/               # theme-owned images (icons, og-default) — empty in v0.1
-├── docs/                     # documentation suite (24 files in v0.1)
+│   └── images/               # theme-owned images (icons, og-default) — empty in v0.2
+├── docs/                     # documentation suite (26 files in v0.2; 24 in v0.1)
 ├── languages/
 │   └── godevs-portfolio.pot  # translation template
 ├── parts/
 │   ├── header.html           # template part (logo + nav + CTA)
 │   ├── footer.html           # template part (multi-column footer)
 │   └── mobile-menu.html      # template part (alternative mobile menu)
-├── patterns/                 # self-registering block patterns
-│   ├── hero.php
-│   ├── about.php
-│   ├── services.php
-│   ├── portfolio-grid.php
-│   ├── testimonials.php
-│   ├── cta.php
-│   ├── contact.php
-│   └── footer.php
-├── styles/
-│   ├── minimal.json          # Minimal style variation
-│   └── dark.json             # Dark style variation
+├── patterns/                 # self-registering block patterns (13 in v0.2; 8 in v0.1)
+│   ├── hero.php              # v0.1
+│   ├── about.php             # v0.1
+│   ├── services.php          # v0.1
+│   ├── portfolio-grid.php    # v0.1
+│   ├── testimonials.php      # v0.1
+│   ├── cta.php               # v0.1
+│   ├── contact.php            # v0.1
+│   ├── footer.php            # v0.1
+│   ├── stats.php             # v0.2 — three-column stats row
+│   ├── process.php           # v0.2 — four-step vertical process
+│   ├── faq.php               # v0.2 — FAQ accordion via core/details
+│   ├── team.php              # v0.2 — three-column team grid
+│   └── timeline.php          # v0.2 — four-event vertical timeline
+├── styles/                   # style variations (6 in v0.2; 2 in v0.1)
+│   ├── minimal.json          # v0.1 — sans-serif headings, neutral palette
+│   ├── dark.json             # v0.1 — inverted palette
+│   ├── creative.json         # v0.2 — warm cream + orange + italic Newsreader + pill buttons
+│   ├── corporate.json        # v0.2 — Inter throughout + steel blue + square buttons
+│   ├── elegant.json          # v0.2 — cream + brown + gold + serif + square buttons
+│   └── editorial.json        # v0.2 — pure B/W + larger Newsreader + square buttons
 ├── templates/
 │   ├── index.html            # fallback for posts/archives
 │   ├── home.html             # posts page (Settings → Reading)
@@ -111,14 +120,14 @@ Pattern slugs are namespaced with the theme slug. This avoids collisions
 with any other plugin or theme and lets users search "godevs" in the
 inserter to find them all.
 
-Categories used by the v0.1 patterns: `featured`, `header`, `about`,
+Categories used by the v0.1 + v0.2 patterns: `featured`, `header`, `about`,
 `services`, `portfolio`, `query`, `text`, `call-to-action`, `footer`.
 All categories used are either built-in (button, columns, featured,
 gallery, header, text, query, posts, footer, call-to-action) or
 registered at runtime via `register_block_pattern_category()` (about,
 services, portfolio). Pattern files do not register categories
 themselves; categories are registered once in `functions.php` if the
-theme needs them. (v0.1 uses only built-in categories plus the
+theme needs them. (v0.1 + v0.2 use only built-in categories plus the
 `about`, `services`, `portfolio` custom categories.)
 
 Patterns are **not** custom blocks. They are core block markup. The
@@ -129,8 +138,10 @@ require a re-deploy to change.
 
 Custom blocks are only justified when (a) native blocks cannot
 express the layout, (b) the pattern cannot solve it, and (c) dynamic
-data is actually required. None of these conditions hold for v0.1, so
-the v0.1 library contains zero custom blocks.
+data is actually required. None of these conditions hold for v0.1 or
+v0.2, so the v0.1 + v0.2 library contains zero custom blocks. The FAQ
+pattern uses the native `core/details` block (introduced in WordPress
+6.3) for accessible, no-JS accordion behaviour.
 
 ## 5. theme.json
 
@@ -171,8 +182,9 @@ with the same schema as `theme.json` but contains only the parts that
 differ. WordPress auto-discovers variations and exposes them in the
 Site Editor Styles panel under "Browse styles".
 
-v0.1 ships two variations:
+v0.2 ships six variations (two from v0.1, four new in v0.2):
 
+### From v0.1
 - **Minimal** — sans-serif headings (Inter replaces Newsreader), neutral
   palette (no coral), zero button radius. Useful for editorial
   portfolios where typography should not compete with imagery.
@@ -180,11 +192,32 @@ v0.1 ships two variations:
   coral accent preserved but lightened slightly for contrast. Useful
   for design-forward portfolios and developer sites.
 
-Each variation is an intentional redesign, not a palette swap. The
-Minimal variation changes font families, button radius, and heading
-sizes. The Dark variation re-tunes the contrast of every palette token
-against a dark background. This is the model future variations should
-follow.
+### New in v0.2
+- **Creative** — warm cream background (`#FEF9F4`), vibrant orange
+  accent (`#F97316`), italic Newsreader for all headings, pill-shaped
+  buttons (radius 999px), tighter heading letter-spacing. For designer
+  portfolios and creative studios that want to feel made by a person.
+- **Corporate** — Inter throughout (sans-serif headings, drop
+  Newsreader), steel blue accent (`#2563EB`) in place of coral, square
+  buttons (radius 0), always-underlined links, smaller heading sizes,
+  tighter spacing. For consultancies, B2B service firms, and
+  professional services that need a conservative, trustworthy look.
+- **Elegant** — warm cream background (`#FAF7F2`), deep brown text
+  (`#2A1F18`), gold accent (`#B8893E`), larger Newsreader display with
+  italic h1, generous line-height (1.75), square buttons with subtle
+  shadow, italic captions. For sophisticated portfolios and editorial
+  brands that want to feel quietly considered.
+- **Editorial** — pure black-on-white palette (no accent colour),
+  Newsreader for headings and body, oversized display with very tight
+  tracking (-0.04em on h1), larger body text (1.125rem), strong
+  horizontal rules, square buttons, no shadows. For long-form writers
+  and content-first sites where the type is the design.
+
+Each variation is an intentional redesign that changes multiple axes
+(palette, typography, component radius, link treatment, spacing,
+separator treatment). A palette swap is not accepted as a variation.
+This is the model the future starter-site catalogue (Phase 9) will
+build on.
 
 ## 7. Assets strategy
 
@@ -294,9 +327,11 @@ The architecture is designed to grow without rewrites:
   pattern set plus optional starter content. The architecture supports
   the future 100-site catalogue without code changes — adding a starter
   site does not require touching any existing pattern or variation.
+  v0.2's six variations and thirteen patterns are the substrate the
+  Phase 9 starter-site catalogue will compose from.
 - **GoDevs Core** — the plugin hooks into a single theme action
   (`godevs_portfolio_core_active`) and registers its CPTs and blocks.
   The theme's patterns and templates stay valid whether the plugin is
   active or not.
 
-The v0.1.0 architecture is the floor, not the ceiling.
+The v0.2.0 architecture is the floor, not the ceiling.

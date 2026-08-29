@@ -243,15 +243,46 @@ Variation axes (a variation should change at least three):
 4. **Link treatment** — underline default vs. underline on hover.
 5. **Section padding** — tighten or loosen the default section padding.
 6. **Background pattern** — solid background vs. subtle gradient.
+7. **Body font family** — use serif body (Newsreader) vs. sans-serif
+   body (Inter) for an editorial feel.
+8. **Heading style** — italic headings for a creative/editorial feel
+   vs. roman headings for a corporate feel.
+9. **Letter-spacing on display** — tight tracking (-0.04em) for editorial
+   display vs. standard tracking (-0.02em) for general display.
+10. **Separator treatment** — bold full-width separator (Editorial) vs.
+    subtle 1px hairline separator (Modern).
 
-v0.1 ships Minimal (typography + radius + link treatment axes) and
-Dark (palette + component color axes). Future variations should
-each pick their own combination.
+### v0.1 variations shipped
+- **Minimal** — typography (sans-serif headings) + radius (zero) + link
+  treatment (underline default) axes.
+- **Dark** — palette (inverted) + component colour axes.
+
+### v0.2 variations shipped
+- **Creative** — palette (warm cream + orange) + typography (italic
+  Newsreader headings) + radius (pill 999px) + heading letter-spacing
+  (tighter) axes. For designer portfolios and creative studios.
+- **Corporate** — palette (navy + steel blue, no coral) + typography
+  (Inter throughout, sans-serif headings) + radius (zero) + link
+  treatment (underline always) + heading sizes (smaller) + spacing
+  (tighter) axes. For consultancies and professional service firms.
+- **Elegant** — palette (warm cream + brown + gold) + typography
+  (italic h1, larger display) + radius (zero) + line-height (1.75)
+  + caption style (italic) axes. For sophisticated portfolios and
+  editorial brands.
+- **Editorial** — palette (pure B/W, no accent) + typography
+  (Newsreader for headings and body, oversized display, very tight
+  tracking) + radius (zero) + body size (larger 1.125rem) + separator
+  treatment (bold full-width) + shadow (none) axes. For long-form
+  writers and content-first sites.
+
+Future variations (Phase 6 follow-ons or starter-site-specific
+variations in Phase 9) should each pick their own combination of at
+least 3 axes from the list above. A palette swap is not accepted.
 
 ## 11. What we do not ship
 
 For clarity, the following are explicitly out of scope for v0.1 and
-should not appear in patterns, style variations, or templates:
+v0.2 and should not appear in patterns, style variations, or templates:
 
 - Gradients beyond the two declared in `theme.json`.
 - Glassmorphism.

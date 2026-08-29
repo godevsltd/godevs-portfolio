@@ -10,6 +10,27 @@ If a rule here conflicts with the user's request, surface the conflict in
 the PR description and ask the maintainer to resolve it before merging.
 Do not silently override the rule.
 
+### Companion documents (read alongside this guide)
+
+Before implementing anything, also read:
+
+- `docs/FEATURE-REGISTRY.md` — the canonical list of implemented
+  features with their IDs, status, files, and dependencies. **Search
+  this before adding a feature** to avoid duplicating existing
+  functionality. **Update this after implementing a feature** so the
+  next contributor can find it.
+- `docs/DECISION-LOG.md` — records significant architectural
+  decisions made in v0.1 and v0.2 (block-theme-only, no CPTs in theme,
+  self-hosted fonts, zero dependencies, theme.json as single source
+  of truth, style variations as intentional redesigns, patterns over
+  custom blocks, v0.2 scope, FAQ via core/details, additive test
+  baseline). If you are about to override one of these decisions,
+  add a new entry to the Decision Log first explaining why.
+- `docs/ARCHITECTURE.md` — how the theme is put together.
+- `docs/DESIGN-SYSTEM.md` — the design vocabulary (palette,
+  typography, spacing, components) every pattern and variation uses.
+- `docs/CODING-STANDARDS.md` — the PHP / JS / CSS / HTML conventions.
+
 ---
 
 ## 1. Product goals (re-read every sprint)
@@ -33,10 +54,15 @@ probably does not belong in the theme.
   Style variations in `/styles/`.
 - No classic PHP templating. No `header.php` / `footer.php`. PHP only in
   `functions.php` and pattern headers.
-- No custom blocks in v0.1. Patterns are core block markup.
+- No custom blocks in v0.1 or v0.2. Patterns are core block markup. The
+  FAQ pattern uses the native `core/details` block (WP 6.3+) for
+  accessible, no-JS accordion behaviour.
 - Zero third-party PHP/JS dependencies.
 - Self-hosted fonts (Inter + Newsreader). No external CDN.
 - Graceful plugin detection via `GODEVS_PORTFOLIO_CORE_ACTIVE` constant.
+- v0.2 ships 13 patterns (8 from v0.1 + 5 new) and 6 style variations
+  (2 from v0.1 + 4 new). See `docs/FEATURE-REGISTRY.md` for the full
+  inventory.
 
 Read `docs/ARCHITECTURE.md` for the full picture.
 

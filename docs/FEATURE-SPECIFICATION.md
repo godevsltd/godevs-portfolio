@@ -1,19 +1,29 @@
 # Feature Specification — GoDevs Portfolio
 
-This is the v0.1.0 feature list. Every feature described here *actually
-ships* in 0.1.0. Future features live in `docs/DEVELOPMENT-ROADMAP.md` and
+This is the v0.2.0 feature list. Every feature described here *actually
+ships* in 0.2.0. Future features live in `docs/DEVELOPMENT-ROADMAP.md` and
 must not be advertised in user-facing copy or `readme.txt` until they
 ship.
+
+The canonical source of truth for implemented functionality is
+`docs/FEATURE-REGISTRY.md`, which records every feature with its ID,
+status, phase, files, implementation location, dependencies, test
+status, and documentation references. This document is the
+human-readable summary; the registry is the machine-readable
+counterpart.
 
 The list is organised by surface: foundation, design system, templates,
 template parts, patterns, style variations, assets, accessibility,
 performance, i18n, security. Each feature is given a short description
-and an explicit v0.1 status so reviewers and contributors can verify
-what is and is not yet present.
+and an explicit status so reviewers and contributors can verify what is
+and is not yet present.
+
+Features new in v0.2.0 are marked **(v0.2)**. Features unchanged from
+v0.1.0 are marked **(v0.1)**.
 
 ---
 
-## 1. Foundation
+## 1. Foundation (v0.1)
 
 ### 1.1 Block theme architecture
 The theme is a modern block theme. There is no classic PHP templating
@@ -191,7 +201,9 @@ correct area (`header`, `footer`, `navigation`).
 
 ## 5. Patterns
 
-### 5.1 Patterns shipped (eight)
+### 5.1 Patterns shipped (thirteen)
+
+#### v0.1 patterns (eight)
 - `patterns/hero.php` (`godevs-portfolio/hero`) — display headline,
   lead paragraph, primary + outline CTA.
 - `patterns/about.php` (`godevs-portfolio/about`) — two-column: text
@@ -210,7 +222,28 @@ correct area (`header`, `footer`, `navigation`).
 - `patterns/footer.php` (`godevs-portfolio/footer`) — minimal
   alternative footer (logo, tagline, nav, copyright).
 
-All eight patterns auto-register via the WP 6.0+ pattern-file
+#### v0.2 patterns (five) — new
+- `patterns/stats.php` (`godevs-portfolio/stats`) — three-column
+  stats row with large display numbers in the accent colour and
+  short editorial labels. Sits well between hero and about, or
+  after testimonials as a trust signal.
+- `patterns/process.php` (`godevs-portfolio/process`) — four-step
+  vertical process with numbered markers ("Step 01" through
+  "Step 04") and explanatory paragraphs. For services pages and
+  about pages.
+- `patterns/faq.php` (`godevs-portfolio/faq`) — four-question FAQ
+  using the native `core/details` block (introduced in WordPress
+  6.3) for accessible, no-JS accordion behaviour. The browser
+  handles keyboard navigation, screen-reader semantics, and
+  reduced-motion concerns natively.
+- `patterns/team.php` (`godevs-portfolio/team`) — three-column team
+  grid with 4/5 portrait image placeholder, role label, name, and
+  short bio. For agency and studio about pages.
+- `patterns/timeline.php` (`godevs-portfolio/timeline`) — four-event
+  vertical timeline with year marker, title, and explanation. For
+  studio history and project chronology.
+
+All thirteen patterns auto-register via the WP 6.0+ pattern-file
 convention.
 
 **Status:** ✅ Shipped.
@@ -220,23 +253,55 @@ convention.
 - Categories: built-in (`featured`, `header`, `text`, `query`,
   `call-to-action`, `footer`) and custom (`about`, `services`,
   `portfolio`).
-- Viewport width: 1280 for all patterns.
+- Viewport width: 1280 for full-width patterns, 768 for content-width
+  patterns (FAQ).
 - Demo content is realistic but fictional. No fake awards, revenue,
-  or certifications.
+  or certifications. The testimonials pattern includes a "Sample
+  attribution shown for layout reference" disclaimer.
 - Every pattern is responsive at 375, 768, 1024, 1280, 1440, 1920.
+- Every pattern uses design system tokens (no hardcoded hex or
+  spacing). Switching style variations re-flows patterns without
+  pattern edits.
+- Zero custom blocks registered. All patterns are core block markup.
 
 **Status:** ✅ Shipped.
 
 ## 6. Style variations
 
-### 6.1 Variations shipped (two)
+### 6.1 Variations shipped (six)
+
+#### v0.1 variations (two)
 - `styles/minimal.json` (`Minimal`) — sans-serif headings, neutral
   palette (no coral), zero button radius, link underline default.
 - `styles/dark.json` (`Dark`) — inverted palette, near-black
   background, lightened coral accent.
 
-Each variation is an intentional redesign, not a palette swap. Both
-variations are auto-discovered by the Site Editor Styles panel.
+#### v0.2 variations (four) — new
+- `styles/creative.json` (`Creative`) — warm cream background
+  (`#FEF9F4`), vibrant orange accent (`#F97316`), italic Newsreader
+  display, pill-shaped buttons (radius 999px), tighter heading
+  letter-spacing. For designer portfolios and creative studios.
+- `styles/corporate.json` (`Corporate`) — Inter throughout
+  (sans-serif headings, drop Newsreader), steel blue accent
+  (`#2563EB`) in place of coral, square buttons (radius 0),
+  always-underlined links, smaller heading sizes, tighter spacing.
+  For consultancies, B2B service firms, and professional services.
+- `styles/elegant.json` (`Elegant`) — warm cream background
+  (`#FAF7F2`), deep brown text (`#2A1F18`), gold accent
+  (`#B8893E`), larger Newsreader display with italic h1, generous
+  line-height (1.75), square buttons with subtle shadow, italic
+  captions. For sophisticated portfolios and editorial brands.
+- `styles/editorial.json` (`Editorial`) — pure black-on-white
+  palette (no accent colour), Newsreader for headings and body,
+  oversized display with very tight tracking (-0.04em on h1),
+  larger body text (1.125rem), strong horizontal rules, square
+  buttons, no shadows. For long-form writers and content-first
+  sites.
+
+Each variation is an intentional redesign that changes multiple
+axes (palette + typography + component radius + link treatment +
+spacing + separator treatment). A palette swap is not accepted.
+All variations are auto-discovered by the Site Editor Styles panel.
 
 **Status:** ✅ Shipped.
 
@@ -444,12 +509,23 @@ queries, no orphan admin UI. See `docs/CORE-PLUGIN-BOUNDARY.md`.
 ## 13. Documentation
 
 ### 13.1 Documentation suite
-Twenty-four documentation files in `/docs/`, covering product,
+Twenty-six documentation files in `/docs/`, covering product,
 architecture, design system, Gutenberg, theme settings, template
 system, pattern system, demo strategy, plugin boundary, responsive
 system, accessibility, performance, SEO, security, i18n, WordPress.org
 compliance, coding standards, testing plan, QA checklist, browser
 compatibility, contributing, AI development guide.
+
+The two new files in v0.2 are:
+- `docs/FEATURE-REGISTRY.md` — the canonical source of truth for
+  implemented functionality. Records all features with ID, status,
+  phase, files, implementation location, dependencies, test status,
+  and documentation references.
+- `docs/DECISION-LOG.md` — records significant architectural decisions
+  (block-theme-only, no CPTs in theme, self-hosted fonts, zero
+  dependencies, theme.json as single source of truth, style
+  variations as intentional redesigns, patterns over custom blocks,
+  v0.2 scope, FAQ via core/details, additive test baseline).
 
 **Status:** ✅ Shipped.
 
@@ -461,7 +537,8 @@ compatibility, contributing, AI development guide.
 
 ### 13.3 CHANGELOG
 `CHANGELOG.md` tracks changes per version. v0.1.0 is the
-"Unreleased → 0.1.0" first entry.
+foundation entry; v0.2.0 adds the style variations and patterns
+entry. Both follow the Keep a Changelog format.
 
 **Status:** ✅ Shipped.
 

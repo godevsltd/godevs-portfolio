@@ -12,10 +12,11 @@ GoDevs Portfolio is a block theme that pairs a strong editorial design system wi
 
 - **Editorial / Swiss visual direction** — strong typography, generous whitespace, thin borders, no decorative noise.
 - **Self-hosted fonts** — Inter (body / UI) and Newsreader (display), bundled as woff2, no external requests.
-- **Eight block patterns** — hero, about, services, portfolio-grid, testimonials, cta, contact, footer.
-- **Two style variations** — Minimal (sans-serif, neutral palette) and Dark (inverted palette).
+- **Thirteen block patterns** — hero, about, services, portfolio-grid, testimonials, cta, contact, footer (v0.1); plus stats, process, faq, team, timeline (v0.2).
+- **Six style variations** — Minimal (sans-serif, neutral), Dark (inverted), Creative (warm cream + orange + italic), Corporate (Inter throughout + steel blue), Elegant (cream + brown + gold), Editorial (pure B/W + larger Newsreader).
 - **WordPress 6.5+** — full Site Editor, Style Book, fluid typography APIs.
 - **Plugin boundary** — the theme works without GoDevs Core; plugin-backed features fail gracefully.
+- **Feature registry and decision log** — `docs/FEATURE-REGISTRY.md` tracks every implemented feature; `docs/DECISION-LOG.md` records every architectural decision so future contributors don't relitigate settled questions.
 
 ## Requirements
 
@@ -125,7 +126,9 @@ The theme follows WordPress coding standards for PHP, JavaScript, CSS, and HTML.
 | `docs/PRD.md` | Product requirements |
 | `docs/ARCHITECTURE.md` | Architecture overview |
 | `docs/DEVELOPMENT-ROADMAP.md` | Phase-by-phase roadmap |
-| `docs/FEATURE-SPECIFICATION.md` | v0.1 feature list |
+| `docs/FEATURE-SPECIFICATION.md` | v0.2 feature list |
+| `docs/FEATURE-REGISTRY.md` | Canonical feature inventory (new in v0.2) |
+| `docs/DECISION-LOG.md` | Architectural decision records (new in v0.2) |
 | `docs/DESIGN-SYSTEM.md` | Visual design system |
 | `docs/GUTENBERG-ARCHITECTURE.md` | Block editor integration |
 | `docs/THEME-SETTINGS.md` | Customisation surface |
@@ -158,9 +161,9 @@ The product is built in 17 phases. v0.1 ships Phases 0–5. See `docs/DEVELOPMEN
 | 2 — Design system | ✅ shipped (v0.1) | Palette, typography, spacing, layout, buttons |
 | 3 — Core templates | ✅ shipped (v0.1) | 9 templates + page-no-title custom template |
 | 4 — Header & footer | ✅ shipped (v0.1) | Header, footer, mobile nav, CTA |
-| 5 — Pattern library | ✅ shipped (v0.1) | 8 patterns: hero, about, services, portfolio, testimonials, cta, contact, footer |
-| 6 — Style variations | ⏳ v0.2 | Modern, Minimal, Dark, Creative, Corporate, Elegant, Editorial |
-| 7 — User experience | ⏳ v0.2 | Beginner setup, starter-site architecture |
+| 5 — Pattern library | ✅ shipped (v0.1 + v0.2) | v0.1: hero, about, services, portfolio, testimonials, cta, contact, footer (8). v0.2: stats, process, faq, team, timeline (5). Total: 13 patterns. |
+| 6 — Style variations | ✅ shipped (v0.1 + v0.2) | v0.1: Minimal, Dark (2). v0.2: Creative, Corporate, Elegant, Editorial (4). Total: 6 variations. |
+| 7 — User experience | ⏳ v0.3 | Beginner setup, starter-site architecture |
 | 8 — Core plugin integration | ⏳ v0.3 | Portfolio, services, testimonials, team, case studies |
 | 9 — Starter sites | ⏳ v0.4+ | 10 → 20 → 50 → 75 → 100+ |
 | 10 — Advanced features | ⏳ v0.4+ | Advanced portfolio, case studies, resume, booking |
@@ -205,8 +208,11 @@ The theme is licensed under the [GNU General Public License v2 or later](LICENSE
 - [AI development guide](docs/AI-DEVELOPMENT-GUIDE.md)
 - [WordPress.org compliance](docs/WORDPRESS-ORG-COMPLIANCE.md)
 - [Issue tracker](https://github.com/godevs/godevs-portfolio/issues)
+<<<<<<< HEAD
 #   g o d e v s - p o r t f o l i o 
  
  #  g o d e v s - p o r t f o l i o 
  
  
+=======
+>>>>>>> cdaaa2c (feat: complete v0.2 theme variations, patterns, and documentation)

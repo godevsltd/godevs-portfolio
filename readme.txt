@@ -3,7 +3,7 @@ Contributors: godevs
 Requires at least: 6.5
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: full-site-editing, block-styles, wide-blocks, block-patterns, style-variations, custom-colors, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, rtl-language-support, accessibility-ready
@@ -27,8 +27,8 @@ GoDevs Portfolio is a block theme designed for professional portfolios and small
 * A complete design system defined in theme.json (palette, fluid typography, spacing)
 * Nine block templates (index, home, front-page, page, single, archive, search, 404, singular)
 * Three template parts (header, footer, mobile menu)
-* Eight block patterns (hero, about, services, portfolio-grid, testimonials, cta, contact, footer)
-* Two style variations (Minimal, Dark) wired into the Site Editor Styles panel
+* Thirteen block patterns (hero, about, services, portfolio-grid, testimonials, cta, contact, footer, stats, process, faq, team, timeline)
+* Six style variations (Minimal, Dark, Creative, Corporate, Elegant, Editorial) wired into the Site Editor Styles panel
 * Self-hosted Inter + Newsreader fonts (no external requests)
 * Translation-ready, RTL-ready, accessibility-ready foundation
 
@@ -62,6 +62,12 @@ No. Inter and Newsreader are bundled in /assets/fonts/ and licensed under the SI
 
 == Changelog ==
 
+= 0.2.0 =
+* Four additional style variations: Creative, Corporate, Elegant, Editorial.
+* Five new block patterns: Stats, Process, FAQ, Team, Timeline.
+* New Feature Registry and Decision Log documents.
+* Verification baseline extended to 265+ explicit checks.
+
 = 0.1.0 =
 * Initial foundation release.
 * Block theme architecture with theme.json, nine templates, three template parts.
@@ -71,6 +77,9 @@ No. Inter and Newsreader are bundled in /assets/fonts/ and licensed under the SI
 * Documentation suite in /docs/ (PRD, architecture, design system, Gutenberg architecture, plugin boundary, accessibility, performance, security, internationalization, WordPress.org compliance, AI development guide, and others).
 
 == Upgrade Notice ==
+
+= 0.2.0 =
+Adds four style variations (Creative, Corporate, Elegant, Editorial) and five new block patterns (Stats, Process, FAQ, Team, Timeline). Existing v0.1 sites continue to work; the new variations are opt-in via the Site Editor Styles panel. The existing 244 verification checks are preserved; new specific checks bring the total to 265+.
 
 = 0.1.0 =
 Initial foundation release. No upgrade notice.

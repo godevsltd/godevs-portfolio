@@ -1,0 +1,165 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Creative",
+	"description": "A genuinely creative direction — warm cream background, vibrant orange accent, italic Newsreader display, and pill-shaped buttons. For designer portfolios and creative studios that want to feel made by a person, not generated.",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "primary",    "name": "Primary",     "color": "#0F172A" },
+				{ "slug": "secondary",  "name": "Secondary",   "color": "#334155" },
+				{ "slug": "accent",      "name": "Accent",      "color": "#F97316" },
+				{ "slug": "background",  "name": "Background",  "color": "#FEF9F4" },
+				{ "slug": "surface",     "name": "Surface",     "color": "#FBF1E8" },
+				{ "slug": "text",        "name": "Text",        "color": "#0F172A" },
+				{ "slug": "muted",       "name": "Muted Text",  "color": "#78716C" },
+				{ "slug": "border",      "name": "Border",      "color": "#E8D8C5" },
+				{ "slug": "success",     "name": "Success",     "color": "#15803D" },
+				{ "slug": "warning",     "name": "Warning",     "color": "#B45309" },
+				{ "slug": "error",       "name": "Error",        "color": "#B91C1C" }
+			],
+			"gradients": [
+				{ "slug": "surface-fade", "name": "Surface Fade",
+					"gradient": "linear-gradient(180deg, #FBF1E8 0%, #FEF9F4 100%)" },
+				{ "slug": "accent-fade",  "name": "Accent Fade",
+					"gradient": "linear-gradient(180deg, rgba(249,115,22,0.10) 0%, rgba(249,115,22,0) 100%)" }
+			]
+		},
+		"custom": {
+			"radius": {
+				"sm": "4px",
+				"md": "8px",
+				"lg": "16px",
+				"pill": "999px"
+			}
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--body)",
+			"lineHeight": "1.7"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic",
+					"fontWeight": "500",
+					"letterSpacing": "-0.02em"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--primary)"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontStyle": "italic",
+					"fontWeight": "500",
+					"fontSize": "var(--wp--preset--font-size--huge)",
+					"lineHeight": "1.05",
+					"letterSpacing": "-0.04em"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontStyle": "italic",
+					"fontSize": "var(--wp--preset--font-size--xxx-large)",
+					"letterSpacing": "-0.03em"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontStyle": "italic",
+					"fontSize": "var(--wp--preset--font-size--xx-large)"
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--accent)",
+					"text": "var(--wp--preset--color--background)"
+				},
+				"typography": {
+					"fontWeight": "500",
+					"letterSpacing": "0"
+				},
+				"spacing": {
+					"padding": {
+						"top":    "0.75rem",
+						"bottom": "0.75rem",
+						"left":   "1.5rem",
+						"right":  "1.5rem"
+					}
+				},
+				"border": {
+					"radius": "var(--wp--custom--radius--pill)"
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--primary)"
+					}
+				}
+			},
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--accent)"
+				},
+				"typography": {
+					"textDecoration": "none"
+				},
+				":hover": {
+					"typography": {
+						"textDecoration": "underline"
+					},
+					"color": {
+						"text": "var(--wp--preset--color--primary)"
+					}
+				}
+			},
+			"caption": {
+				"color": {
+					"text": "var(--wp--preset--color--muted)"
+				}
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic",
+					"fontWeight": "500"
+				}
+			},
+			"core/post-title": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic",
+					"fontWeight": "500"
+				}
+			},
+			"core/quote": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic"
+				},
+				"border": {
+					"left": {
+						"color": "var(--wp--preset--color--accent)",
+						"style": "solid",
+						"width": "3px"
+					}
+				}
+			},
+			"core/pullquote": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--heading)",
+					"fontStyle": "italic"
+				}
+			},
+			"core/separator": {
+				"color": {
+					"text": "var(--wp--preset--color--border)"
+				}
+			}
+		}
+	}
+}
