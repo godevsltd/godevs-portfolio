@@ -1,0 +1,66 @@
+# Dependencies
+/node_modules/
+/vendor/
+
+# Build artefacts
+/build/
+/dist/
+*.zip
+*.tar.gz
+
+# Logs
+*.log
+debug.log
+error.log
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE / editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# WordPress test suite local config
+wp-tests-config.php
+
+# Composer local config
+composer.local.json
+
+# npm local config
+.npmrc.local
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Cache directories
+.cache/
+.phpunit.result.cache
+.phpcs.cache/
+
+# Editor backup files
+*.bak
+*.orig
+
+# Generated translation files (keep .pot, ignore .po/.mo in repo)
+/languages/*.po
+/languages/*.mo
+!/languages/*.pot
+
+# Test reports
+/tests/_reports/

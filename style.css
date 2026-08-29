@@ -1,0 +1,21 @@
+/*
+Theme Name: GoDevs Portfolio
+Theme URI: https://godevs.com/portfolio-theme/
+Author: GoDevs
+Author URI: https://godevs.com
+Description: A modern, Gutenberg-first WordPress theme for freelancers, developers, designers, agencies, and professional service businesses. Built around the native Site Editor — no page builder required. Editorial typography, generous whitespace, and a clean portfolio foundation that scales from a single freelancer site to a 100+ starter-site catalog.
+Version: 0.1.0
+Requires at least: 6.5
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: godevs-portfolio
+Tags: full-site-editing, block-styles, wide-blocks, block-patterns, style-variations, custom-colors, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, rtl-language-support, accessibility-ready, block-patterns
+*/
+
+/* The actual visual styling for this block theme lives in theme.json
+   (palette, typography, spacing) and the templates/parts/patterns/
+   block markup. This file exists primarily to expose the theme metadata
+   header above to WordPress. Editor-only and print styles are enqueued
+   from assets/css/. */

@@ -1,0 +1,58 @@
+/**
+ * GoDevs Portfolio — editor-only styles.
+ *
+ * These styles apply only inside the block editor and Site Editor. They
+ * supplement the global styles generated from theme.json with editor-only
+ * affordances: paragraph style previews and a sticky preview marker for the
+ * hero pattern.
+ *
+ * Everything that should appear on the front-end must live in theme.json or
+ * in block markup — not here.
+ */
+
+/* Paragraph style: muted text
+   Displayed in the Style panel so users can pick "Muted" for any paragraph. */
+.is-style-muted {
+	color: var(--wp--preset--color--muted);
+}
+
+/* Paragraph style: lead — slightly larger, more spacing, useful in hero. */
+.is-style-lead {
+	font-size: var(--wp--preset--font-size--large);
+	line-height: 1.55;
+	color: var(--wp--preset--color--secondary);
+}
+
+/* Style variation for the separator block — thin hairline. */
+.wp-block-separator.is-style-hairline {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: var(--wp--preset--color--border);
+	margin-top: var(--wp--preset--spacing--60);
+	margin-bottom: var(--wp--preset--spacing--60);
+}
+
+/* Style variation for the buttons block — small radius pill. */
+.wp-block-button.is-style-pill .wp-block-button__link {
+	border-radius: var(--wp--custom--radius--pill);
+}
+
+/* Help the editor preview the hero pattern at a sensible height. */
+.godevs-hero {
+	min-height: 60vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* Visual hint for the contact pattern that the dark band wraps content. */
+.godevs-contact {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--background);
+}
+
+/* Style book preview — keep line lengths reasonable in the Style Book panel. */
+.editor-styles-wrapper .wp-block-post-title,
+.editor-styles-wrapper .wp-block-heading {
+	max-width: 22em;
+}

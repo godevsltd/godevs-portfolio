@@ -1,0 +1,80 @@
+/**
+ * GoDevs Portfolio — print styles.
+ *
+ * Print styles exist to make the theme usable for editorial sites that need
+ * printable article pages. They strip interactive chrome and re-establish
+ * black-on-white output for legibility on paper.
+ */
+
+@media print {
+
+	/* Reset all theme colors back to paper-safe defaults. */
+	:root,
+	body {
+		background: #ffffff !important;
+		color: #000000 !important;
+	}
+
+	/* Hide chrome that does not belong on paper. */
+	.site-header,
+	.site-footer,
+	.wp-block-navigation,
+	.wp-block-buttons,
+	.wp-block-search,
+	.wp-block-post-edit-link,
+	.wp-block-comment-form,
+	.wp-block-query-pagination {
+		display: none !important;
+	}
+
+	/* Reset link styling and print the URL after each link. */
+	a,
+	a:visited {
+		color: #000000 !important;
+		text-decoration: underline;
+	}
+
+	a[href]::after {
+		content: " (" attr(href) ")";
+		font-size: 0.85em;
+		color: #555555;
+	}
+
+	/* Do not print URLs for internal anchors or javascript: links. */
+	a[href^="#"]::after,
+	a[href^="javascript:"]::after {
+		content: "";
+	}
+
+	/* Constrain main content to a comfortable column width. */
+	.site-main {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 0 !important;
+	}
+
+	/* Force page breaks to fall between major sections, not inside them. */
+	h1, h2, h3 {
+		page-break-after: avoid;
+		break-after: avoid;
+	}
+
+	img, figure, table {
+		page-break-inside: avoid;
+		break-inside: avoid;
+	}
+
+	/* Make headings readable in black on paper. */
+	h1, h2, h3, h4, h5, h6 {
+		color: #000000 !important;
+		font-family: "Newsreader", Georgia, serif !important;
+	}
+
+	/* Drop decorative shadows and rounded corners — they print as muddy. */
+	img,
+	figure,
+	.wp-block-group {
+		box-shadow: none !important;
+		border-radius: 0 !important;
+	}
+}

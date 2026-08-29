@@ -1,0 +1,45 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"site-main"} -->
+<main class="wp-block-group site-main">
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group">
+		<!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+		<div class="wp-block-group">
+			<!-- wp:post-date {"format":"M j, Y","fontSize":"small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.05em"}}} /-->
+			<!-- wp:post-title {"level":1} /-->
+			<!-- wp:post-terms {"term":"post_tag","fontSize":"small"} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:post-featured-image {"aspectRatio":"16/9","style":{"border":{"radius":"var(--wp--custom--radius--md)"}}} /-->
+
+		<!-- wp:post-content {"style":{"spacing":{"margin":{"top":"var:preset|spacing|70"}}}} /-->
+
+		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|80}},"border":{"top":{"color":"var:preset|color|border","style":"solid","width":"1px"}}}} -->
+		<div class="wp-block-group">
+			<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+			<div class="wp-block-group">
+				<!-- wp:paragraph {"fontSize":"small"} -->
+				<p class="has-small-font-size">Read more from the journal.</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:post-navigation-link {"type":"previous","label":"Previous","fontSize":"small"} /-->
+				<!-- wp:post-navigation-link {"type":"next","label":"Next","fontSize":"small"} /-->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:comments {"style":{"spacing":{"margin":{"top":"var:preset|spacing|80"}}}} -->
+		<div class="wp-block-comments">
+			<!-- wp:comments-title /-->
+			<!-- wp:comment-content /-->
+			<!-- wp:comment-form /-->
+		</div>
+		<!-- /wp:comments -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->
