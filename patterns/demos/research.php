@@ -17,30 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Header -->
         <!-- wp:template-part {"slug":"header-minimal","theme":"godevs-portfolio","tagName":"header"} /-->
 
-        <!-- Hero -->
-
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+        <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)","justifyContent":"center"}} -->
-        <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-                <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
-                <p class="is-style-eyebrow has-text-align-center">Education / Researcher</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xxx-large","lineHeight":"1.05","letterSpacing":"-0.02em"}}} -->
-                <h1 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);line-height:1.05;letter-spacing:-0.02em">Research — selected work.</h1>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
-                <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium);margin-top:var(--wp--preset--spacing--40)">A working portfolio, kept current.</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->
-                <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60)">
-                        <!-- wp:button -->
-                        <div class="wp-block-button"><a href="#work" class="wp-block-button__link wp-element-button">See selected work</a></div>
-                        <!-- /wp:button -->
-                </div>
-                <!-- /wp:buttons -->
-        </div>
-        <!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow">Education / Researcher</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"clamp(2.25rem, 7vw, 4.5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"400","fontStyle":"italic"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--serif);font-size:clamp(2.25rem, 7vw, 4.5rem);line-height:1.1;letter-spacing:-0.02em;font-weight:400;font-style:italic">Research</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p style="font-family:var(--wp--preset--font-family--serif);font-size:var(--wp--preset--font-size--large);line-height:1.5;max-width:520px">Researcher portfolio. Centered display hero, blog then about, minimal CTA. Reading-first.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -139,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <h2 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--x-large);line-height:1.15;letter-spacing:-0.02em;font-weight:600">Available for new work.</h2>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
-                <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--small)"><a href="#contact">Start a conversation →</a></p>
+                <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--small)"><a href="#contact">Get in touch →</a></p>
                 <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->

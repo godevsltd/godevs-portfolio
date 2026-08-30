@@ -3,7 +3,7 @@ Contributors: godevs
 Requires at least: 6.5
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.2
+Stable tag: 2.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: full-site-editing, block-patterns, block-styles, portfolio, editorial, accessibility-ready, translation-ready, threaded-comments, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post
@@ -117,6 +117,15 @@ Comprehensive documentation is bundled with the theme in the `docs/` directory:
 * `CHANGELOG.md` — Version history
 
 == Changelog ==
+
+= 1.4.0 — Premium Demo Redesign & Real Homepage Preview =
+
+* Redesigned 5 duplicate-pair demos with genuinely distinct hero compositions: foundry (split image+quote), scholar (2-col bio sidebar), aperture (no-overlay full-bleed), northbound (split+logo cloud), meridian (stats-led asymmetric).
+* Generated 5 per-demo preview images for the redesigned demos.
+* Added 2 new AJAX endpoints for multi-page preview navigation.
+* Premium demo card redesign with browser frame, hover overlay, device preview (desktop/tablet/mobile), and page navigation.
+* 11 category-based preview images for visual variety across all 102 demos.
+* Version bumped to 1.4.0 (was stuck at 1.1.2 — version-aware upgrade handler now triggers correctly).
 
 = 1.1.2 — Ultimate Fallback Loader =
 

@@ -17,23 +17,28 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Header -->
         <!-- wp:template-part {"slug":"header","theme":"godevs-portfolio","tagName":"header"} /-->
 
-        <!-- Hero -->
-
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
-<section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)","justifyContent":"center"}} -->
-        <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-                <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
-                <p class="is-style-eyebrow has-text-align-center">Lifestyle / Content Creator</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","lineHeight":"1.1","letterSpacing":"-0.02em"}}} -->
-                <h1 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);line-height:1.1;letter-spacing:-0.02em">Content — selected work.</h1>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-                <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium)">A working portfolio, kept current.</p>
-                <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:group -->
+        <!-- wp:group {"tagName":"section","className":"godevs-reveal","style":{"color":{"background":"var:preset|color|primary","text":"var:preset|color|contrast"}},"layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background">
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|muted"}}} -->
+<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--muted)">Lifestyle / Content Creator</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.25rem, 7vw, 4.5rem)","lineHeight":"1","letterSpacing":"-0.025em","fontWeight":"400"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.25rem, 7vw, 4.5rem);line-height:1;letter-spacing:-0.025em;font-weight:400">Content.</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"color":{"text":"var:preset|color|muted"},"layout":{"selfStretch":"fit","flexSize":"480px"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--medium);max-width:480px">Content creator portfolio. Centered intro, blog then testimonials, full-width CTA with newsletter footer.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"is-style-outline","style":{"border":{"color":"var:preset|color|contrast"}}} -->
+<div class="wp-block-button is-style-outline"><a href="#work" class="wp-block-button__link wp-element-button">See work</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 

@@ -17,21 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Header -->
         <!-- wp:template-part {"slug":"header-minimal","theme":"godevs-portfolio","tagName":"header"} /-->
 
-        <!-- Hero -->
-
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+        <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"default"}} -->
-        <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-                <!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 7vw, 5.5rem)","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"600"}}} -->
-                <h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 7vw, 5.5rem);line-height:1;letter-spacing:-0.03em;font-weight:600">Ledger — selected work.</h1>
-                <!-- /wp:heading -->
-                <!-- wp:separator {"className":"is-style-thin","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} /-->
-                <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-                <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Business / Financial</p>
-                <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 6vw, 5rem)","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"600"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 6vw, 5rem);line-height:1;letter-spacing:-0.03em;font-weight:600">Ledger — selected work.</h1>
+<!-- /wp:heading -->
+<!-- wp:separator {"className":"is-style-thin","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-thin" style="margin-top:var(--wp--preset--spacing--50)"/>
+<!-- /wp:separator -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Business / Financial</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -108,17 +108,17 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group">
                         <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-                        <p class="is-style-eyebrow">Let's talk</p>
+                        <p class="is-style-eyebrow">Schedule a consultation</p>
                         <!-- /wp:paragraph -->
                         <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
-                        <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">Have a project in mind?</h2>
+                        <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">Have a challenge to work through?</h2>
                         <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->
                 <!-- wp:buttons -->
                 <div class="wp-block-buttons">
                         <!-- wp:button {"className":"is-style-outline","style":{"border":{"color":"var:preset|color|contrast"}}} -->
-                        <div class="wp-block-button is-style-outline"><a href="#contact" class="wp-block-button__link wp-element-button">Start a conversation</a></div>
+                        <div class="wp-block-button is-style-outline"><a href="#contact" class="wp-block-button__link wp-element-button">Schedule a consultation</a></div>
                         <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->

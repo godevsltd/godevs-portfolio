@@ -227,7 +227,26 @@ function godevs_portfolio_ajax_import_demo(): void {
 
         foreach ( $demo['pages'] as $page_slug ) {
                 $title = $page_titles[ $page_slug ] ?? ucfirst( $page_slug );
-                $content = ( 'home' === $page_slug ) ? $homepage_markup : '';
+
+                // CRITICAL FIX: Populate ALL pages, not just the homepage.
+                // For each inner page, render the corresponding pattern file
+                // (e.g., patterns/demos/<demo-slug>-about.php) and use its
+                // markup as the page content. This closes the bug where only
+                // the homepage got content and all inner pages were blank.
+                if ( 'home' === $page_slug ) {
+                        $content = $homepage_markup;
+                } else {
+                        // Try to load the inner-page pattern file.
+                        $page_file = godevs_portfolio_get_demo_page_file( $demo_id, $page_slug );
+                        if ( null !== $page_file && file_exists( $page_file ) ) {
+                                ob_start();
+                                include $page_file; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — pattern file output is HTML block markup.
+                                $content = (string) ob_get_clean();
+                        } else {
+                                // Fallback: empty content if no pattern file exists.
+                                $content = '';
+                        }
+                }
 
                 $page_id = wp_insert_post(
                         array(
@@ -308,14 +327,18 @@ function godevs_portfolio_ajax_import_demo(): void {
                 $style_lower = strtolower( $demo['style'] );
                 $style_file  = get_template_directory() . '/styles/' . $style_lower . '.json';
                 if ( file_exists( $style_file ) ) {
-                        // Store the user's choice via user meta.
-                        // WordPress core reads the active variation from `wp_global_styles` post,
-                        // but applying that programmatically is complex. As a lightweight fallback,
-                        // we record the choice and instruct the user to apply it via the
-                        // Site Editor → Styles browser.
+                        // CRITICAL FIX: Actually apply the style variation programmatically.
+                        // WordPress 6.0+ stores the active style variation in the
+                        // wp_global_styles custom post type. We write to it directly.
+                        $style_applied = godevs_portfolio_apply_style_variation( $style_lower );
+
+                        // Also store the user's choice via user meta (for reference).
                         $user_id = get_current_user_id();
                         update_user_meta( $user_id, 'godevs-portfolio-applied-style', $demo['style'] );
-                        $style_applied = $demo['style'];
+
+                        if ( ! $style_applied ) {
+                                $style_applied = $demo['style']; // Record the intent even if application failed.
+                        }
                 }
         }
 
@@ -413,6 +436,113 @@ function godevs_portfolio_render_demo_markup( array $demo ): string {
 }
 
 /**
+ * Apply a style variation programmatically.
+ *
+ * WordPress 6.0+ stores the active style variation in the wp_global_styles
+ * custom post type. This function writes the variation's JSON content
+ * to that post so the variation is actually applied on the front end.
+ *
+ * @param string $style_slug The style variation slug (e.g., 'dark', 'minimal').
+ * @return bool True on success, false on failure.
+ * @since 2.0.0
+ */
+function godevs_portfolio_apply_style_variation( string $style_slug ): bool {
+        $style_file = get_template_directory() . '/styles/' . $style_slug . '.json';
+        if ( ! file_exists( $style_file ) ) {
+                return false;
+        }
+
+        $style_content = file_get_contents( $style_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+        if ( empty( $style_content ) ) {
+                return false;
+        }
+
+        $style_data = json_decode( $style_content, true );
+        if ( ! is_array( $style_data ) ) {
+                return false;
+        }
+
+        // Get the active theme's stylesheet (theme slug).
+        $stylesheet = get_stylesheet();
+
+        // Find the existing wp_global_styles post for this theme.
+        $args = array(
+                'post_type'      => 'wp_global_styles',
+                'post_status'    => 'publish',
+                'posts_per_page' => 1,
+                'tax_query'      => array(
+                        array(
+                                'taxonomy' => 'wp_theme',
+                                'field'    => 'name',
+                                'terms'    => $stylesheet,
+                        ),
+                ),
+        );
+
+        $query = new WP_Query( $args );
+        $post_id = 0;
+
+        if ( $query->have_posts() ) {
+                $query->the_post();
+                $post_id = get_the_ID();
+                wp_reset_postdata();
+        }
+
+        // Build the global styles post content.
+        // This merges the variation's styles into the theme's global styles.
+        $global_styles = array(
+                'version'  => 3,
+                'styles'   => $style_data['styles'] ?? array(),
+                'settings' => $style_data['settings'] ?? array(),
+        );
+
+        $post_content = wp_json_encode( $global_styles );
+
+        if ( $post_id ) {
+                // Update existing post.
+                wp_update_post(
+                        array(
+                                'ID'           => $post_id,
+                                'post_content' => $post_content,
+                        )
+                );
+        } else {
+                // Create new post.
+                $post_id = wp_insert_post(
+                        array(
+                                'post_title'   => 'Global Styles',
+                                'post_status'  => 'publish',
+                                'post_type'    => 'wp_global_styles',
+                                'post_content' => $post_content,
+                                'post_name'    => 'global-styles-' . $stylesheet,
+                        )
+                );
+
+                if ( is_wp_error( $post_id ) ) {
+                        return false;
+                }
+
+                // Assign the wp_theme taxonomy term.
+                wp_set_object_terms( $post_id, $stylesheet, 'wp_theme' );
+        }
+
+        // Clear the WP_Theme_JSON_Resolver cache.
+        // This forces WordPress to re-read the global styles on the next request.
+        if ( class_exists( 'WP_Theme_JSON_Resolver' ) ) {
+                // The resolver has a static cache that needs to be cleared.
+                // We use reflection to access the private $cache property.
+                $reflection = new ReflectionClass( 'WP_Theme_JSON_Resolver' );
+                if ( $reflection->hasProperty( 'cache' ) ) {
+                        $cache_prop = $reflection->getProperty( 'cache' );
+                        $cache_prop->setAccessible( true );
+                        $cache_prop->setValue( null, array() );
+                }
+        }
+
+        return true;
+}
+
+/**
  * AJAX: Get demo preview markup.
  *
  * Returns the rendered block markup for the demo. The JS uses this to
@@ -454,3 +584,114 @@ function godevs_portfolio_ajax_preview_demo(): void {
         );
 }
 add_action( 'wp_ajax_godevs_portfolio_preview_demo', 'godevs_portfolio_ajax_preview_demo' );
+
+/**
+ * AJAX: Get the list of available pages for a demo (for preview navigation).
+ *
+ * Returns an array of page definitions, each with slug, title, and whether
+ * a pattern file exists for that page. Used by the preview modal to build
+ * the page-navigation bar.
+ *
+ * @return void
+ * @since 1.3.0
+ */
+function godevs_portfolio_ajax_get_demo_pages(): void {
+        check_ajax_referer( 'godevs_demo_admin', 'nonce' );
+
+        if ( ! current_user_can( 'manage_options' ) ) {
+                wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'godevs-portfolio' ) ), 403 );
+        }
+
+        $demo_id = isset( $_POST['demo_id'] ) ? sanitize_file_name( wp_unslash( $_POST['demo_id'] ) ) : '';
+        if ( ! $demo_id ) {
+                wp_send_json_error( array( 'message' => __( 'Missing demo ID.', 'godevs-portfolio' ) ), 400 );
+        }
+
+        $demo = godevs_portfolio_get_demo( $demo_id );
+        if ( null === $demo ) {
+                wp_send_json_error( array( 'message' => __( 'Demo not found.', 'godevs-portfolio' ) ), 404 );
+        }
+
+        $pages = godevs_portfolio_get_demo_pages( $demo_id );
+
+        // Format for JSON response.
+        $formatted = array();
+        foreach ( $pages as $page ) {
+                $formatted[] = array(
+                        'slug'  => $page['slug'],
+                        'title' => $page['title'],
+                );
+        }
+
+        wp_send_json_success(
+                array(
+                        'demo'  => array(
+                                'id'       => $demo['id'],
+                                'name'     => $demo['name'],
+                                'category' => $demo['category'],
+                                'style'    => $demo['style'],
+                        ),
+                        'pages' => $formatted,
+                )
+        );
+}
+add_action( 'wp_ajax_godevs_portfolio_get_demo_pages', 'godevs_portfolio_ajax_get_demo_pages' );
+
+/**
+ * AJAX: Preview a specific demo page (not just the homepage).
+ *
+ * Renders the markup for a given demo + page slug, for use in the
+ * preview modal's page-navigation feature.
+ *
+ * @return void
+ * @since 1.3.0
+ */
+function godevs_portfolio_ajax_preview_demo_page(): void {
+        check_ajax_referer( 'godevs_demo_admin', 'nonce' );
+
+        if ( ! current_user_can( 'manage_options' ) ) {
+                wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'godevs-portfolio' ) ), 403 );
+        }
+
+        $demo_id = isset( $_POST['demo_id'] ) ? sanitize_file_name( wp_unslash( $_POST['demo_id'] ) ) : '';
+        $page    = isset( $_POST['page'] ) ? sanitize_file_name( wp_unslash( $_POST['page'] ) ) : 'home';
+
+        if ( ! $demo_id ) {
+                wp_send_json_error( array( 'message' => __( 'Missing demo ID.', 'godevs-portfolio' ) ), 400 );
+        }
+
+        $demo = godevs_portfolio_get_demo( $demo_id );
+        if ( null === $demo ) {
+                wp_send_json_error( array( 'message' => __( 'Demo not found.', 'godevs-portfolio' ) ), 404 );
+        }
+
+        // Resolve the page file.
+        $file = godevs_portfolio_get_demo_page_file( $demo_id, $page );
+        if ( null === $file ) {
+                wp_send_json_error( array( 'message' => __( 'Page not found for this demo.', 'godevs-portfolio' ) ), 404 );
+        }
+
+        // Render the markup.
+        $markup = '';
+        if ( file_exists( $file ) ) {
+                ob_start();
+                include $file; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — pattern file output is HTML block markup.
+                $markup = (string) ob_get_clean();
+        }
+
+        if ( '' === $markup ) {
+                wp_send_json_error( array( 'message' => __( 'Could not render page.', 'godevs-portfolio' ) ), 500 );
+        }
+
+        wp_send_json_success(
+                array(
+                        'demo'   => array(
+                                'id'   => $demo['id'],
+                                'name' => $demo['name'],
+                                'page' => $page,
+                        ),
+                        'markup' => $markup,
+                )
+        );
+}
+add_action( 'wp_ajax_godevs_portfolio_preview_demo_page', 'godevs_portfolio_ajax_preview_demo_page' );

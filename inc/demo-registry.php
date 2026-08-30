@@ -386,18 +386,97 @@ function godevs_portfolio_parse_demo_file( string $file ): ?array {
         $slug     = $meta['Slug'];
         $basename = basename( $file, '.php' );
 
+        // Preview image — looks for a screenshot in assets/images/demo-previews/.
+        // Priority: <demo-slug>.jpg → <demo-slug>.png → category-based preview → fallback.
+        $preview_image    = '';
+        $preview_image_uri = '';
+        $preview_dir       = get_template_directory() . '/assets/images/demo-previews';
+        $preview_uri_base  = get_template_directory_uri() . '/assets/images/demo-previews';
+
+        // 1. Try demo-specific preview first.
+        foreach ( array( 'jpg', 'png', 'webp' ) as $ext ) {
+                $candidate = $preview_dir . '/' . $basename . '.' . $ext;
+                if ( file_exists( $candidate ) ) {
+                        $preview_image    = $candidate;
+                        $preview_image_uri = $preview_uri_base . '/' . $basename . '.' . $ext;
+                        break;
+                }
+        }
+
+        // 2. Fall back to category-based preview.
+        if ( ! $preview_image ) {
+                $category_previews = array(
+                        'developer'    => 'developer-preview.png',
+                        'designer'     => 'designer-preview.png',
+                        'creative'     => 'creative-preview.png',
+                        'photography'  => 'photography-preview.png',
+                        'agency'       => 'agency-preview.png',
+                        'business'     => 'business-preview.png',
+                        'architecture' => 'architecture-preview.png',
+                        'personal'     => 'personal-preview.png',
+                        'education'    => 'education-preview.png',
+                        'lifestyle'    => 'lifestyle-preview.png',
+                        'specialized'  => 'specialized-preview.png',
+                );
+                $cat_preview = $category_previews[ $category_slug ] ?? '';
+                if ( $cat_preview ) {
+                        $cat_preview_path = $preview_dir . '/' . $cat_preview;
+                        if ( file_exists( $cat_preview_path ) ) {
+                                $preview_image     = $cat_preview_path;
+                                $preview_image_uri = $preview_uri_base . '/' . $cat_preview;
+                        }
+                }
+        }
+
+        // 3. Final fallback: category-based placeholder image.
+        if ( ! $preview_image ) {
+                $category_placeholders = array(
+                        'developer'    => 'placeholder-studio.png',
+                        'designer'     => 'placeholder-brand.png',
+                        'creative'     => 'placeholder-editorial.png',
+                        'photography'  => 'placeholder-portrait.jpg',
+                        'agency'       => 'placeholder-brand.png',
+                        'business'     => 'placeholder-studio.png',
+                        'architecture' => 'placeholder-architecture.png',
+                        'personal'     => 'placeholder-portrait.jpg',
+                        'education'    => 'placeholder-editorial.png',
+                        'lifestyle'    => 'placeholder-brand.png',
+                        'specialized'  => 'placeholder-architecture.png',
+                );
+                $fallback = $category_placeholders[ $category_slug ] ?? 'placeholder-portrait.jpg';
+                $fallback_path = get_template_directory() . '/assets/images/' . $fallback;
+                if ( file_exists( $fallback_path ) ) {
+                        $preview_image     = $fallback_path;
+                        $preview_image_uri = get_template_directory_uri() . '/assets/images/' . $fallback;
+                }
+        }
+
+        // Preview alt text — meaningful description of the demo's homepage.
+        $preview_alt = sprintf(
+                /* translators: %s: demo name. */
+                __( 'Homepage preview of the %s demo', 'godevs-portfolio' ),
+                $name
+        );
+
+        // Page count — number of available pages for this demo.
+        $page_count = count( $pages );
+
         return array(
-                'id'          => $basename,                                  // demo ID (filename without .php)
-                'name'        => $name,                                       // display name
-                'slug'        => $slug,                                       // pattern slug
-                'category'    => $cat_raw ?: ucfirst( $category_slug ),       // category label (display)
-                'cat_slug'    => $category_slug,                              // canonical category slug (for filter)
-                'wp_cat'      => $wp_pattern_cat,                             // WP pattern category slug (for inserter)
-                'description' => $description,
-                'style'       => $style,                                       // recommended style variation
-                'pages'       => $pages,                                       // recommended pages
-                'file'        => $file,                                        // absolute file path
-                'preview_url' => add_query_arg(
+                'id'               => $basename,                                  // demo ID (filename without .php)
+                'name'             => $name,                                       // display name
+                'slug'             => $slug,                                       // pattern slug
+                'category'         => $cat_raw ?: ucfirst( $category_slug ),       // category label (display)
+                'cat_slug'         => $category_slug,                              // canonical category slug (for filter)
+                'wp_cat'           => $wp_pattern_cat,                             // WP pattern category slug (for inserter)
+                'description'       => $description,
+                'style'            => $style,                                       // recommended style variation
+                'pages'            => $pages,                                       // recommended pages
+                'page_count'       => $page_count,                                  // number of available pages
+                'file'             => $file,                                        // absolute file path
+                'preview_image'    => $preview_image,                                // absolute path to preview image
+                'preview_image_uri' => $preview_image_uri,                           // URI to preview image
+                'preview_alt'      => $preview_alt,                                  // alt text for preview image
+                'preview_url'      => add_query_arg(
                         array(
                                 'godevs_preview' => $basename,
                                 '_wpnonce'        => wp_create_nonce( 'godevs_preview_' . $basename ),
@@ -421,6 +500,83 @@ function godevs_portfolio_get_demo( string $demo_id ): ?array {
                 }
         }
         return null;
+}
+
+/**
+ * Get the pattern file path for a specific demo page.
+ *
+ * Multi-page demos follow the convention:
+ *   patterns/demos/<demo-slug>-<page-slug>.php
+ *
+ * The homepage is patterns/demos/<demo-slug>.php (no page suffix).
+ *
+ * @param string $demo_id Demo ID (e.g., 'atelier').
+ * @param string $page    Page slug (e.g., 'about', 'work', 'contact').
+ *                       Use 'home' for the homepage.
+ * @return string|null Absolute file path, or null if not found.
+ * @since 1.2.0
+ */
+function godevs_portfolio_get_demo_page_file( string $demo_id, string $page ): ?string {
+        $demo_id = sanitize_file_name( $demo_id );
+        $page    = sanitize_file_name( $page );
+
+        if ( 'home' === $page || '' === $page ) {
+                $file = get_template_directory() . '/patterns/demos/' . $demo_id . '.php';
+        } else {
+                $file = get_template_directory() . '/patterns/demos/' . $demo_id . '-' . $page . '.php';
+        }
+
+        return file_exists( $file ) ? $file : null;
+}
+
+/**
+ * Get all available pages for a demo (including multi-page patterns).
+ *
+ * Returns an array of page definitions, each with:
+ *   - slug  : page slug (e.g., 'about', 'work')
+ *   - file  : absolute file path to the pattern file
+ *   - title : page title extracted from the pattern header
+ *
+ * @param string $demo_id Demo ID.
+ * @return array<int,array> List of page definitions.
+ * @since 1.2.0
+ */
+function godevs_portfolio_get_demo_pages( string $demo_id ): array {
+        $demo_id = sanitize_file_name( $demo_id );
+        $pages   = array();
+
+        // Get the demo to find its recommended pages.
+        $demo = godevs_portfolio_get_demo( $demo_id );
+        if ( null === $demo ) {
+                return $pages;
+        }
+
+        // Always include home first.
+        $home_file = godevs_portfolio_get_demo_page_file( $demo_id, 'home' );
+        if ( $home_file ) {
+                $pages[] = array(
+                        'slug'  => 'home',
+                        'file'  => $home_file,
+                        'title' => __( 'Home', 'godevs-portfolio' ),
+                );
+        }
+
+        // Add each recommended page if its pattern file exists.
+        foreach ( $demo['pages'] as $page_slug ) {
+                if ( 'home' === $page_slug ) {
+                        continue;
+                }
+                $file = godevs_portfolio_get_demo_page_file( $demo_id, $page_slug );
+                if ( $file ) {
+                        $pages[] = array(
+                                'slug'  => $page_slug,
+                                'file'  => $file,
+                                'title' => ucfirst( str_replace( '-', ' ', $page_slug ) ),
+                        );
+                }
+        }
+
+        return $pages;
 }
 
 /**

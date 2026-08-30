@@ -1,4 +1,6 @@
-/* GoDevs Portfolio — Admin Demo Library JS */
+/* GoDevs Portfolio — Premium Demo Library JS
+ * v2.0 — Device preview, page navigation, improved modal experience.
+ */
 ( function ( window, document ) {
 	'use strict';
 
@@ -22,6 +24,9 @@
 	var styleFilter = $( '#godevs-style-filter' );
 	var grid = $( '#godevs-demos-grid' );
 	var emptyState = $( '#godevs-demos-empty' );
+	var countEl = $( '#godevs-demos-count' );
+	var clearFiltersBtn = $( '#godevs-clear-filters' );
+	var emptyResetBtn = $( '#godevs-empty-reset' );
 
 	function applyFilters() {
 		if ( ! grid ) {
@@ -47,6 +52,10 @@
 		if ( emptyState ) {
 			emptyState.hidden = visibleCount > 0;
 		}
+
+		if ( countEl ) {
+			countEl.textContent = visibleCount + ( visibleCount === 1 ? ' demo' : ' demos' );
+		}
 	}
 
 	if ( searchInput ) {
@@ -59,36 +68,59 @@
 		styleFilter.addEventListener( 'change', applyFilters );
 	}
 
+	function clearAllFilters() {
+		if ( searchInput ) searchInput.value = '';
+		if ( categoryFilter ) categoryFilter.value = '';
+		if ( styleFilter ) styleFilter.value = '';
+		applyFilters();
+	}
+
+	if ( clearFiltersBtn ) {
+		clearFiltersBtn.addEventListener( 'click', clearAllFilters );
+	}
+	if ( emptyResetBtn ) {
+		emptyResetBtn.addEventListener( 'click', clearAllFilters );
+	}
+
 	/* -------------------- Modal -------------------- */
 
 	var modal = $( '#godevs-modal' );
 	var modalTitle = $( '#godevs-modal-title' );
-	var modalBody = $( '#godevs-modal-body' );
-	var modalFooter = $( '#godevs-modal-footer' );
+	var modalCategory = $( '#godevs-modal-category' );
+	var previewContent = $( '#godevs-preview-content' );
+	var previewLoading = $( '#godevs-preview-loading' );
+	var previewViewport = $( '#godevs-preview-viewport' );
+	var pageNav = $( '#godevs-page-nav' );
+	var importFromPreviewBtn = $( '#godevs-preview-import-btn' );
+	var deviceBtns = $all( '.godevs-device-btn' );
+	var closeBtns = $all( '[data-action="close-modal"]' );
 
-	function openModal( title, bodyHTML, footerHTML ) {
-		if ( ! modal ) {
-			return;
-		}
-		if ( modalTitle ) {
-			modalTitle.textContent = title;
-		}
-		if ( modalBody ) {
-			modalBody.innerHTML = bodyHTML;
-		}
-		if ( modalFooter ) {
-			modalFooter.innerHTML = footerHTML;
-		}
+	// State
+	var currentDemoId = '';
+	var currentPage = 'home';
+	var currentDevice = 'desktop';
+	var currentDemoData = null;
+
+	function openPreviewModal( title, category ) {
+		if ( ! modal ) return;
+		if ( modalTitle ) modalTitle.textContent = title || '';
+		if ( modalCategory ) modalCategory.textContent = category || '';
 		modal.hidden = false;
 		document.body.style.overflow = 'hidden';
+		// Focus the close button for keyboard users
+		if ( closeBtns.length ) {
+			setTimeout( function () { closeBtns[0].focus(); }, 50 );
+		}
 	}
 
 	function closeModal() {
-		if ( ! modal ) {
-			return;
-		}
+		if ( ! modal ) return;
 		modal.hidden = true;
 		document.body.style.overflow = '';
+		currentDemoId = '';
+		currentPage = 'home';
+		if ( previewContent ) previewContent.innerHTML = '';
+		if ( pageNav ) pageNav.innerHTML = '';
 	}
 
 	if ( modal ) {
@@ -105,51 +137,25 @@
 		} );
 	}
 
-	/* -------------------- Progress -------------------- */
+	/* -------------------- Device switcher -------------------- */
 
-	var progressEl = $( '#godevs-progress' );
-	var progressSteps = $( '#godevs-progress-steps' );
-
-	function showProgress( steps ) {
-		if ( ! progressEl || ! progressSteps ) {
-			return;
+	function setDevice( device ) {
+		currentDevice = device;
+		if ( previewViewport ) {
+			previewViewport.setAttribute( 'data-device', device );
 		}
-		progressSteps.innerHTML = steps.map( function ( s ) {
-			return '<li data-step-id="' + s.id + '">' + s.label + '</li>';
-		} ).join( '' );
-		progressEl.hidden = false;
-		document.body.style.overflow = 'hidden';
+		deviceBtns.forEach( function ( btn ) {
+			var isActive = btn.dataset.device === device;
+			btn.classList.toggle( 'is-active', isActive );
+			btn.setAttribute( 'aria-selected', isActive ? 'true' : 'false' );
+		} );
 	}
 
-	function markStepActive( stepId ) {
-		var li = progressSteps ? progressSteps.querySelector( 'li[data-step-id="' + stepId + '"]' ) : null;
-		if ( li ) {
-			li.classList.add( 'is-active' );
-		}
-	}
-
-	function markStepComplete( stepId ) {
-		var li = progressSteps ? progressSteps.querySelector( 'li[data-step-id="' + stepId + '"]' ) : null;
-		if ( li ) {
-			li.classList.remove( 'is-active' );
-			li.classList.add( 'is-complete' );
-		}
-	}
-
-	function markStepError( stepId ) {
-		var li = progressSteps ? progressSteps.querySelector( 'li[data-step-id="' + stepId + '"]' ) : null;
-		if ( li ) {
-			li.classList.remove( 'is-active' );
-			li.classList.add( 'is-error' );
-		}
-	}
-
-	function hideProgress() {
-		if ( progressEl ) {
-			progressEl.hidden = true;
-		}
-		document.body.style.overflow = '';
-	}
+	deviceBtns.forEach( function ( btn ) {
+		btn.addEventListener( 'click', function () {
+			setDevice( btn.dataset.device );
+		} );
+	} );
 
 	/* -------------------- AJAX helpers -------------------- */
 
@@ -171,19 +177,129 @@
 		} );
 	}
 
+	function showPreviewLoading() {
+		if ( previewLoading ) previewLoading.style.display = 'flex';
+		if ( previewContent ) previewContent.innerHTML = '';
+	}
+
+	function hidePreviewLoading() {
+		if ( previewLoading ) previewLoading.style.display = 'none';
+	}
+
+	function renderPreviewMarkup( markup ) {
+		if ( ! previewContent ) return;
+		previewContent.innerHTML = markup;
+		// Process any WordPress block markup if needed
+		if ( window.wp && window.wp.blocks && window.wp.blocks.parse ) {
+			// In admin context, blocks may need server-side rendering
+		}
+	}
+
+	/* -------------------- Page navigation -------------------- */
+
+	function buildPageNav( pages ) {
+		if ( ! pageNav ) return;
+		pageNav.innerHTML = '';
+
+		pages.forEach( function ( page ) {
+			var btn = document.createElement( 'button' );
+			btn.type = 'button';
+			btn.dataset.page = page.slug;
+			btn.textContent = page.title;
+			if ( page.slug === currentPage ) {
+				btn.classList.add( 'is-active' );
+			}
+			btn.addEventListener( 'click', function () {
+				loadDemoPage( currentDemoId, page.slug );
+			} );
+			pageNav.appendChild( btn );
+		} );
+	}
+
+	function updatePageNavActive() {
+		$all( 'button', pageNav ).forEach( function ( btn ) {
+			btn.classList.toggle( 'is-active', btn.dataset.page === currentPage );
+		} );
+	}
+
 	/* -------------------- Preview action -------------------- */
+
+	function handlePreview( demoId ) {
+		currentDemoId = demoId;
+		currentPage = 'home';
+
+		// Find the demo card to get name + category
+		var card = $( '.godevs-demo-card[data-demo-id="' + demoId + '"]' );
+		var name = card ? ( card.dataset.demoName || '' ) : '';
+		var category = card ? ( card.querySelector( '.godevs-demo-card-category-badge' ) || {} ).textContent : '';
+
+		openPreviewModal( name, category );
+		setDevice( 'desktop' );
+		showPreviewLoading();
+
+		// Fetch available pages for this demo
+		post( 'godevs_portfolio_get_demo_pages', { demo_id: demoId } )
+			.then( function ( resp ) {
+				if ( resp && resp.success && resp.data.pages ) {
+					buildPageNav( resp.data.pages );
+				}
+			} )
+			.catch( function () {} );
+
+		// Fetch the homepage preview
+		loadDemoPage( demoId, 'home' );
+	}
+
+	function loadDemoPage( demoId, page ) {
+		currentPage = page;
+		showPreviewLoading();
+
+		var action = ( page === 'home' ) ? 'godevs_portfolio_preview_demo' : 'godevs_portfolio_preview_demo_page';
+		var data = { demo_id: demoId };
+		if ( page !== 'home' ) {
+			data.page = page;
+		}
+
+		post( action, data )
+			.then( function ( resp ) {
+				hidePreviewLoading();
+				if ( ! resp || ! resp.success ) {
+					var msg = ( resp && resp.data && resp.data.message ) || 'Could not load preview.';
+					renderPreviewMarkup( '<div style="padding:40px;text-align:center;color:#646970;">' + escapeHTML( msg ) + '</div>' );
+					return;
+				}
+				renderPreviewMarkup( resp.data.markup );
+				updatePageNavActive();
+			} )
+			.catch( function () {
+				hidePreviewLoading();
+				renderPreviewMarkup( '<div style="padding:40px;text-align:center;color:#b32d2e;">' + escapeHTML( I18N.networkError || 'Network error.' ) + '</div>' );
+			} );
+	}
+
+	/* -------------------- Import from preview -------------------- */
+
+	if ( importFromPreviewBtn ) {
+		importFromPreviewBtn.addEventListener( 'click', function () {
+			if ( currentDemoId ) {
+				closeModal();
+				handleImportClick( currentDemoId );
+			}
+		} );
+	}
+
+	/* -------------------- Grid click handler -------------------- */
 
 	if ( grid ) {
 		grid.addEventListener( 'click', function ( e ) {
 			var target = e.target;
-			if ( ! target.dataset || ! target.dataset.action ) {
-				return;
-			}
-			var action = target.dataset.action;
-			var demoId = target.dataset.demoId;
-			if ( ! demoId ) {
-				return;
-			}
+			// Find the closest button with data-action
+			var btn = target.closest( '[data-action]' );
+			if ( ! btn || ! btn.dataset.action ) return;
+
+			var action = btn.dataset.action;
+			var demoId = btn.dataset.demoId;
+			if ( ! demoId ) return;
 
 			if ( action === 'preview' ) {
 				e.preventDefault();
@@ -196,28 +312,6 @@
 				handleRemoveClick( demoId );
 			}
 		} );
-	}
-
-	function handlePreview( demoId ) {
-		openModal( 'Preview', '<p>Loading preview…</p>', '' );
-		post( 'godevs_portfolio_preview_demo', { demo_id: demoId } )
-			.then( function ( resp ) {
-				if ( ! resp || ! resp.success ) {
-					var msg = ( resp && resp.data && resp.data.message ) || 'Could not load preview.';
-					modalBody.innerHTML = '<p>' + escapeHTML( msg ) + '</p>';
-					return;
-				}
-				var data = resp.data;
-				var styleNote = data.demo.style ? '<p><strong>Recommended style:</strong> ' + escapeHTML( data.demo.style ) + '</p>' : '';
-				modalBody.innerHTML =
-					'<p>' + escapeHTML( data.demo.name ) + '</p>' +
-					styleNote +
-					'<div class="godevs-preview-rendered" style="border:1px solid #dcdcde;border-radius:4px;overflow:auto;max-height:400px;background:#fff;padding:16px;">' + data.markup + '</div>';
-				modalFooter.innerHTML = '<button type="button" class="button" data-action="close-modal">' + escapeHTML( I18N.cancel || 'Close' ) + '</button>';
-			} )
-			.catch( function () {
-				modalBody.innerHTML = '<p>Network error while loading preview.</p>';
-			} );
 	}
 
 	/* -------------------- Import action -------------------- */
@@ -282,7 +376,8 @@
 			'<button type="button" class="button" data-action="close-modal">' + escapeHTML( I18N.cancel || 'Cancel' ) + '</button> ' +
 			'<button type="button" class="button button-primary" id="godevs-confirm-import">' + escapeHTML( I18N.importDemo || 'Import Demo' ) + '</button>';
 
-		openModal( 'Import Demo', bodyHTML, footerHTML );
+		// Reuse the modal for import confirmation
+		openModalSimple( I18N.confirmSafeTitle || 'Import Demo', bodyHTML, footerHTML );
 
 		var confirmBtn = $( '#godevs-confirm-import' );
 		if ( confirmBtn ) {
@@ -302,6 +397,60 @@
 		}
 	}
 
+	// Simple modal (reuses the same modal element but without device switcher)
+	function openModalSimple( title, bodyHTML, footerHTML ) {
+		if ( ! modal ) return;
+		if ( modalTitle ) modalTitle.textContent = title || '';
+		if ( modalCategory ) modalCategory.textContent = '';
+
+		// Hide device switcher and page nav for confirmation
+		$all( '.godevs-device-btn' ).forEach( function ( btn ) { btn.style.display = 'none'; } );
+		if ( pageNav ) pageNav.style.display = 'none';
+		if ( importFromPreviewBtn ) importFromPreviewBtn.style.display = 'none';
+
+		// Use the body for confirmation content
+		var viewport = $( '#godevs-preview-viewport' );
+		if ( viewport ) {
+			viewport.setAttribute( 'data-device', 'desktop' );
+			viewport.style.maxWidth = '640px';
+			viewport.style.margin = '24px auto';
+		}
+		if ( previewLoading ) previewLoading.style.display = 'none';
+		if ( previewContent ) previewContent.innerHTML = bodyHTML;
+		if ( previewContent ) previewContent.style.padding = '24px';
+
+		modal.hidden = false;
+		document.body.style.overflow = 'hidden';
+
+		// Restore footer
+		var footer = $( '.godevs-preview-footer' );
+		if ( footer ) {
+			var actions = $( '.godevs-preview-actions', footer );
+			if ( actions ) {
+				actions.innerHTML = footerHTML;
+				// Bind close and confirm buttons
+				$all( 'button', actions ).forEach( function ( btn ) {
+					if ( btn.dataset.action === 'close-modal' ) {
+						btn.addEventListener( 'click', closeModal );
+					}
+				} );
+			}
+		}
+	}
+
+	function restorePreviewModal() {
+		// Restore device switcher and page nav visibility
+		$all( '.godevs-device-btn' ).forEach( function ( btn ) { btn.style.display = ''; } );
+		if ( pageNav ) pageNav.style.display = '';
+		if ( importFromPreviewBtn ) importFromPreviewBtn.style.display = '';
+		var viewport = $( '#godevs-preview-viewport' );
+		if ( viewport ) {
+			viewport.style.maxWidth = '';
+			viewport.style.margin = '';
+		}
+		if ( previewContent ) previewContent.style.padding = '';
+	}
+
 	function performImport( demoId, mode, applyStyle ) {
 		post( 'godevs_portfolio_import_demo', {
 			demo_id: demoId,
@@ -309,7 +458,6 @@
 			apply_style: applyStyle ? 1 : 0,
 		} )
 			.then( function ( resp ) {
-				closeModal();
 				if ( resp && resp.data && resp.data.steps ) {
 					showProgress( resp.data.steps );
 				}
@@ -320,7 +468,6 @@
 					return;
 				}
 				var data = resp.data;
-				// Mark all steps as complete (the import already happened synchronously server-side).
 				if ( data.steps ) {
 					data.steps.forEach( function ( s ) {
 						markStepComplete( s.id );
@@ -334,27 +481,10 @@
 				}
 				setTimeout( function () {
 					hideProgress();
-					var editUrl = data.editHomepageUrl || '';
-					var editSiteUrl = data.editSiteUrl || '';
-					openModal(
-						'Import complete',
-						'<p>The demo has been imported successfully.</p>' +
-						( mode === 'starter' ? '<p>The homepage has been set to the new "Home" page.</p>' : '' ) +
-						( data.style ? '<p>Recommended style variation: <strong>' + escapeHTML( data.style ) + '</strong>. Apply it via the Site Editor → Styles browser.</p>' : '' ) +
-						errorsHTML +
-						'<p>Open the new homepage in the editor to start customizing.</p>',
-						'<button type="button" class="button" data-action="close-modal">' + escapeHTML( I18N.cancel || 'Close' ) + '</button> ' +
-						( editSiteUrl ? '<a class="button button-primary" href="' + editSiteUrl + '">Open Site Editor</a> ' : '' ) +
-						( editUrl ? '<a class="button" href="' + editUrl + '">Edit Homepage</a>' : '' )
-					);
-					// Reload the page so the imported card shows the "Imported" badge.
-					setTimeout( function () {
-						window.location.reload();
-					}, 100 );
-				}, 500 );
+					window.location.reload();
+				}, 800 );
 			} )
 			.catch( function () {
-				closeModal();
 				window.alert( 'Network error during import.' );
 				hideProgress();
 			} );
@@ -371,7 +501,7 @@
 			'<button type="button" class="button" data-action="close-modal">' + escapeHTML( I18N.cancel || 'Cancel' ) + '</button> ' +
 			'<button type="button" class="button button-link-delete" id="godevs-confirm-remove">' + escapeHTML( I18N.removeDemo || 'Remove Demo' ) + '</button>';
 
-		openModal( I18N.confirmRemove || 'Confirm Removal', bodyHTML, footerHTML );
+		openModalSimple( I18N.confirmRemove || 'Confirm Removal', bodyHTML, footerHTML );
 
 		var confirmBtn = $( '#godevs-confirm-remove' );
 		if ( confirmBtn ) {
@@ -397,6 +527,35 @@
 			} );
 	}
 
+	/* -------------------- Progress indicator -------------------- */
+
+	var progressEl = $( '#godevs-progress' );
+	var progressSteps = $( '#godevs-progress-steps' );
+
+	function showProgress( steps ) {
+		if ( ! progressEl || ! progressSteps ) return;
+		progressSteps.innerHTML = steps.map( function ( s ) {
+			return '<li data-step-id="' + s.id + '">' + s.label + '</li>';
+		} ).join( '' );
+		progressEl.hidden = false;
+		document.body.style.overflow = 'hidden';
+	}
+
+	function markStepComplete( stepId ) {
+		var li = progressSteps ? progressSteps.querySelector( 'li[data-step-id="' + stepId + '"]' ) : null;
+		if ( li ) {
+			li.classList.remove( 'is-active' );
+			li.classList.add( 'is-complete' );
+		}
+	}
+
+	function hideProgress() {
+		if ( progressEl ) {
+			progressEl.hidden = true;
+		}
+		document.body.style.overflow = '';
+	}
+
 	/* -------------------- Utilities -------------------- */
 
 	function escapeHTML( s ) {
@@ -410,4 +569,12 @@
 			.replace( /"/g, '&quot;' )
 			.replace( /'/g, '&#039;' );
 	}
+
+	// Restore preview modal state when closing
+	var originalCloseModal = closeModal;
+	closeModal = function () {
+		originalCloseModal();
+		restorePreviewModal();
+	};
+
 } )( window, document );

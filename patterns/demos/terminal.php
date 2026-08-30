@@ -17,24 +17,40 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Header -->
         <!-- wp:template-part {"slug":"header-dark","theme":"godevs-portfolio","tagName":"header"} /-->
 
-        <!-- Hero -->
-
-<!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"}} -->
-<section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
-        <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-                <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"fontFamily":"var:preset|font-family|mono"}} -->
-                <p class="is-style-eyebrow" style="font-family:var(--wp--preset--font-family--mono)">Developer / DevOps</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"clamp(2.5rem, 7vw, 5rem)","lineHeight":"1.05","letterSpacing":"-0.02em","fontWeight":"700"}}} -->
-                <h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--mono);font-size:clamp(2.5rem, 7vw, 5rem);line-height:1.05;letter-spacing:-0.02em;font-weight:700">Terminal — selected work.</h1>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontFamily":"var:preset|font-family|mono"}}} -->
-                <p style="font-size:var(--wp--preset--font-size--medium);font-family:var(--wp--preset--font-family--mono)">A working portfolio, kept current.</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:separator {"className":"is-style-thin","style":{"color":{"text":"var:preset|color|contrast"},"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} /-->
-        </div>
-        <!-- /wp:group -->
+        <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull">
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow">Developer / DevOps</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 6vw, 5rem)","lineHeight":"1.05","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 6vw, 5rem);line-height:1.05;letter-spacing:-0.02em;font-weight:600">Terminal</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p style="font-size:var(--wp--preset--font-size--medium);max-width:520px">DevOps engineer portfolio. Terminal aesthetic, large numerical stats, split CTA.</p>
+<!-- /wp:paragraph -->
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50)">
+<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","fontWeight":"600","letterSpacing":"-0.01em"}}} -->
+<p style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size|x-large);font-weight:600;letter-spacing:-0.01em">__STAT1__</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large"},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large)">·</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","fontWeight":"600","letterSpacing":"-0.01em"}}} -->
+<p style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size|x-large);font-weight:600;letter-spacing:-0.01em">__STAT2__</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large"},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large)">·</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","fontWeight":"600","letterSpacing":"-0.01em"}}} -->
+<p style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size|x-large);font-weight:600;letter-spacing:-0.01em">__STAT3__</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -88,10 +104,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group">
                         <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-                        <p class="is-style-eyebrow">Let's talk</p>
+                        <p class="is-style-eyebrow">Start a conversation</p>
                         <!-- /wp:paragraph -->
                         <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
-                        <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">Have a project in mind?</h2>
+                        <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">Have a system that needs architecture?</h2>
                         <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->

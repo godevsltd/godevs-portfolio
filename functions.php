@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Theme version.
  */
 if ( ! defined( 'GODEVS_PORTFOLIO_VERSION' ) ) {
-        define( 'GODEVS_PORTFOLIO_VERSION', '1.1.2' );
+        define( 'GODEVS_PORTFOLIO_VERSION', '2.0.0' );
 }
 
 /**

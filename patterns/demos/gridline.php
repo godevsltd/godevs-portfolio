@@ -17,23 +17,31 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Header -->
         <!-- wp:template-part {"slug":"header-minimal","theme":"godevs-portfolio","tagName":"header"} /-->
 
-        <!-- Hero -->
-
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
-<section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|60"}},"layout":{"type":"default"}} -->
-        <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-                <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-                <p class="is-style-eyebrow">Developer / WordPress</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(3rem, 9vw, 7.5rem)","lineHeight":"0.95","letterSpacing":"-0.035em","fontWeight":"700"}}} -->
-                <h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(3rem, 9vw, 7.5rem);line-height:0.95;letter-spacing:-0.035em;font-weight:700">Gridline — selected work.</h1>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-                <p style="font-size:var(--wp--preset--font-size--medium)">A working portfolio, kept current.</p>
-                <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:group -->
+        <!-- wp:group {"tagName":"section","className":"godevs-reveal","style":__BG_STYLE__,"layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull __BG_CLASS__">
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|muted"}}} -->
+<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--muted)">Developer / WordPress</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.25rem, 7vw, 4.5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"400"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.25rem, 7vw, 4.5rem);line-height:1.1;letter-spacing:-0.02em;font-weight:400">Gridline.</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p style="font-size:var(--wp--preset--font-size--medium);max-width:520px">WordPress developer portfolio. Typography-led hero, numbered services grid, text-link CTA.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button -->
+<div class="wp-block-button"><a href="#work" class="wp-block-button__link wp-element-button">See work</a></div>
+<!-- /wp:button -->
+<!-- wp:button {"className":"is-style-text-link"} -->
+<div class="wp-block-button is-style-text-link"><a href="#contact" class="wp-block-button__link wp-element-button">Get in touch →</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 

@@ -1,572 +1,584 @@
 <?php
 /**
- * Theme Settings for GoDevs Portfolio.
- *
- * A simplified settings page with only non-visual, non-theme.json-expressible
- * toggles. All visual design tokens (colors, typography, spacing, radii) are
- * controlled via theme.json and the WordPress Global Styles editor.
- *
- * Settings stored as a single theme_mod array for simplicity.
- *
- * CRITICAL FALLBACK: This file also loads ALL other inc/ modules. In older
- * versions of the theme (v1.0.0–v1.1.0), functions.php only loaded 3 files:
- *   - inc/block-patterns.php
- *   - inc/block-styles.php
- *   - inc/theme-settings.php (this file — loaded only inside is_admin())
- *
- * This meant CPTs, taxonomies, meta fields, case-study, demo-registry,
- * demo-tracker, and demo-importer were NEVER loaded, so CPTs didn't
- * register and the demo import page didn't appear.
- *
- * To fix this for users who haven't properly replaced their old theme files
- * (WordPress sometimes doesn't overwrite existing theme folders on upload),
- * we load ALL required modules from HERE as well. Loading a file twice is
- * safe because every file uses `if ( ! defined( 'ABSPATH' ) ) exit;` guards
- * and all function declarations use unique names. The require_once call
- * ensures each file is only loaded once per request, even if functions.php
- * also tries to load it.
+ * Theme Settings — Modern Dynamic Dashboard for GoDevs Portfolio.
  *
  * @package GoDevs_Portfolio
- * @since   1.1.0
+ * @since   2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-        exit;
+	exit;
 }
 
-// ── FALLBACK LOADER ──────────────────────────────────────────────────────
-// Load ALL inc/ modules from here as a fallback. This ensures CPTs and the
-// demo importer load even if the user is running an OLD version of
-// functions.php that doesn't include the require_once calls for these files.
-// require_once guarantees no double-loading.
-$_godevs_fallback_dir = get_template_directory() . '/inc';
-
-$_godevs_fallback_files = array(
-        '/content/cpt.php',
-        '/content/taxonomies.php',
-        '/content/meta-fields.php',
-        '/content/case-study.php',
-        '/demo-registry.php',
-        '/demo-tracker.php',
-        '/demo-importer.php',
-);
-
-foreach ( $_godevs_fallback_files as $_godevs_fallback_rel ) {
-        $_godevs_fallback_full = $_godevs_fallback_dir . $_godevs_fallback_rel;
-        if ( file_exists( $_godevs_fallback_full ) ) {
-                require_once $_godevs_fallback_full;
-        }
+// ── FALLBACK LOADER ──────────────────────────────────────────────────────────
+$_godevs_fb_dir = get_template_directory() . '/inc';
+foreach ( array( '/content/cpt.php', '/content/taxonomies.php', '/content/meta-fields.php', '/content/case-study.php', '/demo-registry.php', '/demo-tracker.php', '/demo-importer.php' ) as $_fb ) {
+	$_p = $_godevs_fb_dir . $_fb;
+	if ( file_exists( $_p ) ) { require_once $_p; }
 }
+unset( $_godevs_fb_dir, $_fb, $_p );
 
-unset( $_godevs_fallback_dir, $_godevs_fallback_files, $_godevs_fallback_rel, $_godevs_fallback_full );
+// ════════════════════════════════════════════════════════════════════════════
+// DEFAULT SETTINGS
+// ════════════════════════════════════════════════════════════════════════════
 
-/**
- * Default settings values.
- *
- * @return array<string,string> Default settings.
- */
 function godevs_portfolio_get_default_settings(): array {
-        return array(
-                'header_sticky'         => '1',
-                'footer_copyright'      => '1',
-                'footer_social_visible' => '1',
-                'blog_show_author'      => '1',
-                'blog_show_date'        => '1',
-                'blog_show_categories'  => '1',
-                'blog_show_featured'    => '1',
-                'module_projects'       => '1',
-                'module_services'       => '1',
-                'module_team'           => '1',
-                'module_testimonials'   => '1',
-                'module_bookings'       => '1',
-                'module_experience'     => '1',
-                'module_education'      => '1',
-                'module_faqs'           => '1',
-                'module_case_studies'   => '1',
-        );
+	return array(
+		// General
+		'brand_name'              => get_bloginfo( 'name' ),
+		'brand_tagline'           => get_bloginfo( 'description' ),
+		// Typography
+		'display_font'            => 'display',
+		'body_font'               => 'body',
+		'heading_weight'          => '600',
+		'type_scale'              => 'fluid',
+		// Colors
+		'accent_color'            => '#2563EB',
+		'accent_hover'            => '#1d4ed8',
+		'surface_color'           => '#FFFFFF',
+		'background_color'        => '#FAFAF7',
+		'text_color'              => '#0A0A0A',
+		'muted_color'             => '#6B7280',
+		// Layout
+		'container_width'         => '1280',
+		'content_width'           => '640',
+		'card_radius'             => '8',
+		'button_radius'           => '6',
+		'global_spacing'          => 'normal',
+		// Header
+		'header_style'            => 'default',
+		'header_sticky'           => '1',
+		'header_cta_text'         => '',
+		'header_cta_link'         => '',
+		// Footer
+		'footer_style'            => 'default',
+		'footer_copyright'        => '1',
+		'footer_social'           => '1',
+		'footer_cta'              => '0',
+		// Blog
+		'blog_layout'             => 'grid',
+		'blog_columns'            => '3',
+		'blog_show_author'        => '1',
+		'blog_show_date'          => '1',
+		'blog_show_categories'    => '1',
+		'blog_show_featured'      => '1',
+		// Portfolio
+		'portfolio_layout'       => 'grid',
+		'portfolio_columns'      => '3',
+		'portfolio_show_client'   => '1',
+		'portfolio_show_year'     => '1',
+		'portfolio_show_type'     => '1',
+		// Services
+		'services_layout'         => 'grid',
+		'services_show_price'     => '0',
+		'services_show_cta'       => '1',
+		// Team
+		'team_layout'             => 'grid',
+		'team_show_social'        => '1',
+		'team_show_bio'           => '1',
+		// Testimonials
+		'testimonials_layout'     => 'grid',
+		'testimonials_show_avatar' => '1',
+		'testimonials_show_rating' => '1',
+		// Demo
+		'demo_card_density'      => 'comfortable',
+		'demo_preview_ratio'     => '16/10',
+		// Performance
+		'motion_enabled'         => '1',
+		'reduced_motion'         => '0',
+		'lazy_images'            => '1',
+		// Modules
+		'module_projects'        => '1',
+		'module_services'        => '1',
+		'module_team'            => '1',
+		'module_testimonials'    => '1',
+		'module_bookings'        => '1',
+		'module_experience'      => '1',
+		'module_education'       => '1',
+		'module_faqs'            => '1',
+		'module_case_studies'    => '1',
+	);
 }
 
-/**
- * Get a single setting value via theme_mod.
- *
- * @param string $key Setting key.
- * @return string Setting value.
- */
 function godevs_portfolio_get_setting( string $key ): string {
-        $defaults = godevs_portfolio_get_default_settings();
-        return (string) get_theme_mod( 'godevs_portfolio_' . $key, $defaults[ $key ] ?? '' );
+	$defaults = godevs_portfolio_get_default_settings();
+	return (string) get_option( 'godevs_portfolio_' . $key, $defaults[ $key ] ?? '' );
 }
 
-/**
- * Register the admin menu page.
- *
- * @return void
- */
+// ════════════════════════════════════════════════════════════════════════════
+// REGISTER MENU + SETTINGS
+// ════════════════════════════════════════════════════════════════════════════
+
 function godevs_portfolio_settings_register_menu(): void {
-        add_theme_page(
-                __( 'GoDevs Settings', 'godevs-portfolio' ),
-                __( 'GoDevs Settings', 'godevs-portfolio' ),
-                'manage_options',
-                'godevs-portfolio-settings',
-                'godevs_portfolio_settings_render_page'
-        );
+	add_theme_page(
+		__( 'GoDevs Settings', 'godevs-portfolio' ),
+		__( 'GoDevs Settings', 'godevs-portfolio' ),
+		'manage_options',
+		'godevs-portfolio-settings',
+		'godevs_portfolio_settings_render_page'
+	);
 }
 add_action( 'admin_menu', 'godevs_portfolio_settings_register_menu' );
 
-/**
- * Register settings via the Settings API.
- *
- * @return void
- */
 function godevs_portfolio_settings_register(): void {
-        register_setting(
-                'godevs_portfolio_settings_group',
-                'godevs_portfolio_settings',
-                array(
-                        'type'              => 'array',
-                        'sanitize_callback' => 'godevs_portfolio_settings_sanitize',
-                        'default'           => godevs_portfolio_get_default_settings(),
-                )
-        );
-
-        add_settings_section(
-                'godevs_settings',
-                __( 'Theme Options', 'godevs-portfolio' ),
-                '__return_empty_string',
-                'godevs-portfolio-settings'
-        );
-
-        // Header settings.
-        add_settings_field( 'header_sticky', __( 'Sticky Header', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'header_sticky', 'desc' => __( 'Keep the header sticky on scroll.', 'godevs-portfolio' ) ) );
-
-        // Footer settings.
-        add_settings_field( 'footer_copyright', __( 'Footer Copyright', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'footer_copyright', 'desc' => __( 'Show copyright text in footer.', 'godevs-portfolio' ) ) );
-        add_settings_field( 'footer_social_visible', __( 'Footer Social Links', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'footer_social_visible', 'desc' => __( 'Show social links in footer.', 'godevs-portfolio' ) ) );
-
-        // Blog settings.
-        add_settings_field( 'blog_show_author', __( 'Show Author', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'blog_show_author', 'desc' => __( 'Show author name on blog posts.', 'godevs-portfolio' ) ) );
-        add_settings_field( 'blog_show_date', __( 'Show Date', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'blog_show_date', 'desc' => __( 'Show date on blog posts.', 'godevs-portfolio' ) ) );
-        add_settings_field( 'blog_show_categories', __( 'Show Categories', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'blog_show_categories', 'desc' => __( 'Show categories on blog posts.', 'godevs-portfolio' ) ) );
-        add_settings_field( 'blog_show_featured', __( 'Show Featured Image', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'blog_show_featured', 'desc' => __( 'Show featured image on blog posts.', 'godevs-portfolio' ) ) );
-
-        // Content module toggles.
-        add_settings_field( 'module_projects', __( 'Projects Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_projects', 'desc' => __( 'Enable the Projects custom post type (homepage portfolio, single project pages, project categories and tags).', 'godevs-portfolio' ) ) );
-        add_settings_field( 'module_services', __( 'Services Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_services', 'desc' => __( 'Enable the Services custom post type (service listings, pricing, call-to-action links).', 'godevs-portfolio' ) ) );
-        add_settings_field( 'module_team', __( 'Team Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_team', 'desc' => __( 'Enable the Team custom post type (team member profiles, departments, social links).', 'godevs-portfolio' ) ) );
-        add_settings_field( 'module_testimonials', __( 'Testimonials Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_testimonials', 'desc' => __( 'Enable the Testimonials custom post type (client quotes, ratings, featured testimonials).', 'godevs-portfolio' ) ) );
-        add_settings_field( 'module_bookings', __( 'Bookings Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_bookings', 'desc' => __( 'Enable the Bookings custom post type (private — admin-only, intake form submissions are not exposed publicly).', 'godevs-portfolio' ) ) );
-        add_settings_field( 'module_experience', __( 'Experience Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_experience', 'desc' => __( 'Enable the Experience custom post type (work history timeline, résumé sections, career cards).', 'godevs-portfolio' ) ) );
-        add_settings_field( 'module_education', __( 'Education Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_education', 'desc' => __( 'Enable the Education custom post type (degrees, institutions, academic timeline sections).', 'godevs-portfolio' ) ) );
-        add_settings_field( 'module_faqs', __( 'FAQs Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_faqs', 'desc' => __( 'Enable the FAQs custom post type (frequently asked questions with categories, used by native Details blocks).', 'godevs-portfolio' ) ) );
-        add_settings_field( 'module_case_studies', __( 'Case Studies Module', 'godevs-portfolio' ), 'godevs_portfolio_settings_checkbox_field', 'godevs-portfolio-settings', 'godevs_settings', array( 'key' => 'module_case_studies', 'desc' => __( 'Enable the Case Studies custom post type (project deep-dives with challenge, solution, process, results, and link meta boxes).', 'godevs-portfolio' ) ) );
+	$defaults = godevs_portfolio_get_default_settings();
+	foreach ( $defaults as $key => $val ) {
+		register_setting( 'godevs_portfolio_settings_group', 'godevs_portfolio_' . $key, array(
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => $val,
+		) );
+	}
 }
 add_action( 'admin_init', 'godevs_portfolio_settings_register' );
 
+// ════════════════════════════════════════════════════════════════════════════
+// ENQUEUE ASSETS
+// ════════════════════════════════════════════════════════════════════════════
+
+function godevs_portfolio_settings_enqueue( string $hook ): void {
+	if ( 'appearance_page_godevs-portfolio-settings' !== $hook ) return;
+
+	$css = get_template_directory() . '/assets/css/admin-settings.css';
+	$js  = get_template_directory() . '/assets/js/admin-settings.js';
+
+	wp_enqueue_style( 'wp-color-picker' );
+	wp_enqueue_style( 'godevs-admin-settings', get_template_directory_uri() . '/assets/css/admin-settings.css', array( 'wp-color-picker' ), (string) filemtime( $css ) );
+	wp_enqueue_script( 'wp-color-picker' );
+	wp_enqueue_script( 'godevs-admin-settings', get_template_directory_uri() . '/assets/js/admin-settings.js', array( 'wp-color-picker', 'jquery' ), (string) filemtime( $js ), true );
+	wp_localize_script( 'godevs-admin-settings', 'GODEVS_SETTINGS', array(
+		'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
+		'ajaxNonce' => wp_create_nonce( 'godevs_settings_save' ),
+		'i18n'      => array(
+			'saved'      => __( 'Settings saved successfully.', 'godevs-portfolio' ),
+			'error'      => __( 'Error saving settings.', 'godevs-portfolio' ),
+			'resetConf'  => __( 'Reset all settings to defaults? This cannot be undone.', 'godevs-portfolio' ),
+			'resetDone'  => __( 'Settings reset to defaults.', 'godevs-portfolio' ),
+		),
+	) );
+}
+add_action( 'admin_enqueue_scripts', 'godevs_portfolio_settings_enqueue' );
+
+// ════════════════════════════════════════════════════════════════════════════
+// AJAX SAVE
+// ════════════════════════════════════════════════════════════════════════════
+
+function godevs_portfolio_ajax_save_settings(): void {
+	check_ajax_referer( 'godevs_settings_save', 'nonce' );
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'godevs-portfolio' ) ), 403 );
+	}
+
+	$defaults = godevs_portfolio_get_default_settings();
+	$saved    = 0;
+
+	foreach ( $defaults as $key => $default ) {
+		$val = isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : $default;
+		update_option( 'godevs_portfolio_' . $key, $val );
+		$saved++;
+	}
+
+	// Generate dynamic CSS
+	godevs_portfolio_generate_dynamic_css();
+
+	wp_send_json_success( array(
+		'message' => sprintf( __( 'Saved %d settings.', 'godevs-portfolio' ), $saved ),
+	) );
+}
+add_action( 'wp_ajax_godevs_portfolio_save_settings', 'godevs_portfolio_ajax_save_settings' );
+
+function godevs_portfolio_ajax_reset_settings(): void {
+	check_ajax_referer( 'godevs_settings_save', 'nonce' );
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'godevs-portfolio' ) ), 403 );
+	}
+
+	$defaults = godevs_portfolio_get_default_settings();
+	foreach ( $defaults as $key => $val ) {
+		delete_option( 'godevs_portfolio_' . $key );
+	}
+
+	godevs_portfolio_generate_dynamic_css();
+
+	wp_send_json_success( array( 'message' => __( 'Settings reset to defaults.', 'godevs-portfolio' ) ) );
+}
+add_action( 'wp_ajax_godevs_portfolio_reset_settings', 'godevs_portfolio_ajax_reset_settings' );
+
 /**
- * Sanitize settings input.
- *
- * Checkboxes that are unchecked are NOT submitted in the POST body (this is
- * standard HTML form behavior). We must therefore treat "missing key" as
- * "unchecked", NOT as "use the default" — otherwise unticking a module
- * toggle would silently re-enable it on the next save.
- *
- * @param array $input Raw input.
- * @return array<string,string> Sanitized settings.
+ * Generate dynamic CSS from settings and inject via wp_head.
  */
-function godevs_portfolio_settings_sanitize( array $input ): array {
-        $defaults = godevs_portfolio_get_default_settings();
-        $output   = array();
+function godevs_portfolio_generate_dynamic_css(): void {
+	$accent   = godevs_portfolio_get_setting( 'accent_color' );
+	$bg       = godevs_portfolio_get_setting( 'background_color' );
+	$surface  = godevs_portfolio_get_setting( 'surface_color' );
+	$text     = godevs_portfolio_get_setting( 'text_color' );
+	$muted    = godevs_portfolio_get_setting( 'muted_color' );
+	$card_r   = godevs_portfolio_get_setting( 'card_radius' );
+	$btn_r    = godevs_portfolio_get_setting( 'button_radius' );
+	$container = godevs_portfolio_get_setting( 'container_width' );
+	$content  = godevs_portfolio_get_setting( 'content_width' );
 
-        foreach ( $defaults as $key => $default ) {
-                // Treat an absent key as "unchecked" — do NOT fall back to the default.
-                // The default '1' is only used when the option is first created (via
-                // the activation seed in functions.php), not when the user actively
-                // unticks a checkbox and saves.
-                $val = $input[ $key ] ?? '';
-                $output[ $key ] = ! empty( $val ) ? '1' : '';
-        }
+	$css = ":root{";
+	$css .= "--wp--preset--color--accent:{$accent};";
+	$css .= "--wp--preset--color--base:{$bg};";
+	$css .= "--wp--preset--color--surface:{$surface};";
+	$css .= "--wp--preset--color--foreground:{$text};";
+	$css .= "--wp--preset--color--muted:{$muted};";
+	$css .= "--wp--custom--radius--md:{$card_r}px;";
+	$css .= "--wp--custom--radius--sm:{$btn_r}px;";
+	$css .= "--wp--style--root--content-size:{$content}px;";
+	$css .= "--wp--style--root--wide-size:{$container}px;";
+	$css .= "}";
 
-        return $output;
+	update_option( 'godevs_portfolio_dynamic_css', $css );
 }
 
-/**
- * Render a checkbox field.
- *
- * @param array $args Field arguments.
- * @return void
- */
-function godevs_portfolio_settings_checkbox_field( array $args ): void {
-        $key  = $args['key'];
-        $desc = $args['desc'] ?? '';
-        $val  = godevs_portfolio_get_setting( $key );
-
-        printf(
-                '<label><input type="checkbox" id="godevs_%1$s" name="godevs_portfolio_settings[%1$s]" value="1" %2$s /> %3$s</label>',
-                esc_attr( $key ),
-                checked( (string) $val, '1', false ),
-                esc_html( $desc )
-        );
+function godevs_portfolio_output_dynamic_css(): void {
+	$css = get_option( 'godevs_portfolio_dynamic_css', '' );
+	if ( $css ) {
+		echo '<style id="godevs-dynamic-settings">' . $css . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 }
+add_action( 'wp_head', 'godevs_portfolio_output_dynamic_css', 5 );
 
-/**
- * Render the settings page — single tab, simplified.
- *
- * @return void
- */
+// ════════════════════════════════════════════════════════════════════════════
+// RENDER PAGE
+// ════════════════════════════════════════════════════════════════════════════
+
 function godevs_portfolio_settings_render_page(): void {
-        if ( ! current_user_can( 'manage_options' ) ) {
-                wp_die( esc_html__( 'You do not have permission to access this page.', 'godevs-portfolio' ) );
-        }
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'You do not have permission to access this page.', 'godevs-portfolio' ) );
+	}
 
-        // Store settings to theme_mods when saved.
-        $settings = get_option( 'godevs_portfolio_settings' );
-        if ( is_array( $settings ) ) {
-                foreach ( $settings as $key => $val ) {
-                        set_theme_mod( 'godevs_portfolio_' . $key, $val );
-                }
-        }
+	// Generate CSS on first visit
+	if ( ! get_option( 'godevs_portfolio_dynamic_css' ) ) {
+		godevs_portfolio_generate_dynamic_css();
+	}
 
-        // Handle reset.
-        if ( isset( $_POST['godevs_reset_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['godevs_reset_nonce'] ) ), 'godevs_reset_settings' ) ) {
-                if ( current_user_can( 'manage_options' ) ) {
-                        $defaults = godevs_portfolio_get_default_settings();
-                        foreach ( $defaults as $key => $default ) {
-                                set_theme_mod( 'godevs_portfolio_' . $key, $default );
-                        }
-                        echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Settings reset to defaults.', 'godevs-portfolio' ) . '</p></div>';
-                }
-        }
+	$version = defined( 'GODEVS_PORTFOLIO_VERSION' ) ? GODEVS_PORTFOLIO_VERSION : 'unknown';
+	?>
+	<div class="wrap godevs-settings-wrap">
+		<div class="godevs-settings-header">
+			<div class="godevs-settings-header-left">
+				<div class="godevs-settings-logo">G</div>
+				<div>
+					<h1><?php esc_html_e( 'GoDevs Portfolio', 'godevs-portfolio' ); ?></h1>
+					<p><?php esc_html_e( 'Theme Settings', 'godevs-portfolio' ); ?> · v<?php echo esc_html( $version ); ?></p>
+				</div>
+			</div>
+			<div class="godevs-settings-header-right">
+				<span class="godevs-save-indicator" id="godevs-save-indicator"></span>
+				<button type="button" class="button godevs-reset-btn" id="godevs-reset-btn">
+					<?php esc_html_e( 'Reset', 'godevs-portfolio' ); ?>
+				</button>
+				<button type="button" class="button button-primary godevs-save-btn" id="godevs-save-btn">
+					<?php esc_html_e( 'Save changes', 'godevs-portfolio' ); ?>
+				</button>
+			</div>
+		</div>
 
-        // Handle Force Fix button.
-        $force_fix_result = '';
-        if ( isset( $_POST['godevs_force_fix_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['godevs_force_fix_nonce'] ) ), 'godevs_force_fix' ) ) {
-                if ( current_user_can( 'manage_options' ) ) {
-                        $force_fix_result = godevs_portfolio_run_force_fix();
-                }
-        }
+		<div class="godevs-settings-body">
+			<!-- Sidebar Nav -->
+			<nav class="godevs-settings-nav" id="godevs-settings-nav">
+				<p class="godevs-nav-label"><?php esc_html_e( 'SETTINGS', 'godevs-portfolio' ); ?></p>
+				<ul>
+					<li><a href="#general" class="is-active" data-section="general"><span class="dashicons dashicons-admin-generic"></span> <?php esc_html_e( 'General', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#typography" data-section="typography"><span class="dashicons dashicons-editor-textcolor"></span> <?php esc_html_e( 'Typography', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#colors" data-section="colors"><span class="dashicons dashicons-art"></span> <?php esc_html_e( 'Colors', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#layout" data-section="layout"><span class="dashicons dashicons-screenoptions"></span> <?php esc_html_e( 'Layout', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#header" data-section="header"><span class="dashicons dashicons-align-center"></span> <?php esc_html_e( 'Header', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#footer" data-section="footer"><span class="dashicons dashicons-feedback"></span> <?php esc_html_e( 'Footer', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#blog" data-section="blog"><span class="dashicons dashicons-format-aside"></span> <?php esc_html_e( 'Blog', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#portfolio" data-section="portfolio"><span class="dashicons dashicons-portfolio"></span> <?php esc_html_e( 'Portfolio', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#services" data-section="services"><span class="dashicons dashicons-admin-tools"></span> <?php esc_html_e( 'Services', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#team" data-section="team"><span class="dashicons dashicons-groups"></span> <?php esc_html_e( 'Team', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#testimonials" data-section="testimonials"><span class="dashicons dashicons-format-quote"></span> <?php esc_html_e( 'Testimonials', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#demo" data-section="demo"><span class="dashicons dashicons-images-alt"></span> <?php esc_html_e( 'Demo settings', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#performance" data-section="performance"><span class="dashicons dashicons-performance"></span> <?php esc_html_e( 'Performance', 'godevs-portfolio' ); ?></a></li>
+					<li><a href="#advanced" data-section="advanced"><span class="dashicons dashicons-admin-network"></span> <?php esc_html_e( 'Advanced', 'godevs-portfolio' ); ?></a></li>
+				</ul>
+			</nav>
 
-        ?>
-        <div class="wrap godevs-settings-wrap">
-                <h1><?php esc_html_e( 'GoDevs Settings', 'godevs-portfolio' ); ?></h1>
-                <p class="description"><?php esc_html_e( 'Configure theme behavior options. Visual design (colors, typography, spacing) is managed through the WordPress Site Editor under Appearance → Editor → Styles.', 'godevs-portfolio' ); ?></p>
+			<!-- Content Panels -->
+			<div class="godevs-settings-content" id="godevs-settings-content">
+				<form id="godevs-settings-form" autocomplete="off">
 
-                <?php if ( $force_fix_result ) : ?>
-                        <div class="notice notice-success is-dismissible"><p><?php echo $force_fix_result; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — pre-escaped HTML. ?></p></div>
-                <?php endif; ?>
+					<!-- ═══ GENERAL ═══ -->
+					<div class="godevs-panel is-active" id="panel-general">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'General', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure general settings for the GoDevs Portfolio theme.', 'godevs-portfolio' ); ?></p>
 
-                <?php
-                // ── SYSTEM STATUS PANEL ──────────────────────────────────
-                // This panel is ALWAYS visible on the settings page and shows
-                // the exact state of the theme's CPT system. It helps diagnose
-                // "CPTs not showing" issues without needing to visit the dashboard.
-                $version = defined( 'GODEVS_PORTFOLIO_VERSION' ) ? GODEVS_PORTFOLIO_VERSION : 'UNKNOWN';
+						<?php
+						godevs_setting_text( 'brand_name', __( 'Brand name', 'godevs-portfolio' ), __( 'Displayed in headers and footers.', 'godevs-portfolio' ) );
+						godevs_setting_text( 'brand_tagline', __( 'Brand tagline', 'godevs-portfolio' ), __( 'Short description shown under the brand name.', 'godevs-portfolio' ) );
+						?>
+					</div>
 
-                // Check which files loaded.
-                $loaded_files = $GLOBALS['godevs_portfolio_loaded_files'] ?? array();
-                $expected_files = array(
-                        '/block-patterns.php',
-                        '/block-styles.php',
-                        '/content/cpt.php',
-                        '/content/taxonomies.php',
-                        '/content/meta-fields.php',
-                        '/content/case-study.php',
-                        '/demo-registry.php',
-                        '/demo-tracker.php',
-                        '/theme-settings.php',
-                        '/demo-importer.php',
-                );
+					<!-- ═══ TYPOGRAPHY ═══ -->
+					<div class="godevs-panel" id="panel-typography">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Typography', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Control fonts, weights, and type scaling.', 'godevs-portfolio' ); ?></p>
 
-                // Check CPT functions.
-                $cpt_functions = array(
-                        'godevs_portfolio_register_post_types' => 'Projects/Services/Team/etc CPT registration',
-                        'godevs_portfolio_register_taxonomies' => 'Taxonomy registration',
-                        'godevs_portfolio_register_meta_fields' => 'Meta field registration',
-                        'godevs_portfolio_register_case_study_cpt' => 'Case Study CPT registration',
-                        'godevs_portfolio_register_admin_page' => 'Demo importer admin page',
-                );
+						<?php
+						godevs_setting_select( 'display_font', __( 'Display font', 'godevs-portfolio' ), array( 'display' => 'Inter (Display)', 'serif' => 'Georgia (Serif)', 'mono' => 'SF Mono (Mono)' ), __( 'Used for headings and hero text.', 'godevs-portfolio' ) );
+						godevs_setting_select( 'body_font', __( 'Body font', 'godevs-portfolio' ), array( 'body' => 'Inter (Body)', 'serif' => 'Georgia (Serif)' ), __( 'Used for paragraph text.', 'godevs-portfolio' ) );
+						godevs_setting_select( 'heading_weight', __( 'Heading weight', 'godevs-portfolio' ), array( '400' => 'Regular (400)', '500' => 'Medium (500)', '600' => 'Semibold (600)', '700' => 'Bold (700)' ), __( 'Font weight for all headings.', 'godevs-portfolio' ) );
+						godevs_setting_select( 'type_scale', __( 'Type scale', 'godevs-portfolio' ), array( 'fluid' => 'Fluid (clamp)', 'fixed' => 'Fixed (rem)' ), __( 'Fluid scales with viewport; fixed uses static sizes.', 'godevs-portfolio' ) );
+						?>
+					</div>
 
-                // Check registered CPTs.
-                $cpts = array(
-                        'godevs_project'     => 'Projects',
-                        'godevs_service'     => 'Services',
-                        'godevs_team'        => 'Team',
-                        'godevs_testimonial' => 'Testimonials',
-                        'godevs_booking'     => 'Bookings',
-                        'godevs_experience'  => 'Experience',
-                        'godevs_education'   => 'Education',
-                        'godevs_faq'         => 'FAQs',
-                        'godevs_case_study'  => 'Case Studies',
-                );
-                ?>
-                <div class="godevs-system-status" style="background: #fff; border: 1px solid #c3c4c7; border-radius: 4px; padding: 16px; margin: 20px 0;">
-                        <h2 style="margin-top:0;">
-                                <?php esc_html_e( 'System Status', 'godevs-portfolio' ); ?>
-                                <span style="font-size:14px;font-weight:normal;color:#666;">
-                                        <?php esc_html_e( 'Theme Version:', 'godevs-portfolio' ); ?>
-                                        <strong style="color:<?php echo esc_attr( version_compare( $version, '1.1.1', '>=' ) ? 'green' : 'red' ); ?>;">
-                                                <?php echo esc_html( $version ); ?>
-                                        </strong>
-                                </span>
-                        </h2>
+					<!-- ═══ COLORS ═══ -->
+					<div class="godevs-panel" id="panel-colors">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Colors', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Customize the color palette. Changes apply via CSS custom properties.', 'godevs-portfolio' ); ?></p>
 
-                        <?php if ( version_compare( $version, '1.1.1', '<' ) ) : ?>
-                                <div class="notice notice-error inline" style="margin:0 0 16px 0;">
-                                        <p>
-                                                <strong><?php esc_html_e( 'OUTDATED THEME VERSION DETECTED', 'godevs-portfolio' ); ?></strong><br>
-                                                <?php esc_html_e( 'You are running an older version of GoDevs Portfolio that does not include the CPT loading fix. Please install the latest version (1.1.1 or later) to get the CPTs and Demo Importer.', 'godevs-portfolio' ); ?>
-                                        </p>
-                                </div>
-                        <?php endif; ?>
+						<?php
+						godevs_setting_color( 'accent_color', __( 'Accent color', 'godevs-portfolio' ), __( 'Used for links, buttons, and highlights.', 'godevs-portfolio' ) );
+						godevs_setting_color( 'accent_hover', __( 'Accent hover', 'godevs-portfolio' ), __( 'Darker shade for hover states.', 'godevs-portfolio' ) );
+						godevs_setting_color( 'surface_color', __( 'Surface', 'godevs-portfolio' ), __( 'Card and panel background.', 'godevs-portfolio' ) );
+						godevs_setting_color( 'background_color', __( 'Background', 'godevs-portfolio' ), __( 'Main page background.', 'godevs-portfolio' ) );
+						godevs_setting_color( 'text_color', __( 'Text', 'godevs-portfolio' ), __( 'Primary body text color.', 'godevs-portfolio' ) );
+						godevs_setting_color( 'muted_color', __( 'Muted text', 'godevs-portfolio' ), __( 'Secondary/caption text.', 'godevs-portfolio' ) );
+						?>
+					</div>
 
-                        <table class="widefat striped" style="border:none;">
-                                <thead>
-                                        <tr>
-                                                <th style="width:40%;"><?php esc_html_e( 'Component', 'godevs-portfolio' ); ?></th>
-                                                <th style="width:15%;"><?php esc_html_e( 'Status', 'godevs-portfolio' ); ?></th>
-                                                <th><?php esc_html_e( 'Details', 'godevs-portfolio' ); ?></th>
-                                        </tr>
-                                </thead>
-                                <tbody>
-                                        <?php foreach ( $expected_files as $rel ) : ?>
-                                                <?php $is_loaded = $loaded_files[ $rel ] ?? null; ?>
-                                                <tr>
-                                                        <td><code>inc<?php echo esc_html( $rel ); ?></code></td>
-                                                        <td>
-                                                                <?php if ( true === $is_loaded ) : ?>
-                                                                        <span style="color:green;">✓ <?php esc_html_e( 'Loaded', 'godevs-portfolio' ); ?></span>
-                                                                <?php elseif ( false === $is_loaded ) : ?>
-                                                                        <span style="color:red;">✗ <?php esc_html_e( 'Missing', 'godevs-portfolio' ); ?></span>
-                                                                <?php else : ?>
-                                                                        <span style="color:#999;">? <?php esc_html_e( 'Not checked', 'godevs-portfolio' ); ?></span>
-                                                                <?php endif; ?>
-                                                        </td>
-                                                        <td>
-                                                                <?php if ( false === $is_loaded ) : ?>
-                                                                        <?php esc_html_e( 'File does not exist or is unreadable.', 'godevs-portfolio' ); ?>
-                                                                <?php elseif ( null === $is_loaded ) : ?>
-                                                                        <?php esc_html_e( 'The loading tracker was not initialized — you may be running an older theme version.', 'godevs-portfolio' ); ?>
-                                                                <?php else : ?>
-                                                                        <?php esc_html_e( 'OK', 'godevs-portfolio' ); ?>
-                                                                <?php endif; ?>
-                                                        </td>
-                                                </tr>
-                                        <?php endforeach; ?>
-                                </tbody>
-                        </table>
+					<!-- ═══ LAYOUT ═══ -->
+					<div class="godevs-panel" id="panel-layout">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Layout', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Control container widths, radii, and spacing.', 'godevs-portfolio' ); ?></p>
 
-                        <h3 style="margin-top:20px;"><?php esc_html_e( 'CPT Registration Functions', 'godevs-portfolio' ); ?></h3>
-                        <table class="widefat striped" style="border:none;">
-                                <tbody>
-                                        <?php foreach ( $cpt_functions as $fn => $desc ) : ?>
-                                                <tr>
-                                                        <td style="width:40%;"><code><?php echo esc_html( $fn ); ?>()</code></td>
-                                                        <td style="width:15%;">
-                                                                <?php if ( function_exists( $fn ) ) : ?>
-                                                                        <span style="color:green;">✓ <?php esc_html_e( 'Exists', 'godevs-portfolio' ); ?></span>
-                                                                <?php else : ?>
-                                                                        <span style="color:red;">✗ <?php esc_html_e( 'Missing', 'godevs-portfolio' ); ?></span>
-                                                                <?php endif; ?>
-                                                        </td>
-                                                        <td><?php echo esc_html( $desc ); ?></td>
-                                                </tr>
-                                        <?php endforeach; ?>
-                                </tbody>
-                        </table>
+						<?php
+						godevs_setting_text( 'container_width', __( 'Container width (px)', 'godevs-portfolio' ), __( 'Maximum wide content width.', 'godevs-portfolio' ), 'number' );
+						godevs_setting_text( 'content_width', __( 'Content width (px)', 'godevs-portfolio' ), __( 'Maximum constrained text width.', 'godevs-portfolio' ), 'number' );
+						godevs_setting_text( 'card_radius', __( 'Card radius (px)', 'godevs-portfolio' ), __( 'Border radius for cards.', 'godevs-portfolio' ), 'number' );
+						godevs_setting_text( 'button_radius', __( 'Button radius (px)', 'godevs-portfolio' ), __( 'Border radius for buttons.', 'godevs-portfolio' ), 'number' );
+						godevs_setting_select( 'global_spacing', __( 'Spacing scale', 'godevs-portfolio' ), array( 'compact' => 'Compact', 'normal' => 'Normal', 'spacious' => 'Spacious' ), __( 'Controls vertical rhythm between sections.', 'godevs-portfolio' ) );
+						?>
+					</div>
 
-                        <h3 style="margin-top:20px;"><?php esc_html_e( 'Registered Custom Post Types', 'godevs-portfolio' ); ?></h3>
-                        <table class="widefat striped" style="border:none;">
-                                <thead>
-                                        <tr>
-                                                <th style="width:30%;"><?php esc_html_e( 'CPT Slug', 'godevs-portfolio' ); ?></th>
-                                                <th style="width:30%;"><?php esc_html_e( 'Label', 'godevs-portfolio' ); ?></th>
-                                                <th style="width:15%;"><?php esc_html_e( 'Status', 'godevs-portfolio' ); ?></th>
-                                                <th><?php esc_html_e( 'Admin Menu', 'godevs-portfolio' ); ?></th>
-                                        </tr>
-                                </thead>
-                                <tbody>
-                                        <?php foreach ( $cpts as $slug => $label ) : ?>
-                                                <?php
-                                                $exists = post_type_exists( $slug );
-                                                $obj = $exists ? get_post_type_object( $slug ) : null;
-                                                $in_menu = $obj && isset( $obj->show_in_menu ) && $obj->show_in_menu;
-                                                $menu_label = '';
-                                                if ( $obj && isset( $obj->labels->menu_name ) ) {
-                                                        $menu_label = $obj->labels->menu_name;
-                                                }
-                                                ?>
-                                                <tr>
-                                                        <td><code><?php echo esc_html( $slug ); ?></code></td>
-                                                        <td><?php echo esc_html( $label ); ?></td>
-                                                        <td>
-                                                                <?php if ( $exists ) : ?>
-                                                                        <span style="color:green;">✓ <?php esc_html_e( 'Registered', 'godevs-portfolio' ); ?></span>
-                                                                <?php else : ?>
-                                                                        <span style="color:red;">✗ <?php esc_html_e( 'NOT Registered', 'godevs-portfolio' ); ?></span>
-                                                                <?php endif; ?>
-                                                        </td>
-                                                        <td>
-                                                                <?php if ( $in_menu ) : ?>
-                                                                        <?php esc_html_e( 'Shows in sidebar as: ', 'godevs-portfolio' ); ?>
-                                                                        <strong><?php echo esc_html( $menu_label ); ?></strong>
-                                                                <?php else : ?>
-                                                                        <span style="color:red;"><?php esc_html_e( 'Not in admin menu', 'godevs-portfolio' ); ?></span>
-                                                                <?php endif; ?>
-                                                        </td>
-                                                </tr>
-                                        <?php endforeach; ?>
-                                </tbody>
-                        </table>
+					<!-- ═══ HEADER ═══ -->
+					<div class="godevs-panel" id="panel-header">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Header', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure the site header.', 'godevs-portfolio' ); ?></p>
 
-                        <h3 style="margin-top:20px;"><?php esc_html_e( 'Demo Importer', 'godevs-portfolio' ); ?></h3>
-                        <table class="widefat striped" style="border:none;">
-                                <tbody>
-                                        <tr>
-                                                <td style="width:40%;"><code>godevs_portfolio_register_admin_page()</code></td>
-                                                <td style="width:15%;">
-                                                        <?php if ( function_exists( 'godevs_portfolio_register_admin_page' ) ) : ?>
-                                                                <span style="color:green;">✓ <?php esc_html_e( 'Loaded', 'godevs-portfolio' ); ?></span>
-                                                        <?php else : ?>
-                                                                <span style="color:red;">✗ <?php esc_html_e( 'Missing', 'godevs-portfolio' ); ?></span>
-                                                        <?php endif; ?>
-                                                </td>
-                                                <td>
-                                                        <?php if ( function_exists( 'godevs_portfolio_register_admin_page' ) ) : ?>
-                                                                <?php esc_html_e( 'Demo importer loaded. Look under Appearance → GoDevs Demos.', 'godevs-portfolio' ); ?>
-                                                        <?php else : ?>
-                                                                <?php esc_html_e( 'Demo importer is NOT loaded. The file inc/demo-importer.php failed to load.', 'godevs-portfolio' ); ?>
-                                                        <?php endif; ?>
-                                                </td>
-                                        </tr>
-                                </tbody>
-                        </table>
-                </div>
+						<?php
+						godevs_setting_select( 'header_style', __( 'Header style', 'godevs-portfolio' ), array( 'default' => 'Default', 'minimal' => 'Minimal', 'centered' => 'Centered', 'split' => 'Split', 'transparent' => 'Transparent', 'dark' => 'Dark' ), __( 'Which header template part to use.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'header_sticky', __( 'Sticky header', 'godevs-portfolio' ), __( 'Keep the header fixed on scroll.', 'godevs-portfolio' ) );
+						godevs_setting_text( 'header_cta_text', __( 'Header CTA text', 'godevs-portfolio' ), __( 'Button text in the header (leave empty to hide).', 'godevs-portfolio' ) );
+						godevs_setting_text( 'header_cta_link', __( 'Header CTA link', 'godevs-portfolio' ), __( 'URL for the header CTA button.', 'godevs-portfolio' ) );
+						?>
+					</div>
 
-                <?php
-                // ── FORCE FIX BUTTON ──────────────────────────────────────
-                // This button manually triggers the CPT registration, settings
-                // re-seed, and rewrite flush. It's a manual override that works
-                // even if the automatic hooks failed.
-                ?>
-                <div class="godevs-force-fix" style="background: #fff; border: 1px solid #c3c4c7; border-radius: 4px; padding: 16px; margin: 20px 0;">
-                        <h2 style="margin-top:0;"><?php esc_html_e( 'Force Fix & Reset', 'godevs-portfolio' ); ?></h2>
-                        <p class="description">
-                                <?php esc_html_e( 'If CPTs (Projects, Services, Team, etc.) or the Demo Importer are not showing in the admin menu, click this button. It will:', 'godevs-portfolio' ); ?>
-                        </p>
-                        <ol style="margin-left: 20px;">
-                                <li><?php esc_html_e( 'Delete and re-seed the module settings option with fresh defaults (all CPTs enabled)', 'godevs-portfolio' ); ?></li>
-                                <li><?php esc_html_e( 'Re-register all 9 custom post types and their taxonomies', 'godevs-portfolio' ); ?></li>
-                                <li><?php esc_html_e( 'Flush rewrite rules so CPT archive URLs (/projects/, /case-studies/, etc.) work', 'godevs-portfolio' ); ?></li>
-                        </ol>
-                        <form method="post" action="">
-                                <?php wp_nonce_field( 'godevs_force_fix', 'godevs_force_fix_nonce' ); ?>
-                                <button type="submit" class="button button-primary button-large" onclick="return confirm('<?php esc_attr_e( 'This will reset module settings and flush rewrite rules. Continue?', 'godevs-portfolio' ); ?>');">
-                                        <?php esc_html_e( 'Force Fix: Re-register CPTs + Flush Rewrites', 'godevs-portfolio' ); ?>
-                                </button>
-                        </form>
-                </div>
+					<!-- ═══ FOOTER ═══ -->
+					<div class="godevs-panel" id="panel-footer">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Footer', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure the site footer.', 'godevs-portfolio' ); ?></p>
 
-                <form method="post" action="options.php">
-                        <?php settings_fields( 'godevs_portfolio_settings_group' ); ?>
-                        <table class="form-table" role="presentation">
-                                <?php do_settings_fields( 'godevs-portfolio-settings', 'godevs_settings' ); ?>
-                        </table>
-                        <?php submit_button( __( 'Save Settings', 'godevs-portfolio' ) ); ?>
-                </form>
+						<?php
+						godevs_setting_select( 'footer_style', __( 'Footer style', 'godevs-portfolio' ), array( 'default' => 'Default', 'minimal' => 'Minimal', 'multi-column' => 'Multi-column', 'social' => 'Social-first', 'cta' => 'CTA footer', 'newsletter' => 'Newsletter', 'dark' => 'Dark' ), __( 'Which footer template part to use.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'footer_copyright', __( 'Show copyright', 'godevs-portfolio' ), __( 'Display copyright text in footer.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'footer_social', __( 'Show social links', 'godevs-portfolio' ), __( 'Display social media links in footer.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'footer_cta', __( 'Footer CTA', 'godevs-portfolio' ), __( 'Show a CTA band above the footer.', 'godevs-portfolio' ) );
+						?>
+					</div>
 
-                <form method="post" action="" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #dcdcde;">
-                        <h3><?php esc_html_e( 'Reset Settings', 'godevs-portfolio' ); ?></h3>
-                        <p class="description"><?php esc_html_e( 'Reset all settings to defaults. This will not delete any content, pages, posts, or imported demos.', 'godevs-portfolio' ); ?></p>
-                        <?php wp_nonce_field( 'godevs_reset_settings', 'godevs_reset_nonce' ); ?>
-                        <button type="submit" class="button button-link-delete" onclick="return confirm('<?php esc_attr_e( 'Are you sure you want to reset all settings to defaults?', 'godevs-portfolio' ); ?>');">
-                                <?php esc_html_e( 'Reset to Defaults', 'godevs-portfolio' ); ?>
-                        </button>
-                </form>
-        </div>
-        <?php
+					<!-- ═══ BLOG ═══ -->
+					<div class="godevs-panel" id="panel-blog">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Blog', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure blog archive and single post display.', 'godevs-portfolio' ); ?></p>
+
+						<?php
+						godevs_setting_select( 'blog_layout', __( 'Blog layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'list' => 'List', 'magazine' => 'Magazine' ), __( 'How posts are displayed on archive pages.', 'godevs-portfolio' ) );
+						godevs_setting_select( 'blog_columns', __( 'Grid columns', 'godevs-portfolio' ), array( '2' => '2 columns', '3' => '3 columns', '4' => '4 columns' ), __( 'Column count for grid layout.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'blog_show_author', __( 'Show author', 'godevs-portfolio' ), __( 'Display author name on posts.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'blog_show_date', __( 'Show date', 'godevs-portfolio' ), __( 'Display publish date on posts.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'blog_show_categories', __( 'Show categories', 'godevs-portfolio' ), __( 'Display categories on posts.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'blog_show_featured', __( 'Show featured image', 'godevs-portfolio' ), __( 'Display featured image on posts.', 'godevs-portfolio' ) );
+						?>
+					</div>
+
+					<!-- ═══ PORTFOLIO ═══ -->
+					<div class="godevs-panel" id="panel-portfolio">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Portfolio', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure project archive and single display.', 'godevs-portfolio' ); ?></p>
+
+						<?php
+						godevs_setting_select( 'portfolio_layout', __( 'Portfolio layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'list' => 'List', 'masonry' => 'Masonry', 'showcase' => 'Showcase' ), __( 'How projects are displayed.', 'godevs-portfolio' ) );
+						godevs_setting_select( 'portfolio_columns', __( 'Grid columns', 'godevs-portfolio' ), array( '2' => '2 columns', '3' => '3 columns', '4' => '4 columns' ), __( 'Column count for grid layout.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'portfolio_show_client', __( 'Show client', 'godevs-portfolio' ), __( 'Display client name on projects.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'portfolio_show_year', __( 'Show year', 'godevs-portfolio' ), __( 'Display project year.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'portfolio_show_type', __( 'Show project type', 'godevs-portfolio' ), __( 'Display project type/category.', 'godevs-portfolio' ) );
+						?>
+					</div>
+
+					<!-- ═══ SERVICES ═══ -->
+					<div class="godevs-panel" id="panel-services">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Services', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure service archive and single display.', 'godevs-portfolio' ); ?></p>
+
+						<?php
+						godevs_setting_select( 'services_layout', __( 'Services layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'list' => 'List', 'numbered' => 'Numbered' ), __( 'How services are displayed.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'services_show_price', __( 'Show price', 'godevs-portfolio' ), __( 'Display service price (if set).', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'services_show_cta', __( 'Show CTA', 'godevs-portfolio' ), __( 'Display call-to-action on service singles.', 'godevs-portfolio' ) );
+						?>
+					</div>
+
+					<!-- ═══ TEAM ═══ -->
+					<div class="godevs-panel" id="panel-team">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Team', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure team member display.', 'godevs-portfolio' ); ?></p>
+
+						<?php
+						godevs_setting_select( 'team_layout', __( 'Team layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'list' => 'List', 'featured' => 'Featured lead' ), __( 'How team members are displayed.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'team_show_social', __( 'Show social links', 'godevs-portfolio' ), __( 'Display social media links for team members.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'team_show_bio', __( 'Show bio', 'godevs-portfolio' ), __( 'Display short biography.', 'godevs-portfolio' ) );
+						?>
+					</div>
+
+					<!-- ═══ TESTIMONIALS ═══ -->
+					<div class="godevs-panel" id="panel-testimonials">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Testimonials', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure testimonial display.', 'godevs-portfolio' ); ?></p>
+
+						<?php
+						godevs_setting_select( 'testimonials_layout', __( 'Testimonials layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'single' => 'Single quote', 'slide' => 'Slide row' ), __( 'How testimonials are displayed.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'testimonials_show_avatar', __( 'Show avatar', 'godevs-portfolio' ), __( 'Display client avatar/photo.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'testimonials_show_rating', __( 'Show rating', 'godevs-portfolio' ), __( 'Display star rating.', 'godevs-portfolio' ) );
+						?>
+					</div>
+
+					<!-- ═══ DEMO ═══ -->
+					<div class="godevs-panel" id="panel-demo">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Demo settings', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Configure the demo browser appearance.', 'godevs-portfolio' ); ?></p>
+
+						<?php
+						godevs_setting_select( 'demo_card_density', __( 'Card density', 'godevs-portfolio' ), array( 'comfortable' => 'Comfortable', 'compact' => 'Compact' ), __( 'Spacing between demo cards.', 'godevs-portfolio' ) );
+						godevs_setting_select( 'demo_preview_ratio', __( 'Preview ratio', 'godevs-portfolio' ), array( '16/10' => '16:10', '16/9' => '16:9', '4/3' => '4:3' ), __( 'Aspect ratio for demo preview images.', 'godevs-portfolio' ) );
+						?>
+					</div>
+
+					<!-- ═══ PERFORMANCE ═══ -->
+					<div class="godevs-panel" id="panel-performance">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Performance', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Control motion, loading, and optimization.', 'godevs-portfolio' ); ?></p>
+
+						<?php
+						godevs_setting_toggle( 'motion_enabled', __( 'Enable motion', 'godevs-portfolio' ), __( 'Scroll-reveal and hover animations.', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'reduced_motion', __( 'Force reduced motion', 'godevs-portfolio' ), __( 'Disable all animations site-wide (overrides user preference).', 'godevs-portfolio' ) );
+						godevs_setting_toggle( 'lazy_images', __( 'Lazy load images', 'godevs-portfolio' ), __( 'Add loading="lazy" to all images.', 'godevs-portfolio' ) );
+						?>
+					</div>
+
+					<!-- ═══ ADVANCED ═══ -->
+					<div class="godevs-panel" id="panel-advanced">
+						<h2 class="godevs-panel-title"><?php esc_html_e( 'Advanced', 'godevs-portfolio' ); ?></h2>
+						<p class="godevs-panel-desc"><?php esc_html_e( 'Module visibility and system controls.', 'godevs-portfolio' ); ?></p>
+
+						<div class="godevs-setting-group">
+							<h3 class="godevs-setting-group-title"><?php esc_html_e( 'Content modules', 'godevs-portfolio' ); ?></h3>
+							<p class="godevs-setting-group-desc"><?php esc_html_e( 'Enable or disable custom post types. Disabled modules preserve existing content but hide admin menus.', 'godevs-portfolio' ); ?></p>
+							<?php
+							godevs_setting_toggle( 'module_projects', __( 'Projects', 'godevs-portfolio' ), __( 'Project portfolio CPT.', 'godevs-portfolio' ) );
+							godevs_setting_toggle( 'module_services', __( 'Services', 'godevs-portfolio' ), __( 'Services CPT.', 'godevs-portfolio' ) );
+							godevs_setting_toggle( 'module_team', __( 'Team', 'godevs-portfolio' ), __( 'Team members CPT.', 'godevs-portfolio' ) );
+							godevs_setting_toggle( 'module_testimonials', __( 'Testimonials', 'godevs-portfolio' ), __( 'Client testimonials CPT.', 'godevs-portfolio' ) );
+							godevs_setting_toggle( 'module_bookings', __( 'Bookings', 'godevs-portfolio' ), __( 'Private booking/appointment CPT.', 'godevs-portfolio' ) );
+							godevs_setting_toggle( 'module_experience', __( 'Experience', 'godevs-portfolio' ), __( 'Work history CPT.', 'godevs-portfolio' ) );
+							godevs_setting_toggle( 'module_education', __( 'Education', 'godevs-portfolio' ), __( 'Academic credentials CPT.', 'godevs-portfolio' ) );
+							godevs_setting_toggle( 'module_faqs', __( 'FAQs', 'godevs-portfolio' ), __( 'FAQ entries CPT.', 'godevs-portfolio' ) );
+							godevs_setting_toggle( 'module_case_studies', __( 'Case Studies', 'godevs-portfolio' ), __( 'Case study CPT with meta boxes.', 'godevs-portfolio' ) );
+							?>
+						</div>
+
+						<div class="godevs-setting-group">
+							<h3 class="godevs-setting-group-title"><?php esc_html_e( 'System status', 'godevs-portfolio' ); ?></h3>
+							<?php
+							$loaded = $GLOBALS['godevs_portfolio_loaded_files'] ?? array();
+							$cpts = array( 'godevs_project', 'godevs_service', 'godevs_team', 'godevs_testimonial', 'godevs_case_study' );
+							$registered = array_filter( $cpts, 'post_type_exists' );
+							echo '<div class="godevs-status-row"><span>' . esc_html__( 'Theme version', 'godevs-portfolio' ) . '</span><strong>' . esc_html( $version ) . '</strong></div>';
+							echo '<div class="godevs-status-row"><span>' . esc_html__( 'CPTs registered', 'godevs-portfolio' ) . '</span><strong>' . esc_html( count( $registered ) . '/' . count( $cpts ) ) . '</strong></div>';
+							echo '<div class="godevs-status-row"><span>' . esc_html__( 'PHP version', 'godevs-portfolio' ) . '</span><strong>' . esc_html( PHP_VERSION ) . '</strong></div>';
+							echo '<div class="godevs-status-row"><span>' . esc_html__( 'WordPress version', 'godevs-portfolio' ) . '</span><strong>' . esc_html( get_bloginfo( 'version' ) ) . '</strong></div>';
+							?>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<?php
 }
 
-/**
- * Run the force fix: re-seed settings, re-register CPTs, flush rewrites.
- *
- * This is a manual override that can be triggered from the Settings page.
- * It does the same thing as the upgrade_handler, but runs on-demand.
- *
- * @return string HTML status message (pre-escaped).
- * @since 1.1.1
- */
-function godevs_portfolio_run_force_fix(): string {
-        $messages = array();
+// ════════════════════════════════════════════════════════════════════════════
+// SETTING CONTROL HELPERS
+// ════════════════════════════════════════════════════════════════════════════
 
-        // 1. Delete and re-seed settings.
-        delete_option( 'godevs_portfolio_settings' );
-        $defaults = function_exists( 'godevs_portfolio_get_default_settings' )
-                ? godevs_portfolio_get_default_settings()
-                : array(
-                        'module_projects'       => '1',
-                        'module_services'       => '1',
-                        'module_team'           => '1',
-                        'module_testimonials'   => '1',
-                        'module_bookings'       => '1',
-                        'module_experience'     => '1',
-                        'module_education'      => '1',
-                        'module_faqs'           => '1',
-                        'module_case_studies'   => '1',
-                );
-        update_option( 'godevs_portfolio_settings', $defaults, false );
-        $messages[] = __( '✓ Module settings re-seeded with fresh defaults (all CPTs enabled).', 'godevs-portfolio' );
+function godevs_setting_text( string $key, string $label, string $desc = '', string $type = 'text' ): void {
+	$val = godevs_portfolio_get_setting( $key );
+	?>
+	<div class="godevs-setting-row">
+		<div class="godevs-setting-label">
+			<label for="godevs-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $label ); ?></label>
+			<?php if ( $desc ) : ?><p class="godevs-setting-desc"><?php echo esc_html( $desc ); ?></p><?php endif; ?>
+		</div>
+		<div class="godevs-setting-control">
+			<input type="<?php echo esc_attr( $type ); ?>" id="godevs-<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $val ); ?>" class="godevs-input" />
+		</div>
+	</div>
+	<?php
+}
 
-        // 2. Re-register CPTs + taxonomies.
-        if ( function_exists( 'godevs_portfolio_register_post_types' ) ) {
-                godevs_portfolio_register_post_types();
-                $messages[] = __( '✓ Custom post types re-registered.', 'godevs-portfolio' );
-        } else {
-                $messages[] = __( '✗ CPT registration function not found — the theme file inc/content/cpt.php is not loaded.', 'godevs-portfolio' );
-        }
+function godevs_setting_select( string $key, string $label, array $options, string $desc = '' ): void {
+	$val = godevs_portfolio_get_setting( $key );
+	?>
+	<div class="godevs-setting-row">
+		<div class="godevs-setting-label">
+			<label for="godevs-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $label ); ?></label>
+			<?php if ( $desc ) : ?><p class="godevs-setting-desc"><?php echo esc_html( $desc ); ?></p><?php endif; ?>
+		</div>
+		<div class="godevs-setting-control">
+			<select id="godevs-<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" class="godevs-select">
+				<?php foreach ( $options as $opt_val => $opt_label ) : ?>
+					<option value="<?php echo esc_attr( $opt_val ); ?>" <?php selected( $val, $opt_val ); ?>><?php echo esc_html( $opt_label ); ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+	</div>
+	<?php
+}
 
-        if ( function_exists( 'godevs_portfolio_register_taxonomies' ) ) {
-                godevs_portfolio_register_taxonomies();
-                $messages[] = __( '✓ Taxonomies re-registered.', 'godevs-portfolio' );
-        }
+function godevs_setting_toggle( string $key, string $label, string $desc = '' ): void {
+	$val = godevs_portfolio_get_setting( $key );
+	?>
+	<div class="godevs-setting-row">
+		<div class="godevs-setting-label">
+			<label for="godevs-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $label ); ?></label>
+			<?php if ( $desc ) : ?><p class="godevs-setting-desc"><?php echo esc_html( $desc ); ?></p><?php endif; ?>
+		</div>
+		<div class="godevs-setting-control">
+			<label class="godevs-toggle">
+				<input type="checkbox" id="godevs-<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" value="1" <?php checked( $val, '1' ); ?> />
+				<span class="godevs-toggle-track"><span class="godevs-toggle-thumb"></span></span>
+			</label>
+		</div>
+	</div>
+	<?php
+}
 
-        if ( function_exists( 'godevs_portfolio_register_case_study_cpt' ) ) {
-                godevs_portfolio_register_case_study_cpt();
-        }
-        if ( function_exists( 'godevs_portfolio_register_case_study_taxonomies' ) ) {
-                godevs_portfolio_register_case_study_taxonomies();
-        }
-        if ( function_exists( 'godevs_portfolio_register_case_study_meta' ) ) {
-                godevs_portfolio_register_case_study_meta();
-        }
-        if ( function_exists( 'godevs_portfolio_register_meta_fields' ) ) {
-                godevs_portfolio_register_meta_fields();
-        }
-
-        // 3. Flush rewrite rules.
-        flush_rewrite_rules( true );
-        $messages[] = __( '✓ Rewrite rules flushed. CPT archive URLs (/projects/, /case-studies/, etc.) should now work.', 'godevs-portfolio' );
-
-        // 4. Record the version so the upgrade handler doesn't re-run.
-        if ( defined( 'GODEVS_PORTFOLIO_VERSION' ) ) {
-                update_option( 'godevs_portfolio_rewrite_version', GODEVS_PORTFOLIO_VERSION, false );
-        }
-
-        // 5. Check final state.
-        $cpts_check = array(
-                'godevs_project', 'godevs_service', 'godevs_team', 'godevs_testimonial',
-                'godevs_booking', 'godevs_experience', 'godevs_education', 'godevs_faq',
-                'godevs_case_study',
-        );
-        $registered = array_filter( $cpts_check, 'post_type_exists' );
-        $count = count( $registered );
-
-        $messages[] = sprintf(
-                /* translators: %d: number of CPTs registered. */
-                __( '✓ %d of 9 CPTs are now registered. %s', 'godevs-portfolio' ),
-                $count,
-                $count === 9
-                        ? __( 'All CPTs should appear in the admin sidebar.', 'godevs-portfolio' )
-                        : __( 'Some CPTs failed to register — check the System Status table above.', 'godevs-portfolio' )
-        );
-
-        return '<strong>' . esc_html__( 'Force fix completed:', 'godevs-portfolio' ) . '</strong><br>' . implode( '<br>', array_map( 'esc_html', $messages ) );
+function godevs_setting_color( string $key, string $label, string $desc = '' ): void {
+	$val = godevs_portfolio_get_setting( $key );
+	?>
+	<div class="godevs-setting-row">
+		<div class="godevs-setting-label">
+			<label for="godevs-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $label ); ?></label>
+			<?php if ( $desc ) : ?><p class="godevs-setting-desc"><?php echo esc_html( $desc ); ?></p><?php endif; ?>
+		</div>
+		<div class="godevs-setting-control">
+			<input type="text" id="godevs-<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $val ); ?>" class="godevs-color-picker" data-default-color="<?php echo esc_attr( $val ); ?>" />
+		</div>
+	</div>
+	<?php
 }

@@ -17,23 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Header -->
         <!-- wp:template-part {"slug":"header","theme":"godevs-portfolio","tagName":"header"} /-->
 
-        <!-- Hero -->
-
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+        <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)","justifyContent":"center"}} -->
-        <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-                <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
-                <p class="is-style-eyebrow has-text-align-center">Agency / Design Studio</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","lineHeight":"1.1","letterSpacing":"-0.02em"}}} -->
-                <h1 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);line-height:1.1;letter-spacing:-0.02em">Workshop — selected work.</h1>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-                <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium)">A working portfolio, kept current.</p>
-                <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow">Agency / Design Studio</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"clamp(2.5rem, 6vw, 5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"400","fontStyle":"italic"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--serif);font-size:clamp(2.5rem, 6vw, 5rem);line-height:1.1;letter-spacing:-0.02em;font-weight:400;font-style:italic">Workshop</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p style="font-family:var(--wp--preset--font-family--serif);font-size:var(--wp--preset--font-size--large);line-height:1.5;max-width:520px">Design studio site. Centered intro, numbered services then stats, split CTA.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -177,17 +175,17 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group">
                         <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-                        <p class="is-style-eyebrow">Let's talk</p>
+                        <p class="is-style-eyebrow">Start a project</p>
                         <!-- /wp:paragraph -->
                         <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
-                        <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">Have a project in mind?</h2>
+                        <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">Have a brief to discuss?</h2>
                         <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->
                 <!-- wp:buttons -->
                 <div class="wp-block-buttons">
                         <!-- wp:button {"className":"is-style-outline","style":{"border":{"color":"var:preset|color|contrast"}}} -->
-                        <div class="wp-block-button is-style-outline"><a href="#contact" class="wp-block-button__link wp-element-button">Start a conversation</a></div>
+                        <div class="wp-block-button is-style-outline"><a href="#contact" class="wp-block-button__link wp-element-button">Start a project</a></div>
                         <!-- /wp:button -->
                 </div>
                 <!-- /wp:buttons -->

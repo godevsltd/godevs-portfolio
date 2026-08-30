@@ -17,23 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Header -->
         <!-- wp:template-part {"slug":"header","theme":"godevs-portfolio","tagName":"header"} /-->
 
-        <!-- Hero -->
-
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+        <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)","justifyContent":"center"}} -->
-        <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-                <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
-                <p class="is-style-eyebrow has-text-align-center">Architecture / Interior Studio</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","lineHeight":"1.1","letterSpacing":"-0.02em"}}} -->
-                <h1 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);line-height:1.1;letter-spacing:-0.02em">Spacecraft — selected work.</h1>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-                <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium)">A working portfolio, kept current.</p>
-                <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow">Architecture / Interior Studio</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"clamp(2.5rem, 6vw, 5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"400","fontStyle":"italic"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--serif);font-size:clamp(2.5rem, 6vw, 5rem);line-height:1.1;letter-spacing:-0.02em;font-weight:400;font-style:italic">Spacecraft</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p style="font-family:var(--wp--preset--font-family--serif);font-size:var(--wp--preset--font-size--large);line-height:1.5;max-width:520px">Interior studio site. Centered intro, portfolio then services, full-width CTA.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -46,10 +44,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
                         <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-                        <p class="is-style-eyebrow">Selected work</p>
+                        <p class="is-style-eyebrow">Built work</p>
                         <!-- /wp:paragraph -->
                         <!-- wp:heading {"level":2} -->
-                        <h2 class="wp-block-heading">Recent projects.</h2>
+                        <h2 class="wp-block-heading">Selected projects.</h2>
                         <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->
@@ -58,39 +56,39 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Spacecraft — Residential Project" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
                                 <!-- wp:heading {"level":3} -->
-                                <h3 class="wp-block-heading">Project one</h3>
+                                <h3 class="wp-block-heading">Residential Project</h3>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Spacecraft — Cultural Space" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
                                 <!-- wp:heading {"level":3} -->
-                                <h3 class="wp-block-heading">Project two</h3>
+                                <h3 class="wp-block-heading">Cultural Space</h3>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Spacecraft — Urban Planning Study" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2023</p>
                                 <!-- /wp:paragraph -->
                                 <!-- wp:heading {"level":3} -->
-                                <h3 class="wp-block-heading">Project three</h3>
+                                <h3 class="wp-block-heading">Urban Planning Study</h3>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->
@@ -110,10 +108,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
                         <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-                        <p class="is-style-eyebrow">Selected work</p>
+                        <p class="is-style-eyebrow">Studio projects</p>
                         <!-- /wp:paragraph -->
                         <!-- wp:heading {"level":2} -->
-                        <h2 class="wp-block-heading">Recent projects.</h2>
+                        <h2 class="wp-block-heading">Recent work.</h2>
                         <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->
@@ -122,39 +120,39 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Spacecraft — Interior Renovation" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
                                 <!-- wp:heading {"level":3} -->
-                                <h3 class="wp-block-heading">Project one</h3>
+                                <h3 class="wp-block-heading">Residential Project</h3>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Spacecraft — Commercial Space" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
                                 <!-- wp:heading {"level":3} -->
-                                <h3 class="wp-block-heading">Project two</h3>
+                                <h3 class="wp-block-heading">Cultural Space</h3>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Spacecraft — Landscape Design" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2023</p>
                                 <!-- /wp:paragraph -->
                                 <!-- wp:heading {"level":3} -->
-                                <h3 class="wp-block-heading">Project three</h3>
+                                <h3 class="wp-block-heading">Urban Planning Study</h3>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->

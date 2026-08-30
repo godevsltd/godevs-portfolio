@@ -17,23 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Header -->
         <!-- wp:template-part {"slug":"header-portfolio","theme":"godevs-portfolio","tagName":"header"} /-->
 
-        <!-- Hero -->
-
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+        <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)","justifyContent":"center"}} -->
-        <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-                <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
-                <p class="is-style-eyebrow has-text-align-center">Designer / Portfolio CTA</p>
-                <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","lineHeight":"1.1","letterSpacing":"-0.02em"}}} -->
-                <h1 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);line-height:1.1;letter-spacing:-0.02em">Pill — selected work.</h1>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-                <p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium)">A working portfolio, kept current.</p>
-                <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"640px"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow has-text-align-center">Designer / Portfolio CTA</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 6vw, 5rem)","lineHeight":"1.05","letterSpacing":"-0.025em","fontWeight":"500"}}} -->
+<h1 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 6vw, 5rem);line-height:1.05;letter-spacing:-0.025em;font-weight:500">Pill</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"480px"}}} -->
+<p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium);max-width:480px">Designer portfolio with pill CTA header. Centered intro, dense four-column grid, full-width CTA.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 </section>
 <!-- /wp:group -->
 
@@ -46,10 +44,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
                         <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-                        <p class="is-style-eyebrow">Selected work</p>
+                        <p class="is-style-eyebrow">Recent projects</p>
                         <!-- /wp:paragraph -->
                         <!-- wp:heading {"level":2} -->
-                        <h2 class="wp-block-heading">Recent projects.</h2>
+                        <h2 class="wp-block-heading">Selected design work.</h2>
                         <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->
@@ -58,40 +56,40 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
-                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
+                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Pill — Brand Identity System" style="aspect-ratio:1/1;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:heading {"level":4} -->
-                                <h4 class="wp-block-heading">Project one</h4>
+                                <h4 class="wp-block-heading">Brand Identity System</h4>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
-                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
+                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Pill — Editorial Redesign" style="aspect-ratio:1/1;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:heading {"level":4} -->
-                                <h4 class="wp-block-heading">Project two</h4>
+                                <h4 class="wp-block-heading">Editorial Redesign</h4>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
-                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
+                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Pill — Product UI Kit" style="aspect-ratio:1/1;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:heading {"level":4} -->
-                                <h4 class="wp-block-heading">Project three</h4>
+                                <h4 class="wp-block-heading">Product UI Kit</h4>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
-                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
+                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Pill — Type System" style="aspect-ratio:1/1;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:heading {"level":4} -->
-                                <h4 class="wp-block-heading">Project four</h4>
+                                <h4 class="wp-block-heading">Type System</h4>
                                 <!-- /wp:heading -->
                         </div>
                         <!-- /wp:column -->

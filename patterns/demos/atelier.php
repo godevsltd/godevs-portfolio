@@ -53,10 +53,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group">
 					<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-					<p class="is-style-eyebrow">Selected work</p>
+					<p class="is-style-eyebrow">Recent builds</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":2} -->
-					<h2 class="wp-block-heading">Recent projects.</h2>
+					<h2 class="wp-block-heading">Systems in production.</h2>
 					<!-- /wp:heading -->
 				</div>
 				<!-- /wp:group -->
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 					<div class="wp-block-group">
 						<!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-						<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-studio.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+						<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-studio.png' ); ?>" alt="Atelier — Checkout Flow Redesign" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
 						<!-- /wp:image -->
 						<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
 						<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">API · 2024</p>
@@ -90,7 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 					<div class="wp-block-group">
 						<!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-						<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-studio.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+						<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-studio.png' ); ?>" alt="Atelier — Headless CMS Migration" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
 						<!-- /wp:image -->
 						<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
 						<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Web · 2024</p>
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 					<div class="wp-block-group">
 						<!-- wp:image {"aspectRatio":"4/3","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-						<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-studio.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
+						<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-studio.png' ); ?>" alt="Atelier — Real-time Dashboard" style="border-radius:8px;aspect-ratio:4/3;object-fit:cover"/></figure>
 						<!-- /wp:image -->
 						<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
 						<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Open source · 2023</p>
