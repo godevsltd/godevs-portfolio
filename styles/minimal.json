@@ -1,100 +1,121 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"title": "Minimal",
-	"description": "A lighter interpretation: sans-serif headings, tighter spacing, neutral palette without coral. Useful for editorial portfolios where the photography does the talking.",
+	"description": "An ultra-minimalist palette — pure white background, ink black text, sharp corners, no shadows. Gallery-like presentation.",
 	"settings": {
 		"color": {
 			"palette": [
-				{ "slug": "primary",   "name": "Primary",     "color": "#111111" },
-				{ "slug": "secondary", "name": "Secondary",   "color": "#374151" },
-				{ "slug": "accent",     "name": "Accent",      "color": "#1E293B" },
-				{ "slug": "background", "name": "Background",  "color": "#FFFFFF" },
-				{ "slug": "surface",    "name": "Surface",     "color": "#FAFAFA" },
-				{ "slug": "text",       "name": "Text",        "color": "#111111" },
-				{ "slug": "muted",      "name": "Muted Text",  "color": "#6B7280" },
-				{ "slug": "border",     "name": "Border",      "color": "#E5E7EB" },
-				{ "slug": "success",    "name": "Success",     "color": "#15803D" },
-				{ "slug": "warning",    "name": "Warning",     "color": "#B45309" },
-				{ "slug": "error",      "name": "Error",       "color": "#B91C1C" }
-			],
-			"gradients": [
-				{ "slug": "surface-fade", "name": "Surface Fade",
-					"gradient": "linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%)" }
+				{ "slug": "primary", "color": "#111111", "name": "Primary" },
+				{ "slug": "secondary", "color": "#333333", "name": "Secondary" },
+				{ "slug": "accent", "color": "#111111", "name": "Accent" },
+				{ "slug": "base", "color": "#FFFFFF", "name": "Base" },
+				{ "slug": "surface", "color": "#FFFFFF", "name": "Surface" },
+				{ "slug": "surface-elevated", "color": "#FFFFFF", "name": "Surface Elevated" },
+				{ "slug": "foreground", "color": "#111111", "name": "Foreground" },
+				{ "slug": "muted", "color": "#6B6B6B", "name": "Muted" },
+				{ "slug": "border", "color": "#E5E5E5", "name": "Border" },
+				{ "slug": "success", "color": "#1F7A3A", "name": "Success" },
+				{ "slug": "warning", "color": "#9C5A0A", "name": "Warning" },
+				{ "slug": "error", "color": "#9A1B1B", "name": "Error" },
+				{ "slug": "contrast", "color": "#FFFFFF", "name": "Contrast" }
+			]
+		},
+		"typography": {
+			"fontSizes": [
+				{ "slug": "x-small", "size": "0.75rem", "name": "Caption" },
+				{ "slug": "small", "size": "0.875rem", "name": "Small" },
+				{ "slug": "normal", "size": "1rem", "name": "Body" },
+				{ "slug": "medium", "size": "1.125rem", "name": "Large Body", "fluid": { "min": "1rem", "max": "1.25rem" } },
+				{ "slug": "large", "size": "1.375rem", "name": "H3", "fluid": { "min": "1.125rem", "max": "1.5rem" } },
+				{ "slug": "x-large", "size": "1.875rem", "name": "H2", "fluid": { "min": "1.5rem", "max": "2.25rem" } },
+				{ "slug": "xx-large", "size": "2.5rem", "name": "H1", "fluid": { "min": "1.875rem", "max": "3rem" } },
+				{ "slug": "xxx-large", "size": "3.25rem", "name": "Display", "fluid": { "min": "2.25rem", "max": "4rem" } }
 			]
 		}
 	},
 	"styles": {
+		"color": {
+			"background": "#FFFFFF",
+			"text": "#111111"
+		},
+		"spacing": {
+			"padding": {
+				"top": "0",
+				"right": "var:preset|spacing|50",
+				"bottom": "0",
+				"left": "var:preset|spacing|50"
+			},
+			"blockGap": "var:preset|spacing|50"
+		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--body)",
-			"lineHeight": "1.7"
+			"fontFamily": "var:preset|font-family|body",
+			"fontSize": "var:preset|font-size|normal",
+			"lineHeight": "1.6"
 		},
 		"elements": {
+			"link": {
+				"color": { "text": "#111111" },
+				"typography": { "textDecoration": "underline" }
+			},
 			"heading": {
+				"color": { "text": "#111111" },
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--body)",
-					"fontWeight": "600",
-					"letterSpacing": "-0.01em"
+					"fontFamily": "var:preset|font-family|display",
+					"fontWeight": "700",
+					"lineHeight": "1.15"
 				}
 			},
 			"h1": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--xx-large)",
+					"fontSize": "var:preset|font-size|xx-large",
+					"lineHeight": "1.05",
 					"letterSpacing": "-0.02em"
 				}
 			},
 			"h2": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--x-large)"
+					"fontSize": "var:preset|font-size|x-large",
+					"lineHeight": "1.1"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var:preset|font-size|large"
 				}
 			},
 			"button": {
+				"border": { "radius": "0" },
 				"color": {
-					"background": "var(--wp--preset--color--primary)",
-					"text": "var(--wp--preset--color--background)"
-				},
-				"border": {
-					"radius": "0"
-				}
-			},
-			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--primary)"
+					"background": "#111111",
+					"text": "#FFFFFF"
 				},
 				"typography": {
-					"textDecoration": "underline"
+					"fontWeight": "500",
+					"textTransform": "uppercase",
+					"letterSpacing": "0.05em"
 				},
 				":hover": {
-					"color": {
-						"text": "var(--wp--preset--color--accent)"
-					}
+					"color": { "background": "#333333" }
 				}
 			}
 		},
 		"blocks": {
 			"core/site-title": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--body)",
-					"fontWeight": "600"
+					"fontWeight": "700",
+					"letterSpacing": "-0.02em"
 				}
 			},
 			"core/post-title": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--body)",
-					"fontSize": "var(--wp--preset--font-size--xxx-large)"
+					"fontSize": "var:preset|font-size|xx-large",
+					"lineHeight": "1.05",
+					"letterSpacing": "-0.02em"
 				}
 			},
-			"core/quote": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--body)",
-					"fontStyle": "normal"
-				}
-			},
-			"core/pullquote": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--body)",
-					"fontStyle": "normal"
-				}
+			"core/separator": {
+				"color": { "text": "#E5E5E5" }
 			}
 		}
 	}

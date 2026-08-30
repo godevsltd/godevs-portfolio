@@ -1,290 +1,246 @@
-# PRD — GoDevs Portfolio
+# GoDevs Portfolio — Product Requirements Document
 
-| Field | Value |
-|-------|-------|
-| Product | GoDevs Portfolio |
-| Theme slug | `godevs-portfolio` |
-| Text domain | `godevs-portfolio` |
-| Owner | GoDevs |
-| Current version | 0.1.0 (foundation) |
-| Document status | Living document. Updated with every released version. |
-
-This PRD defines the product for v0.1.0 — the foundation release — and
-projects where the product is going. Where the two diverge (e.g. the future
-100-site demo catalogue), the document says so explicitly.
+**Document version:** 0.1.0
+**Phase:** 1 — Foundation
+**Last updated:** Phase 1 kickoff
 
 ---
 
-## 1. Problem
+## 1. Product Vision
 
-Professionals and small businesses who build a portfolio or services site on
-WordPress today face a fork in the road. They can pick a classic theme and
-customise it with a third-party page builder, ending up with a site locked
-inside that builder's UX; or they can pick a block theme and discover that
-most existing block themes still ship as thinly-reskinned copies of the same
-template, with the same generic AI-looking iconography, the same gradient
-hero, and the same arbitrary visual noise.
+GoDevs Portfolio is a **premium, Gutenberg-first, Full Site Editing (FSE) WordPress block theme** purpose-built for individuals and small teams who need a refined, modern, editorial-grade portfolio presence on the web.
 
-Both paths leave the user with a site they cannot fully maintain without
-going back to a developer. The first path locks content inside the builder.
-The second path locks the user into visual choices they did not make and
-cannot sensibly edit.
+The product is positioned not as "another portfolio theme" but as a **scalable Gutenberg design system** whose long-term output is hundreds of composition-ready demos assembled from a shared library of patterns, style variations, and design tokens. Each demo must feel distinct and intentional — never a color swap of another demo.
 
-There is no widely available block theme that pairs a strong editorial design
-system with a clean pattern library and a clearly documented plugin
-boundary — and a path to a 100-site starter catalogue that does not start
-life as a low-quality copy-paste exercise.
+The intended audiences are:
 
-## 2. Product vision
+- **Developers and engineers** showcasing projects, talks, and writing
+- **Designers and art directors** presenting case studies and visual work
+- **Freelancers and consultants** marketing their services
+- **Agencies and small studios** presenting their portfolio and team
+- **Photographers and visual creators** presenting galleries and series
+- **Coaches, authors, and personal brands** establishing authority
+- **Architects, interior designers, and studios** presenting project work
+- **Startups and small product teams** presenting a product story
 
-Build GoDevs Portfolio as a serious commercial WordPress theme that feels
-designed — not generated. A foundation theme that a freelancer can install
-and edit on a Saturday afternoon without calling a developer; that an agency
-can re-skin into a hundred vertical starter sites without rewriting the
-core; and that a developer can audit, fork, and extend using native
-WordPress conventions rather than fighting a bespoke framework.
+---
 
-The product follows a single principle throughout: *give users enough
-control to create a unique website without making the interface
-complicated.* Every feature, every pattern, every setting asks the same
-question — could this be solved by the native Site Editor instead?
+## 2. Core Goals
 
-## 3. Target users
+| Goal | Description |
+|---|---|
+| Gutenberg-first | Every layout is composed from core blocks. No custom block dependencies. |
+| Full Site Editing | All templates, template parts, and global styles are user-editable in the Site Editor. |
+| No required plugin | The theme activates and renders a complete experience with zero plugins installed. |
+| Lightweight | Minimal CSS, minimal JS, no jQuery, no icon font, no external font CDN required. |
+| Modern | Editorial typography, strong whitespace, modern card systems, current visual language. |
+| Accessible | WCAG 2.1 AA target — keyboard, focus, contrast, reduced motion, semantic HTML. |
+| Responsive | Fluid typography, fluid spacing, mobile-first layouts, no device-specific templates. |
+| Translation-ready | All user-facing strings use the `godevs-portfolio` text domain. |
+| WordPress.org compatible | Targets WordPress.org Theme Review Team requirements. |
+| Reusable patterns | A documented pattern system designed to scale to 500+ compositions. |
+| Consistent design system | A single source of truth for color, typography, spacing, layout, motion. |
 
-### Primary: professionals
+---
 
-- Developers and WordPress developers
-- UI/UX and graphic designers
-- Freelancers and consultants
-- Photographers and videographers
-- Architects and digital marketers
-- Personal brands and content creators
+## 3. Long-Term Targets (Not Implemented in Phase 1)
 
-### Secondary: businesses
+These targets describe the long-term product strategy. They are **explicitly out of scope for Phase 1**, which only builds the foundation capable of supporting them.
 
-- Web development and software companies
-- IT and digital agencies
-- Creative and marketing agencies
-- Consulting businesses
-- Startups and small businesses
+### 3.1 Demo Library — Target: 100+ demos
 
-### Persona sketches
+A demo is a **composition** of reusable theme resources — not a forked copy of theme files. Each demo is produced by:
 
-**Maya** — freelance UI designer, ~5 yrs experience. Has shipped a few
-client sites on WordPress but is uncomfortable maintaining them. Wants a
-portfolio site she can edit herself, with no page builder dependency. Will
-install the theme, pick a style variation, drag in a hero and portfolio-grid
-pattern, change the palette in the Styles panel, and ship in a weekend.
+```
+Design Tokens (theme.json)
+      ↓
+Style Variation (styles/*.json)
+      ↓
+Reusable Patterns (patterns/*)
+      ↓
+Templates (templates/*.html)
+      ↓
+Demo Composition (a saved site export / pattern collection)
+```
 
-**Tomás** — co-founder of a five-person agency. Has shipped dozens of
-WordPress sites over the years, mostly with a third-party builder. Wants
-to migrate the agency's next batch of sites to a block theme he can re-skin
-per vertical without maintaining a fork per project. Will read the
-architecture docs and fork the design system.
+A demo must not duplicate theme source files. It must be expressible as a combination of:
+- A chosen style variation
+- A set of patterns arranged into templates
+- Demo-specific content (posts, media, menus)
 
-**Priya** — solo developer who occasionally takes on WordPress work. Wants
-a foundation theme she can extend with a small custom plugin for a specific
-client (Portfolio CPT, Services CPT) without the theme falling over when
-the plugin is not installed. Will read CORE-PLUGIN-BOUNDARY.md.
+### 3.2 Pattern Library — Target: 500+ patterns
 
-## 4. User goals
+Patterns are organized into the 18 documented categories. See `PATTERN-SYSTEM.md` for the full category taxonomy, naming conventions, and growth strategy.
 
-- Replace logo, colours, typography without code.
-- Build a homepage by inserting patterns.
-- Present a portfolio without a plugin dependency.
-- Get a clean reading experience on a phone.
-- Get a fast site out of the box — no external font CDN, no jQuery
-  dependency, no render-blocking scripts.
-- Extend with a custom plugin without losing content when the theme is
-  switched later.
+### 3.3 Template Compositions — Target: 100+ page/template compositions
 
-## 5. User journeys
+Beyond core WordPress templates (index, single, archive, etc.), compositions will include purpose-built page templates such as "Portfolio Case Study", "Service Landing", "About Long-form", "Pricing Comparison", etc.
 
-### Journey A — first install (Maya)
+### 3.4 Style Variations — Target: 15+ style variations
 
-1. Installs the theme .zip and activates it.
-2. Opens Appearance → Editor.
-3. Selects the Minimal style variation in the Styles panel.
-4. Opens the front-page template, removes the Services pattern she does
-   not need, and changes the hero headline.
-5. Replaces the site logo and tagline in the Site Editor.
-6. Creates a Portfolio page and inserts the Portfolio Grid pattern.
-7. Saves and views the site.
+Each variation must meaningfully change the visual language — typography pairings, color systems, density, motion behavior — not just a single color swap. See `STYLE-VARIATIONS.md`.
 
-The journey above should not require reading documentation. The labels in
-the Site Editor, the pattern names, and the style variation names should
-carry the meaning.
+### 3.5 Niche Coverage
 
-### Journey B — starter-site fork (Tomás)
+Planned niches include developer portfolios, designer portfolios, photographer portfolios, agency sites, consultancy sites, coach sites, author sites, product landing, SaaS marketing, startup landing, architecture studio, design studio, restaurant, podcast, magazine, education, and more.
 
-1. Clones the repo and reads `docs/ARCHITECTURE.md`.
-2. Creates a new style variation JSON in `/styles/`.
-3. Selects which patterns to ship in a starter site, hides the rest via
-   the pattern's `Inserter` flag.
-4. Bundles the theme with a small starter content XML file.
-5. Ships a vertical starter site.
+---
 
-### Journey C — plugin extend (Priya)
+## 4. Non-Goals (Phase 1 and Beyond)
 
-1. Reads `docs/CORE-PLUGIN-BOUNDARY.md` to learn what belongs to the theme
-   and what belongs to the plugin.
-2. Writes a small plugin that registers a Portfolio CPT and a Portfolio
-   Query Loop block variation.
-3. Verifies that with the plugin deactivated the theme still activates
-   and the front-end still renders without fatal errors.
-4. Ships the plugin to the client.
+The theme will **not** ship with:
 
-## 6. Core features (v0.1.0 foundation)
+- A custom post type UI for portfolio items, projects, or testimonials — these are plugin territory
+- A form builder or form storage backend — use core blocks + companion plugin
+- An SEO system — core blocks + companion plugin
+- A performance dashboard or analytics platform
+- A page builder integration (Elementor, Beaver, Divi, etc.)
+- A bundled icon library (Font Awesome, Material Icons, etc.)
+- A bundled font CDN dependency — fonts must be self-hosted or system fonts
+- A bundled jQuery dependency
+- A bundled CSS framework (Bootstrap, Tailwind, etc.)
+- An options framework or theme admin panel — Global Styles is the configuration surface
 
-This section lists what *actually ships* in 0.1.0. Everything else lives in
-the Future roadmap section.
+The theme is responsible for **presentation only**. All data-management and plugin-like functionality belongs in companion plugins.
 
-- Block theme architecture: `theme.json` (schema version 2), nine block
-  templates (index, home, front-page, page, single, archive, search, 404,
-  singular), plus a `page-no-title` custom template.
-- Three template parts: `header`, `footer`, `mobile-menu`.
-- Eight block patterns: hero, about, services, portfolio-grid,
-  testimonials, cta, contact, footer.
-- Two style variations: Minimal, Dark. Wired into the Site Editor Styles
-  panel. Each variation is an intentional redesign, not a palette swap.
-- Self-hosted Inter (UI/body) and Newsreader (display) fonts in
-  `assets/fonts/`. No external font requests.
-- Translation-ready: `godevs-portfolio` text domain, `.pot` file scaffolded
-  in `/languages/`, RTL CSS generated from the same source.
-- Accessibility foundation: skip link, focus-visible outlines, semantic
-  landmarks, keyboard-navigable navigation, reduced-motion support.
-- Performance foundation: minimal PHP, ~2 KB JS, no jQuery, no external
-  requests, font preloading, deferred JS.
-- WordPress.org compliance foundation: GPL-2.0-or-later, sanitisation and
-  escaping on every output, no remote requests, no tracking.
+---
 
-## 7. Non-goals
+## 5. Target Users
 
-- WooCommerce support. This is a portfolio/business theme, not a
-  storefront. WooCommerce templates and blocks are out of scope.
-- Page-builder support. Elementor, Divi, WPBakery, Bricks, Beaver Builder
-  and Oxygen are not first-class citizens. The theme works without them
-  and we do not ship specific compatibility for them.
-- AI-generated demo assets. We do not ship AI illustrations, AI portraits,
-  fake team photos, or AI marketing copy as default content. Demo content
-  uses real licensed placeholders or theme-native visual elements.
-- 100 starter sites in v0.1. The architecture supports the eventual
-  100-site catalogue, but v0.1 only ships the foundation and the pattern
-  library that future starter sites will build on.
-- Replacing SEO plugins. We ship semantic HTML and clean markup. We do not
-  ship meta tags, OpenGraph tags, or sitemap generation. RankMath, Yoast
-  and The SEO Framework are supported as companions.
+### Primary User — Site Builder
 
-## 8. Theme / plugin boundary
+A developer, designer, freelancer, or small agency building a portfolio site for themselves or a client. Comfortable with WordPress and the Site Editor. Wants to compose rather than code. Will judge the theme on visual quality, editability, and pattern variety.
 
-GoDevs Portfolio ships as a standalone theme. An optional companion plugin,
-GoDevs Core, will eventually own structured business content types
-(Portfolio, Services, Testimonials, Team, Case Studies, Business Profile).
+### Secondary User — End Visitor
 
-The theme works on its own. With GoDevs Core installed, the theme exposes
-structured CPTs and the patterns become data-driven; without it, the same
-patterns display static content the user edits in the Site Editor.
+The reader of the portfolio site. The theme must serve this user through performance, accessibility, readability, and graceful degradation on low-end devices.
 
-Full rules are in `docs/CORE-PLUGIN-BOUNDARY.md`. The short version: the
-theme owns presentation, the plugin owns persistent structured content,
-and the boundary between them is the `godevs_portfolio_core_active` PHP
-constant.
+### Tertiary User — WordPress.org Reviewer
 
-## 9. UX requirements
+The Theme Review Team member evaluating the theme for inclusion in the directory. The theme must satisfy all Theme Review requirements (escaping, sanitization, licensing, no plugin territory, etc.). See `WORDPRESS-STANDARDS.md` and `QA-CHECKLIST.md`.
 
-- Site Editor labels use plain English. We avoid "block", "container",
-  "wrapper", "scoped" and other developer-facing terms in user-facing
-  pattern names.
-- Pattern names read as outcomes ("Hero", "About", "Services", "Portfolio
-  Grid", "Testimonial", "Call to Action", "Contact", "Minimal Footer")
-  rather than implementation details.
-- Style variations are intentionally different — palette, typography, and
-  component radius change between them. A variation is a redesign, not a
-  recolour.
-- The default front-page template composes a working homepage out of the
-  box: hero → about → services → portfolio → cta → testimonials → contact.
-  The user deletes what they do not need; they do not build from scratch.
+---
 
-## 10. Design requirements
+## 6. Functional Requirements (Phase 1)
 
-- Strong typographic hierarchy with Newsreader for display and Inter for
-  body and UI.
-- Generous whitespace. The spacing scale (0.5rem → 6rem) is the primary
-  design tool.
-- Thin 1px borders. Borders are used to separate, not to decorate.
-- No gradients except the two theme.json gradients shipped in v0.1
-  (`surface-fade`, `accent-fade`). No glassmorphism. No neon. No glow
-  effects. No decorative circles. No 3D objects.
-- Controlled shadows. Three shadow tokens (`--wp--custom--shadow--sm`,
-  `--md`, `--lg`) with very low opacity. Shadows are an accessibility cue
-  for cards, not a visual flourish.
-- Reduced motion is respected throughout. Patterns animate only on intent.
+### 6.1 Must Have
 
-## 11. Accessibility requirements
+- A valid `theme.json` defining the design system (color, typography, spacing, layout, borders, radii, shadows)
+- All 12 core WordPress templates render with no errors
+- A working header template part and footer template part
+- A minimum set of representative patterns demonstrating the design system
+- At least one style variation beyond the default
+- A working `style.css` with the correct WordPress theme header
+- A working `functions.php` (minimal — the theme is `theme.json`-first)
+- A `readme.txt` compliant with WordPress.org requirements
+- Translation readiness with the `godevs-portfolio` text domain
+- Accessibility baseline — keyboard nav, focus states, skip link, semantic headings
+- Performance baseline — minimal CSS, no render-blocking JS, no external font CDN
 
-- WCAG 2.1 AA is the floor for v0.1. AAA is a stretch goal tracked in
-  `docs/ACCESSIBILITY.md`.
-- Keyboard navigation works for every interactive element on every
-  template.
-- Visible focus indicators (`:focus-visible`) on every focusable element.
-- Skip link to `#main` is present on every template that uses the header
-  template part.
-- Semantic landmarks: `header`, `main`, `footer`, `nav`.
-- Sufficient colour contrast. Palette tokens are checked at design time.
-  See `docs/ACCESSIBILITY.md` for the contrast table.
-- Reduced motion: every CSS transition is wrapped in a
-  `@media (prefers-reduced-motion: no-preference)` guard.
+### 6.2 Should Have
 
-## 12. Performance requirements
+- 3-4 initial style variations that meaningfully differ
+- 8-12 initial patterns covering the major categories
+- Multiple header variants (default, minimal, transparent)
+- Multiple footer variants (default, minimal, CTA)
 
-- No external requests on a fresh install. No Google Fonts CDN. No
-  third-party analytics. No CDN-hosted libraries.
-- Total blocking time below 200 ms on a fast 3G profile, measured against
-  the v0.1 default front-page with one hero image and no plugin.
-- LCP below 2.5 s on a fast 3G profile with the same setup.
-- Cumulative layout shift below 0.1 on the same profile.
-- JavaScript footprint: under 2 KB compressed on the front-end. The
-  v0.1 baseline is `navigation.js` at ~1.4 KB.
+### 6.3 Nice to Have (Phase 2+)
 
-## 13. WordPress.org requirements
+- Pattern translations
+- Per-pattern preview images
+- RTL testing
+- Custom block styles for specific patterns
 
-The theme is *prepared for* WordPress.org review. We do not claim approval
-until reviewed and approved. The preparation scope includes:
+---
 
-- Theme requirements per the Theme Review guidelines.
-- Licensing (GPL-2.0-or-later for code; SIL OFL 1.1 for fonts).
-- Sanitisation, escaping, validation throughout.
-- Accessibility-ready checklist.
-- Internationalisation, RTL, localisation.
-- External resources policy (no external requests at install time).
-- Privacy (no remote requests, no tracking).
-- Content portability (CPTs live in the plugin, not the theme).
+## 7. Non-Functional Requirements
 
-Full scope is in `docs/WORDPRESS-ORG-COMPLIANCE.md`.
+| Category | Requirement |
+|---|---|
+| Performance | Lighthouse Performance ≥ 90 on a default homepage with no plugins. No render-blocking JS. Critical CSS handled by WordPress core. |
+| Accessibility | WCAG 2.1 AA. Keyboard navigable. Visible focus. Reduced motion respected. |
+| Browser support | Latest Chrome, Firefox, Safari, Edge. iOS Safari latest. Android Chrome latest. |
+| WordPress | 6.5+. PHP 7.4+. Recommended PHP 8.1+. |
+| Code quality | WordPress Coding Standards. Escape at output. Sanitize at input. |
+| File size | `style.css` < 50KB uncompressed. No JS file > 5KB. Total theme size < 2MB excluding screenshot. |
+| License | GPL v2 or later. All bundled assets GPL-compatible. |
 
-## 14. Success criteria
+---
 
-v0.1.0 is successful when:
+## 8. Success Metrics (Phase 1)
 
-- The theme activates on a clean WordPress 6.5+ install with no PHP
-  warnings or notices.
-- The default front-page renders correctly with no plugins installed.
-- All eight patterns are available from the Site Editor inserter and insert
-  without errors.
-- Both style variations are selectable from the Styles panel and produce
-  visually distinct results.
-- The theme passes the WordPress.org theme review checklist at the time
-  of submission, with the explicit exception of demo starter content
-  (which is a Phase 9 deliverable).
-- A non-technical user can complete User Journey A above in under sixty
-  minutes without external documentation.
+Phase 1 is **internal success only** — there are no public-facing metrics yet. Phase 1 success is defined by:
 
-## 15. Future roadmap
+- All Phase 1 deliverables produced and committed
+- All validation checks pass (JSON lint, PHP lint, structure audit)
+- The theme activates cleanly on a fresh WordPress 6.5+ install with no errors
+- All 12 templates render with default content
+- The design system is internally consistent — colors, typography, spacing used uniformly across all initial patterns
+- Documentation is complete and project-specific (no placeholder text)
 
-The product roadmap is documented phase-by-phase in
-`docs/DEVELOPMENT-ROADMAP.md`. v0.1 ships Phases 0–5. Phases 6–17 (style
-variations beyond Minimal/Dark, GoDevs Core plugin, 100+ starter sites,
-advanced portfolio layouts, advanced CTA patterns, performance audit,
-accessibility audit, security audit, QA pass, final documentation,
-WordPress.org preparation, release candidate) are downstream of v0.1 and
-are tracked there.
+---
+
+## 9. Out of Scope (Phase 1)
+
+The following are **explicitly excluded** from Phase 1:
+
+- 100+ demos
+- 500+ patterns
+- 100+ page compositions
+- 15+ style variations
+- Demo content (sample posts, sample media)
+- Pattern preview image generation pipeline
+- Build tooling (no bundler, no PostCSS, no Sass — Phase 1 ships raw HTML/CSS/PHP/JSON)
+- E2E browser testing
+- WordPress.org submission package
+- Companion plugin scaffolding
+
+These belong to later phases — see `RELEASE-ROADMAP.md`.
+
+---
+
+## 10. Dependencies and Constraints
+
+### Hard Constraints
+
+- WordPress 6.5+ block theme APIs
+- `theme.json` schema v3
+- No required plugins
+- No external font CDN
+- No jQuery
+- GPL v2 or later licensing
+
+### Soft Constraints
+
+- Prefer WordPress core blocks over custom markup
+- Prefer `theme.json` settings over PHP enqueues
+- Prefer CSS custom properties over hardcoded values
+- Prefer semantic HTML over ARIA when possible
+
+---
+
+## 11. Risks
+
+| Risk | Mitigation |
+|---|---|
+| Pattern fatigue — too many similar patterns | Pattern authoring guide (`PATTERN-SYSTEM.md`) enforces visual distinctness. |
+| Style variations collapse into color swaps | Each variation must change at minimum: type pairings, density, and accent. |
+| Plugin creep | `WORDPRESS-STANDARDS.md` documents the boundary between theme and plugin. |
+| Theme.json drift between variations | Variations are produced by editing the same source `theme.json` skeleton. |
+| Translation regressions | All user-facing strings use `godevs-portfolio` text domain. PHP lint + WPCS catches violations. |
+| Performance degradation as pattern library grows | Patterns ship as static HTML — no runtime cost. Only enqueued assets count. |
+
+---
+
+## 12. Glossary
+
+| Term | Meaning |
+|---|---|
+| FSE | Full Site Editing — WordPress feature allowing site-wide block-based editing |
+| Block theme | A theme using `theme.json` + HTML templates rather than PHP templates |
+| Template | A `templates/*.html` file rendered for a given WordPress route |
+| Template part | A `parts/*.html` file referenced by templates (e.g., header, footer) |
+| Pattern | A reusable block composition registered in `patterns/*.php` |
+| Style variation | A `styles/*.json` file overriding the default `theme.json` styles |
+| Global Styles | The user-editable representation of `theme.json` in the Site Editor |
+| Design token | A named value (color, size, spacing) used consistently across the theme |

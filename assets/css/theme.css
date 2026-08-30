@@ -1,0 +1,779 @@
+/*
+ * GoDevs Portfolio — Supplementary theme styles
+ *
+ * The bulk of the theme styling is emitted by WordPress from theme.json
+ * (design tokens + block-level styles + element styles).
+ *
+ * This file holds supplementary styles that cannot be expressed in theme.json:
+ *   - Global focus-visible outline (visible keyboard focus)
+ *   - prefers-reduced-motion overrides
+ *   - Block style class CSS for custom block styles registered in inc/block-styles.php
+ *   - Minor accessibility refinements
+ *
+ * See docs/PERFORMANCE.md for the rationale on what belongs here vs theme.json.
+ */
+
+/* --------------------------------------------------------------
+ * 1. Focus states
+ * -------------------------------------------------------------- */
+
+*:focus-visible {
+        outline: 2px solid var(--wp--preset--color--accent, #2563eb);
+        outline-offset: 2px;
+}
+
+/* Remove default focus ring for mouse users (keep for keyboard). */
+*:focus:not(:focus-visible) {
+        outline: none;
+}
+
+/* --------------------------------------------------------------
+ * 2. Reduced motion
+ * -------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+        }
+}
+
+/* --------------------------------------------------------------
+ * 3. Block style classes — core/button variants
+ * -------------------------------------------------------------- */
+
+/* Outline button — transparent background, accent border. */
+.wp-block-button.is-style-outline .wp-block-button__link {
+        background-color: transparent;
+        border: 1px solid var(--wp--preset--color--accent, currentColor);
+        color: var(--wp--preset--color--accent, currentColor);
+        padding-top: calc(var(--wp--preset--spacing--40, 1rem) - 1px);
+        padding-bottom: calc(var(--wp--preset--spacing--40, 1rem) - 1px);
+        transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+        background-color: var(--wp--preset--color--accent, currentColor);
+        color: var(--wp--preset--color--contrast, #ffffff);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:active {
+        transform: translateY(1px);
+}
+
+/* Text link button — no chrome, accent text. */
+.wp-block-button.is-style-text-link .wp-block-button__link {
+        background: transparent;
+        border: none;
+        color: var(--wp--preset--color--accent, currentColor);
+        padding-left: 0;
+        padding-right: 0;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+        transition: color 0.15s ease, text-decoration-thickness 0.15s ease;
+}
+
+.wp-block-button.is-style-text-link .wp-block-button__link:hover {
+        text-decoration-thickness: 2px;
+}
+
+/* Pill button — fully rounded. */
+.wp-block-button.is-style-pill .wp-block-button__link {
+        border-radius: 9999px;
+        padding-left: var(--wp--preset--spacing--60, 2rem);
+        padding-right: var(--wp--preset--spacing--60, 2rem);
+        transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.wp-block-button.is-style-pill .wp-block-button__link:active {
+        transform: translateY(1px);
+}
+
+/* Arrow button — text-link style with directional affordance via ::after. */
+.wp-block-button.is-style-arrow .wp-block-button__link {
+        background: transparent;
+        border: none;
+        color: var(--wp--preset--color--accent, currentColor);
+        padding-left: 0;
+        padding-right: 0;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+        transition: color 0.15s ease, text-decoration-thickness 0.15s ease;
+}
+
+.wp-block-button.is-style-arrow .wp-block-button__link::after {
+        content: " →";
+        margin-left: 0.25em;
+        transition: transform 0.15s ease;
+        display: inline-block;
+}
+
+.wp-block-button.is-style-arrow .wp-block-button__link:hover {
+        text-decoration-thickness: 2px;
+}
+
+.wp-block-button.is-style-arrow .wp-block-button__link:hover::after {
+        transform: translateX(2px);
+}
+
+/* Default button — better hover/active state */
+.wp-block-button .wp-block-button__link:not(.is-style-outline):not(.is-style-text-link):not(.is-style-pill):not(.is-style-arrow) {
+        transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.wp-block-button .wp-block-button__link:not(.is-style-outline):not(.is-style-text-link):not(.is-style-pill):not(.is-style-arrow):active {
+        transform: translateY(1px);
+}
+
+/* --------------------------------------------------------------
+ * 4. Block style classes — core/image variants
+ * -------------------------------------------------------------- */
+
+/* Rounded image — generous radius. */
+.wp-block-image.is-style-rounded img {
+        border-radius: 1rem;
+}
+
+/* Framed image — bordered with padding. */
+.wp-block-image.is-style-framed img {
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        padding: var(--wp--preset--spacing--20, 0.5rem);
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border-radius: 0.25rem;
+}
+
+/* Soft image — subtle shadow, no border. */
+.wp-block-image.is-style-soft img {
+        border-radius: 0.5rem;
+        box-shadow: 0 12px 32px rgba(10, 10, 10, 0.08);
+}
+
+/* Full bleed image — negative margins for full-width display. */
+.wp-block-image.is-style-full-bleed {
+        margin-left: calc(-1 * var(--wp--preset--spacing--50, 1.5rem));
+        margin-right: calc(-1 * var(--wp--preset--spacing--50, 1.5rem));
+        max-width: none;
+}
+
+.wp-block-image.is-style-full-bleed img {
+        width: 100%;
+        height: auto;
+}
+
+/* --------------------------------------------------------------
+ * 4. Block style classes — core/group card variants
+ * -------------------------------------------------------------- */
+
+/* Card Default — subtle border + soft shadow. */
+.wp-block-group.is-style-card-default {
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(10, 10, 10, 0.06);
+        padding: var(--wp--preset--spacing--60, 2rem);
+}
+
+/* Card Bordered — 1px border, no shadow. */
+.wp-block-group.is-style-card-bordered {
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: 0.5rem;
+        padding: var(--wp--preset--spacing--60, 2rem);
+}
+
+/* Card Elevated — larger shadow, no border. */
+.wp-block-group.is-style-card-elevated {
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border-radius: 0.5rem;
+        box-shadow: 0 12px 32px rgba(10, 10, 10, 0.08);
+        padding: var(--wp--preset--spacing--60, 2rem);
+}
+
+/* Card Minimal — no chrome, only whitespace. */
+.wp-block-group.is-style-card-minimal {
+        padding: var(--wp--preset--spacing--60, 2rem);
+}
+
+/* Card Editorial — accent left border + serif heading. */
+.wp-block-group.is-style-card-editorial {
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border-left: 2px solid var(--wp--preset--color--accent, currentColor);
+        padding: var(--wp--preset--spacing--50, 1.5rem) var(--wp--preset--spacing--60, 2rem);
+}
+
+/* Card Featured — accent top border, surface background. */
+.wp-block-group.is-style-card-featured {
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border-top: 3px solid var(--wp--preset--color--accent, currentColor);
+        padding: var(--wp--preset--spacing--60, 2rem);
+        box-shadow: 0 4px 12px rgba(10, 10, 10, 0.04);
+}
+
+/* Card Numbered — large display numerals + content. */
+.wp-block-group.is-style-card-numbered {
+        counter-reset: godevs-card-number;
+        padding: var(--wp--preset--spacing--60, 2rem);
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: 0.5rem;
+        background-color: var(--wp--preset--color--surface, #ffffff);
+}
+
+.wp-block-group.is-style-card-numbered > *:first-child::before {
+        counter-increment: godevs-card-number;
+        content: "0" counter(godevs-card-number);
+        font-family: var(--wp--preset--font-family--display, sans-serif);
+        font-size: var(--wp--preset--font-size--xxx-large, 3.75rem);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--wp--preset--color--accent, currentColor);
+        display: block;
+        margin-bottom: var(--wp--preset--spacing--30, 0.75rem);
+        opacity: 0.4;
+}
+
+/* --------------------------------------------------------------
+ * 5. Block style classes — core/separator variants
+ * -------------------------------------------------------------- */
+
+.wp-block-separator.is-style-thin {
+        border-top-width: 1px;
+        border-top-color: var(--wp--preset--color--border, currentColor);
+        border-top-style: solid;
+        height: 0;
+        margin-block: var(--wp--preset--spacing--70, 3rem);
+}
+
+.wp-block-separator.is-style-dots {
+        background: transparent;
+        border: none;
+        color: var(--wp--preset--color--muted, currentColor);
+        font-size: 1.5rem;
+        letter-spacing: 0.5em;
+        text-align: center;
+}
+
+.wp-block-separator.is-style-dots::before {
+        content: "···";
+        color: inherit;
+        letter-spacing: inherit;
+}
+
+/* --------------------------------------------------------------
+ * 6. Block style classes — eyebrow paragraph
+ * -------------------------------------------------------------- */
+
+.wp-block-paragraph.is-style-eyebrow,
+p.is-style-eyebrow {
+        color: var(--wp--preset--color--muted, currentColor);
+        font-size: var(--wp--preset--font-size--small, 0.875rem);
+        letter-spacing: 0.08em;
+        margin-block-end: var(--wp--preset--spacing--40, 1rem);
+        text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------
+ * 7. Reading progress refinements
+ * -------------------------------------------------------------- */
+
+/* Articles use a content-width column. WordPress core handles the layout
+ * via the align settings in theme.json — no custom layout needed. */
+
+/* Ensure images inside article bodies do not exceed content width. */
+.entry-content .wp-block-image,
+.entry-content .wp-block-media-text {
+        max-width: 100%;
+}
+
+/* Captions: muted, small, centered. */
+.wp-block-image figcaption,
+.wp-block-embed figcaption {
+        color: var(--wp--preset--color--muted, inherit);
+        font-size: var(--wp--preset--font-size--small, 0.875rem);
+        margin-block-start: var(--wp--preset--spacing--30, 0.75rem);
+        text-align: center;
+}
+
+/* --------------------------------------------------------------
+ * 8. Link refinements
+ * -------------------------------------------------------------- */
+
+a {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+}
+
+a:hover {
+        text-decoration-thickness: 2px;
+}
+
+/* Skip link — visible only when focused. */
+.skip-link {
+        background: var(--wp--preset--color--primary, #0a0a0a);
+        color: var(--wp--preset--color--contrast, #ffffff);
+        font-size: var(--wp--preset--font-size--normal, 1rem);
+        padding: var(--wp--preset--spacing--30, 0.75rem) var(--wp--preset--spacing--50, 1.5rem);
+        text-decoration: none;
+}
+
+.skip-link:focus {
+        outline: 2px solid var(--wp--preset--color--accent, currentColor);
+        outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------
+ * 9. Header / footer minor refinements
+ * -------------------------------------------------------------- */
+
+/* Sticky default header — only when no transparent header is in use. */
+.site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: var(--wp--preset--color--base, #fafaf7);
+        border-bottom: 1px solid var(--wp--preset--color--border, transparent);
+}
+
+/* Transparent header variant — used over hero covers. */
+.site-header.is-transparent,
+.site-header-transparent {
+        background-color: transparent;
+        border-bottom: none;
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: 20;
+}
+
+/* Footer subtle border-top separation. */
+.site-footer {
+        border-block-start: 1px solid var(--wp--preset--color--border, transparent);
+}
+
+/* --------------------------------------------------------------
+ * 10. Print styles
+ * -------------------------------------------------------------- */
+
+@media print {
+
+        .site-header,
+        .site-footer,
+        .wp-block-buttons,
+        .wp-block-social-links {
+                display: none;
+        }
+
+        body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 12pt;
+        }
+
+        a {
+                text-decoration: underline;
+        }
+
+        a[href]::after {
+                content: " (" attr(href) ")";
+                font-size: 10pt;
+        }
+}
+
+/* --------------------------------------------------------------
+ * 11. Phase 6 — Design refinements
+ * -------------------------------------------------------------- */
+
+/* Better link underlines — skip ink for descenders */
+a {
+        text-decoration-skip-ink: auto;
+        text-underline-offset: 0.2em;
+}
+
+/* Card hover — subtle lift for elevated and default cards */
+.wp-block-group.is-style-card-default:hover,
+.wp-block-group.is-style-card-elevated:hover {
+        box-shadow: 0 16px 40px rgba(10, 10, 10, 0.10);
+        transition: box-shadow 0.2s ease;
+}
+
+.wp-block-group.is-style-card-default,
+.wp-block-group.is-style-card-elevated {
+        transition: box-shadow 0.2s ease;
+}
+
+/* Details/FAQ — better summary styling */
+.wp-block-details summary {
+        cursor: pointer;
+        font-weight: 600;
+        font-size: var(--wp--preset--font-size--medium, 1.25rem);
+        line-height: 1.4;
+        padding-block: var(--wp--preset--spacing--20, 0.5rem);
+        list-style: none;
+}
+
+.wp-block-details summary::-webkit-details-marker {
+        display: none;
+}
+
+.wp-block-details summary::before {
+        content: "+";
+        display: inline-block;
+        width: 1.5em;
+        margin-right: 0.5em;
+        font-weight: 400;
+        color: var(--wp--preset--color--accent, currentColor);
+}
+
+.wp-block-details[open] summary::before {
+        content: "−";
+}
+
+.wp-block-details[open] summary {
+        margin-bottom: var(--wp--preset--spacing--30, 0.75rem);
+}
+
+/* Navigation — better hover/active states */
+.wp-block-navigation .wp-block-navigation-item__content {
+        transition: color 0.15s ease;
+        position: relative;
+}
+
+.wp-block-navigation .wp-block-navigation-item__content:hover {
+        color: var(--wp--preset--color--accent, currentColor);
+}
+
+/* Current nav item — underline indicator */
+.wp-block-navigation .current-menu-item .wp-block-navigation-item__content {
+        color: var(--wp--preset--color--accent, currentColor);
+        font-weight: 600;
+}
+
+/* Quote — refined styling */
+.wp-block-quote {
+        border-left-color: var(--wp--preset--color--accent, currentColor);
+        border-left-width: 3px;
+}
+
+.wp-block-quote p {
+        font-style: italic;
+}
+
+.wp-block-quote cite {
+        display: block;
+        margin-top: var(--wp--preset--spacing--30, 0.75rem);
+}
+
+/* Pullquote — refined spacing */
+.wp-block-pullquote {
+        border-top: 2px solid var(--wp--preset--color--border, currentColor);
+        border-bottom: 2px solid var(--wp--preset--color--border, currentColor);
+        border-left: none;
+        border-right: none;
+}
+
+.wp-block-pullquote blockquote {
+        margin: 0;
+}
+
+/* Image — consistent border radius fallback */
+.wp-block-image img {
+        height: auto;
+        max-width: 100%;
+}
+
+/* Post title links — better hover */
+.wp-block-post-title a {
+        text-decoration: none;
+        transition: color 0.15s ease;
+}
+
+.wp-block-post-title a:hover {
+        color: var(--wp--preset--color--accent, currentColor);
+}
+
+/* Read more — better presentation */
+.wp-block-read-more {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: var(--wp--preset--font-size--small, 0.875rem);
+        color: var(--wp--preset--color--accent, currentColor);
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 2px;
+        transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.wp-block-read-more:hover {
+        color: var(--wp--preset--color--primary, currentColor);
+        border-bottom-color: var(--wp--preset--color--primary, currentColor);
+}
+
+/* Post date — refined */
+.wp-block-post-date {
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.01em;
+}
+
+/* Search — refined input styling */
+.wp-block-search__input {
+        border-color: var(--wp--preset--color--border, #e5e5e0);
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+        padding: var(--wp--preset--spacing--30, 0.75rem) var(--wp--preset--spacing--40, 1rem);
+        font-size: var(--wp--preset--font-size--normal, 1rem);
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wp-block-search__input:focus {
+        border-color: var(--wp--preset--color--accent, currentColor);
+        box-shadow: 0 0 0 2px var(--wp--preset--color--accent, transparent);
+        outline: none;
+}
+
+/* Separator — refined thin style */
+.wp-block-separator.is-style-thin {
+        border: none;
+        border-top: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        margin-block: var(--wp--preset--spacing--70, 3rem);
+}
+
+/* Responsive — prevent horizontal overflow globally */
+html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+}
+
+/* Responsive — clamp large type on mobile */
+@media (max-width: 480px) {
+        h1 {
+                font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+        }
+        h2 {
+                font-size: clamp(1.5rem, 6vw, 2rem) !important;
+        }
+        .wp-block-pullquote p {
+                font-size: var(--wp--preset--font-size--large, 1.5rem) !important;
+        }
+}
+
+/* Better image aspect ratio handling */
+.wp-block-image[style*="aspect-ratio"] img,
+.wp-block-image .components-resizable-box__container img {
+        object-fit: cover;
+}
+
+/* Social icons — consistent sizing */
+.wp-block-social-links .wp-block-social-link {
+        transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.wp-block-social-links .wp-block-social-link:hover {
+        transform: translateY(-2px);
+}
+
+/* Comment form — better spacing */
+.wp-block-post-comment-form input[type="text"],
+.wp-block-post-comment-form input[type="email"],
+.wp-block-post-comment-form textarea {
+        border-radius: 4px;
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        padding: var(--wp--preset--spacing--30, 0.75rem);
+        font-size: var(--wp--preset--font-size--normal, 1rem);
+        width: 100%;
+        box-sizing: border-box;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wp-block-post-comment-form input[type="text"]:focus,
+.wp-block-post-comment-form input[type="email"]:focus,
+.wp-block-post-comment-form textarea:focus {
+        border-color: var(--wp--preset--color--accent, currentColor);
+        box-shadow: 0 0 0 2px var(--wp--preset--color--accent, transparent);
+        outline: none;
+}
+
+/* --------------------------------------------------------------
+ * 12. Phase 8 — Premium design refinements
+ * -------------------------------------------------------------- */
+
+/* Premium heading typography — stronger hierarchy */
+h1, h2, h3 {
+        text-wrap: balance;
+}
+
+h4, h5, h6 {
+        text-wrap: pretty;
+}
+
+/* Better paragraph leading — prevent orphan lines */
+p {
+        text-wrap: pretty;
+}
+
+/* Premium card hover — smoother transition with transform */
+.wp-block-group.is-style-card-default,
+.wp-block-group.is-style-card-bordered,
+.wp-block-group.is-style-card-elevated,
+.wp-block-group.is-style-card-featured {
+        transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wp-block-group.is-style-card-default:hover,
+.wp-block-group.is-style-card-elevated:hover,
+.wp-block-group.is-style-card-featured:hover {
+        box-shadow: 0 20px 48px rgba(10, 10, 10, 0.12);
+}
+
+/* Premium button — smoother transitions */
+.wp-block-button .wp-block-button__link {
+        transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium navigation — underline animation */
+.wp-block-navigation .wp-block-navigation-item__content::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--wp--preset--color--accent, currentColor);
+        transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wp-block-navigation .wp-block-navigation-item__content:hover::after {
+        width: 100%;
+}
+
+/* Premium image — subtle zoom on hover for linked images */
+.wp-block-image a img,
+.wp-block-post-featured-image a img {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wp-block-image a:hover img,
+.wp-block-post-featured-image a:hover img {
+        transform: scale(1.02);
+}
+
+/* Premium pullquote — already refined in section 11, border widths merged */
+
+/* Premium details — smoother toggle */
+.wp-block-details summary {
+        transition: color 0.15s ease;
+}
+
+.wp-block-details summary:hover {
+        color: var(--wp--preset--color--accent, currentColor);
+}
+
+/* Premium separator — dotted style */
+.wp-block-separator.is-style-dots::before {
+        letter-spacing: 0.8em;
+        color: var(--wp--preset--color--border, currentColor);
+}
+
+/* Premium search — larger input with better focus */
+.wp-block-search {
+        gap: var(--wp--preset--spacing--30, 0.75rem);
+}
+
+/* Premium post title — better link presentation */
+.wp-block-post-title a:hover {
+        text-decoration: none;
+}
+
+/* Premium avatar — subtle border */
+.wp-block-avatar img {
+        border: 2px solid var(--wp--preset--color--surface, #ffffff);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Premium social icons — consistent sizing and hover */
+.wp-block-social-links {
+        gap: var(--wp--preset--spacing--30, 0.75rem);
+}
+
+.wp-block-social-link .wp-block-social-link-anchor {
+        transition: background-color 0.2s ease, color 0.2s ease;
+        border-radius: 50%;
+}
+
+/* Premium form inputs — consistent styling */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+        border: 1px solid var(--wp--preset--color--border, #d0d0d0);
+        border-radius: 4px;
+        padding: var(--wp--preset--spacing--30, 0.75rem) var(--wp--preset--spacing--40, 1rem);
+        font-size: var(--wp--preset--font-size--normal, 1rem);
+        font-family: inherit;
+        line-height: 1.5;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        color: var(--wp--preset--color--foreground, #1a1a1a);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+        border-color: var(--wp--preset--color--accent, currentColor);
+        box-shadow: 0 0 0 2px var(--wp--preset--color--accent, transparent);
+        outline: none;
+}
+
+/* Premium responsive — better mobile type scale */
+@media (max-width: 600px) {
+        h1 { font-size: clamp(1.75rem, 7vw, 2.25rem) !important; line-height: 1.15 !important; }
+        h2 { font-size: clamp(1.5rem, 5vw, 1.875rem) !important; }
+        h3 { font-size: clamp(1.25rem, 4vw, 1.5rem) !important; }
+}
+
+/* Premium responsive — tablet adjustments */
+@media (max-width: 768px) {
+        .wp-block-columns .wp-block-column {
+                flex-basis: 100% !important;
+                margin-bottom: var(--wp--preset--spacing--50, 1.5rem);
+        }
+}
+
+/* Premium scroll behavior — smooth scroll for in-page links */
+html {
+        scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+        html {
+                scroll-behavior: auto;
+        }
+}
+
+/* Premium selection styling */
+::selection {
+        background: var(--wp--preset--color--accent, #2563eb);
+        color: var(--wp--preset--color--contrast, #ffffff);
+}
+
+::-moz-selection {
+        background: var(--wp--preset--color--accent, #2563eb);
+        color: var(--wp--preset--color--contrast, #ffffff);
+}

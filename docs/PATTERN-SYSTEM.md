@@ -1,272 +1,319 @@
-# Pattern System — GoDevs Portfolio
+# GoDevs Portfolio — Pattern System
 
-Patterns are the primary reusable unit in the theme. A pattern is a
-self-registering PHP file in `/patterns/` that exposes a section of
-block markup to the Site Editor inserter. The user inserts the
-pattern, gets a copy of the markup, and edits in place.
+**Document version:** 0.1.0
+**Phase:** 1 — Foundation
 
-This document is the reference for the pattern system. It covers
-file structure, conventions, and how to add a new pattern.
+This document defines the pattern architecture, taxonomy, naming conventions, authoring standards, and growth strategy. Patterns are the primary value of the theme — they are reusable compositions of core blocks that users insert into any page or post.
+
+The long-term target is **500+ patterns across 18 categories**. Phase 1 ships ~10 representative patterns to validate the system.
 
 ---
 
-## 1. What a pattern is
+## 1. What Is a Pattern?
 
-A pattern is a curated block markup composition that solves a
-specific design problem. The pattern is:
-
-- **Reusable** — one file, insertable into any page, post, or
-  template.
-- **Responsive** — renders correctly at 375, 768, 1024, 1280,
-  1440, 1920.
-- **Accessible** — semantic HTML, keyboard navigable, sufficient
-  contrast, reduced-motion respectful.
-- **Editable** — the user can change any text, image, link, or
-  block attribute inside the pattern without breaking the layout.
-- **Lightweight** — no PHP logic beyond the file header, no JS,
-  no CSS dependencies beyond the global `theme.json` design system.
-- **Documented** — the file header carries a `Title`, `Slug`,
-  `Categories`, `Description`, and `Keywords` so the inserter and
-  search engines surface the pattern correctly.
+A pattern is a **reusable block composition** registered with WordPress via PHP. The pattern file declares metadata (title, description, categories, keywords, viewport width) and returns block markup.
 
 A pattern is **not**:
+- A custom block
+- A template
+- A short code
+- A demo (a demo composes multiple patterns)
 
-- A custom block. Patterns are core block markup.
-- A synced pattern (reusable block). Patterns are starting points;
-  edits do not propagate.
-- A shortcode. Patterns are block markup, not shortcodes.
-- A widget. Patterns live in the Site Editor inserter, not the
-  Classic widgets panel.
-
-## 2. File structure
-
-Every pattern is a single PHP file in `/patterns/`. The file begins
-with a doc block of file headers, followed by block markup.
+### 1.1 Pattern File Anatomy
 
 ```php
 <?php
 /**
- * Title: Hero
- * Slug: godevs-portfolio/hero
- * Categories: featured, header
- * Description: A bold editorial hero section with display typography,
- *   a lead paragraph, and a primary plus outline CTA.
- * Keywords: hero, landing, intro, masthead
+ * Title: Hero — Split Profile
+ * Slug: godevs-portfolio/hero-split-profile
+ * Description: A two-column hero with an editorial portrait on one side and a bold display headline plus CTA on the other.
+ * Categories: godevs-portfolio-hero
+ * Keywords: hero, split, profile, intro
  * Viewport Width: 1280
  */
 ?>
-<!-- wp:group {"tagName":"section","className":"godevs-hero"} -->
-<section class="wp-block-group godevs-hero">
-  <!-- block markup -->
+<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull">
+    <!-- Block markup here -->
 </section>
 <!-- /wp:group -->
 ```
 
-### Required headers
-- `Title` — human-readable name shown in the inserter.
-- `Slug` — pattern identifier, must be `godevs-portfolio/<name>`.
+### 1.2 Required Metadata
 
-### Optional headers
-- `Categories` — comma-separated list of category slugs. Built-in
-  categories: `button`, `columns`, `featured`, `gallery`, `header`,
-  `text`, `query`, `posts`, `footer`, `call-to-action`. Custom
-  categories must be registered via
-  `register_block_pattern_category()` in `functions.php`.
-- `Description` — one or two sentences shown in the inserter under
-  the pattern preview.
-- `Keywords` — comma-separated, used by inserter search.
-- `Viewport Width` — pixel width for the inserter preview (default
-  1200).
-- `Inserter` — `yes` (default) or `no`. Set to `no` to hide from
-  the inserter (used for starter-site patterns).
-- `Block Types` — comma-separated list of block types this pattern
-  applies to (used by the block's "Transform" menu).
+| Field | Required | Notes |
+|---|---|---|
+| `Title` | Yes | Descriptive — see Naming Standard below |
+| `Slug` | Yes | Prefixed with `godevs-portfolio/` — namespaced to avoid collisions |
+| `Description` | Yes | One sentence — explains when to use this pattern |
+| `Categories` | Yes | At least one — see Categories below |
+| `Keywords` | Recommended | 3–5 keywords users might search |
+| `Viewport Width` | Recommended | Typically `1280` for desktop patterns, `768` for compact |
 
-## 3. Slug convention
+---
 
-All pattern slugs are prefixed `godevs-portfolio/`. The prefix
-guarantees the pattern does not collide with patterns from another
-theme or plugin. The slug after the prefix is kebab-case.
+## 2. Pattern Categories
 
-Examples:
-- `godevs-portfolio/hero`
-- `godevs-portfolio/portfolio-grid`
-- `godevs-portfolio/cta`
+WordPress supports a `default` category set (Buttons, Columns, Gallery, Header, Footer, etc.). GoDevs Portfolio registers **portfolio-specific categories** to organize the long-term pattern library.
 
-## 4. Categories used in v0.1
+### 2.1 Registered Categories
 
-| Pattern | Categories |
-|---------|------------|
-| `hero` | `featured`, `header` |
-| `about` | `featured`, `about` |
-| `services` | `featured`, `services` |
-| `portfolio-grid` | `featured`, `portfolio`, `query` |
-| `testimonials` | `featured`, `text` |
-| `cta` | `featured`, `call-to-action` |
-| `contact` | `featured`, `text` |
-| `footer` | `footer` |
+| Slug | Label | Purpose |
+|---|---|---|
+| `godevs-portfolio-hero` | Hero | Top-of-page introductions |
+| `godevs-portfolio-about` | About | Bio / about sections |
+| `godevs-portfolio-services` | Services | Service offerings, feature lists |
+| `godevs-portfolio-portfolio` | Portfolio | Project showcases, grids |
+| `godevs-portfolio-projects` | Projects | Case study openers, project deep-dives |
+| `godevs-portfolio-skills` | Skills | Skill lists, proficiency displays |
+| `godevs-portfolio-experience` | Experience | Work history, timelines |
+| `godevs-portfolio-education` | Education | Education, certifications |
+| `godevs-portfolio-testimonials` | Testimonials | Client / peer endorsements |
+| `godevs-portfolio-team` | Team | Team grids, member profiles |
+| `godevs-portfolio-pricing` | Pricing | Pricing tables, plans |
+| `godevs-portfolio-blog` | Blog | Post lists, featured posts |
+| `godevs-portfolio-case-study` | Case Study | Long-form case study sections |
+| `godevs-portfolio-cta` | CTA | Call-to-action bands |
+| `godevs-portfolio-contact` | Contact | Contact sections, forms wrappers |
+| `godevs-portfolio-header` | Header | Site header variations |
+| `godevs-portfolio-footer` | Footer | Site footer variations |
+| `godevs-portfolio-pages` | Pages | Full-page compositions |
 
-The custom categories (`about`, `services`, `portfolio`) are not
-registered in `functions.php` in v0.1 because the patterns using them
-also include built-in categories. If a future pattern only uses a
-custom category, the category must be registered.
+Categories are registered in `inc/block-patterns.php`.
 
-## 5. Block style variations used
+### 2.2 Multi-Category Patterns
 
-The patterns use the block style variations declared in
-`assets/css/editor.css` and the front-end style engine:
+A pattern may belong to multiple categories. For example, "Hero — Split Profile" might be tagged both `godevs-portfolio-hero` and `godevs-portfolio-pages`. The first category is the **primary** category and is shown first in the inserter.
 
-| Style | Used by | Effect |
-|-------|---------|--------|
-| `is-style-muted` | paragraph | muted text colour |
-| `is-style-lead` | paragraph | large size, secondary colour |
-| `is-style-outline` | button | transparent background, primary border |
-| `is-style-pill` | button | pill-shaped (future use) |
+---
 
-Patterns use these styles via the `className` block attribute:
+## 3. Naming Standard
 
-```html
-<!-- wp:paragraph {"className":"is-style-muted"} -->
-<p class="is-style-muted">…</p>
-<!-- /wp:paragraph -->
+Pattern titles follow this convention:
+
+```
+<Section> — <Descriptive Subtitle>
 ```
 
-## 6. Spacing and layout conventions
+Where `<Section>` matches one of the category labels (Hero, About, Services, etc.), and `<Descriptive Subtitle>` is a short, specific phrase describing the pattern's design intent.
 
-### Section vertical padding
-- Hero, CTA: `var:preset|spacing|90` (6rem).
-- About, services, portfolio, testimonials, contact: `var:preset|spacing|80`
-  (4rem).
-- Footer: `var:preset|spacing|70` (3rem).
+### 3.1 Good Names
 
-### Section background
-- Default: `var(--wp--preset--color--background)` (white).
-- Alternating section: `var(--wp--preset--color--surface)` (very
-  light grey).
-- CTA / Contact / Footer band: `var(--wp--preset--color--primary)`
-  (navy) with `var(--wp--preset--color--background)` (white) text.
+| Title | Slug |
+|---|---|
+| Hero — Split Profile | `godevs-portfolio/hero-split-profile` |
+| Hero — Minimal Introduction | `godevs-portfolio/hero-minimal-introduction` |
+| Portfolio — Three Column Grid | `godevs-portfolio/portfolio-three-column-grid` |
+| Services — Feature Cards | `godevs-portfolio/services-feature-cards` |
+| About — Image and Stats | `godevs-portfolio/about-image-and-stats` |
+| Testimonials — Single Quote | `godevs-portfolio/testimonials-single-quote` |
+| CTA — Split Band | `godevs-portfolio/cta-split-band` |
+| Contact — Inline CTA | `godevs-portfolio/contact-inline-cta` |
+| Experience — Vertical Timeline | `godevs-portfolio/experience-vertical-timeline` |
+| Blog — Featured Posts | `godevs-portfolio/blog-featured-posts` |
 
-### Inner content layout
-- Default: `layout: { type: "constrained" }` (content centered at
-  768px).
-- Multi-column sections: `wp:columns` with explicit width
-  percentages (e.g. `60% / 40%` for about).
+### 3.2 Bad Names (Forbidden)
 
-## 7. Demo content rules
-
-Demo content in patterns must follow the policy in the product
-brief (section 14):
-
-- **Realistic but fictional.** Sample identities are clearly
-  fictional ("Sample client", "fictional studio").
-- **No fake awards, certifications, or revenue.**
-- **No generic AI marketing language.** Phrases like "unlock your
-  potential", "transform your digital vision", "innovative solutions
-  for tomorrow" are forbidden.
-- **No fake client relationships.** Testimonials pattern includes a
-  "Sample attribution shown for layout reference" disclaimer.
-- **No fake stock photos.** Image blocks in patterns are empty
-  `<img>` tags with empty `alt` attributes. The user provides
-  images via the Site Editor.
-
-## 8. Pattern copy voice
-
-The voice of the demo copy is:
-
-- **Direct, not promotional.** "A small studio working on design
-  systems, editorial portfolios, and the occasional ambitious
-  marketing site."
-- **Specific, not generic.** "We take on a small number of projects
-  each year" instead of "We deliver excellence in every project."
-- **Honest about scale.** "A handful of designers and engineers"
-  instead of "a team of experts."
-- **Specific about deliverables.** "Typography, palette, spacing,
-  and a small set of block patterns wired into theme.json."
-
-## 9. Adding a new pattern
-
-To add a new pattern:
-
-1. Create `/patterns/<name>.php` with a pattern file header.
-2. Set the `Slug` to `godevs-portfolio/<name>`.
-3. Pick a `Title` that reads as an outcome (e.g. "Hero", "About",
-  "Services", "Portfolio Grid", "Testimonial", "Call to Action",
-  "Contact", "Minimal Footer"). Avoid developer-facing terms
-  ("Section", "Container", "Wrapper").
-4. Pick `Categories` from the built-in list plus any custom
-  categories you need to register.
-5. Write a one-or-two-sentence `Description` that helps a non-
-  technical user pick the pattern.
-6. Add `Keywords` to make the pattern searchable.
-7. Set `Viewport Width` to 1280 for full-width patterns or 768 for
-   content-width patterns.
-8. Compose the block markup. Use only core blocks. Use design
-   system tokens for colour, spacing, typography, radius, shadow.
-9. Test the pattern by inserting it in the Site Editor and at each
-   responsive breakpoint.
-
-## 10. Pattern review checklist
-
-Before merging a new pattern, confirm:
-
-- [ ] Slug is `godevs-portfolio/<name>`.
-- [ ] Title reads as an outcome, not an implementation.
-- [ ] Description is one or two sentences in plain English.
-- [ ] Categories include at least one built-in category.
-- [ ] Pattern uses design system tokens (no hardcoded hex or
-      spacing).
-- [ ] Pattern is responsive at 375, 768, 1024, 1280, 1440, 1920.
-- [ ] Pattern has at least one heading with appropriate level.
-- [ ] Pattern uses semantic landmarks where applicable (e.g.
-      `<section>` wrapper for major sections).
-- [ ] Pattern copy is realistic but fictional.
-- [ ] Pattern does not include any fake awards, certifications,
-      revenue, or client relationships.
-- [ ] Pattern does not include AI-generated images, illustrations,
-      or icons.
-- [ ] Pattern does not call any plugin functions directly.
-- [ ] Pattern works with GoDevs Core inactive (graceful
-      degradation).
-- [ ] Pattern inserts without PHP errors.
-
-## 11. Pattern anti-patterns
-
-The following are explicitly forbidden:
-
-- **Custom blocks.** Use core blocks. See the "Custom block rule"
-  in `docs/GUTENBERG-ARCHITECTURE.md`.
-- **Inline CSS or JS.** Patterns are HTML with block comments only.
-- **PHP logic.** The only PHP in a pattern file is the file header.
-- **Hardcoded hex values.** Use `var(--wp--preset--color--*)`.
-- **Arbitrary spacing.** Use `var:preset|spacing|*` or
-  `var(--wp--preset--spacing--*)`.
-- **External image URLs.** Image blocks are empty until the user
-  fills them.
-- **Plugin function calls.** Use the body class
-  (`godevs-core-active`) or PHP constant
-  (`GODEVS_PORTFOLIO_CORE_ACTIVE`) for plugin-conditional rendering.
-- **Excessive gradients, shadows, or decorative elements.** See
-  the design system rules in `docs/DESIGN-SYSTEM.md`.
-
-## 12. Pattern-to-pattern references
-
-A pattern can reference another pattern via the `core/pattern`
-block:
-
-```html
-<!-- wp:pattern {"slug":"godevs-portfolio/hero"} /-->
+```
+Hero 01
+Hero 02
+Hero 03
+Pattern A
+Test Pattern
+Untitled
+New Hero
 ```
 
-This is useful for composing a "page" pattern that bundles several
-section patterns together. v0.1 does not ship page-level patterns,
-but the front-page template uses the `core/pattern` block to
-compose the homepage from section patterns.
+Why forbidden:
+- **Numbered names** imply variants are interchangeable. They are not.
+- **Generic names** ("Untitled", "New Hero") give no signal of design intent.
+- **Pattern A** style gives no hint of content or layout.
 
-## 13. Pattern transformations
+### 3.3 Slug Convention
 
-A pattern can be associated with a block type via the `Block Types`
-header, which causes the pattern to appear in the block's "Replace"
-menu. v0.1 does not use this feature, but it is available for
-future patterns that want to specialise a core block (e.g. a
-"Portfolio Query" pattern that replaces `core/query` for portfolio
-use cases — Phase 8 deliverable).
+```
+godevs-portfolio/<category-slug>-<descriptive-slug>
+```
+
+- All lowercase
+- Hyphenated
+- Namespaced with `godevs-portfolio/` prefix
+- No trailing version number
+- No date or year
+
+---
+
+## 4. Authoring Standards
+
+### 4.1 Composition Rules
+
+1. **Top-level wrapper is `core/group` with `tagName: "section"` and `align: "full"`.** This makes the pattern a clean section.
+2. **Inner content wrapper is `core/group` with `align: "wide"`.** Section content respects the wide width.
+3. **Section vertical padding** uses spacing preset XL on mobile, 2XL on desktop (fluid `clamp`).
+4. **Section header** (eyebrow + H2) uses `core/group` with `layout: { type: "flex", orientation: "vertical" }` and gap SM.
+5. **Section content** uses `core/group` with `layout: { type: "flex", orientation: "vertical" }` and gap LG.
+
+### 4.2 Block Selection Rules
+
+- Prefer `core/stack` and `core/row` over manual `core/columns` for non-equal splits.
+- Use `core/columns` only for equal-width grids.
+- Use `core/media-text` for any image+content split — never two-column with one image.
+- Use `core/query` + `core/post-template` for any post/portfolio list — never a static `core/columns` of `core/image`s.
+- Use `core/buttons` for CTAs — never `core/button` alone.
+
+### 4.3 Styling Rules
+
+- All colors via `var:preset|color|<slug>` — never hardcoded hex.
+- All spacing via `var:preset|spacing|<slug>` — never hardcoded `rem`/`px`.
+- All font sizes via `var:preset|font-size|<slug>` — never hardcoded size.
+- All font families via `var:preset|font-family|<slug>`.
+- Border radius via the block's `style.border.radius` — never hardcoded in CSS.
+- Block-level custom class names use `wp-block-godevs-<pattern-name>` only when needed for supplementary CSS.
+
+### 4.4 Accessibility Rules
+
+- Every section has a visible H2 — never a section with only imagery.
+- Every image has descriptive `alt` text — or empty `alt=""` if purely decorative.
+- Every button/link has a text label — no icon-only buttons.
+- Reading order matches visual order (use `core/stack`, not absolute positioning).
+- Color contrast meets WCAG 2.1 AA in default + every variation.
+
+### 4.5 Content Rules
+
+- Pattern content uses **placeholder text** that hints at purpose, not Lorem Ipsum.
+- Example: A services pattern shows "Brand Strategy", "Visual Identity", "Web Design" — not "Service 1, Service 2".
+- Images use `core/image` with `placeholder` or a default `wp-post-image`-compatible URL. No external image URLs.
+
+---
+
+## 5. Pattern Library Growth Strategy
+
+### 5.1 Phase Targets
+
+| Phase | Pattern count | Focus |
+|---|---|---|
+| Phase 1 | ~10 | Representative patterns validating the system |
+| Phase 2 | 50+ | Full set per major category |
+| Phase 3 | 150+ | Variations on each major pattern type |
+| Phase 4 | (demos consume patterns — no new patterns) | — |
+| Phase 5 | 500+ | Comprehensive library covering all niches |
+| Phase 6 | (audit and cull — no new patterns unless filling gaps) | Quality pass |
+
+### 5.2 Visual Distinctness Rule
+
+Two patterns in the same category must differ in **at least three** of:
+
+1. Layout system (grid vs. split vs. stack vs. asymmetric)
+2. Density (compact vs. spacious)
+3. Image treatment (full-bleed vs. contained vs. collage)
+4. Type treatment (display vs. body-led vs. caption-led)
+5. CTA presence and style
+6. Background treatment (solid vs. split vs. layered)
+
+Two patterns that differ only in color or copy are **not distinct** and one should be removed.
+
+### 5.3 Culling Strategy
+
+At Phase 6 audit:
+- Identify patterns that differ from another pattern only by color — remove one
+- Identify patterns with low inserter engagement (if analytics available) — review
+- Identify patterns that fail accessibility audit — fix or remove
+- Identify patterns that fail responsive audit — fix or remove
+
+The pattern library should grow through **addition of distinct designs**, not duplication.
+
+---
+
+## 6. Pattern Folder Layout
+
+Patterns live in `patterns/<category>/<pattern-name>.php`. The folder name matches the category slug (without the `godevs-portfolio-` prefix). The filename matches the pattern's descriptive slug.
+
+```
+patterns/
+├── hero/
+│   └── split-profile.php
+├── about/
+│   └── image-and-stats.php
+├── services/
+│   └── feature-cards.php
+...
+```
+
+### 6.1 Why a Folder Per Category?
+
+When the pattern count grows past 50, a flat `patterns/` directory becomes unmanageable. Category folders keep the directory navigable and make per-category audits trivial.
+
+The folder name does **not** need to match the pattern's registered category — that mapping happens in the pattern's PHP header. But by convention, we keep them aligned.
+
+---
+
+## 7. Pattern Discovery in the Inserter
+
+Patterns surface in the WordPress inserter under two paths:
+
+1. **Category browse:** Inserter → Patterns → [Category name] → All patterns in that category
+2. **Keyword search:** Inserter → search "hero" → All patterns with "hero" in title, slug, or keywords
+
+The Title, Description, and Keywords fields drive discovery. Investing in clear metadata directly improves pattern usability.
+
+---
+
+## 8. Pattern-Composition vs Template Composition
+
+Patterns are the building blocks. Templates compose patterns. A demo composes templates with content + style variations.
+
+```
+Patterns (atomic)
+      ↓
+Template Parts (header, footer)
+      ↓
+Templates (composed of patterns + template parts)
+      ↓
+Demo (composed of templates + content + style variation)
+```
+
+This separation is critical to the long-term goal of 100+ demos from a shared pattern library. See `TEMPLATE-SYSTEM.md` and the demo system section of `ARCHITECTURE.md`.
+
+---
+
+## 9. Phase 1 Initial Pattern Set
+
+Phase 1 ships the following representative patterns. Each was chosen to validate a different category and a different layout system.
+
+| File | Title | Category | Layout system validated |
+|---|---|---|---|
+| `hero/split-profile.php` | Hero — Split Profile | Hero | Two-column split with media+text |
+| `about/image-and-stats.php` | About — Image and Stats | About | Media-text + stats row |
+| `services/feature-cards.php` | Services — Feature Cards | Services | Three-column grid of cards |
+| `portfolio/three-column-grid.php` | Portfolio — Three Column Grid | Portfolio | Query loop + post-template grid |
+| `skills/labeled-list.php` | Skills — Labeled List | Skills | Two-column label/value list |
+| `experience/vertical-timeline.php` | Experience — Vertical Timeline | Experience | Stack with year+content blocks |
+| `testimonials/single-quote.php` | Testimonials — Single Quote | Testimonials | Pull quote with attribution |
+| `cta/split-cta.php` | CTA — Split Band | CTA | Full-bleed band with split content |
+| `contact/contact-cta.php` | Contact — Inline CTA | Contact | Centered CTA with contact info |
+| `blog/featured-posts.php` | Blog — Featured Posts | Blog | Query loop with featured post + 2 secondary |
+
+This set covers:
+- All major layout systems (split, stack, grid, query loop, cover)
+- All major content types (text, media, stats, list, quote, CTA, contact)
+- Both `core/columns` and `core/query` patterns
+- Both full-bleed and contained patterns
+
+---
+
+## 10. Pattern Authoring Workflow
+
+When adding a new pattern:
+
+1. **Identify the category** — file goes in `patterns/<category>/`
+2. **Pick a descriptive name** — see Naming Standard
+3. **Author the metadata header** — title, slug, description, categories, keywords, viewport
+4. **Compose with core blocks** — see Authoring Standards
+5. **Validate the markup** — open in Site Editor, ensure it inserts and renders
+6. **Test in a style variation** — switch to each style variation, ensure it still looks intentional
+7. **Test responsive** — viewport at 360px, 768px, 1280px
+8. **Test accessibility** — keyboard nav, focus visible, contrast AA
+9. **Update `CHANGELOG.md`** under "Added"
+10. **Commit** with message `Add pattern: <title>`
+
+See `CONTRIBUTING.md` for the full workflow.

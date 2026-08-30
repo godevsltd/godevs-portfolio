@@ -1,370 +1,451 @@
-# AI Development Guide — GoDevs Portfolio
+# GoDevs Portfolio — AI Development Guide
 
-This document is written for any future AI coding agent (or human
-contributor) that touches this codebase. Read it *before* opening a file.
-Following the rules below keeps the theme coherent as it grows from a
-v0.1 foundation into a 100-site starter catalogue. Ignoring them turns
-the theme into an incoherent patchwork within a few PRs.
+**Document version:** 0.1.0
+**Phase:** 1 — Foundation
 
-If a rule here conflicts with the user's request, surface the conflict in
-the PR description and ask the maintainer to resolve it before merging.
-Do not silently override the rule.
-
-### Companion documents (read alongside this guide)
-
-Before implementing anything, also read:
-
-- `docs/FEATURE-REGISTRY.md` — the canonical list of implemented
-  features with their IDs, status, files, and dependencies. **Search
-  this before adding a feature** to avoid duplicating existing
-  functionality. **Update this after implementing a feature** so the
-  next contributor can find it.
-- `docs/DECISION-LOG.md` — records significant architectural
-  decisions made in v0.1 and v0.2 (block-theme-only, no CPTs in theme,
-  self-hosted fonts, zero dependencies, theme.json as single source
-  of truth, style variations as intentional redesigns, patterns over
-  custom blocks, v0.2 scope, FAQ via core/details, additive test
-  baseline). If you are about to override one of these decisions,
-  add a new entry to the Decision Log first explaining why.
-- `docs/ARCHITECTURE.md` — how the theme is put together.
-- `docs/DESIGN-SYSTEM.md` — the design vocabulary (palette,
-  typography, spacing, components) every pattern and variation uses.
-- `docs/CODING-STANDARDS.md` — the PHP / JS / CSS / HTML conventions.
+This document defines the rules and workflow for AI agents (and human developers) modifying the GoDevs Portfolio theme. It is the authoritative reference for how to make changes safely and predictably.
 
 ---
 
-## 1. Product goals (re-read every sprint)
+## 1. Core Principle
 
-Build a serious commercial WordPress block theme — not an AI-generated
-theme pack. The theme should feel *designed* by a person, not *generated*
-by a model. Quality and simplicity outrank feature count.
+**Build this theme like a professional WordPress product, not like a generated code demo.**
 
-The user should not need a page builder. The user should not need a
-developer to swap a logo or recolour the site. The user should not need
-a plugin to publish a portfolio. The architecture should scale to a
-100-site starter catalogue without rewrites.
+Priorities, in order:
 
-If a proposed feature would require any of these to become false, it
-probably does not belong in the theme.
+1. **Architecture** — Follow the documented file structure and patterns.
+2. **Design System** — Use the design tokens defined in `theme.json`.
+3. **Quality** — Every change is validated before merge.
+4. **Reusability** — Patterns are atomic and reusable across demos.
+5. **Accessibility** — Every change maintains WCAG 2.1 AA.
+6. **Performance** — Every change maintains the performance budget.
+7. **Scale** — The theme must scale to 500+ patterns and 100+ demos without rework.
 
-## 2. Architecture summary
+Do **not** prioritize file count. The number of patterns or demos is not a measure of success — the design system's coherence is.
 
-- Block theme. `theme.json` is the design system. Templates are HTML in
-  `/templates/`. Template parts in `/parts/`. Patterns in `/patterns/`.
-  Style variations in `/styles/`.
-- No classic PHP templating. No `header.php` / `footer.php`. PHP only in
-  `functions.php` and pattern headers.
-- No custom blocks in v0.1 or v0.2. Patterns are core block markup. The
-  FAQ pattern uses the native `core/details` block (WP 6.3+) for
-  accessible, no-JS accordion behaviour.
-- Zero third-party PHP/JS dependencies.
-- Self-hosted fonts (Inter + Newsreader). No external CDN.
-- Graceful plugin detection via `GODEVS_PORTFOLIO_CORE_ACTIVE` constant.
-- v0.2 ships 13 patterns (8 from v0.1 + 5 new) and 6 style variations
-  (2 from v0.1 + 4 new). See `docs/FEATURE-REGISTRY.md` for the full
-  inventory.
+---
 
-Read `docs/ARCHITECTURE.md` for the full picture.
+## 2. Workflow
 
-## 3. Coding standards
-
-WordPress coding standards, enforced:
-
-- PHP: `wordpress` ruleset. Spaces inside parentheses, snake_case for
-  functions and variables, PascalCase for class names, no short tags,
-  strict comparison operators, full PHP tags (`<?php`).
-- JS: `@wordpress/eslint-plugin` config. ES2018+. No jQuery. 2-space
-  indent. Single quotes. Trailing commas in multiline arrays/objects.
-- CSS: BEM-ish naming for non-block classes (`godevs-hero__eyebrow`),
-  kebab-case for utility classes (`is-style-muted`). No ID selectors
-  for styling. No `!important` outside `print.css`.
-- HTML in templates/parts/patterns: 2-space indent. Block comments on
-  their own line. Always close `<!-- wp:block ... /-->` (self-closing)
-  or `<!-- wp:block ... -->`...`<!-- /wp:block -->` (paired).
-
-Tools: `phpcs` with `WordPress` standard. Run `composer run lint` if
-configured. Run `php -l` on every PHP file before commit at minimum.
-
-## 4. Naming conventions
-
-| Item | Convention | Example |
-|------|------------|---------|
-| Theme functions | `godevs_portfolio_*` snake_case | `godevs_portfolio_setup()` |
-| Theme filters/actions | `godevs_portfolio_*` snake_case | `godevs_portfolio_body_class()` |
-| Theme constants | `GODEVS_PORTFOLIO_*` SCREAMING_SNAKE | `GODEVS_PORTFOLIO_VERSION` |
-| Theme hooks (action) | `godevs_portfolio_*` snake_case | `godevs_portfolio_core_active` |
-| Pattern slugs | `godevs-portfolio/<name>` kebab-case | `godevs-portfolio/hero` |
-| Template parts | kebab-case, single word where possible | `header.html`, `mobile-menu.html` |
-| Style variations | kebab-case, descriptive | `minimal.json`, `dark.json` |
-| CSS classes for theme components | `godevs-<component>` kebab-case | `godevs-hero`, `godevs-cta` |
-| CSS classes for pattern variants | `godevs-<component>__<element>` BEM | `godevs-hero__eyebrow` (future use) |
-| CSS utility classes | `is-style-<name>` kebab-case | `is-style-muted`, `is-style-lead` |
-
-Do not shorten "godevs" to "gd". Do not invent a different prefix.
-
-## 5. File responsibilities
-
-| Path | Responsibility | What belongs here | What does NOT belong here |
-|------|----------------|-------------------|--------------------------|
-| `theme.json` | Design system, block settings, element styles, custom templates, template parts | Palette, typography, spacing, layout, element styles, block style overrides | User-specific overrides, demo content, image URLs |
-| `style.css` | WordPress theme metadata header | Theme metadata header | Any actual CSS |
-| `functions.php` | Minimal hook setup, enqueue, plugin detection, textdomain, font preload | Tiny theme setup, enqueues, plugin-detection constants | CPT registration, custom blocks, settings pages, business logic |
-| `index.php` | Silence-is-golden fallback | Empty PHP file with security check | Anything else |
-| `templates/*.html` | Page-level composition using template parts and patterns | `<!-- wp:template-part -->` + `<!-- wp:pattern -->` + core blocks | Inline CSS, JS, raw HTML without block comments |
-| `parts/*.html` | Reusable template parts (header, footer, mobile menu) | Site chrome that appears on multiple templates | One-off page content |
-| `patterns/*.php` | Self-registering block patterns | Pattern header (PHP file doc block) + block markup | PHP logic, dynamic data, plugin-only blocks (without graceful fallback) |
-| `styles/*.json` | Style variations | Subset of `theme.json` schema that overrides defaults | New block settings, custom templates, template parts |
-| `assets/css/` | Editor-only CSS, print CSS | Editor affordances, print styles | Front-end styling that should live in theme.json |
-| `assets/js/` | Front-end JS affordances not expressible in CSS | Navigation enhancement, focus traps | Page-builder JS, animation libraries, anything requiring a runtime |
-| `assets/fonts/` | Self-hosted font woff2 files + license + README | Licensed woff2 files only | TTF/OTF (use woff2), variable fonts (static only in v0.1), SVG fonts |
-| `assets/images/` | Theme-owned images (icons, og-default) | Original SVG icons, fallback images | Random stock photos, AI-generated images, anything pulled from Google Images |
-| `languages/` | Translation files | `.pot` (template), `.po` (source), `.mo` (compiled) | Generated files committed (regenerate from `.pot` only) |
-| `tests/` | QA scaffolding | Activation tests, theme.json schema check, pattern smoke tests | Production code, generated reports |
-| `docs/` | Documentation suite | Markdown documentation only | Code, templates, anything else |
-
-## 6. Design rules
-
-- Palette tokens only. Patterns must not introduce hex values. If you
-  need a colour that does not exist in the palette, ask whether it
-  should be added to the palette first.
-- Spacing tokens only. Patterns must use `var:preset|spacing|N` or
-  `var(--wp--preset--spacing--N)`. Arbitrary `padding: 13px` is not
-  allowed.
-- Typography fluid by default. Font sizes use `var(--wp--preset--font-size--*)`
-  tokens. Display sizes are fluid; captions and small text are not (they
-  need to be predictable at small widths).
-- One radius vocabulary. Use `var(--wp--custom--radius--sm|md|lg|pill)`.
-  Patterns may not introduce `border-radius: 12px` etc.
-- One shadow vocabulary. Use `var(--wp--custom--shadow--sm|md|lg)`.
-- No gradients in v0.1 except the two shipped in `theme.json`.
-  Adding a gradient requires adding it to `theme.json` first.
-- No decorative shapes (circles, blobs, 3D objects). No glassmorphism.
-  No glow. No neon. No drop shadows on text.
-- Borders are 1px, solid, in the `border` palette token. No double
-  borders, no dashed borders for decoration.
-- Animations are intent-based, short (≤200ms), and respect
-  `prefers-reduced-motion`.
-
-## 7. Gutenberg rules
-
-- Use core blocks. Do not invent new blocks unless absolutely required
-  (see "Custom block rule" below).
-- Block markup uses block comments (`<!-- wp:block ... -->`). Always
-  pair opening and closing comments. Self-closing comments end with
-  `/-->` (no space before slash, no `/` after).
-- Block attributes are JSON inside the comment, on a single line where
-  possible.
-- Style references use the `var:preset|<type>|<slug>` syntax (e.g.
-  `var:preset|color|primary`, `var:preset|spacing|50`) — they generate
-  CSS variables rather than hardcoded values.
-- Inserter patterns use `viewportWidth` so they render at a sensible
-  width in the inserter preview.
-- Patterns declare `Categories` matching either built-in categories
-  or `godevs-*` custom categories registered in `functions.php`.
-
-## 8. Pattern rules
-
-- A pattern is a single `.php` file in `/patterns/`. The file header
-  declares `Title`, `Slug`, `Categories`, `Description`, `Keywords`,
-  and `Viewport Width`.
-- Pattern slugs are prefixed `godevs-portfolio/`.
-- Patterns contain only block markup. No PHP logic beyond the file
-  header. Patterns that need dynamic data belong to GoDevs Core, not
-  the theme.
-- Patterns are editable. A user inserting a pattern gets a copy of the
-  markup. Do not assume the pattern stays pristine — it must look
-  correct when the user changes any text inside it.
-- Pattern copy is in English. User-facing strings inside patterns do
-  not need to be wrapped in i18n functions because the strings live
-  inside HTML markup, not PHP. (WordPress.org accepts this; pattern
-  text is treated as content, not code.)
-- Demo content is realistic but not overclaiming. No fake awards.
-  No fake revenue. No "5,000+ clients served". Fictional identities
-  are fine if clearly sample content.
-- Pattern documentation in the doc block is one or two sentences.
-  The description shows in the inserter, so it should help a non-
-  technical user pick the right pattern.
-
-## 9. Template rules
-
-- Every template starts with `<!-- wp:template-part {"slug":"header"} /-->`
-  and ends with `<!-- wp:template-part {"slug":"footer"} /-->` unless
-  the template intentionally omits chrome (404 page-no-title, etc.).
-- The main content is always wrapped in
-  `<!-- wp:group {"tagName":"main","className":"site-main"} -->`.
-- Templates use the constrained layout by default. Full-width is the
-  exception, used for hero and CTA bands.
-- Templates reference patterns via `<!-- wp:pattern {"slug":"godevs-portfolio/<name>"} /-->`.
-  Do not duplicate pattern markup inside templates — reference the
-  pattern instead.
-- Page padding uses the spacing scale. The default vertical padding
-  for a template section is `var:preset|spacing|80`.
-
-## 10. Template part rules
-
-- Header, footer, and mobile-menu parts live in `/parts/`.
-- Parts are declared in `theme.json` `templateParts` so they appear in
-  the Site Editor.
-- Parts are area-scoped (`header`, `footer`, `navigation`). The area
-  is declared in the `templateParts` entry.
-- Header includes the Site Logo, a Navigation block (with
-  `overlayMenu:"mobile"`), and a CTA button. It does *not* include a
-  hamburger toggle — the Navigation block handles its own overlay.
-- Footer is multi-column (logo + tagline | studio nav | work nav |
-  contact) with a copyright bar below.
-
-## 11. Style variation rules
-
-- A variation is a JSON file in `/styles/` with the same schema as
-  `theme.json`. It contains only the parts that differ.
-- Variations are intentional redesigns, not palette swaps. The
-  `Minimal` variation changes font family for headings, button radius,
-  and link underline behaviour. The `Dark` variation re-tunes every
-  palette token for contrast against a dark background.
-- Variations must not introduce new block settings or new custom
-  templates. Those belong in `theme.json`.
-- Variation titles are short and adjective-based (Minimal, Dark,
-  Editorial, Corporate). Slugs are kebab-case.
-- A new variation should feel different enough from every existing
-  variation that a user picking it gets a *different* site, not a
-  recoloured copy.
-
-## 12. Plugin boundary rules
-
-- The theme activates and renders without GoDevs Core installed.
-- The theme exposes `GODEVS_PORTFOLIO_CORE_ACTIVE` (true|false) and
-  the `godevs_portfolio_core_active` action hook.
-- Theme patterns and templates must not call plugin functions
-  directly. Conditionally-rendered plugin content uses the body class
-  (`godevs-core-active` / `godevs-core-inactive`) or the PHP constant.
-- Persistent business content (Portfolio, Services, Testimonials,
-  Team, Case Studies, Business Profile) belongs in GoDevs Core. The
-  theme never registers CPTs.
-
-Full boundary: `docs/CORE-PLUGIN-BOUNDARY.md`.
-
-## 13. Testing requirements
-
-Every PR should not break the v0.1 baseline. The v0.1 baseline is
-checked by the scripts in `/tests/`:
-
-- `tests/test-activation.php` — theme activates without PHP errors.
-- `tests/test-theme-json-schema.php` — `theme.json` is valid against
-  the WP 6.5+ schema.
-- `tests/test-pattern-smoke.php` — every pattern in `/patterns/` has
-  a valid file header and parses without PHP errors.
-- `tests/test-templates-exist.php` — every declared template and
-  template part file exists.
-
-Run `php tests/run.php` (or the equivalent `composer run test` if
-configured) before commit. See `docs/TESTING-PLAN.md` for the full
-plan.
-
-## 14. WordPress.org requirements
-
-The theme is *prepared for* WordPress.org review. Do not claim
-approval. Specific requirements:
-
-- Sanitise every output that comes from user-controlled data.
-- Escape every output going to the browser (`esc_html`, `esc_attr`,
-  `esc_url`, `wp_kses_post`).
-- Capability checks on every privileged action.
-- Nonces on every form.
-- No `eval()`. No obfuscated code. No base64-encoded payloads. No
-  hidden tracking. No remote requests without user opt-in.
-- No external requests at install time.
-- GPL-2.0-or-later compatible code only.
-- Translation-ready, RTL-ready, accessibility-ready.
-
-Full compliance scope: `docs/WORDPRESS-ORG-COMPLIANCE.md`.
-
-## 15. AI content restrictions
-
-- Do not generate AI-looking illustrations, icons, portraits, or
-  marketing copy as default theme content.
-- Do not invent fake business achievements, awards, certifications,
-  revenue, or client relationships for demo content. Demo content is
-  *fictional but honest* — it does not claim to be real.
-- Do not use generic AI marketing language ("unlock your potential",
-  "transform your digital vision", "innovative solutions for
-  tomorrow"). Write concise, context-specific copy.
-- Do not pull images from Google Images. Use licensed placeholders
-  (Unsplash, Pexels) or theme-native visual elements (CSS, SVG).
-- Do not mix icon libraries. Pick one icon strategy — native WordPress
-  dashicons, a single lightweight SVG set, or hand-crafted SVGs —
-  and stick to it.
-
-## 16. What you can change without asking
-
-- Fix bugs that cause PHP warnings, notices, or errors.
-- Add a new pattern following the rules in §8.
-- Add a new style variation following the rules in §11.
-- Adjust spacing or typography in `theme.json` if the change keeps
-  the system consistent (e.g. tuning a fluid font size range is fine;
-  inventing a new spacing token without adding it to the spacing
-  scale is not).
-- Refactor `functions.php` for readability without changing behaviour.
-- Update demo copy in patterns to be more specific or realistic.
-- Add documentation in `/docs/` for features that lack it.
-
-## 17. What you must not change without maintainer sign-off
-
-- The block-theme architecture (do not add a classic-PHP templating
-  layer).
-- The `theme.json` schema version (do not downgrade).
-- The plugin-boundary contract (do not register CPTs in the theme).
-- The font families shipped (do not add a third family without
-  licensing review).
-- The pattern slug prefix (`godevs-portfolio/`).
-- The text domain (`godevs-portfolio`).
-- The minimum WordPress version (`6.5`).
-- The license (GPL-2.0-or-later).
-- The product name (`GoDevs Portfolio`) and slug (`godevs-portfolio`).
-
-## 18. Commit message convention
-
-We use Conventional Commits, scoped to the affected area:
+Every AI development task must follow this workflow:
 
 ```
-feat(patterns): add team grid pattern
-fix(header): correct mobile menu focus trap
-docs(prd): clarify non-goals around WooCommerce
-test(patterns): add pattern file header lint
+Inspect
+  ↓
+Plan
+  ↓
+Implement
+  ↓
+Validate
+  ↓
+Review
+  ↓
+Report
 ```
 
-Scopes: `theme`, `theme-json`, `templates`, `parts`, `patterns`,
-`styles`, `assets`, `docs`, `tests`, `meta` (README, CHANGELOG,
-LICENSE, .gitignore).
+### 2.1 Inspect
 
-## 19. PR description template
+Before modifying anything:
+
+1. Read the relevant `docs/` files to understand the system.
+2. Read the existing files you will be modifying.
+3. Identify the existing architecture and conventions.
+4. Identify the design tokens in use.
+5. Identify whether the change fits within the documented boundaries.
+
+**Do not** begin implementation until you understand the surrounding context. Skip this step and you will break the design system.
+
+### 2.2 Plan
+
+Before writing any code:
+
+1. Identify the files that will change.
+2. Identify the files that will be created.
+3. Identify the design tokens that will be used.
+4. Identify the validation steps that will run.
+5. State the change in one sentence.
+
+If the plan requires:
+- Hardcoded colors or spacing — stop and use tokens instead.
+- A new custom block — stop and use core blocks instead.
+- A new plugin-like feature — stop and document it as plugin territory.
+- A new external dependency — stop and reconsider.
+- A change to multiple patterns at once — split into multiple tasks.
+
+### 2.3 Implement
+
+When writing code:
+
+1. Follow `WORDPRESS-STANDARDS.md`.
+2. Follow `DESIGN-SYSTEM.md` for visual decisions.
+3. Follow `ACCESSIBILITY.md` for accessibility requirements.
+4. Follow `PERFORMANCE.md` for performance requirements.
+5. Follow `SECURITY.md` for security requirements.
+6. Make small, logical changes — one pattern, one template, one variation at a time.
+
+### 2.4 Validate
+
+After implementing, run the relevant checks:
+
+```bash
+# PHP lint
+php -l <file.php>
+
+# JSON validation
+python3 -m json.tool theme.json > /dev/null
+python3 -m json.tool styles/<variation>.json > /dev/null
+
+# Structure audit
+ls -la patterns/<category>/
+ls -la templates/
+ls -la parts/
+```
+
+Run any task-specific validation (see `QA-CHECKLIST.md`).
+
+**Do not claim a test passed unless you actually ran it.**
+
+### 2.5 Review
+
+After validation passes:
+
+1. Re-read your changes.
+2. Verify they match the plan.
+3. Verify they don't introduce regressions.
+4. Verify they don't break other patterns, templates, or variations.
+5. Verify the change is minimal — no unrelated edits.
+
+### 2.6 Report
+
+After review, report:
+
+1. What was changed (file list).
+2. Why it was changed (one-sentence rationale).
+3. What tests were run (and their results).
+4. Any unresolved issues.
+5. Any follow-up work recommended.
+
+Append to `CHANGELOG.md` under "Added", "Changed", "Fixed", or "Removed".
+
+Append to `worklog.md` (the shared multi-agent work log) with your Task ID, what you did, and what you produced.
+
+---
+
+## 3. Hard Rules (Non-Negotiable)
+
+These rules are non-negotiable. Violating any of them is grounds for rejecting a change.
+
+### 3.1 Inspect Before Modifying
+
+Always read the file you are about to modify. Never assume its contents.
+
+### 3.2 Never Rewrite the Project Unnecessarily
+
+If a single pattern needs a tweak, edit that one file. Do not refactor the architecture. Do not reformat unrelated files.
+
+### 3.3 Preserve Working Code
+
+If existing functionality works, do not break it. Add, do not replace. If replacement is necessary, document why.
+
+### 3.4 Follow Existing Architecture
+
+Files go where the architecture documentation says they go. Naming follows the documented conventions. See `ARCHITECTURE.md`.
+
+### 3.5 Use WordPress Core Functionality First
+
+Before writing any custom code, check if WordPress core can do it:
+- Need a list of posts? → `core/query`
+- Need a button? → `core/button`
+- Need a navigation? → `core/navigation`
+- Need a search form? → `core/search`
+- Need a social link list? → `core/social-icons`
+- Need a header? → `core/template-part` referencing `header.html`
+
+### 3.6 Avoid Unnecessary Dependencies
+
+No external PHP libraries. No external JS libraries. No external font services. No icon libraries.
+
+### 3.7 Never Create Fake Functionality
+
+If a feature is not implemented, do not add a button that looks like it does something. Do not add a "Coming soon" label. Either implement it properly or omit it.
+
+### 3.8 Never Use Emoji as UI Icons
+
+Emoji as UI icons is forbidden. See `DESIGN-SYSTEM.md` Section 11. Use inline SVG, CSS shapes, or text labels.
+
+### 3.9 Avoid AI-Looking Repetitive Designs
+
+Two patterns that look identical except for color are not two patterns. See `PATTERN-SYSTEM.md` Section 5.2 (Visual Distinctness Rule).
+
+### 3.10 Keep Patterns Visually Distinct
+
+Every pattern must differ from every other pattern in its category in at least three of the axes documented in `PATTERN-SYSTEM.md`.
+
+### 3.11 Keep Accessibility in Every Implementation
+
+Every change is accessible. See `ACCESSIBILITY.md`. No exceptions, no deferrals.
+
+### 3.12 Keep Translation Readiness
+
+Every user-facing string uses the `godevs-portfolio` text domain. See `WORDPRESS-STANDARDS.md`.
+
+### 3.13 Follow WordPress Coding Standards
+
+See `WORDPRESS-STANDARDS.md`. Verified via WPCS.
+
+### 3.14 Run Validation After Changes
+
+JSON lint. PHP lint. Structure audit. See `QA-CHECKLIST.md`.
+
+### 3.15 Report Changed Files
+
+Every commit / change report lists the files modified and created.
+
+### 3.16 Report Tests Performed
+
+Every change report lists the tests run and their results.
+
+### 3.17 Report Unresolved Issues
+
+Honest reporting. If something is broken, say so. Do not hide issues.
+
+### 3.18 Make Small, Logical Commits
+
+One concern per commit. Easy to review. Easy to revert.
+
+---
+
+## 4. AI-Specific Anti-Patterns
+
+These are patterns AI agents commonly produce that are forbidden in this project:
+
+### 4.1 Placeholder Text as Content
+
+❌ "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+✅ Real placeholder text that hints at purpose: "I build digital products that ship — fast, accessible, and considered."
+
+### 4.2 Numbered Pattern Names
+
+❌ `hero-01.php`, `hero-02.php`, `hero-03.php`
+✅ `hero-split-profile.php`, `hero-minimal-introduction.php`, `hero-cover-image.php`
+
+### 4.3 Excessive Gradients
+
+❌ Background gradients on every section
+✅ Solid colors. Accent gradients only when they convey meaning (e.g., hero overlay).
+
+### 4.4 Excessive Rounded Corners
+
+❌ Everything rounded to 24px or more
+✅ 8px cards, 4px buttons. Restraint.
+
+### 4.5 Excessive Shadows
+
+❌ Multiple layered shadows with glows
+✅ Three shadow levels total (SM, MD, LG). See `DESIGN-SYSTEM.md`.
+
+### 4.6 Excessive Animations
+
+❌ Scroll-triggered reveals, parallax, autoplay carousels
+✅ Subtle hover transitions. Reduced motion respected.
+
+### 4.7 Random Icons
+
+❌ 🤖 🚀 ⭐ 💡 🔥 as feature icons
+✅ Numerical labels, typography, or inline SVG (when meaningfully needed)
+
+### 4.8 Repetitive Layouts
+
+❌ 10 patterns that are all "three cards in a row" with different colors
+✅ Each pattern uses a different layout system — split, stack, asymmetric, full-bleed, grid
+
+### 4.9 Copy-Paste With Color Changes
+
+❌ "Variation 1", "Variation 2", "Variation 3" — identical but for accent color
+✅ Each variation changes type pairing, density, radius, and palette. See `STYLE-VARIATIONS.md`.
+
+### 4.10 Generic Landing Page Look
+
+❌ Hero with stacked CTA, three feature cards, pricing table, footer — looks like every SaaS landing
+✅ Editorial layouts. Asymmetric compositions. Considered whitespace.
+
+---
+
+## 5. Decision Trees for Common Tasks
+
+### 5.1 "I need to add a new pattern"
+
+1. Read `PATTERN-SYSTEM.md`.
+2. Identify the category. Create the file at `patterns/<category>/<name>.php`.
+3. Author the metadata header.
+4. Compose with core blocks. Reference design tokens.
+5. Validate: PHP lint, structure audit.
+6. Test in every variation.
+7. Append to `CHANGELOG.md`.
+
+### 5.2 "I need to add a new template"
+
+1. Read `TEMPLATE-SYSTEM.md`.
+2. Identify the WordPress template hierarchy slot.
+3. Compose with core blocks + template parts.
+4. Validate: PHP lint (none — templates are HTML), structure audit.
+5. Test on a real page that matches the template.
+6. Append to `CHANGELOG.md`.
+
+### 5.3 "I need to add a new style variation"
+
+1. Read `STYLE-VARIATIONS.md`.
+2. Verify the variation meets the Three-Change Rule.
+3. Create the file at `styles/<name>.json`.
+4. Validate: JSON lint.
+5. Test in Site Editor — verify the variation renders.
+6. Test every pattern in the variation.
+7. Append to `CHANGELOG.md`.
+
+### 5.4 "I need to modify theme.json"
+
+1. Read `DESIGN-SYSTEM.md`.
+2. Identify whether the change is to settings (tokens) or styles (block-level).
+3. Make the minimal change.
+4. Validate: JSON lint.
+5. Test in Site Editor — verify the change is reflected.
+6. Test every variation — variations override styles, not settings.
+7. Append to `CHANGELOG.md`.
+
+### 5.5 "I need to add CSS"
+
+1. Read `PERFORMANCE.md` Section 3 — confirm the CSS cannot be expressed in `theme.json`.
+2. Read `WORDPRESS-STANDARDS.md` Section 3 — confirm the CSS follows standards.
+3. Add to `assets/css/theme.css`.
+4. Validate: visual inspection, no console errors.
+5. Append to `CHANGELOG.md`.
+
+### 5.6 "I need to add JS"
+
+1. Read `PERFORMANCE.md` Section 4 — confirm JS is truly needed.
+2. Read `WORDPRESS-STANDARDS.md` Section 2 — confirm JS follows standards.
+3. Read `SECURITY.md` Section 8 — confirm JS is safe.
+4. Add to `assets/js/theme.js`.
+5. Enqueue in `functions.php` if not already.
+6. Validate: visual inspection, no console errors, degrades without JS.
+7. Append to `CHANGELOG.md`.
+
+### 5.7 "I need to update documentation"
+
+1. Identify which `docs/` file is relevant.
+2. Read the existing content.
+3. Make the minimal change.
+4. Update `CHANGELOG.md` under "Changed".
+
+### 5.8 "I need to fix a bug"
+
+1. Identify the root cause.
+2. Make the minimal fix.
+3. Validate: confirm the bug is fixed.
+4. Validate: confirm no regression.
+5. Append to `CHANGELOG.md` under "Fixed".
+
+---
+
+## 6. Communication Conventions
+
+### 6.1 Commits
+
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
-## What
-One paragraph describing the change.
+<type>(<scope>): <subject>
 
-## Why
-One paragraph explaining why this change belongs in the theme and not
-in a plugin, a future version, or not at all.
-
-## How
-Bullet list of the files changed and why.
-
-## Tests
-Which `tests/` scripts were run. Which manual checks were performed.
-
-## Risks
-Any rules in docs/AI-DEVELOPMENT-GUIDE.md this change touches. Any
-backward-compatibility considerations.
-
-## WordPress.org
-Any compliance surface this change touches (escaping, sanitisation,
-external requests, licensing).
+<body>
 ```
 
-## 20. Final rule
+Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`, `build`, `ci`.
 
-When in doubt, prefer the WordPress-native solution. If `theme.json`
-can express it, use `theme.json`. If a core block can render it, use a
-core block. If a pattern can deliver it, use a pattern. If none of
-those work, *then* consider PHP, JS, or a custom block — in that
-order.
+Examples:
+- `feat(patterns): add Hero — Split Profile pattern`
+- `fix(theme-json): correct primary color contrast on dark variation`
+- `docs(accessibility): add screen reader testing checklist`
+- `perf(assets): defer theme.js loading`
+
+### 6.2 Pull Requests
+
+PR descriptions include:
+
+1. **What changed** — summary
+2. **Why** — rationale
+3. **How** — implementation notes (if non-trivial)
+4. **Validation** — tests run and their results
+5. **Screenshots** — for visual changes
+6. **Breaking changes** — if any
+7. **Migration notes** — if any
+
+### 6.3 Worklog
+
+Multi-agent work log at `/home/z/my-project/worklog.md`. Append a new section per task:
+
+```markdown
+---
+Task ID: <task id>
+Agent: <agent name>
+Task: <the task>
+
+Work Log:
+- <step 1>
+- <step 2>
+
+Stage Summary:
+- <key results>
+```
+
+Read the existing worklog before starting a task to understand prior work.
+
+---
+
+## 7. Failure Modes (What AI Agents Get Wrong)
+
+| Failure | Why it happens | How to avoid |
+|---|---|---|
+| Hardcoded colors | "Just use this hex value, it's the same" | Reference tokens — never hex |
+| Custom blocks for layout | "It's easier than fighting with `core/columns`" | Use core blocks. Always. |
+| Skipping validation | "It worked when I wrote it" | Run the validators. They exist for a reason. |
+| Rewriting unrelated files | "While I'm here, let me clean this up" | Make small, focused changes. |
+| Numbered pattern names | "I'll fix the names later" | Name patterns descriptively from the start. |
+| Adding emoji icons | "It looks fun" | It looks unprofessional. Use SVG or text. |
+| Overuse of `!important` | "It just needs to override" | Fix the specificity, not the symptom. |
+| Phantom dependencies | "I'll just include jQuery here" | No external dependencies. Period. |
+| Lying about validation | "I'm sure it works" | Run the tests. Report the actual results. |
+| Inflating file counts | "More patterns = better" | Quality over quantity. Distinct designs only. |
+
+---
+
+## 8. Asking for Help
+
+If you are an AI agent and:
+- You cannot meet a rule — document the constraint and stop.
+- You are unsure of the architecture — read `ARCHITECTURE.md` again.
+- You are unsure of the design system — read `DESIGN-SYSTEM.md` again.
+- You are unsure whether something is plugin territory — read `WORDPRESS-STANDARDS.md` Section 10.
+- You need to add a new file type — discuss with the maintainer before proceeding.
+
+**Do not** silently work around a constraint. Surface the issue.
+
+---
+
+## 9. Reference Documents
+
+| Document | What it covers |
+|---|---|
+| `PRD.md` | Product vision, goals, scope |
+| `ARCHITECTURE.md` | File structure, principles, anti-patterns |
+| `DESIGN-SYSTEM.md` | Colors, typography, spacing, layout, components |
+| `PATTERN-SYSTEM.md` | Pattern categories, naming, authoring |
+| `TEMPLATE-SYSTEM.md` | Templates, template parts, composition |
+| `STYLE-VARIATIONS.md` | Variation system, three-change rule |
+| `ACCESSIBILITY.md` | WCAG 2.1 AA requirements |
+| `PERFORMANCE.md` | Performance budget, strategies |
+| `SECURITY.md` | Escaping, sanitization, attack surface |
+| `WORDPRESS-STANDARDS.md` | Coding standards, conventions |
+| `CONTRIBUTING.md` | Workflow for contributors |
+| `QA-CHECKLIST.md` | Release readiness checklist |
+| `RELEASE-ROADMAP.md` | Phase-by-phase plan |
+| `CHANGELOG.md` | What changed and when |

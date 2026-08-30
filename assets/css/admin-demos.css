@@ -1,0 +1,466 @@
+/* GoDevs Portfolio — Admin Demo Library styles */
+
+.godevs-demos-wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 20px 60px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+.godevs-demos-header {
+        padding: 40px 0 28px;
+        border-bottom: 1px solid #dcdcde;
+        margin-bottom: 28px;
+        background: linear-gradient(180deg, #f6f7f7 0%, transparent 100%);
+        border-radius: 0 0 4px 4px;
+}
+
+.godevs-demos-header-inner {
+        max-width: 720px;
+}
+
+.godevs-demos-title {
+        margin: 0 0 8px;
+        font-size: 32px;
+        font-weight: 700;
+        color: #1d2327;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+}
+
+.godevs-demos-subtitle {
+        margin: 0;
+        color: #50575e;
+        font-size: 14px;
+        line-height: 1.5;
+}
+
+/* Filters */
+.godevs-demos-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+}
+
+.godevs-filter-group {
+        flex: 1;
+        min-width: 200px;
+}
+
+.godevs-search-input,
+.godevs-select {
+        width: 100%;
+        height: 38px;
+        padding: 6px 12px;
+        border: 1px solid #8c8f94;
+        border-radius: 4px;
+        font-size: 14px;
+        background: #ffffff;
+        color: #1d2327;
+        box-sizing: border-box;
+}
+
+.godevs-search-input:focus,
+.godevs-select:focus {
+        border-color: #2271b1;
+        box-shadow: 0 0 0 1px #2271b1;
+        outline: 2px solid transparent;
+}
+
+/* Grid */
+.godevs-demos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+        margin-bottom: 24px;
+}
+
+.godevs-demo-card {
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        border: 1px solid #dcdcde;
+        border-radius: 6px;
+        overflow: hidden;
+        transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.godevs-demo-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        border-color: #8c8f94;
+}
+
+.godevs-demo-card.is-imported {
+        border-color: #00a32a;
+}
+
+.godevs-demo-card.is-imported::before {
+        content: "Imported";
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: #00a32a;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        z-index: 1;
+}
+
+.godevs-demo-card {
+        position: relative;
+}
+
+/* Card preview */
+.godevs-demo-card-preview {
+        aspect-ratio: 16 / 10;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #dcdcde;
+        overflow: hidden;
+        position: relative;
+}
+
+.godevs-demo-card-preview::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--wp-admin-theme-color, #2271b1);
+}
+
+.godevs-demo-card-preview-inner {
+        text-align: center;
+        padding: 24px;
+        position: relative;
+        z-index: 1;
+}
+
+.godevs-demo-card-preview-name {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: #fafaf7;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Card body */
+.godevs-demo-card-body {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        flex: 1;
+}
+
+.godevs-demo-card-title {
+        margin: 0 0 8px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #1d2327;
+}
+
+.godevs-demo-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 12px;
+        font-size: 12px;
+        color: #646970;
+}
+
+.godevs-demo-card-separator {
+        opacity: 0.5;
+}
+
+.godevs-demo-card-description {
+        margin: 0 0 16px;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #50575e;
+        flex: 1;
+}
+
+.godevs-demo-card-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: auto;
+}
+
+.godevs-demo-card-actions .button {
+        font-size: 13px;
+}
+
+.godevs-demo-card-actions .button-link-delete {
+        text-decoration: none;
+        color: #b32d2e;
+        padding: 4px 8px;
+        margin-left: auto;
+}
+
+.godevs-demo-card-actions .button-link-delete:hover {
+        background: #b32d2e;
+        color: #fff;
+        border-radius: 3px;
+}
+
+/* Empty state */
+.godevs-demos-empty {
+        text-align: center;
+        padding: 60px 20px;
+        color: #646970;
+        font-size: 14px;
+}
+
+/* Modal */
+.godevs-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 100000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.godevs-modal[hidden] {
+        display: none;
+}
+
+.godevs-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+}
+
+.godevs-modal-panel {
+        position: relative;
+        background: #ffffff;
+        border-radius: 6px;
+        max-width: 640px;
+        width: calc(100% - 32px);
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.godevs-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        border-bottom: 1px solid #dcdcde;
+}
+
+.godevs-modal-title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #1d2327;
+}
+
+.godevs-modal-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+        color: #50575e;
+        padding: 4px 8px;
+        border-radius: 3px;
+}
+
+.godevs-modal-close:hover {
+        background: #f0f0f1;
+        color: #1d2327;
+}
+
+.godevs-modal-body {
+        padding: 20px 24px;
+}
+
+.godevs-modal-body p {
+        margin: 0 0 12px;
+        line-height: 1.6;
+        color: #1d2327;
+}
+
+.godevs-modal-body ul {
+        margin: 12px 0;
+        padding-left: 20px;
+}
+
+.godevs-modal-body li {
+        margin-bottom: 6px;
+        line-height: 1.5;
+}
+
+.godevs-modal-body strong {
+        color: #1d2327;
+}
+
+.godevs-modal-body .godevs-warning {
+        background: #fff8e5;
+        border-left: 4px solid #dba617;
+        padding: 12px 16px;
+        margin: 12px 0;
+        border-radius: 2px;
+}
+
+.godevs-modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        padding: 16px 24px;
+        border-top: 1px solid #dcdcde;
+        background: #f6f7f7;
+        border-radius: 0 0 6px 6px;
+}
+
+/* Progress indicator */
+.godevs-progress {
+        position: fixed;
+        inset: 0;
+        z-index: 100001;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.godevs-progress[hidden] {
+        display: none;
+}
+
+.godevs-progress-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+}
+
+.godevs-progress-panel {
+        position: relative;
+        background: #ffffff;
+        border-radius: 6px;
+        max-width: 460px;
+        width: calc(100% - 32px);
+        padding: 24px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.godevs-progress-title {
+        margin: 0 0 16px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1d2327;
+}
+
+.godevs-progress-steps {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+}
+
+.godevs-progress-steps li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 0;
+        font-size: 14px;
+        color: #50575e;
+}
+
+.godevs-progress-steps li::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid #dcdcde;
+        background: transparent;
+        flex-shrink: 0;
+}
+
+.godevs-progress-steps li.is-active::before {
+        border-color: #2271b1;
+        background: #2271b1;
+}
+
+.godevs-progress-steps li.is-complete::before {
+        border-color: #00a32a;
+        background: #00a32a;
+}
+
+.godevs-progress-steps li.is-complete::after {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 4px;
+        border-left: 2px solid #ffffff;
+        border-bottom: 2px solid #ffffff;
+        transform: rotate(-45deg);
+        margin-left: -10px;
+        margin-right: 2px;
+}
+
+.godevs-progress-steps li.is-error::before {
+        border-color: #b32d2e;
+        background: #b32d2e;
+}
+
+.godevs-progress-steps li.is-error::after {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #ffffff;
+        transform: rotate(45deg);
+        margin-left: -9px;
+        margin-right: 3px;
+}
+
+.godevs-progress-steps li.is-active {
+        color: #1d2327;
+        font-weight: 500;
+}
+
+.godevs-progress-steps li.is-complete {
+        color: #1d2327;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+        .godevs-demos-filters {
+                flex-direction: column;
+        }
+        .godevs-demos-grid {
+                grid-template-columns: 1fr;
+        }
+        .godevs-modal-footer,
+        .godevs-demo-card-actions {
+                flex-direction: column;
+                align-items: stretch;
+        }
+        .godevs-demo-card-actions .button {
+                width: 100%;
+                text-align: center;
+        }
+        .godevs-demo-card-actions .button-link-delete {
+                margin-left: 0;
+                text-align: center;
+        }
+}
+
+/* Demo card is filtered out */
+.godevs-demo-card.is-hidden {
+        display: none;
+}

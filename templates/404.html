@@ -1,27 +1,36 @@
-<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+<!-- wp:template-part {"slug":"header","theme":"godevs-portfolio","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"site-main"} -->
-<main class="wp-block-group site-main">
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group">
-		<!-- wp:paragraph {"fontSize":"caption","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.1em"}}} -->
-		<p class="has-caption-font-size" style="text-transform:uppercase;letter-spacing:0.1em">404 — page not found</p>
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"default"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap","verticalAlignment":"center","justifyContent":"center"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:paragraph {"fontSize":"xxx-large"} -->
+		<p class="has-xxx-large-font-size">404</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:heading {"level":1} -->
-		<h1 class="wp-block-heading">That page cannot be located.</h1>
+		<!-- wp:heading {"level":1,"textAlign":"center"} -->
+		<h1 class="wp-block-heading has-text-align-center">Page not found</h1>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"className":"is-style-muted","fontSize":"large"} -->
-		<p class="is-style-muted has-large-font-size">The page may have moved, been retired, or never existed in the first place. Try a search, or head back to the home page.</p>
+		<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+		<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--60)">The page you're looking for doesn't exist or has been moved. Try searching for what you need, or head back to the homepage.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:search {"label":"Search the site","buttonText":"Search","buttonPosition":"button-outside","style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}}} /-->
+		<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search articles and projects…","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|70"}}}} /-->
 
-		<!-- wp:buttons -->
+		<!-- wp:separator {"className":"is-style-thin"} /-->
+
+		<!-- wp:heading {"level":2,"textAlign":"center"} -->
+		<h2 class="wp-block-heading has-text-align-center">Or explore</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","justifyContent":"center"}} -->
+		<!-- /wp:navigation -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons">
 			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/">Return to the home page</a></div>
+			<div class="wp-block-button"><a href="/" class="wp-block-button__link wp-element-button">Back to homepage</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -30,4 +39,4 @@
 </main>
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->
+<!-- wp:template-part {"slug":"footer","theme":"godevs-portfolio","tagName":"footer"} /-->

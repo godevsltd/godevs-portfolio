@@ -12,11 +12,12 @@
   The licenses for most software are designed to take away your
 freedom to share and change it.  By contrast, the GNU General Public
 License is intended to guarantee your freedom to share and change free
-software--to make sure the software is free for all its users.  This
-General Public License applies to most of the Free Software
+software--to make sure the software is free for all its users.
+
+  This General Public License applies to most of the Free Software
 Foundation's software and to any other program whose authors commit to
 using it.  (Some other Free Software Foundation software is covered by
-the GNU Lesser General Public License instead.)  You can apply it to
+the GNU Library General Public License instead.)  You can apply it to
 your programs, too.
 
   When we speak of free software, we are referring to freedom, not
@@ -90,8 +91,8 @@ you may at your option offer warranty protection in exchange for a fee.
 
   2. You may modify your copy or copies of the Program or any portion
 of it, thus forming a work based on the Program, and copy and
-distribute such modifications or work under the terms of Section
-1 above, provided that you also meet all of these conditions:
+distribute such modifications or work under the terms of Section 1
+above, provided that you also meet all of these conditions:
 
     a) You must cause the modified files to carry prominent notices
     stating that you changed the files and the date of any change.
@@ -105,10 +106,12 @@ distribute such modifications or work under the terms of Section
     when run, you must cause it, when started running for such
     interactive use in the most ordinary way, to print or display an
     announcement including an appropriate copyright notice and a
-    notice that there is no warranty.  (The exception is, if the
-    program is itself interactive but does not normally print such an
-    announcement, your work based on the Program is not required to
-    print an announcement.)
+    notice that there is no warranty (or else, saying that you provide
+    a warranty) and that users may redistribute the program under
+    these conditions, and telling the user how to view a copy of this
+    License.  (Exception: if the Program itself is interactive but
+    does not normally print such an announcement, your work based on
+    the Program is not required to print an announcement.)
 
 These requirements apply to the modified work as a whole.  If
 identifiable sections of that work are not derived from the Program,
@@ -200,11 +203,11 @@ otherwise) that contradict the conditions of this License, they do not
 excuse you from the conditions of this License.  If you cannot
 distribute so as to satisfy simultaneously your obligations under this
 License and any other pertinent obligations, then as a consequence you
-may not distribute the Program at all.  For example, if a patent license
-would not permit royalty-free redistribution of the Program by all those
-who receive copies directly or indirectly through you, then the only
-way you could satisfy both it and this License would be to refrain
-entirely from distribution of the Program.
+may not distribute the Program at all.  For example, if a patent
+license would not permit royalty-free redistribution of the Program by
+all those who receive copies directly or indirectly through you, then
+the only way you could satisfy both it and this License would be to
+refrain entirely from distribution of the Program.
 
 If any portion of this section is held invalid or unenforceable under
 any particular circumstance, the balance of the section is intended to

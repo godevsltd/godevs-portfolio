@@ -1,66 +1,29 @@
-# Dependencies
-/node_modules/
-/vendor/
-
-# Build artefacts
-/build/
-/dist/
-*.zip
-*.tar.gz
-
-# Logs
-*.log
-debug.log
-error.log
-
-# OS files
+# Editor / OS noise
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-
-# IDE / editor files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
 *.swp
 *.swo
 *~
-.project
-.classpath
-.settings/
+.vscode/
+.idea/
+*.sublime-*
 
-# WordPress test suite local config
-wp-tests-config.php
-
-# Composer local config
-composer.local.json
-
-# npm local config
-.npmrc.local
-
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# Cache directories
+# Build artifacts
+node_modules/
+dist/
+build/
+*.log
 .cache/
+
+# Composer / vendor (theme ships no PHP dependencies)
+vendor/
+composer.lock
+
+# Translation build artifacts
+languages/*.po~
+languages/*.pot
+
+# Test artifacts
 .phpunit.result.cache
-.phpcs.cache/
-
-# Editor backup files
-*.bak
-*.orig
-
-# Generated translation files (keep .pot, ignore .po/.mo in repo)
-/languages/*.po
-/languages/*.mo
-!/languages/*.pot
-
-# Test reports
-/tests/_reports/
+coverage/
+*.clover

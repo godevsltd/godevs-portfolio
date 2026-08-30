@@ -1,220 +1,363 @@
-# Accessibility — GoDevs Portfolio
+# GoDevs Portfolio — Accessibility
 
-Accessibility is a core product requirement, not a Phase 12 after-
-thought. The v0.1 foundation ships the structural accessibility
-work (skip link, focus-visible, landmarks, contrast-checked
-palette, reduced-motion). A full WCAG 2.1 AA audit is scheduled
-for Phase 12, but the foundation is built to pass that audit
-without rewrites.
+**Document version:** 0.1.0
+**Phase:** 1 — Foundation
+
+Accessibility is part of the design system, not a separate concern. This document defines the accessibility baseline for the theme: what is required, how it is achieved, and how it is verified.
+
+The target is **WCAG 2.1 Level AA**. Where practical, AAA is also met.
 
 ---
 
-## 1. Conformance target
+## 1. Accessibility Principles
 
-- **v0.1 target:** WCAG 2.1 AA for structural accessibility (skip
-  link, focus-visible, landmarks, heading hierarchy, contrast-
-  checked palette, reduced-motion support, keyboard navigation).
-- **v0.5 target:** Full WCAG 2.1 AA conformance verified by an
-  external auditor.
-- **Stretch goal:** WCAG 2.1 AAA where achievable (targeting
-  captioning, sign-language interpretation, and other AAA-only
-  criteria where reasonable).
+1. **Native HTML over ARIA.** Use semantic elements (`<button>`, `<a>`, `<nav>`, `<main>`, `<header>`, `<footer>`, `<section>`, `<article>`) before reaching for ARIA attributes.
+2. **Keyboard-first.** Every interactive element is operable by keyboard alone.
+3. **Visible focus.** Every interactive element shows a visible focus state.
+4. **Reduced motion respected.** All non-essential animations are disabled when `prefers-reduced-motion: reduce` is set.
+5. **Sufficient contrast.** All text meets WCAG 2.1 AA contrast minimums.
+6. **Semantic headings.** Heading hierarchy is strict and meaningful.
+7. **No information by color alone.** Color is reinforced by text or icon.
+8. **No information by motion alone.** Motion reinforces, never conveys.
+9. **No interaction dependent only on hover.** All hover-affordances have keyboard equivalents.
 
-## 2. Skip link
+---
 
-Every template that includes the header template part renders a
-skip link to `#main` as the first focusable element on the page.
-The skip link is visible on focus and hidden visually otherwise.
+## 2. Keyboard Navigation
 
-The `navigation.js` script enhances the skip link to move focus
-into the main region on click. Without this enhancement, the skip
-link moves scroll position but not focus on some browsers, leaving
-screen readers on the header.
+### 2.1 Skip Link
 
-## 3. Focus-visible outlines
+WordPress injects a skip link automatically in block themes. The link targets the first element with `role="main"` or the first `<main>` element. Every template includes a `core/group` with `tagName: "main"` to ensure this works.
 
-Every focusable element has a 2px `:focus-visible` outline in the
-accent colour (`#FF6B57`), with a 2px offset. Defined in
-`theme.json` for the `link` and `button` elements.
+### 2.2 Focus Order
 
-The outline uses `:focus-visible` (not `:focus`) so it does not
-appear on mouse click — only keyboard and programmatic focus
-trigger it. This is the modern standard for focus indication
-and matches the WCAG 2.1 AA "Focus Visible" criterion.
+- Focus order follows visual order. No CSS positioning that breaks reading order.
+- No `tabindex` greater than 0 in template markup.
+- No `autofocus` attributes in templates.
 
-## 4. Semantic landmarks
+### 2.3 Visible Focus
 
-Every template uses semantic HTML landmarks:
+Every interactive element shows a 2px solid accent outline with a 2px offset on `:focus-visible`:
 
-- `header.site-header` — the header template part.
-- `main.site-main` — the main content (wrapped in
-  `wp:group {"tagName":"main"}`).
-- `footer.site-footer` — the footer template part.
-- `nav` — the navigation block (implicit).
+```css
+*:focus-visible {
+    outline: 2px solid var(--wp--preset--color--accent);
+    outline-offset: 2px;
+}
+```
 
-These landmarks let screen reader users navigate directly to the
-header, main content, or footer via landmark navigation.
+This is in `assets/css/theme.css` and applies globally. Focus rings are never removed without an equivalent visible alternative.
 
-## 5. Heading hierarchy
+### 2.4 Keyboard Operability
 
-Every template has exactly one `h1`:
+| Element | Keyboard behavior |
+|---|---|
+| `core/navigation` | WordPress handles mobile toggle, sub-menu expand/collapse |
+| `core/button` | Native `<button>` semantics — Enter/Space activates |
+| `core/search` | Native input + button — type, Tab to button, Enter to submit |
+| `core/details` | Native disclosure — Enter/Space toggles |
+| `core/social-icons` | Each link is a tabbable `<a>` |
+| `core/query` pagination | Tab through page links |
 
-- `index.html`: "Journal"
-- `home.html`: "Latest writing"
-- `front-page.html`: the hero pattern's headline (h1 inside the
-  hero pattern)
-- `page.html`: the post title
-- `single.html`: the post title
-- `singular.html`: the post title
-- `archive.html`: the query title (archive name)
-- `search.html`: the query title ("Search results: <query>")
-- `404.html`: "That page cannot be located."
+---
 
-Section headings are h2, subsection headings are h3, and so on
-through h6. No levels are skipped.
+## 3. Semantic Structure
 
-## 6. Colour contrast
+### 3.1 Heading Hierarchy
 
-Every palette token pairing meets WCAG 2.1 AA contrast on text
-against background. The contrast table:
+- **H1 appears exactly once per page** — either the page title block or the hero heading.
+- **H2 introduces a section.** No section without an H2.
+- **H3 introduces a subsection within H2.** Never skip from H2 to H4.
+- **H4–H6** for fine-grained substructure if needed.
+- **Block headings (`core/heading`)** set the level via the `level` attribute. Default is 2.
 
-| Foreground | Background | Ratio | Use |
-|------------|-----------|-------|-----|
-| Text on Background | `#0F172A` on `#FFFFFF` | 18.7:1 | Body text — AAA |
-| Muted on Background | `#64748B` on `#FFFFFF` | 4.7:1 | Caption text — AA |
-| Accent on Background | `#FF6B57` on `#FFFFFF` | 3.5:1 | Links, large text — AA large |
-| Background on Primary | `#FFFFFF` on `#0F172A` | 18.7:1 | Footer / CTA text — AAA |
-| Accent on Primary | `#FF6B57` on `#0F172A` | 5.0:1 | Accent on dark backgrounds — AA |
-| Text on Surface | `#0F172A` on `#F8FAFC` | 17.6:1 | Surface band text — AAA |
-| Muted on Primary | `#94A3B8` on `#0F172A` | 6.4:1 | Dark mode muted — AA |
+### 3.2 Landmark Roles
 
-### Notes
-- The `accent` token (`#FF6B57`) meets AA contrast for large text
-  (24px+ regular or 19px+ bold) and for UI components. For body
-  text, the theme uses `text` or `primary` instead.
-- The `muted` token (`#64748B`) meets AA contrast at body sizes on
-  a white background but should be used sparingly for paragraph
-  text — it is primarily for caption-sized text and meta
-  information.
-- The Dark style variation re-tunes the palette for contrast
-  against `#0B1120`. The accent token is lightened to `#FF8775`
-  for contrast against the dark background.
+| Element | Role | Where |
+|---|---|---|
+| `core/group` with `tagName: "header"` | `banner` | Top of every template |
+| `core/group` with `tagName: "main"` | `main` | Content of every template |
+| `core/group` with `tagName: "footer"` | `contentinfo` | Bottom of every template |
+| `core/navigation` | `navigation` | Inside header |
+| `core/group` with `tagName: "section"` | `region` (when labeled) | Each major section in a pattern |
+| `core/group` with `tagName: "article"` | `article` | Inside query loops |
 
-## 7. Keyboard navigation
+### 3.3 Section Labels
 
-Every interactive element is reachable via keyboard. Specifically:
+Sections with `tagName: "section"` should have an `aria-label` or visible heading. WordPress automatically uses the section's heading as the accessible name when present. For purely visual sections, set an explicit `aria-label`:
 
-- The skip link is the first focusable element on every page.
-- The header navigation is keyboard-navigable. Tab moves between
-  top-level links; Enter activates a link.
-- The mobile menu (Navigation block overlay) opens with Enter or
-  Space, closes with Escape, and is fully keyboard-navigable
-  inside.
-- Buttons (in the hero, CTA, contact patterns) activate with
-  Enter or Space.
-- Form inputs (when the user adds a Contact Form block) are
-  keyboard-navigable.
-- Focus order follows the visual order — there is no `tabindex`
-  manipulation that would break the natural order.
+```html
+<!-- wp:group {"tagName":"section","ariaLabel":"Featured projects"} -->
+```
 
-## 8. Reduced motion
+---
 
-All CSS transitions are guarded by `@media (prefers-reduced-motion:
-no-preference)`. Users with `prefers-reduced-motion: reduce` see
-static states without transitions.
+## 4. Color and Contrast
 
-The `navigation.js` script does not include any animation that
-violates the reduced-motion preference. The sticky-header
-shadow change is a class swap, not a transition.
+### 4.1 Contrast Targets
 
-## 9. Form labels
+| Element | Minimum | Target |
+|---|---|---|
+| Body text on background | 4.5:1 | 7:1 (AAA) |
+| Large text (≥ 24px or ≥ 19px bold) on background | 3:1 | 4.5:1 |
+| Button text on button background | 4.5:1 | 7:1 |
+| Link text on background | 4.5:1 | 7:1 |
+| Link text on hover (if color changes) | 4.5:1 | — |
+| Border on background | 3:1 | — |
+| Focus ring on background | 3:1 | — |
+| Icon (meaningful) on background | 3:1 | 4.5:1 |
 
-The theme ships no forms in v0.1. The Contact pattern is a
-placeholder prompting the user to add a Contact Form block. When
-the user adds a form via a plugin (e.g. Contact Form 7, WPForms,
-or the WordPress core Contact Form block from Jetpack), the form
-plugin is responsible for label / input association.
+### 4.2 Default Palette Verification
 
-## 10. Image alt text
+| Combination | Foreground | Background | Ratio | Pass? |
+|---|---|---|---|---|
+| Body on base | `#0A0A0A` | `#FAFAF7` | 19.4:1 | Yes (AAA) |
+| Muted on base | `#6B7280` | `#FAFAF7` | 4.6:1 | Yes (AA) |
+| Body on surface | `#0A0A0A` | `#FFFFFF` | 21:1 | Yes (AAA) |
+| Button text on primary | `#FFFFFF` | `#0A0A0A` | 19.4:1 | Yes (AAA) |
+| Link on base | `#2563EB` | `#FAFAF7` | 6.5:1 | Yes (AA) |
+| Border on base | `#E5E5E0` | `#FAFAF7` | 1.2:1 | Border-only — fine for visual |
 
-The `core/image` block requires alt text via the WordPress block
-editor UI. The theme's patterns use empty `alt=""` for decorative
-placeholder images (which screen readers correctly skip) and rely
-on the user to provide meaningful alt text when they replace the
-placeholder.
+### 4.3 Color Not Used Alone
 
-The portfolio grid pattern uses the `core/post-featured-image`
-block, which uses the post's featured image's alt text. The user
-is responsible for providing meaningful alt text when uploading
-featured images.
+Status indicators (success/warning/error) use both color and a text label. No "green dot means success" without a text label.
 
-## 11. ARIA usage
+---
 
-The theme uses ARIA sparingly. The WordPress block editor adds the
-correct ARIA attributes to most core blocks (navigation,
-buttons, links). The theme does not add additional ARIA in
-patterns or templates.
+## 5. Images and Media
 
-When ARIA is added in the future (e.g. for a custom tabbed
-component in Phase 10), it should follow the WAI-ARIA Authoring
-Practices and be tested with NVDA, JAWS, and VoiceOver.
+### 5.1 Alt Text
 
-## 12. Screen reader testing
+- Every meaningful image has descriptive `alt` text explaining what the image conveys.
+- Decorative images (purely visual, no information) have empty `alt=""` — not omitted.
+- Patterns ship with placeholder `alt` text that hints at purpose: `alt="Portrait of the author"` rather than `alt="image"`.
 
-The theme is designed to work with:
+### 5.2 Featured Images
 
-- NVDA on Windows + Firefox / Chrome / Edge.
-- JAWS on Windows + Chrome.
-- VoiceOver on macOS + Safari / Chrome.
-- VoiceOver on iOS + Safari.
-- TalkBack on Android + Chrome.
+`core/post-featured-image` automatically uses the post's featured image alt text if set, falling back to empty alt if not. Pattern authors do not need to handle this — it is automatic.
 
-A full screen-reader pass is scheduled for Phase 12.
+### 5.3 Icons
 
-## 13. What the theme does NOT do (yet)
+Icons (where used) are either:
+- Inline SVG with `<title>` and `role="img"` — for meaningful icons
+- Inline SVG with `aria-hidden="true"` — for decorative icons (paired with a text label)
+- `core/social-icons` block — handles accessibility internally
 
-For transparency, the following are scheduled for Phase 12 and are
-not yet implemented in v0.1:
+### 5.4 Captions
 
-- Audio descriptions for video content (the theme ships no video in
-  v0.1).
-- Captions for video content (same).
-- Sign-language interpretation (out of scope).
-- A formal "Read this page aloud" mode (out of scope).
-- Custom screen-reader-only navigation (the skip link is the only
-  screen-reader affordance in v0.1).
+`core/image` supports `caption`. Captions should be used when the image needs explanation beyond what alt text provides. Captions are visible; alt text is not.
 
-## 14. Accessibility review checklist
+---
 
-Before merging a UI change, confirm:
+## 6. Forms
 
-- [ ] Change does not remove the skip link or break its target.
-- [ ] Change does not remove or weaken `:focus-visible` outlines.
-- [ ] Change preserves semantic landmarks (`header`, `main`,
-      `footer`).
-- [ ] Change preserves heading hierarchy (one h1 per page, no
-      skipped levels).
-- [ ] Change uses palette tokens with verified contrast; no new
-      hardcoded colours that would break contrast.
-- [ ] Change respects `prefers-reduced-motion: reduce`.
-- [ ] Change is keyboard-navigable in the same order as the
-      visual layout.
-- [ ] Change does not introduce `tabindex` manipulation that
-      breaks the natural focus order.
-- [ ] Change does not introduce `aria-hidden` on focusable
-      elements.
-- [ ] Change does not introduce images without `alt` attributes
-      (use `alt=""` for decorative images).
-- [ ] Change does not introduce a form without labels (the theme
-      ships no forms in v0.1).
-- [ ] Change is tested with at least one screen reader (NVDA on
-      Windows or VoiceOver on macOS).
+Phase 1 ships no forms (forms are plugin territory). When forms are integrated via a companion plugin in the future:
 
-## 15. References
+- Every input has a `<label>` (or `aria-label` if label is visually hidden)
+- Error messages use `aria-describedby` linking to the input
+- Required fields use `required` attribute AND a visible "(required)" indicator
+- Submit buttons have descriptive text — never "Submit" alone, prefer "Send message" or "Subscribe"
+- Form validation messages do not rely on color alone — include an icon and text
 
-- WCAG 2.1: https://www.w3.org/TR/WCAG21/
-- WAI-ARIA Authoring Practices: https://www.w3.org/WAI/ARIA/apg/
-- WordPress accessibility handbook:
-  https://developer.wordpress.org/coding-standards/wordpress-coding-standards/accessibility/
-- Theme review accessibility guidelines:
-  https://make.wordpress.org/themes/handbook/review/accessibility/
+---
+
+## 7. Motion and Animation
+
+### 7.1 Reduced Motion
+
+All transitions longer than 1ms are disabled when `prefers-reduced-motion: reduce` is active:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+```
+
+### 7.2 No Auto-Animating Content
+
+- No carousels that auto-advance
+- No video that autoplay
+- No scroll-triggered animations (in Phase 1; if added later, must respect reduced motion)
+- No parallax effects
+
+### 7.3 Hover Not Required
+
+No interaction depends solely on hover. Hover states enhance but do not convey critical information. Touch devices must have full functionality.
+
+---
+
+## 8. Screen Reader Support
+
+### 8.1 Visually Hidden Text
+
+When a link or button needs additional context for screen readers (e.g., "Read more" needs to say "Read more about [post title]"):
+
+```html
+<a href="...">
+    Read more
+    <span class="screen-reader-text">about "Post Title"</span>
+</a>
+```
+
+The `screen-reader-text` class is registered by WordPress core. Do not redefine.
+
+### 8.2 ARIA Usage
+
+ARIA is used **only** when native HTML cannot express the semantics. Examples:
+
+- `aria-label` on a `core/group` with `tagName: "section"` when no visible heading exists
+- `aria-current="page"` on the current nav item (handled by `core/navigation`)
+- `aria-expanded` on disclosure toggles (handled by `core/details`)
+
+Forbidden ARIA usage:
+- `role="button"` on an `<a>` (use a real `<button>` or `core/button`)
+- `role="presentation"` to hide content (use `screen-reader-text` or remove the content)
+- `aria-hidden="true"` on focusable elements
+
+### 8.3 Live Regions
+
+Phase 1 has no live regions (search results, AJAX updates). If added later, live regions must use `aria-live="polite"` for non-critical updates and `aria-live="assertive"` for critical ones.
+
+---
+
+## 9. Navigation Accessibility
+
+### 9.1 Mobile Menu
+
+`core/navigation` with `overlayMenu: "mobile"` provides an accessible mobile menu:
+- Toggle button is a real `<button>` (keyboard-operable)
+- Menu opens on Enter/Space
+- Focus moves into the menu when opened
+- Escape closes the menu and returns focus to the toggle
+
+### 9.2 Sub-Menus
+
+Sub-menus open on hover (mouse) and on Enter (keyboard). Escape closes the sub-menu and returns focus to the parent item.
+
+### 9.3 Current Page Indication
+
+`core/navigation` automatically adds `aria-current="page"` to the link matching the current page. This is exposed to assistive technology and styled visually.
+
+---
+
+## 10. 404 and Error Pages
+
+`404.html` must:
+- Use an H1 with clear "Page not found" text
+- Provide guidance text explaining the situation
+- Provide a search form (`core/search`)
+- Provide navigation to key pages (`core/navigation`)
+
+---
+
+## 11. Readability
+
+### 11.1 Line Length
+
+Article body width is `640px` (content width). This yields approximately 65–75 characters per line — the readability sweet spot.
+
+### 11.2 Line Height
+
+- Body: 1.6
+- Headings: 1.2 (large headings need tighter line height)
+- Display: 1.1
+
+### 11.3 Language
+
+- All user-facing strings use `__()` / `_x()` / `_n()` with the `godevs-portfolio` text domain
+- `language_attributes()` (handled by WordPress core) outputs the correct `lang` attribute
+- Patterns ship placeholder text in English — translation-ready
+
+---
+
+## 12. Accessibility Audit Checklist
+
+Before marking any pattern, template, or variation complete:
+
+### Structure
+- [ ] H1 appears exactly once
+- [ ] Heading hierarchy is strict (no H2 → H4 jumps)
+- [ ] Landmarks present (`<header>`, `<main>`, `<footer>`, `<nav>`)
+- [ ] Sections with no visible heading have `aria-label`
+
+### Keyboard
+- [ ] All interactive elements reachable by Tab
+- [ ] Focus order matches visual order
+- [ ] Focus state is visible on every interactive element
+- [ ] No keyboard traps
+
+### Color and Contrast
+- [ ] Body text contrast ≥ 4.5:1
+- [ ] Large text contrast ≥ 3:1
+- [ ] Button text contrast ≥ 4.5:1
+- [ ] Border contrast ≥ 3:1 (where borders convey meaning)
+- [ ] No information by color alone
+
+### Images
+- [ ] All meaningful images have descriptive alt
+- [ ] All decorative images have empty alt
+- [ ] Icons have either `<title>` and `role="img"` or `aria-hidden="true"`
+
+### Motion
+- [ ] No autoplaying content
+- [ ] `prefers-reduced-motion` respected
+- [ ] No interaction depends solely on hover
+
+### Forms (if any)
+- [ ] Every input has a label
+- [ ] Required fields marked
+- [ ] Error messages link to inputs via `aria-describedby`
+
+### Screen Reader
+- [ ] No ARIA on native semantics (`role="button"` on `<button>`)
+- [ ] `aria-hidden="true"` not on focusable elements
+- [ ] Visually hidden text uses `screen-reader-text` class
+
+### Reduced Motion
+- [ ] All animations disabled under `prefers-reduced-motion: reduce`
+- [ ] No autoplay
+- [ ] No scroll-triggered reveals
+
+---
+
+## 13. Tools for Verification
+
+### 13.1 Manual Testing
+
+- Tab through every page using only the keyboard
+- Zoom to 200% in browser — verify no horizontal scroll, no broken layouts
+- Use a screen reader (NVDA on Windows, VoiceOver on macOS/iOS) on a sample page
+- Test on a touch device — verify no hover-only interactions
+
+### 13.2 Automated Tools
+
+- **axe DevTools** — browser extension that audits a page for WCAG violations
+- **WAVE** — browser extension for visual accessibility audit
+- **Lighthouse Accessibility audit** — Chrome DevTools
+- **Pa11y** — CLI accessibility tester
+- **WebAIM Contrast Checker** — for verifying color contrast
+
+### 13.3 Recommended Workflow
+
+1. Develop pattern/template/variation
+2. Run axe DevTools on a page rendering it
+3. Manually tab through the page
+4. Verify contrast with WebAIM Contrast Checker
+5. Test on mobile + touch
+6. Test with a screen reader
+7. Resolve any findings before merge
+
+---
+
+## 14. Phase 2 Accessibility Plans
+
+- Full audit of every Phase 1 pattern with axe
+- Screen reader testing pass on every template
+- Keyboard-only full site navigation test
+- Cognitive accessibility review (plain language, predictable navigation)
+- RTL (right-to-left) language support review

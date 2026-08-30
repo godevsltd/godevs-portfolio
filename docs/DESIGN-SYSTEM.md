@@ -1,294 +1,384 @@
-# Design System — GoDevs Portfolio
+# GoDevs Portfolio — Design System
 
-This document is the reference for the visual language of the theme.
-Designers, contributors, and AI agents working on patterns or style
-variations should treat this as the canonical source. The brief version:
-strong typography, generous whitespace, thin borders, no decoration
-that does not earn its place.
+**Document version:** 0.1.0
+**Phase:** 1 — Foundation
+
+This document defines the visual design system for GoDevs Portfolio. It is the source of truth for design tokens, type pairings, spacing, layout, button system, and card system. All values defined here are implemented in `theme.json` and consumed by templates and patterns.
+
+The design direction is **premium, editorial, modern**. The objective is a portfolio presence that feels considered and intentional — never generic.
 
 ---
 
-## 1. Visual direction
+## 1. Design Principles
 
-The theme follows an **editorial / Swiss** visual direction. The
-references are not AI-generated marketing templates; they are print
-magazines, type foundries' own websites, and the kind of design
-studio sites that ship carefully-edited pages rather than maximalist
-marketing pages.
+1. **Editorial typography first.** Type is the primary visual element. Large display sizes, strong hierarchy, considered pairings.
+2. **Generous whitespace.** Sections breathe. Content is not crowded. Density is a deliberate choice, not a default.
+3. **Strong grid systems.** Layouts are anchored to the content/wide/full width system. Asymmetric compositions are encouraged.
+4. **Subtle interactions.** No excessive animation. Hover states are minimal and functional. Reduced motion is respected.
+5. **Soft, considered surfaces.** Borders are subtle. Shadows are restrained. Cards feel layered without floating.
+6. **Consistency over novelty.** A small set of tokens used consistently outperforms many bespoke values.
+7. **Accessibility is non-negotiable.** Contrast, focus, keyboard, screen readers — see `ACCESSIBILITY.md`.
 
-The visual rules below follow from that direction:
+---
 
-- **Typography is the primary design tool.** Newsreader for display,
-  Inter for body and UI. Headlines are large. Body is comfortable.
-  Captions are small and tracked-out. The hierarchy is the design.
-- **Whitespace is the secondary design tool.** The spacing scale
-  (0.5rem → 6rem) is what separates a clean page from a cramped
-  one. Default section padding is 4rem vertical.
-- **Borders are 1px and solid.** Borders separate sections, they
-  do not decorate them. The border token is `#E2E8F0`.
-- **Shadows are subtle.** Three shadow tokens (`sm`, `md`, `lg`) at
-  very low opacity. Shadows signal elevation, they do not signal
-  aesthetic.
-- **No decoration that does not work.** No decorative circles, no
-  blobs, no 3D objects, no glassmorphism, no neon, no glow. Every
-  visual element must do a job.
+## 2. Color System
 
-## 2. Colour palette
+All colors are defined in `theme.json` under `settings.color.palette` and exposed as CSS custom properties (`--wp--preset--color--<slug>`).
 
-| Token | Slug | Hex | Usage |
-|-------|------|-----|-------|
-| Primary | `primary` | `#0F172A` | Headings, buttons background, footer background |
-| Secondary | `secondary` | `#1E293B` | Hover states, secondary buttons |
-| Accent | `accent` | `#FF6B57` | Links, accents, hover button background |
-| Background | `background` | `#FFFFFF` | Page background |
-| Surface | `surface` | `#F8FAFC` | Card backgrounds, alternating section backgrounds |
-| Text | `text` | `#0F172A` | Body text |
-| Muted | `muted` | `#64748B` | Captions, secondary text, meta |
-| Border | `border` | `#E2E8F0` | Borders, separators |
-| Success | `success` | `#15803D` | Success states (form validation) |
-| Warning | `warning` | `#B45309` | Warning states |
-| Error | `error` | `#B91C1C` | Error states |
+### 2.1 Semantic Color Tokens
 
-### Palette rules
-- All palette tokens are exposed as CSS variables
-  (`--wp--preset--color--<slug>`).
-- Patterns must use these tokens, not hardcoded hex values.
-- The Dark style variation re-tunes the palette for a dark
-  background; the Minimal style variation removes the coral accent.
-- Future style variations should keep the 11-token shape so users
-  switching variations do not lose references.
+| Token | Slug | Purpose |
+|---|---|---|
+| Primary | `primary` | Primary brand color — buttons, links, key accents |
+| Secondary | `secondary` | Secondary brand color — secondary accents, supporting UI |
+| Accent | `accent` | Highlight color — used sparingly for emphasis |
+| Background | `base` | Page background |
+| Surface | `surface` | Card / section background |
+| Surface Elevated | `surface-elevated` | Raised cards, popovers |
+| Text | `foreground` / `contrast` | Primary text on background / accent surfaces |
+| Text Muted | `muted` | Secondary text, captions, meta |
+| Border | `border` | Hairline borders, dividers |
+| Success | `success` | Positive states |
+| Warning | `warning` | Caution states |
+| Error | `error` | Error states |
 
-### Contrast verification
-All text/background pairings meet WCAG 2.1 AA contrast:
+### 2.2 Default Palette (Phase 1)
 
-| Foreground | Background | Ratio | Grade |
-|------------|-----------|-------|-------|
-| Text on Background | `#0F172A` on `#FFFFFF` | 18.7:1 | AAA |
-| Muted on Background | `#64748B` on `#FFFFFF` | 4.7:1 | AA |
-| Accent on Background | `#FF6B57` on `#FFFFFF` | 3.5:1 | AA (large text only) |
-| Background on Primary | `#FFFFFF` on `#0F172A` | 18.7:1 | AAA |
-| Background on Accent | `#FFFFFF` on `#FF6B57` | 3.5:1 | AA (large text only) |
+| Token | Hex | Notes |
+|---|---|---|
+| `primary` | `#0A0A0A` | Near-black ink for editorial base |
+| `secondary` | `#3D3D3D` | Soft charcoal for secondary text |
+| `accent` | `#2563EB` | Confident blue — used sparingly |
+| `base` | `#FAFAF7` | Warm off-white, less clinical than pure white |
+| `surface` | `#FFFFFF` | Pure white for cards |
+| `surface-elevated` | `#FFFFFF` | Same as surface in default; differentiated in dark variation |
+| `foreground` | `#0A0A0A` | Matches primary ink |
+| `muted` | `#6B7280` | Cool gray for meta |
+| `border` | `#E5E5E0` | Subtle warm gray |
+| `success` | `#15803D` | Accessible green |
+| `warning` | `#B45309` | Accessible amber |
+| `error` | `#B91C1C` | Accessible red |
+| `contrast` | `#FFFFFF` | Text on accent surfaces |
 
-The Accent token meets AA contrast for large text (24px+ regular or
-19px+ bold) and for UI components; for body text, use the `text` or
-`primary` token. This is enforced in patterns — accent is used for
-links and short accents, not for paragraphs.
+### 2.3 Color Usage Rules
 
-## 3. Typography
+- **Background variations are forbidden** as a substitute for proper style variations. A new variation must change more than one color.
+- **Contrast minimum** is WCAG 2.1 AA: 4.5:1 for body text, 3:1 for large text and UI components.
+- **Accent usage** is rationed — never use accent as a section background. Use it for links, primary buttons, and small emphasis.
+- **Never hardcode hex values** in templates, patterns, or CSS. Always reference the preset (`var:preset|color|primary`).
 
-### Font families
+---
 
-| Slug | Family | Usage |
-|------|--------|-------|
-| `body` | Inter | Body text, UI labels, buttons, navigation |
-| `heading` | Newsreader | Display headings, post titles, pullquotes |
-| `mono` | System monospace | Inline code, code blocks |
+## 3. Typography System
 
-Inter is loaded at weights 400, 500, 600, 700. Newsreader at 500
-normal, 600 normal, and 500 italic. The italic Newsreader is used
-for pullquotes and pull quote-style hero text.
+Typography is the dominant visual language. The system pairs a confident display face with a readable body face.
 
-### Type scale
+### 3.1 Font Families
 
-| Slug | Size | Fluid? | Used for |
-|------|------|-------|----------|
-| `caption` | 0.75rem | No | Captions, meta, copyright, eyebrow text |
-| `small` | 0.875rem | No | Small UI text, navigation, footer text |
-| `medium` | 1rem (→ 1.05rem fluid) | Yes | Body text default |
-| `large` | 1.125rem (→ 1.25rem fluid) | Yes | Lead paragraphs, post excerpts |
-| `x-large` | 1.5rem (→ 1.75rem fluid) | Yes | h3, medium UI text |
-| `xx-large` | 2.25rem (→ 2.75rem fluid) | Yes | h2, section titles |
-| `xxx-large` | 3.5rem (→ 4.5rem fluid) | Yes | h1, CTA headlines |
-| `huge` | 5rem (→ 6.5rem fluid) | Yes | Hero headline, post-title on single |
+| Token | Slug | Stack | Purpose |
+|---|---|---|---|
+| Display | `display` | System UI display stack | Headings H1–H3 |
+| Body | `body` | System UI body stack | Body, headings H4–H6 |
+| Mono | `mono` | SF Mono, Menlo, monospace | Code, captions, meta |
 
-### Type rules
-- Headings use Newsreader at weight 500 or 600, letter-spacing -0.01em
-  to -0.03em depending on size. Larger headings get tighter tracking.
-- Body text uses Inter at weight 400, line-height 1.65.
-- Captions use Inter at weight 400, uppercase, letter-spacing 0.05em
-  to 0.1em.
-- Buttons use Inter at weight 500, small font-size, letter-spacing
-  0.01em.
-- Links use the accent colour, no underline by default, underline on
-  hover.
+**Default stacks (Phase 1, system fonts — no external loading):**
 
-## 4. Spacing
+```
+--wp--preset--font-family--display: "Inter", "SF Pro Display", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 
-| Slug | Size | Used for |
-|------|------|----------|
-| `20` | 0.5rem | Tight inline gaps |
-| `30` | 0.75rem | Small padding |
-| `40` | 1rem | Default block gap |
-| `50` | 1.5rem | Paragraph spacing, button padding |
-| `60` | 2rem | Section sub-spacing |
-| `70` | 3rem | Section vertical rhythm |
-| `80` | 4rem | Default section padding |
-| `90` | 6rem | Hero / CTA vertical padding |
+--wp--preset--font-family--body: "Inter", "SF Pro Text", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 
-### Spacing rules
-- Section vertical padding defaults to `var:preset|spacing|80` (4rem).
-- Hero and CTA sections use `var:preset|spacing|90` (6rem) for
-  generous vertical space.
-- Block gap inside groups defaults to `var:preset|spacing|50` (1.5rem).
-- Horizontal gaps between columns default to
-  `var:preset|spacing|60` (2rem).
+--wp--preset--font-family--mono: "SF Mono", "JetBrains Mono", "Menlo", "Consolas", monospace;
+```
 
-## 5. Layout
+A bundled self-hosted font option (Inter variable) is documented but **not enabled in Phase 1** to keep the theme dependency-free.
 
-| Token | Size | Usage |
-|-------|------|-------|
-| `contentSize` | 768px | Default content column |
-| `wideSize` | 1280px | Wide block alignment, hero content |
-| Full width | 100% | Hero and CTA background bands |
+### 3.2 Type Scale (Fluid)
 
-Templates use `layout: { type: "constrained" }` by default, which
-centers content at `contentSize` and allows wide/full alignments
-within the editor. Hero and CTA patterns wrap their inner content
-in a `constrained` group inside a full-width background group.
+All sizes are fluid (rem-based with viewport clamps). Sizes use WordPress `settings.typography.fontSizes` with `fluid: true`.
 
-## 6. Radius
+| Token | Slug | Min (mobile) | Preferred | Max (desktop) |
+|---|---|---|---|---|
+| Display | `display` | 2.75rem (44px) | 8vw | 5.5rem (88px) |
+| H1 | `xx-large` | 2.25rem (36px) | 5vw | 3.75rem (60px) |
+| H2 | `x-large` | 1.875rem (30px) | 3.5vw | 2.75rem (44px) |
+| H3 | `large` | 1.5rem (24px) | 2.5vw | 2rem (32px) |
+| H4 | `medium` | 1.25rem (20px) | — | 1.5rem (24px) |
+| Body | `normal` | 1rem (16px) | — | 1.125rem (18px) |
+| Large Body | `medium` (alt) | 1.125rem (18px) | — | 1.25rem (20px) |
+| Small | `small` | 0.875rem (14px) | — | — |
+| Caption | `x-small` | 0.75rem (12px) | — | — |
 
-| Token | Size | Used for |
-|------|------|----------|
-| `--wp--custom--radius--sm` | 2px | Buttons, form inputs, search |
-| `--wp--custom--radius--md` | 4px | Images, cards, contact panel |
-| `--wp--custom--radius--lg` | 8px | Larger cards, modals |
-| `--wp--custom--radius--pill` | 999px | Pill-shaped buttons (optional) |
+**Line height defaults:** 1.1 for display, 1.2 for headings, 1.6 for body.
 
-The default button radius is 2px (very nearly square). The Minimal
-style variation sets the button radius to 0 (truly square).
+**Letter spacing:** `-0.02em` for display and H1; `-0.01em` for H2/H3; `0` for body; `0.04em` uppercase for captions.
 
-## 7. Shadow
+### 3.3 Type Usage Rules
 
-| Token | Value | Used for |
-|------|-------|----------|
-| `--wp--custom--shadow--sm` | `0 1px 2px rgba(15, 23, 42, 0.04)` | Subtle elevation |
-| `--wp--custom--shadow--md` | `0 4px 12px rgba(15, 23, 42, 0.06)` | Cards |
-| `--wp--custom--shadow--lg` | `0 8px 24px rgba(15, 23, 42, 0.08)` | Modals, popovers |
+- H1 appears **once per page** (in the hero or the page title block).
+- H2 introduces a new section. H3 introduces a subsection within H2.
+- Body type is `1.125rem` (18px) for portfolio sites — readable, considered.
+- Captions are uppercase + letter-spaced — used for section eyebrows.
+- No font weights above 700. Display headings are 700. Body is 400.
+- No italics for emphasis in body text — use weight or color.
 
-Shadows are very low opacity. They signal elevation, not aesthetic.
+---
 
-## 8. Motion
+## 4. Spacing System
 
-| Token | Duration | Used for |
-|------|----------|----------|
-| `--wp--custom--transition--fast` | 120ms | Hover states, focus rings |
-| `--wp--custom--transition--base` | 200ms | Layout transitions, mobile menu |
+The spacing scale is defined in `theme.json` under `settings.spacing.spacingScale` and surfaced as `--wp--preset--spacing--<slug>`.
 
-All CSS transitions are guarded by
-`@media (prefers-reduced-motion: no-preference)`. Users with reduced
-motion preference see static states.
+### 4.1 Spacing Scale
 
-## 9. Components
+| Token | Slug | Value | Use |
+|---|---|---|---|
+| 2XS | `20` | `0.5rem` (8px) | Tight inline gaps |
+| XS | `30` | `0.75rem` (12px) | Inline gaps, tight groups |
+| SM | `40` | `1rem` (16px) | Default block gap |
+| MD | `50` | `1.5rem` (24px) | Section internal gaps |
+| LG | `60` | `2rem` (32px) | Between subsections |
+| XL | `70` | `3rem` (48px) | Section padding (mobile) |
+| 2XL | `80` | `4rem` (64px) | Section padding (desktop) |
+| 3XL | `90` | `6rem` (96px) | Hero padding |
+| 4XL | `100` | `8rem` (128px) | Large section breaks |
 
-### Button
-- Background: `var(--wp--preset--color--primary)`.
-- Text: `var(--wp--preset--color--background)`.
-- Padding: `0.75rem 1.25rem`.
-- Radius: `var(--wp--custom--radius--sm)` (2px).
-- Font: Inter, weight 500, size small.
-- Hover: background changes to `secondary`.
-- Focus: 2px accent outline with 2px offset.
+The scale is **arithmetic on a 0.25rem base** — predictable and easy to reason about.
 
-### Outline button
-- Background: transparent.
-- Text: `var(--wp--preset--color--primary)`.
-- Border: 1px solid `var(--wp--preset--color--primary)`.
-- Other properties match the primary button.
+### 4.2 Spacing Usage Rules
 
-### Link
-- Colour: `var(--wp--preset--color--accent)`.
-- Underline: none by default, underline on hover.
-- Focus: 2px accent outline with 2px offset.
+- **Section vertical padding:** XL on mobile, 2XL on desktop (use fluid `clamp`).
+- **Section internal gaps:** MD.
+- **Card internal padding:** LG.
+- **Button padding:** SM vertical, LG horizontal.
+- **Never** use raw pixel values in patterns. Always `var:preset|spacing|<slug>`.
 
-### Card
-- Background: `var(--wp--preset--color--surface)` or
-  `var(--wp--preset--color--background)`.
-- Border: 1px solid `var(--wp--preset--color--border)`.
-- Radius: `var(--wp--custom--radius--md)`.
-- Padding: `var(--wp--preset--spacing--60)` (2rem).
-- Shadow: `var(--wp--custom--shadow--sm)` (optional).
+---
 
-### Form input
-- Background: `var(--wp--preset--color--background)`.
-- Border: 1px solid `var(--wp--preset--color--border)`.
-- Radius: `var(--wp--custom--radius--sm)`.
-- Padding: `0.5rem 0.75rem`.
-- Focus: 2px accent outline.
+## 5. Layout System
 
-### Navigation
-- Font: Inter, weight 500, size small.
-- Spacing: 1.5rem block gap.
-- Hover: text colour changes to accent.
-- Mobile: Navigation block overlay at 1024px and below.
+### 5.1 Width Tokens
 
-### Footer
-- Background: `var(--wp--preset--color--primary)`.
-- Text: `var(--wp--preset--color--background)`.
-- Muted text: `rgba(255, 255, 255, 0.7)`.
-- Top border of copyright bar: 1px solid `rgba(255, 255, 255, 0.15)`.
+| Token | Value | Purpose |
+|---|---|---|
+| Content width | `640px` | Long-form text (article body) |
+| Wide width | `1280px` | Most sections, grids |
+| Full width | `100vw` | Full-bleed heroes, galleries |
 
-## 10. Style variation principles
+Defined in `theme.json` → `settings.layout.contentSize` and `settings.layout.wideSize`.
 
-Style variations are not palette swaps. Each variation should change
-multiple axes simultaneously so a user picking the variation gets a
-*recognisably different* site.
+### 5.2 Breakpoints
 
-Variation axes (a variation should change at least three):
+The theme does **not** ship device-specific templates. Fluid typography + fluid spacing + responsive core block layouts handle responsiveness.
 
-1. **Palette** — change at least the primary and accent tokens.
-2. **Typography family** — swap display font, swap body font, or
-   swap both.
-3. **Component radius** — change button/card radius.
-4. **Link treatment** — underline default vs. underline on hover.
-5. **Section padding** — tighten or loosen the default section padding.
-6. **Background pattern** — solid background vs. subtle gradient.
-7. **Body font family** — use serif body (Newsreader) vs. sans-serif
-   body (Inter) for an editorial feel.
-8. **Heading style** — italic headings for a creative/editorial feel
-   vs. roman headings for a corporate feel.
-9. **Letter-spacing on display** — tight tracking (-0.04em) for editorial
-   display vs. standard tracking (-0.02em) for general display.
-10. **Separator treatment** — bold full-width separator (Editorial) vs.
-    subtle 1px hairline separator (Modern).
+Reference breakpoints (for design reasoning, not enforced in CSS):
 
-### v0.1 variations shipped
-- **Minimal** — typography (sans-serif headings) + radius (zero) + link
-  treatment (underline default) axes.
-- **Dark** — palette (inverted) + component colour axes.
+| Name | Width | Notes |
+|---|---|---|
+| Mobile S | < 360px | Smallest supported |
+| Mobile | 360–480px | Default mobile |
+| Tablet | 481–768px | Small tablet |
+| Desktop | 769–1280px | Desktop |
+| Wide | > 1280px | Wide desktop |
 
-### v0.2 variations shipped
-- **Creative** — palette (warm cream + orange) + typography (italic
-  Newsreader headings) + radius (pill 999px) + heading letter-spacing
-  (tighter) axes. For designer portfolios and creative studios.
-- **Corporate** — palette (navy + steel blue, no coral) + typography
-  (Inter throughout, sans-serif headings) + radius (zero) + link
-  treatment (underline always) + heading sizes (smaller) + spacing
-  (tighter) axes. For consultancies and professional service firms.
-- **Elegant** — palette (warm cream + brown + gold) + typography
-  (italic h1, larger display) + radius (zero) + line-height (1.75)
-  + caption style (italic) axes. For sophisticated portfolios and
-  editorial brands.
-- **Editorial** — palette (pure B/W, no accent) + typography
-  (Newsreader for headings and body, oversized display, very tight
-  tracking) + radius (zero) + body size (larger 1.125rem) + separator
-  treatment (bold full-width) + shadow (none) axes. For long-form
-  writers and content-first sites.
+### 5.3 Section Anatomy
 
-Future variations (Phase 6 follow-ons or starter-site-specific
-variations in Phase 9) should each pick their own combination of at
-least 3 axes from the list above. A palette swap is not accepted.
+A standard section follows this composition:
 
-## 11. What we do not ship
+```
+Group (full width)
+  ├── Group (wide width, inner)
+  │     ├── Group (vertical, gap MD) — header
+  │     │     ├── Paragraph (eyebrow — caption style)
+  │     │     └── Heading (H2)
+  │     └── Group (content, gap LG)
+  │           └── [pattern-specific blocks]
+```
 
-For clarity, the following are explicitly out of scope for v0.1 and
-v0.2 and should not appear in patterns, style variations, or templates:
+### 5.4 Grid Behavior
 
-- Gradients beyond the two declared in `theme.json`.
-- Glassmorphism.
-- Neon effects, glow effects, drop shadows on text.
-- 3D objects, decorative circles, blobs.
-- AI-generated illustrations, icons, portraits.
-- Random stock photos pulled from Google Images.
-- Multiple icon libraries mixed in the same pattern.
-- Emoji used as functional icons (emoji are fine in user content).
+- **2-column grids:** `core/columns` with `1fr 1fr` on desktop, stack on mobile below 782px.
+- **3-column grids:** `core/columns` with `1fr 1fr 1fr` on desktop, 1-column on mobile.
+- **Portfolio grids:** `core/query` with `core/post-template` and a 3-column layout, falling back to 1-column on mobile.
+
+---
+
+## 6. Button System
+
+Defined in `theme.json` → `styles.blocks.core/button.variations` and via block styles.
+
+| Variant | Use |
+|---|---|
+| Primary (default) | Main CTA — solid accent background, white text |
+| Outline | Secondary CTA — transparent background, accent border |
+| Text | Tertiary CTA — no background, accent text, optional arrow |
+| Pill | Decorative / friendly CTA — fully rounded |
+| Arrow | CTA with directional affordance — uses an inline SVG arrow |
+
+**Rules:**
+- Buttons are **never** emoji icons or Unicode symbols.
+- Arrow variants use a small inline SVG (`↗` glyph forbidden as it varies by font).
+- Minimum touch target: 44×44px on mobile.
+- Hover: subtle darken of background or border color shift. No transform scale.
+- Focus: 2px accent outline with 2px offset (visible focus state).
+- Disabled: 50% opacity, no pointer.
+
+### 6.1 Button Block Styles (registered in `inc/block-styles.php`)
+
+| Block | Style name | Slug |
+|---|---|---|
+| `core/button` | Outline | `outline` |
+| `core/button` | Text Link | `text-link` |
+| `core/button` | Pill | `pill` |
+
+---
+
+## 7. Card System
+
+Cards are **not a custom block**. They are compositions of core blocks styled consistently. The card system is expressed via block styles on `core/group` and `core/columns`.
+
+| Variant | Construction |
+|---|---|
+| Default Card | `core/group` with subtle border + LG padding + soft shadow |
+| Bordered Card | `core/group` with 1px border, no shadow |
+| Elevated Card | `core/group` with larger shadow, no border |
+| Minimal Card | `core/group` no border, no shadow, only whitespace |
+| Featured Card | Bordered card with accent top border or accent background tint |
+
+### 7.1 Card Block Styles (registered in `inc/block-styles.php`)
+
+| Block | Style name | Slug |
+|---|---|---|
+| `core/group` | Card Default | `card-default` |
+| `core/group` | Card Bordered | `card-bordered` |
+| `core/group` | Card Elevated | `card-elevated` |
+| `core/group` | Card Minimal | `card-minimal` |
+
+---
+
+## 8. Border System
+
+| Token | Value | Purpose |
+|---|---|---|
+| Border width | `1px` | Default |
+| Border width (thick) | `2px` | Active states, emphasis |
+| Radius small | `0.25rem` (4px) | Tags, pills small |
+| Radius medium | `0.5rem` (8px) | Default card radius |
+| Radius large | `1rem` (16px) | Large cards, modals |
+| Radius pill | `9999px` | Buttons-pill, tags |
+
+### 8.1 Border Usage Rules
+
+- Cards use radius medium (8px) by default.
+- Buttons use radius small (4px) by default.
+- Hero / full-bleed sections use 0 radius.
+- No element uses radius > 1rem — avoids "AI-generated card" look.
+
+---
+
+## 9. Shadow System
+
+Shadows are restrained. Three levels only:
+
+| Token | Value | Purpose |
+|---|---|---|
+| Shadow SM | `0 1px 2px rgba(10,10,10,0.05)` | Subtle elevation |
+| Shadow MD | `0 4px 12px rgba(10,10,10,0.06)` | Default card |
+| Shadow LG | `0 12px 32px rgba(10,10,10,0.08)` | Elevated card, modals |
+
+No glow shadows. No colored shadows. No multi-layer shadows.
+
+---
+
+## 10. Motion System
+
+Motion is **minimal** and **functional**.
+
+| Token | Duration | Easing | Use |
+|---|---|---|---|
+| Fast | `120ms` | `ease-out` | Hover states, focus rings |
+| Base | `200ms` | `cubic-bezier(0.4, 0, 0.2, 1)` | Default transitions |
+| Slow | `400ms` | `cubic-bezier(0.4, 0, 0.2, 1)` | Section reveals (only if needed) |
+
+### 10.1 Motion Rules
+
+- `prefers-reduced-motion: reduce` disables all transitions longer than 1ms.
+- No entrance animations triggered by scroll. (If added later, must respect reduced motion.)
+- No parallax. No autoplay video. No carousel auto-advance.
+
+---
+
+## 11. Iconography
+
+**No bundled icon library.** No Font Awesome, no Material Icons, no emoji.
+
+Icons are used **only** when they materially aid comprehension:
+
+- Navigation menu toggle (handled by `core/navigation`)
+- Social icons (handled by `core/social-icons` which ships SVGs)
+- Optional inline SVG for button arrows (registered centrally in `inc/block-styles.php`)
+
+### 11.1 Forbidden Icons
+
+Emoji as UI icons is forbidden. Examples of forbidden usage:
+
+- 🤖 🚀 ⭐ 💡 🔥 as feature icons
+- ⚠️ ✅ ❌ as status indicators (use semantic HTML + text labels)
+- 📧 📞 as contact icons (use SVG or text label)
+
+### 11.2 Permitted Icons
+
+- Inline SVG authored by the theme team (GPL-compatible)
+- WordPress core block icons (`core/social-icons` set)
+- CSS shapes (e.g., a `::after` arrow drawn with borders)
+- Numerical labels (1, 2, 3) for ordered features
+
+---
+
+## 12. Image Treatment
+
+| Treatment | When |
+|---|---|
+| Full-bleed | Hero photography, portfolio covers |
+| Aspect-ratio locked | Portfolio grid items (use `core/image` with `aspectRatio`) |
+| Rounded corners | Portrait photos, team photos |
+| Sharp corners | Editorial photos in articles |
+| Subtle overlay | Cover blocks with text overlay |
+
+Default aspect ratios for portfolio grids:
+
+| Layout | Ratio |
+|---|---|
+| Square grid | `4/3` |
+| Portrait grid | `3/4` |
+| Wide grid | `16/9` |
+| Hero | `21/9` (full-bleed cover) |
+
+---
+
+## 13. Style Variation Principles
+
+A style variation is **not** a color swap. Each variation must change at least three of:
+
+1. Primary font pairing
+2. Color system (background, surface, accent)
+3. Spacing density (compact vs. spacious)
+4. Border radius default
+5. Default shadow level
+6. Section vertical rhythm
+
+Phase 1 ships 4 variations (Default + Minimal + Dark + Editorial). See `STYLE-VARIATIONS.md` for the long-term plan.
+
+---
+
+## 14. Accessibility Surfaces
+
+Accessibility is part of the design system, not a separate concern. Key surfaces:
+
+- **Focus rings:** 2px accent outline with 2px offset — visible on every interactive element.
+- **Link affordance:** Links are underlined by default. Hover removes underline only on text-decoration-skip-ink-supporting browsers.
+- **Heading hierarchy:** Strict H1 → H2 → H3 nesting.
+- **Color contrast:** All default palette combinations meet WCAG 2.1 AA.
+- **Reduced motion:** See Motion System above.
+- **Touch targets:** All interactive elements ≥ 44×44px on mobile.
+
+See `ACCESSIBILITY.md` for the full accessibility specification.

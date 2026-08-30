@@ -2,170 +2,122 @@
 /**
  * GoDevs Portfolio functions and definitions.
  *
- * This file is intentionally minimal. Most of the design system (palette,
- * typography, spacing, layout) is configured declaratively in theme.json.
- * The functions here only handle what theme.json cannot:
- *   - Theme version constant
- *   - Translation loading
- *   - Editor-style enqueue
- *   - Front-end asset enqueue (navigation JS, print CSS)
- *   - Graceful detection of the optional GoDevs Core plugin
- *
  * @package GoDevs_Portfolio
+ * @since   0.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-        exit;
+        exit; // Prevent direct access.
 }
 
 /**
- * Theme version, bumped alongside CHANGELOG.md.
+ * Theme version.
  */
 if ( ! defined( 'GODEVS_PORTFOLIO_VERSION' ) ) {
-        define( 'GODEVS_PORTFOLIO_VERSION', '0.2.0' );
+        define( 'GODEVS_PORTFOLIO_VERSION', '0.8.0' );
 }
 
 /**
- * Sets up theme defaults and registers support for WordPress features.
+ * Theme setup.
  *
- * Note: block templates, template parts, patterns, and style variations are
- * auto-discovered from their respective directories and need no PHP registration
- * when shipped as .html / .php files in a block theme.
+ * Block themes enable most theme supports automatically. We register
+ * the few that are not auto-enabled and that this theme relies on.
  *
- * @link https://developer.wordpress.org/themes/block-themes/
+ * @return void
+ * @since 0.1.0
  */
 function godevs_portfolio_setup(): void {
-        /*
-         * Make the theme available for translation.
-         * Translations should be placed in /languages/godevs-portfolio-<locale>.mo
-         * The .pot file shipped in /languages/ is the source template.
-         */
+        // Make theme available for translation.
         load_theme_textdomain( 'godevs-portfolio', get_template_directory() . '/languages' );
 
-        /*
-         * Core post-format support is intentionally NOT declared — the theme does
-         * not style post formats. Adding support we do not use would only pollute
-         * the post editor UI.
-         */
+        // Add support for <title> tag output by WordPress core.
+        add_theme_support( 'title-tag' );
 
-        /*
-         * Optional GoDevs Core plugin integration.
-         * If the plugin is active we expose a `godevs_core_active` flag and a
-         * `godevs_portfolio_core_active` action hook so the plugin can register
-         * its CPTs and blocks without coupling the theme to it.
-         *
-         * If the plugin is NOT active the theme continues to work normally —
-         * portfolio/services/testimonials are simply authored as regular pages
-         * and posts using the patterns shipped in /patterns/.
-         */
-        if ( defined( 'GODEVS_CORE_VERSION' ) ) {
-                define( 'GODEVS_PORTFOLIO_CORE_ACTIVE', true );
-                /**
-                 * Fires once GoDevs Core has been detected as active.
-                 *
-                 * @since 0.1.0
-                 */
-                do_action( 'godevs_portfolio_core_active' );
-        } else {
-                define( 'GODEVS_PORTFOLIO_CORE_ACTIVE', false );
-        }
+        // Add support for automatic feed links in <head>.
+        add_theme_support( 'automatic-feed-links' );
+
+        // Add support for responsive embedded content (embeds wrap in container).
+        add_theme_support( 'responsive-embeds' );
+
+        // Add support for HTML5 markup on the listed elements.
+        add_theme_support(
+                'html5',
+                array(
+                        'search-form',
+                        'comment-form',
+                        'comment-list',
+                        'gallery',
+                        'caption',
+                        'style',
+                        'script',
+                )
+        );
+
+        // Add support for editor styles — assets/css/theme.css is loaded in the editor.
+        add_editor_style( 'assets/css/theme.css' );
+
+        // Register nav menus used by core/navigation (location-based).
+        register_nav_menus(
+                array(
+                        'primary' => __( 'Primary Menu', 'godevs-portfolio' ),
+                        'footer'  => __( 'Footer Menu', 'godevs-portfolio' ),
+                )
+        );
 }
-
 add_action( 'after_setup_theme', 'godevs_portfolio_setup' );
 
 /**
- * Enqueues editor-side styles for the Site Editor and block editor.
+ * Enqueue front-end styles.
  *
- * Only the minimal `editor.css` is loaded — theme.json handles the bulk of
- * editor styling. The file is registered with the editor handle and a cache
- * buster derived from the file mtime to avoid CDN staleness.
- */
-function godevs_portfolio_editor_assets(): void {
-        $editor_css = get_template_directory() . '/assets/css/editor.css';
-        if ( file_exists( $editor_css ) ) {
-                wp_enqueue_style(
-                        'godevs-portfolio-editor',
-                        get_template_directory_uri() . '/assets/css/editor.css',
-                        array(),
-                        (string) filemtime( $editor_css )
-                );
-        }
-}
-
-add_action( 'enqueue_block_editor_assets', 'godevs_portfolio_editor_assets' );
-
-/**
- * Enqueues front-end assets.
+ * WordPress core enqueues the block styles and the styles emitted from theme.json.
+ * We enqueue a small supplementary stylesheet for items theme.json cannot express
+ * (focus rings, reduced motion overrides, custom block style classes).
  *
- * WordPress automatically enqueues the styles generated from theme.json, so
- * we only enqueue a tiny navigation script and print styles here. We avoid
- * bundling a CSS framework; the front-end styling comes almost entirely from
- * theme.json.
+ * @return void
+ * @since 0.1.0
  */
-function godevs_portfolio_assets(): void {
-        $nav_js = get_template_directory() . '/assets/js/navigation.js';
-        if ( file_exists( $nav_js ) ) {
-                wp_enqueue_script(
-                        'godevs-portfolio-navigation',
-                        get_template_directory_uri() . '/assets/js/navigation.js',
-                        array(),
-                        (string) filemtime( $nav_js ),
-                        array( 'strategy' => 'defer', 'in_footer' => true )
-                );
-        }
+function godevs_portfolio_enqueue_styles(): void {
+        // Supplementary styles (focus rings, reduced motion, block style classes).
+        $theme_css_path = get_template_directory() . '/assets/css/theme.css';
+        $theme_css_ver  = file_exists( $theme_css_path ) ? (string) filemtime( $theme_css_path ) : GODEVS_PORTFOLIO_VERSION;
 
-        $print_css = get_template_directory() . '/assets/css/print.css';
-        if ( file_exists( $print_css ) ) {
-                wp_enqueue_style(
-                        'godevs-portfolio-print',
-                        get_template_directory_uri() . '/assets/css/print.css',
-                        array(),
-                        (string) filemtime( $print_css ),
-                        'print'
-                );
-        }
-}
-
-add_action( 'wp_enqueue_scripts', 'godevs_portfolio_assets' );
-
-/**
- * Preloads locally-hosted fonts to improve LCP.
- *
- * The font files in /assets/fonts/ are bundled with the theme and licensed
- * under the SIL Open Font License (Inter by Rasmus Andersson, Newsreader by
- * Production Type). See /assets/fonts/README.md for license details.
- */
-function godevs_portfolio_preload_fonts(): void {
-        $fonts = array(
-                'inter-400.woff2'  => 'font/woff2',
-                'inter-500.woff2'  => 'font/woff2',
-                'newsreader-500.woff2' => 'font/woff2',
+        wp_enqueue_style(
+                'godevs-portfolio-theme',
+                get_template_directory_uri() . '/assets/css/theme.css',
+                array(),
+                $theme_css_ver
         );
 
-        foreach ( $fonts as $filename => $type ) {
-                $path = get_template_directory() . '/assets/fonts/' . $filename;
-                if ( file_exists( $path ) ) {
-                        echo '<link rel="preload" href="' . esc_url( get_template_directory_uri() . '/assets/fonts/' . $filename ) . '" as="font" type="' . esc_attr( $type ) . '" crossorigin>' . "\n";
-                }
-        }
+        // Theme stylesheet (the WordPress theme header file — holds no CSS in Phase 1).
+        wp_enqueue_style(
+                'godevs-portfolio-style',
+                get_stylesheet_uri(),
+                array(),
+                GODEVS_PORTFOLIO_VERSION
+        );
 }
-
-add_action( 'wp_head', 'godevs_portfolio_preload_fonts', 1 );
+add_action( 'wp_enqueue_scripts', 'godevs_portfolio_enqueue_styles' );
 
 /**
- * Adds a `has-core` body class when GoDevs Core is active so templates and
- * patterns can conditionally render plugin-backed blocks.
+ * Include theme components.
  *
- * @param array $classes Existing body classes.
- * @return array
+ * Pattern category registration, block style registration, and any future
+ * theme components live in the inc/ directory. They are included here so
+ * functions.php remains small and navigable.
  */
-function godevs_portfolio_body_class( array $classes ): array {
-        if ( GODEVS_PORTFOLIO_CORE_ACTIVE ) {
-                $classes[] = 'godevs-core-active';
-        } else {
-                $classes[] = 'godevs-core-inactive';
-        }
-        return $classes;
-}
+require_once get_template_directory() . '/inc/block-patterns.php';
+require_once get_template_directory() . '/inc/block-styles.php';
 
-add_filter( 'body_class', 'godevs_portfolio_body_class' );
+// Dynamic Content Management System (Phase 8) — CPTs, taxonomies, meta fields.
+require_once get_template_directory() . '/inc/content/cpt.php';
+require_once get_template_directory() . '/inc/content/taxonomies.php';
+require_once get_template_directory() . '/inc/content/meta-fields.php';
+
+// Demo Import System (Phase 4) — admin UI, importer, tracker.
+// Loaded only in admin context to keep the front end lightweight.
+if ( is_admin() ) {
+        require_once get_template_directory() . '/inc/demo-registry.php';
+        require_once get_template_directory() . '/inc/demo-tracker.php';
+        require_once get_template_directory() . '/inc/demo-importer.php';
+        require_once get_template_directory() . '/inc/theme-settings.php';
+}

@@ -1,21 +1,33 @@
 /*
 Theme Name: GoDevs Portfolio
-Theme URI: https://godevs.com/portfolio-theme/
+Theme URI: https://github.com/godevs/godevs-portfolio
 Author: GoDevs
-Author URI: https://godevs.com
-Description: A modern, Gutenberg-first WordPress theme for freelancers, developers, designers, agencies, and professional service businesses. Built around the native Site Editor — no page builder required. Editorial typography, generous whitespace, and a clean portfolio foundation that scales from a single freelancer site to a 100+ starter-site catalog. Six style variations (Modern, Minimal, Dark, Creative, Corporate, Elegant, Editorial) and thirteen reusable block patterns.
-Version: 0.2.0
+Author URI: https://godevs.dev
+Description: GoDevs Portfolio is a premium, Gutenberg-first, Full Site Editing WordPress block theme designed for developers, designers, freelancers, agencies, and creators. Built on a scalable design system with reusable patterns, editorial typography, generous whitespace, and accessibility at its core. No required plugins, no external dependencies, no icon library — just clean, modern, editorial-grade portfolio presentation.
+Version: 0.8.0
 Requires at least: 6.5
-Tested up to: 6.7
+Tested up to: 6.6
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: godevs-portfolio
-Tags: full-site-editing, block-styles, wide-blocks, block-patterns, style-variations, custom-colors, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, rtl-language-support, accessibility-ready, block-patterns
+Tags: full-site-editing, block-patterns, block-styles, portfolio, editorial, accessibility-ready, translation-ready, threaded-comments, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options
 */
 
-/* The actual visual styling for this block theme lives in theme.json
-   (palette, typography, spacing) and the templates/parts/patterns/
-   block markup. This file exists primarily to expose the theme metadata
-   header above to WordPress. Editor-only and print styles are enqueued
-   from assets/css/. */
+/*
+ * GoDevs Portfolio styles
+ *
+ * The bulk of the theme styling is emitted by WordPress from theme.json
+ * (design tokens + block-level styles + element styles).
+ *
+ * This file holds:
+ *   - The WordPress theme header above (required)
+ *   - Supplementary CSS that cannot be expressed in theme.json
+ *
+ * Supplementary CSS is loaded separately from assets/css/theme.css to keep
+ * this file's payload minimal — WordPress loads style.css by default.
+ *
+ * See docs/PERFORMANCE.md and docs/WORDPRESS-STANDARDS.md for the rationale.
+ */
+
+/* No additional CSS here. The theme relies on theme.json for design tokens. */

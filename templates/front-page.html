@@ -1,49 +1,350 @@
-<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+<!-- wp:template-part {"slug":"header-transparent","theme":"godevs-portfolio","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"site-main"} -->
-<main class="wp-block-group site-main">
-	<!-- wp:pattern {"slug":"godevs-portfolio/hero"} /-->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
+<main class="wp-block-group" style="padding-top:0;padding-bottom:var(--wp--preset--spacing--80)">
 
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group">
-		<!-- wp:pattern {"slug":"godevs-portfolio/about"} /-->
-	</div>
-	<!-- /wp:group -->
-
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}},"color":{"background":"var:preset|color|surface"}}} -->
-	<div class="wp-block-group has-surface-background-color has-background" style="background-color:var(--wp--preset--color--surface)">
-		<!-- wp:group {"layout":{"type":"constrained"}} -->
-		<div class="wp-block-group">
-			<!-- wp:pattern {"slug":"godevs-portfolio/services"} /-->
+	<!-- Hero -->
+	<!-- wp:group {"tagName":"section","className":"wp-block-godevs-front-hero","layout":{"type":"default"}} -->
+	<section class="wp-block-group wp-block-godevs-front-hero alignfull">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"720px","justifyContent":"center"}} -->
+		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+			<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+			<p class="is-style-eyebrow has-text-align-center">Selected Work · 2014 — 2024</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xxx-large","lineHeight":"1.05","letterSpacing":"-0.02em"}}} -->
+			<h1 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);line-height:1.05;letter-spacing:-0.02em">Building considered portfolio sites that hold up over time.</h1>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+			<p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium);margin-top:var(--wp--preset--spacing--40)">A decade of editorial design, accessibility, and front-end engineering. The work below spans identity systems, publications, and product portfolios.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->
+			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60)">
+				<!-- wp:button -->
+				<div class="wp-block-button"><a href="/work" class="wp-block-button__link wp-element-button">Browse the portfolio</a></div>
+				<!-- /wp:button -->
+				<!-- wp:button {"className":"is-style-text-link"} -->
+				<div class="wp-block-button is-style-text-link"><a href="/about" class="wp-block-button__link wp-element-button">About the practice</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
 		</div>
 		<!-- /wp:group -->
-	</div>
+	</section>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group">
-		<!-- wp:pattern {"slug":"godevs-portfolio/portfolio-grid"} /-->
-	</div>
-	<!-- /wp:group -->
-
-	<!-- wp:pattern {"slug":"godevs-portfolio/cta"} /-->
-
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group">
-		<!-- wp:pattern {"slug":"godevs-portfolio/testimonials"} /-->
-	</div>
-	<!-- /wp:group -->
-
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}},"color":{"background":"var:preset|color|primary"}}} -->
-	<div class="wp-block-group has-primary-background-color has-background" style="background-color:var(--wp--preset--color--primary);color:var(--wp--preset--color--background)">
-		<!-- wp:group {"layout":{"type":"constrained"}} -->
-		<div class="wp-block-group">
-			<!-- wp:pattern {"slug":"godevs-portfolio/contact"} /-->
+	<!-- About Preview -->
+	<!-- wp:group {"tagName":"section","className":"wp-block-godevs-front-about","layout":{"type":"default"}} -->
+	<section class="wp-block-group wp-block-godevs-front-about alignfull">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+			<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80","top":"var:preset|spacing|50"}}}} -->
+			<div class="wp-block-columns">
+				<!-- wp:column {"width":"33.33%"} -->
+				<div class="wp-block-column" style="flex-basis:33.33%">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+						<p class="is-style-eyebrow">About</p>
+						<!-- /wp:paragraph -->
+						<!-- wp:heading {"level":2} -->
+						<h2 class="wp-block-heading">A small studio practice.</h2>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph -->
+						<p>Working at the intersection of editorial design, accessibility, and modern WordPress engineering.</p>
+						<!-- /wp:paragraph -->
+						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+						<p style="font-size:var(--wp--preset--font-size--small)"><a href="/about">More about the practice →</a></p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+				<!-- wp:column {"width":"66.66%"} -->
+				<div class="wp-block-column" style="flex-basis:66.66%">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+					<div class="wp-block-group">
+						<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}},"border":{"top":{"color":"var:preset|color|border","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+						<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border);border-top-width:1px;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+							<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
+							<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">80+</h3>
+							<!-- /wp:heading -->
+							<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+							<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Sites shipped</p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:group -->
+						<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}},"border":{"top":{"color":"var:preset|color|border","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+						<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border);border-top-width:1px;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+							<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
+							<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">12</h3>
+							<!-- /wp:heading -->
+							<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+							<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Years of practice</p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:group -->
+						<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}},"border":{"top":{"color":"var:preset|color|border","width":"1px"},"bottom":{"color":"var:preset|color|border","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+						<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border);border-top-width:1px;border-bottom-color:var(--wp--preset--color--border);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+							<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
+							<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">5</h3>
+							<!-- /wp:heading -->
+							<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+							<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Open-source projects</p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+			</div>
+			<!-- /wp:columns -->
 		</div>
 		<!-- /wp:group -->
-	</div>
+	</section>
 	<!-- /wp:group -->
+
+	<!-- Services Preview -->
+	<!-- wp:group {"tagName":"section","className":"wp-block-godevs-front-services","backgroundColor":"surface","layout":{"type":"default"}} -->
+	<section class="wp-block-group wp-block-godevs-front-services alignfull has-surface-background-color has-background">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
+				<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+				<p class="is-style-eyebrow">Services</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large"}}} -->
+				<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large)">What I do.</h2>
+				<!-- /wp:heading -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50","top":"var:preset|spacing|50"}}}} -->
+			<div class="wp-block-columns">
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large"},"color":{"text":"var:preset|color|muted"}}} -->
+						<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large)">01</p>
+						<!-- /wp:paragraph -->
+						<!-- wp:heading {"level":3} -->
+						<h3 class="wp-block-heading">Brand Strategy</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph -->
+						<p>Positioning, voice, and the framework behind a coherent identity.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large"},"color":{"text":"var:preset|color|muted"}}} -->
+						<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large)">02</p>
+						<!-- /wp:paragraph -->
+						<!-- wp:heading {"level":3} -->
+						<h3 class="wp-block-heading">Editorial Web Design</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph -->
+						<p>Long-form layouts, magazine systems, Gutenberg-native component libraries.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large"},"color":{"text":"var:preset|color|muted"}}} -->
+						<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large)">03</p>
+						<!-- /wp:paragraph -->
+						<!-- wp:heading {"level":3} -->
+						<h3 class="wp-block-heading">Front-end Engineering</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph -->
+						<p>Performance budgets, accessibility passes, progressive enhancement.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+			</div>
+			<!-- /wp:columns -->
+		</div>
+		<!-- /wp:group -->
+	</section>
+	<!-- /wp:group -->
+
+	<!-- Featured Portfolio -->
+	<!-- wp:group {"tagName":"section","className":"wp-block-godevs-front-portfolio","layout":{"type":"default"}} -->
+	<section class="wp-block-group wp-block-godevs-front-portfolio alignfull">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+			<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+			<div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--70)">
+				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+				<div class="wp-block-group">
+					<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+					<p class="is-style-eyebrow">Selected work</p>
+					<!-- /wp:paragraph -->
+					<!-- wp:heading {"level":2} -->
+					<h2 class="wp-block-heading">Recent projects.</h2>
+					<!-- /wp:heading -->
+				</div>
+				<!-- /wp:group -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+				<p style="font-size:var(--wp--preset--font-size--small)"><a href="/work">See all work →</a></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:query {"queryId":201,"query":{"perPage":6,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]}} -->
+			<div class="wp-block-query">
+				<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} /-->
+						<!-- wp:post-date /-->
+						<!-- wp:post-title {"level":3,"isLink":true} /-->
+					</div>
+					<!-- /wp:group -->
+				<!-- /wp:post-template -->
+
+				<!-- wp:query-no-results -->
+					<!-- wp:paragraph -->
+					<p>No projects found yet.</p>
+					<!-- /wp:paragraph -->
+				<!-- /wp:query-no-results -->
+			</div>
+			<!-- /wp:query -->
+		</div>
+		<!-- /wp:group -->
+	</section>
+	<!-- /wp:group -->
+
+	<!-- Stats -->
+	<!-- wp:group {"tagName":"section","className":"wp-block-godevs-front-stats","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"}} -->
+	<section class="wp-block-group wp-block-godevs-front-stats alignfull has-contrast-color has-primary-background-color has-text-color has-background">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+			<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50","top":"var:preset|spacing|40"}}}} -->
+			<div class="wp-block-columns">
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em"}}} -->
+						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">80+</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+						<p style="font-size:var(--wp--preset--font-size--small)">Sites shipped</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em"}}} -->
+						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">12</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+						<p style="font-size:var(--wp--preset--font-size--small)">Years of practice</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em"}}} -->
+						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">5</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+						<p style="font-size:var(--wp--preset--font-size--small)">Open-source projects</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<div class="wp-block-group">
+						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em"}}} -->
+						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">100%</h3>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
+						<p style="font-size:var(--wp--preset--font-size--small)">Lighthouse accessibility</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+			</div>
+			<!-- /wp:columns -->
+		</div>
+		<!-- /wp:group -->
+	</section>
+	<!-- /wp:group -->
+
+	<!-- Testimonial -->
+	<!-- wp:group {"tagName":"section","className":"wp-block-godevs-front-testimonial","layout":{"type":"default"}} -->
+	<section class="wp-block-group wp-block-godevs-front-testimonial alignfull">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"constrained","contentSize":"720px"}} -->
+		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+			<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+			<p class="is-style-eyebrow has-text-align-center">Testimonial</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:pullquote {"align":"wide","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","lineHeight":"1.3","letterSpacing":"-0.01em"}}} -->
+			<figure class="wp-block-pullquote alignwide">
+				<blockquote class="has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--x-large);line-height:1.3;letter-spacing:-0.01em">
+					<p>Working with this practice felt like adding a senior partner to the team — clear thinking, careful execution, and a real point of view on what makes a portfolio site worth visiting.</p>
+					<cite>— Maya Okonkwo, Founder at Studio Field</cite>
+				</blockquote>
+			</figure>
+			<!-- /wp:pullquote -->
+		</div>
+		<!-- /wp:group -->
+	</section>
+	<!-- /wp:group -->
+
+	<!-- CTA -->
+	<!-- wp:group {"tagName":"section","className":"wp-block-godevs-front-cta","layout":{"type":"default"}} -->
+	<section class="wp-block-group wp-block-godevs-front-cta alignfull">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"640px"}} -->
+		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+			<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+			<p class="is-style-eyebrow has-text-align-center">Available for new work</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":2,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","lineHeight":"1.1","letterSpacing":"-0.02em"}}} -->
+			<h2 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);line-height:1.1;letter-spacing:-0.02em">Let's build something good together.</h2>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+			<p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium)">Currently taking on two new engagements for Q3 — portfolio sites, product launches, and editorial work.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
+				<!-- wp:button -->
+				<div class="wp-block-button"><a href="/contact" class="wp-block-button__link wp-element-button">Start a project</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
+		</div>
+		<!-- /wp:group -->
+	</section>
+	<!-- /wp:group -->
+
 </main>
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->
+<!-- wp:template-part {"slug":"footer-cta","theme":"godevs-portfolio","tagName":"footer"} /-->

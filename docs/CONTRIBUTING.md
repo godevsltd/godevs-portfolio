@@ -1,257 +1,538 @@
-# Contributing — GoDevs Portfolio
+# GoDevs Portfolio — Contributing
 
-Thank you for your interest in contributing. The theme is
-maintained by GoDevs and accepts external contributions that
-follow the rules in this document and in
-`docs/AI-DEVELOPMENT-GUIDE.md`.
+**Document version:** 0.1.0
+**Phase:** 1 — Foundation
+
+This document describes how to contribute to the GoDevs Portfolio theme. It applies to both human contributors and AI agents.
 
 ---
 
-## 1. How to contribute
+## 1. Before You Begin
 
-### Reporting bugs
+1. Read `AI-DEVELOPMENT-GUIDE.md` — it defines the workflow.
+2. Read `ARCHITECTURE.md` — it defines where files belong.
+3. Read `DESIGN-SYSTEM.md` — it defines the visual language.
+4. Read `WORDPRESS-STANDARDS.md` — it defines the code conventions.
 
-1. Search existing GitHub issues to avoid duplicates.
-2. Open a new issue with the following structure:
-   - **Summary:** one sentence describing the bug.
-   - **Steps to reproduce:** numbered list of steps.
-   - **Expected behaviour:** what you expected.
-   - **Actual behaviour:** what you saw.
-   - **Environment:** WordPress version, PHP version, browser,
-     OS, theme version.
-   - **Screenshots:** if applicable.
-   - **Possible cause:** if you have a hypothesis.
-3. Wait for a maintainer to triage. Do not open a PR until the
-   bug is confirmed.
+Do not begin work without reading these four documents.
 
-### Suggesting features
+---
 
-1. Search existing GitHub issues for similar suggestions.
-2. Open a new issue with the following structure:
-   - **Problem:** what user problem does this solve?
-   - **Proposal:** one paragraph describing the feature.
-   - **Alternatives:** what alternatives were considered?
-   - **WordPress-native:** can this be solved with native
-     WordPress features (theme.json, a core block, a pattern)?
-3. Wait for maintainer discussion. Do not open a PR until the
-   feature is approved.
+## 2. Workflow
 
-### Submitting a pull request
+```
+Inspect → Plan → Implement → Validate → Review → Report
+```
 
-1. Fork the repository.
-2. Create a branch: `<type>/<short-description>` (e.g.
-   `feat/team-pattern`, `fix/header-focus-trap`).
-3. Make your changes following the standards in
-   `docs/CODING-STANDARDS.md` and `docs/AI-DEVELOPMENT-GUIDE.md`.
-4. Run the automated tests: `php tests/run.php`.
-5. Run the manual QA checklist from `docs/QA-CHECKLIST.md`
-   against your changes.
-6. Commit your changes with a Conventional Commits message
-   (see §4).
-7. Open a PR with a description following the template in
-   `docs/AI-DEVELOPMENT-GUIDE.md` §19.
-8. Wait for review. Address review feedback by pushing new
-   commits (do not force-push).
+See `AI-DEVELOPMENT-GUIDE.md` Section 2 for the full description.
 
-## 2. Code standards
+---
 
-All contributions must follow `docs/CODING-STANDARDS.md`. The
-key rules:
+## 3. Adding a Pattern
 
-- WordPress PHP Coding Standards for PHP.
-- WordPress JavaScript Coding Standards for JS.
-- WordPress CSS conventions for CSS.
-- Block markup conventions for HTML.
-- The naming conventions in
-  `docs/CODING-STANDARDS.md` §5.
+### 3.1 Step-by-Step
 
-PRs that introduce style violations will be flagged in review
-and need to be fixed before merge.
+1. **Identify the category** — see `PATTERN-SYSTEM.md` Section 2.
+2. **Pick a descriptive name** — see `PATTERN-SYSTEM.md` Section 3.
+3. **Create the file** at `patterns/<category>/<name>.php`.
+4. **Author the metadata header**:
+   ```php
+   <?php
+   /**
+    * Title: Hero — Split Profile
+    * Slug: godevs-portfolio/hero-split-profile
+    * Description: A two-column hero with an editorial portrait on one side and a bold display headline plus CTA on the other.
+    * Categories: godevs-portfolio-hero
+    * Keywords: hero, split, profile, intro
+    * Viewport Width: 1280
+    */
+   ?>
+   ```
+5. **Compose with core blocks** — see `PATTERN-SYSTEM.md` Section 4.
+6. **Reference design tokens** — colors via `var:preset|color|<slug>`, spacing via `var:preset|spacing|<slug>`, sizes via `var:preset|font-size|<slug>`.
+7. **Validate**:
+   ```bash
+   php -l patterns/<category>/<name>.php
+   ```
+8. **Test in Site Editor** — insert the pattern, verify it renders correctly.
+9. **Test in every style variation** — switch to each `styles/*.json` variation, insert the pattern, verify it still looks intentional.
+10. **Test responsive** — viewport at 360px, 768px, 1280px.
+11. **Test accessibility** — keyboard nav, focus visible, contrast AA.
+12. **Update `CHANGELOG.md`** under "Added".
+13. **Commit** with message: `feat(patterns): add Hero — Split Profile pattern`.
 
-## 3. Architecture rules
+### 3.2 Pattern Template
 
-All contributions must respect the architecture in
-`docs/ARCHITECTURE.md` and the plugin boundary in
-`docs/CORE-PLUGIN-BOUNDARY.md`. The key rules:
+Use this skeleton when authoring a new pattern:
 
-- No classic PHP templating layer. Block themes only.
-- No CPTs, taxonomies, shortcodes, settings pages, or REST
-  routes in the theme. Those belong in GoDevs Core.
-- No third-party dependencies without maintainer sign-off.
-- No external requests.
-- No `eval()`, no obfuscated code, no remote requests.
+```php
+<?php
+/**
+ * Title: <Category> — <Descriptive Subtitle>
+ * Slug: godevs-portfolio/<category-slug>-<descriptive-slug>
+ * Description: <One sentence explaining the pattern's design intent>
+ * Categories: godevs-portfolio-<category>
+ * Keywords: <3-5 comma-separated keywords>
+ * Viewport Width: 1280
+ */
+?>
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-<name>","layout":{"type":"default"}} -->
+<section class="wp-block-group wp-block-godevs-<name> alignfull">
+    <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
+    <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+        <!-- Section header -->
+        <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+        <div class="wp-block-group">
+            <!-- wp:paragraph {"fontSize":"small"} -->
+            <p class="has-small-font-size">Eyebrow text</p>
+            <!-- /wp:paragraph -->
+            <!-- wp:heading {"level":2} -->
+            <h2 class="wp-block-heading">Section heading</h2>
+            <!-- /wp:heading -->
+        </div>
+        <!-- /wp:group -->
+        
+        <!-- Section content -->
+        <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+        <div class="wp-block-group">
+            <!-- Content blocks here -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+```
 
-PRs that violate the architecture will not be merged.
+---
 
-## 4. Commit message convention
+## 4. Adding a Template
 
-We use Conventional Commits, scoped to the affected area:
+### 4.1 Step-by-Step
+
+1. **Identify the WordPress template hierarchy slot** — see `TEMPLATE-SYSTEM.md` Section 1.1.
+2. **Create the file** at `templates/<name>.html`.
+3. **Compose** with `core/template-part` for header/footer + `core/group` for main + content blocks.
+4. **Validate**:
+   ```bash
+   # JSON validation of the HTML's block markup is handled by WordPress on activation
+   ls -la templates/<name>.html
+   ```
+5. **Test** — activate the theme, visit a route that resolves to the template, verify rendering.
+6. **Update `CHANGELOG.md`** under "Added".
+7. **Commit** with message: `feat(templates): add <name> template`.
+
+### 4.2 Template Skeleton
+
+```html
+<!-- wp:template-part {"slug":"header","theme":"godevs-portfolio","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)">
+    <!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
+    <div class="wp-block-group alignwide">
+        <!-- Template-specific content -->
+    </div>
+    <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"godevs-portfolio","tagName":"footer"} /-->
+```
+
+---
+
+## 5. Adding a Template Part
+
+### 5.1 Step-by-Step
+
+1. **Identify the purpose** — header variant, footer variant, sidebar, etc.
+2. **Create the file** at `parts/<name>.html`.
+3. **Compose** with semantic blocks (`core/site-logo`, `core/navigation`, etc.).
+4. **Register the template part** in `parts/<name>.html` itself — WordPress auto-discovers files in `parts/`.
+5. **Validate** — visit Appearance → Editor → Template Parts, verify it appears.
+6. **Update `CHANGELOG.md`** under "Added".
+7. **Commit** with message: `feat(parts): add <name> template part`.
+
+---
+
+## 6. Adding a Style Variation
+
+### 6.1 Step-by-Step
+
+1. **Read `STYLE-VARIATIONS.md`** — confirm the variation meets the Three-Change Rule.
+2. **Create the file** at `styles/<name>.json`.
+3. **Author the JSON** — override the relevant `settings.color`, `settings.typography`, `settings.spacing`, `styles.*` subtrees.
+4. **Validate**:
+   ```bash
+   python3 -m json.tool styles/<name>.json > /dev/null
+   ```
+5. **Test in Site Editor** — switch to the variation, verify it applies.
+6. **Test every pattern** in the variation — switch to each pattern, verify it renders correctly.
+7. **Verify contrast** — use WebAIM Contrast Checker on every color combination.
+8. **Update `CHANGELOG.md`** under "Added".
+9. **Commit** with message: `feat(styles): add <name> style variation`.
+
+### 6.2 Variation Template
+
+```json
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 3,
+    "title": "Variation Name",
+    "description": "One sentence describing the design intent.",
+    "settings": {
+        "color": {
+            "palette": [
+                { "slug": "primary", "color": "#000000", "name": "Primary" },
+                { "slug": "base", "color": "#FFFFFF", "name": "Base" }
+            ]
+        },
+        "typography": {
+            "fontFamilies": [
+                { "slug": "display", "name": "Display", "fontFamily": "Georgia, serif" }
+            ]
+        }
+    },
+    "styles": {
+        "color": { "background": "#FFFFFF", "text": "#000000" },
+        "elements": {
+            "heading": {
+                "typography": { "fontFamily": "var:preset|font-family|display" }
+            },
+            "button": {
+                "color": { "background": "#000000", "text": "#FFFFFF" }
+            }
+        }
+    }
+}
+```
+
+---
+
+## 7. Modifying `theme.json`
+
+### 7.1 Step-by-Step
+
+1. **Identify the change** — settings (tokens) vs styles (block-level).
+2. **Read `DESIGN-SYSTEM.md`** — confirm the change fits the system.
+3. **Edit `theme.json`** with the minimal change.
+4. **Validate**:
+   ```bash
+   python3 -m json.tool theme.json > /dev/null
+   ```
+5. **Test in Site Editor** — verify the change is reflected.
+6. **Test variations** — verify variations still apply correctly.
+7. **Update `CHANGELOG.md`** under "Changed".
+8. **Commit** with message: `refactor(theme-json): <change>` or `feat(theme-json): <change>`.
+
+### 7.2 Rules
+
+- **Never** remove a slug that is referenced by a pattern, template, or variation.
+- **Never** change a slug's meaning (e.g., making `primary` mean "blue" then "red"). Add new slugs instead.
+- **Always** preserve the `version: 3` field.
+- **Always** preserve the `$schema` reference.
+
+---
+
+## 8. Adding CSS
+
+### 8.1 When CSS Is Appropriate
+
+CSS in `assets/css/theme.css` is appropriate when:
+
+- The style cannot be expressed in `theme.json` (e.g., `:focus-visible` outline)
+- The style is for a custom block style class registered in `inc/block-styles.php`
+- The style overrides a default for accessibility (e.g., `prefers-reduced-motion`)
+
+### 8.2 When CSS Is NOT Appropriate
+
+- Hardcoded colors → use `theme.json` palette
+- Hardcoded spacing → use `theme.json` spacing scale
+- Hardcoded font sizes → use `theme.json` font sizes
+- Layout → use block layout attributes
+- Anything that can be expressed in `theme.json`
+
+### 8.3 Step-by-Step
+
+1. **Read `PERFORMANCE.md`** — confirm CSS is the right tool.
+2. **Read `WORDPRESS-STANDARDS.md`** — confirm conventions.
+3. **Add to `assets/css/theme.css`** with a comment explaining the rule's purpose.
+4. **Reference tokens** — use `var(--wp--preset--color|spacing|font-size|font-family|<slug>)`.
+5. **Validate** — visual inspection, no console errors.
+6. **Update `CHANGELOG.md`** under "Changed".
+7. **Commit** with message: `style(assets): <change>`.
+
+---
+
+## 9. Adding JavaScript
+
+### 9.1 When JS Is Appropriate
+
+JavaScript is appropriate when:
+
+- A pattern needs progressive enhancement that cannot be expressed declaratively
+- The enhancement degrades gracefully without JS
+- The file is under 5 KB
+
+### 9.2 When JS Is NOT Appropriate
+
+- Anything that can be done with HTML/CSS
+- Anything that requires a library (use vanilla JS)
+- Anything that processes user input (plugin territory)
+- Anything that makes external requests
+
+### 9.3 Step-by-Step
+
+1. **Read `PERFORMANCE.md`** — confirm JS is needed.
+2. **Read `WORDPRESS-STANDARDS.md`** — confirm conventions.
+3. **Read `SECURITY.md`** — confirm safety.
+4. **Add to `assets/js/theme.js`** with a comment explaining the enhancement.
+5. **Enqueue** in `functions.php` with `defer` strategy.
+6. **Validate** — visual inspection, no console errors, page works without JS.
+7. **Update `CHANGELOG.md`** under "Added" or "Changed".
+8. **Commit** with message: `feat(assets): <change>`.
+
+---
+
+## 10. Updating Documentation
+
+### 10.1 Step-by-Step
+
+1. **Identify the relevant `docs/` file** — see `AI-DEVELOPMENT-GUIDE.md` Section 9.
+2. **Read the existing content** — understand what's already documented.
+3. **Make the minimal change** — do not rewrite the file.
+4. **Update `CHANGELOG.md`** under "Changed".
+5. **Commit** with message: `docs(<area>): <change>`.
+
+### 10.2 Documentation Standards
+
+- Documentation is project-specific. No placeholder text.
+- Documentation reflects the current state of the codebase.
+- Documentation uses Markdown.
+- Documentation is concise but complete.
+- Code examples are syntactically valid.
+
+---
+
+## 11. Testing Changes
+
+### 11.1 Local Testing Workflow
+
+1. Activate the theme on a local WordPress install.
+2. Visit each route that exercises the change:
+   - Homepage (latest posts or static front page)
+   - A single post
+   - An archive page
+   - A search results page
+   - A 404 page
+3. Open the Site Editor.
+4. Insert the affected pattern(s).
+5. Switch to each style variation.
+6. View at 360px, 768px, 1280px, 1920px widths.
+7. Tab through the page using keyboard only.
+8. Run Lighthouse audit.
+9. Run axe DevTools audit.
+
+### 11.2 What to Report
+
+When reporting test results:
+
+- **Passed:** what worked
+- **Failed:** what did not work, with reproduction steps
+- **Not tested:** what you did not test, with reason
+
+**Do not** claim a test passed if you did not run it.
+
+---
+
+## 12. Creating Commits
+
+### 12.1 Commit Message Format
+
+Follow Conventional Commits:
 
 ```
 <type>(<scope>): <subject>
 
-<body>
-
-<footer>
+<body (optional)>
 ```
 
-### Types
-- `feat` — a new feature.
-- `fix` — a bug fix.
-- `docs` — documentation only.
-- `style` — formatting, missing semicolons, etc. (no code
-  change).
-- `refactor` — code change that neither fixes a bug nor adds a
-  feature.
-- `test` — adding or correcting tests.
-- `chore` — build, tooling, dependencies.
-- `revert` — reverting a previous commit.
+| Type | When |
+|---|---|
+| `feat` | New feature (new pattern, template, variation) |
+| `fix` | Bug fix |
+| `docs` | Documentation change |
+| `style` | Code style change (no behavior change) |
+| `refactor` | Code refactoring (no behavior change) |
+| `perf` | Performance improvement |
+| `test` | Test addition or change |
+| `chore` | Tooling, build, dependency |
+| `build` | Build system change |
+| `ci` | CI change |
 
-### Scopes
-- `theme` — root theme files (`style.css`, `functions.php`,
-  `index.php`, `readme.txt`).
-- `theme-json` — `theme.json` changes.
-- `templates` — `templates/*.html`.
-- `parts` — `parts/*.html`.
-- `patterns` — `patterns/*.php`.
-- `styles` — `styles/*.json` style variations.
-- `assets` — `assets/*` (CSS, JS, fonts, images).
-- `docs` — `docs/*.md` documentation.
-- `tests` — `tests/*` test scaffolding.
-- `meta` — `README.md`, `CHANGELOG.md`, `LICENSE`, `.gitignore`.
+Scopes (suggested):
+- `patterns`, `templates`, `parts`, `styles`, `theme-json`, `assets`, `docs`, `readme`
 
-### Examples
-```
-feat(patterns): add team grid pattern
+### 12.2 Commit Hygiene
 
-Adds a three-column team grid pattern for displaying team
-members. Pattern includes photo, name, position, bio, and
-social links.
+- One concern per commit.
+- Do not mix unrelated changes.
+- Do not commit generated files (unless documented as a deliverable).
+- Do not commit secrets (`.env`, API keys, passwords).
+- Do not commit `.DS_Store` or editor config files (use `.gitignore`).
 
-Closes #42.
-```
+---
+
+## 13. Branch and Pull Request Workflow
+
+### 13.1 Branch Naming
 
 ```
-fix(header): correct mobile menu focus trap
-
-The mobile menu overlay was not trapping focus correctly;
-Tab could escape the overlay. This patch adds a focus trap
-to the navigation.js script.
-
-Fixes #87.
+<type>/<short-description>
 ```
 
-## 5. PR description template
+Examples:
+- `feat/hero-split-profile-pattern`
+- `fix/dark-variation-contrast`
+- `docs/accessibility-screen-reader-testing`
+
+### 13.2 Pull Request Template
 
 ```markdown
-## What
-One paragraph describing the change.
+## Summary
+
+<One sentence describing the change.>
 
 ## Why
-One paragraph explaining why this change belongs in the theme and not
-in a plugin, a future version, or not at all.
+
+<One paragraph explaining the rationale.>
 
 ## How
-Bullet list of the files changed and why.
 
-## Tests
-Which `tests/` scripts were run. Which manual checks were performed.
+<Implementation notes, if non-trivial.>
 
-## Risks
-Any rules in `docs/AI-DEVELOPMENT-GUIDE.md` this change touches. Any
-backward-compatibility considerations.
+## Validation
 
-## WordPress.org
-Any compliance surface this change touches (escaping, sanitisation,
-external requests, licensing).
+- [ ] PHP lint passed
+- [ ] JSON validation passed
+- [ ] Theme activates without errors
+- [ ] Tested in default style
+- [ ] Tested in all style variations
+- [ ] Tested at 360px / 768px / 1280px
+- [ ] Keyboard navigation works
+- [ ] Lighthouse audit ≥ 90
+- [ ] axe DevTools shows no critical issues
 
 ## Screenshots
-If applicable, before / after screenshots.
+
+<For visual changes — before and after.>
+
+## Breaking Changes
+
+<None, or describe.>
 ```
 
-## 6. Review process
+---
 
-1. A maintainer is assigned within 48 hours of PR open.
-2. The maintainer reviews the PR against the code standards,
-   architecture rules, and the AI development guide.
-3. The maintainer either approves, requests changes, or
-   rejects (with reason).
-4. The contributor addresses feedback by pushing new commits.
-5. Once approved, the maintainer merges the PR.
+## 14. Code Review Checklist
 
-### What triggers rejection
-- Architecture violation (CPT in theme, classic PHP template,
-  third-party dependency without sign-off).
-- Security issue (unescaped output, remote request, `eval()`).
-- WordPress.org compliance issue.
-- Accessibility regression.
-- Performance regression beyond the budgets in
-  `docs/PERFORMANCE.md` §9.
-- Style violation that the contributor is unwilling to fix.
+When reviewing a PR:
 
-### What triggers a request for changes
-- Code standards violations.
-- Missing tests.
-- Missing PR description sections.
-- Documentation not updated for a feature change.
+### Architecture
+- [ ] Files go in the right location
+- [ ] Naming follows conventions
+- [ ] No unnecessary files created
 
-## 7. Branching strategy
+### Design System
+- [ ] No hardcoded colors
+- [ ] No hardcoded spacing
+- [ ] No hardcoded font sizes
+- [ ] Tokens referenced correctly
 
-The `main` branch is the release branch. Each release is tagged
-`v<version>` from `main`.
+### Block-First
+- [ ] Core blocks used where possible
+- [ ] No custom blocks
+- [ ] No unnecessary PHP
 
-Development happens on feature branches off `main`. PRs target
-`main`. There is no `develop` branch.
+### Accessibility
+- [ ] Semantic HTML
+- [ ] Visible focus states
+- [ ] Color contrast meets AA
+- [ ] No emoji as icons
+- [ ] `prefers-reduced-motion` respected
 
-For the period between releases, `main` is the bleeding edge.
-If a release needs a hotfix, the hotfix PR targets `main` and
-the release tag is created from `main` after the hotfix merge.
+### Performance
+- [ ] No new external dependencies
+- [ ] No inline JS
+- [ ] No render-blocking assets
+- [ ] Page weight within budget
 
-## 8. Release process
+### Security
+- [ ] All output escaped
+- [ ] No user input handling (plugin territory)
+- [ ] No `eval()`, `exec()`, etc.
 
-Releases are cut by the maintainer:
+### WordPress Standards
+- [ ] Coding standards followed
+- [ ] Translation functions used with correct text domain
+- [ ] `readme.txt` updated if user-facing change
 
-1. Ensure `main` passes the QA checklist
-   (`docs/QA-CHECKLIST.md`).
-2. Bump version in `style.css`, `readme.txt`, and
-   `functions.php` (`GODEVS_PORTFOLIO_VERSION` constant).
-3. Update `CHANGELOG.md` with the new version, date, and
-   changes.
-4. Tag the release: `git tag -s v<version> -m "Release v<version>"`.
-5. Push the tag: `git push --tags`.
-6. Build the distribution zip from a clean checkout.
-7. Publish the release on GitHub with the changelog entry as
-   the release notes.
-8. For WordPress.org releases (Phase 17+), upload the
-   distribution zip via SVN.
+### Documentation
+- [ ] `CHANGELOG.md` updated
+- [ ] Relevant `docs/` updated if architecture or design changed
 
-## 9. Code of conduct
+---
 
-Contributors are expected to follow the [WordPress Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/):
-be respectful, be inclusive, be patient, be helpful.
+## 15. Issue Reporting
 
-Harassment, discrimination, or personal attacks will not be
-tolerated. Report any incidents to `conduct@godevs.com`.
+When filing an issue:
 
-## 10. License
+```markdown
+## Summary
 
-By contributing, you agree that your contributions are licensed
-under the GPL-2.0-or-later license that covers the theme. See
-`LICENSE` for the full text.
+<One sentence describing the issue.>
 
-## 11. AI contributors
+## Steps to Reproduce
 
-If you are an AI coding agent contributing to the theme, you
-MUST read `docs/AI-DEVELOPMENT-GUIDE.md` before opening any
-file. The guide is written specifically for AI agents and covers
-the rules that AI most commonly violates (hardcoded values in
-patterns, classic PHP templating, plugin boundary violations,
-AI-generated demo content).
+1. <Step 1>
+2. <Step 2>
+3. <Step 3>
 
-AI contributions that violate the AI development guide will be
-rejected. AI contributions that follow the guide are welcome.
+## Expected
 
-## 12. Questions
+<What should happen.>
 
-If you have questions before contributing, open a GitHub
-discussion (not an issue) or email `contributing@godevs.com`.
+## Actual
+
+<What actually happens.>
+
+## Environment
+
+- WordPress version:
+- PHP version:
+- Active plugins:
+- Theme version:
+- Style variation:
+
+## Screenshots / Screen Recordings
+
+<If applicable.>
+```
+
+---
+
+## 16. Release Process
+
+For maintainers cutting a release:
+
+1. Run the full `QA-CHECKLIST.md` audit.
+2. Verify all tests pass.
+3. Update `readme.txt` "Stable tag".
+4. Update `style.css` `Version`.
+5. Update `CHANGELOG.md` with release date.
+6. Tag the release: `git tag v0.1.0`.
+7. Build the release zip (excluding `.git`, `docs/`, `node_modules/`, `.DS_Store`).
+8. (Once on WordPress.org) SVN commit to the theme repository.
+
+Phase 1 does not produce a release zip — it produces the foundation. The release process is documented for Phase 7.
