@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","layout":{"type":"default"},"className":"godevs-reveal"} -->
 <section class="wp-block-group alignfull">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"640px"}} -->
+<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
 <p class="is-style-eyebrow has-text-align-center">Contact</p>

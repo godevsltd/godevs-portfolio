@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-edifice","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-edifice godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-demo-edifice alignfull">
 
         <!-- Header -->
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <!-- /wp:group -->
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|80"}},"layout":{"type":"default"}} -->
                 <div class="wp-block-group">
-                        <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80","top":"var:preset|spacing|50"}}}} -->
+                        <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80","top":"var:preset|spacing|50"}}},"className":"godevs-reveal-stagger"} -->
                         <div class="wp-block-columns are-vertically-aligned-center">
                                 <!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
                                 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:55%">

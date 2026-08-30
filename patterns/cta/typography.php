@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-cta-typography","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-cta-typography godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-cta-typography alignfull">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">

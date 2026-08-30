@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"},"className":"godevs-reveal"} -->
 <section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:columns {"verticalAlignment":"top","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70"}}}} -->
+<!-- wp:columns {"verticalAlignment":"top","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70"}}},"className":"godevs-reveal-stagger"} -->
 <div class="wp-block-columns are-vertically-aligned-top">
 <!-- wp:column {"verticalAlignment":"top","width":"40%"} -->
 <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:40%">
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="is-style-eyebrow">About</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">We design and build digital products with intent.</h2>
+<h2 class="wp-block-heading">We craft thoughtful work with intent.</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
 <p>A small studio practice working on identity, editorial, and product work.</p>

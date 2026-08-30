@@ -2,6 +2,12 @@
 /**
  * Block style registration.
  *
+ * CRITICAL FALLBACK: This file is one of the 3 files that the OLD version
+ * of functions.php (v1.0.0–v1.1.0) loaded on EVERY request (not just admin).
+ * We use this file as a fallback loader to pull in the CPT stack and demo
+ * system even if the user is running an OLD functions.php that doesn't
+ * include the require_once calls for those files.
+ *
  * @package GoDevs_Portfolio
  * @since   0.1.0
  */
@@ -9,6 +15,31 @@
 if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
+
+// ── FALLBACK LOADER ──────────────────────────────────────────────────────
+// Load ALL inc/ content modules from here as a fallback. This ensures CPTs
+// register on EVERY request (front-end + admin) even if the user is running
+// an OLD version of functions.php that doesn't load these files.
+// require_once guarantees no double-loading if functions.php also loads them.
+$_godevs_bs_dir = get_template_directory() . '/inc';
+
+$_godevs_bs_files = array(
+        '/content/cpt.php',
+        '/content/taxonomies.php',
+        '/content/meta-fields.php',
+        '/content/case-study.php',
+        '/demo-registry.php',
+        '/demo-tracker.php',
+);
+
+foreach ( $_godevs_bs_files as $_godevs_bs_rel ) {
+        $_godevs_bs_full = $_godevs_bs_dir . $_godevs_bs_rel;
+        if ( file_exists( $_godevs_bs_full ) ) {
+                require_once $_godevs_bs_full;
+        }
+}
+
+unset( $_godevs_bs_dir, $_godevs_bs_files, $_godevs_bs_rel, $_godevs_bs_full );
 
 /**
  * Register custom block styles.

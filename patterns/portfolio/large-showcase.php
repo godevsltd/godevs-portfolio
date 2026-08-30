@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-portfolio-large-showcase","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-portfolio-large-showcase godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-portfolio-large-showcase alignfull">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:query {"queryId":27,"query":{"perPage":1,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]}} -->
+		<!-- wp:query {"queryId":27,"query":{"perPage":1,"postType":"godevs_project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[]}} -->
 		<div class="wp-block-query">
 			<!-- wp:post-template -->
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"default"}} -->

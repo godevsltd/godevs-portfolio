@@ -11,14 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"},"className":"godevs-reveal"} -->
 <section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
 <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Creative Agency</p>
+<p class="is-style-eyebrow">Creative Studio</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2} -->
 <h2 class="wp-block-heading">Recent writing.</h2>

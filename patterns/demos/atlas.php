@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-atlas","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-atlas godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-demo-atlas alignfull">
 
         <!-- Header -->
@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- /wp:heading -->
                 </div>
                 <!-- /wp:group -->
-                <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50","top":"var:preset|spacing|50"}}}} -->
+                <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50","top":"var:preset|spacing|50"}}},"className":"godevs-reveal-stagger"} -->
                 <div class="wp-block-columns">
                         <!-- wp:column -->
                         <div class="wp-block-column">

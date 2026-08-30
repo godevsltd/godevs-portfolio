@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-experience-vertical-timeline","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-experience-vertical-timeline godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-experience-vertical-timeline alignfull">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">

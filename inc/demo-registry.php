@@ -30,7 +30,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+        exit;
 }
 
 /**
@@ -40,24 +40,218 @@ if ( ! defined( 'ABSPATH' ) ) {
  * importer creates these pages and populates the homepage with the
  * demo's pattern markup.
  *
- * Categories are matched by the demo's first Categories header value.
+ * Categories are matched by the demo's title parenthetical (e.g., the
+ * "Developer" in "Demo — Atelier (Developer)").
  *
  * @return array<string,string[]> Map of category slug → page slugs.
  */
 function godevs_portfolio_demo_pages_per_category(): array {
-	return array(
-		'godevs-portfolio-demos-developer'    => array( 'home', 'about', 'work', 'journal', 'contact' ),
-		'godevs-portfolio-demos-designer'    => array( 'home', 'work', 'about', 'services', 'case-studies', 'contact' ),
-		'godevs-portfolio-demos-creative'    => array( 'home', 'work', 'about', 'contact' ),
-		'godevs-portfolio-demos-photography'  => array( 'home', 'portfolio', 'about', 'journal', 'contact' ),
-		'godevs-portfolio-demos-agency'      => array( 'home', 'work', 'services', 'about', 'contact' ),
-		'godevs-portfolio-demos-business'    => array( 'home', 'about', 'services', 'insights', 'contact' ),
-		'godevs-portfolio-demos-architecture' => array( 'home', 'work', 'about', 'services', 'contact' ),
-		'godevs-portfolio-demos-personal'    => array( 'home', 'about', 'work', 'journal', 'contact' ),
-		'godevs-portfolio-demos-education'  => array( 'home', 'about', 'research', 'teaching', 'contact' ),
-		'godevs-portfolio-demos-lifestyle'   => array( 'home', 'about', 'work', 'journal', 'contact' ),
-		'godevs-portfolio-demos-specialized' => array( 'home', 'about', 'work', 'contact' ),
-	);
+        return array(
+                'developer'    => array( 'home', 'about', 'work', 'journal', 'contact' ),
+                'designer'     => array( 'home', 'work', 'about', 'services', 'case-studies', 'contact' ),
+                'creative'     => array( 'home', 'work', 'about', 'contact' ),
+                'photography'  => array( 'home', 'portfolio', 'about', 'journal', 'contact' ),
+                'agency'       => array( 'home', 'work', 'services', 'about', 'contact' ),
+                'business'     => array( 'home', 'about', 'services', 'insights', 'contact' ),
+                'architecture' => array( 'home', 'work', 'about', 'services', 'contact' ),
+                'personal'     => array( 'home', 'about', 'work', 'journal', 'contact' ),
+                'education'    => array( 'home', 'about', 'research', 'teaching', 'contact' ),
+                'lifestyle'    => array( 'home', 'about', 'work', 'journal', 'contact' ),
+                'specialized'  => array( 'home', 'about', 'work', 'contact' ),
+        );
+}
+
+/**
+ * Map a free-form category label (extracted from the demo's title
+ * parenthetical) to one of the predefined category slugs used by
+ * `godevs_portfolio_demo_pages_per_category()`.
+ *
+ * The demo titles use a variety of labels — Developer, Designer, Creative,
+ * UI, Architect, Luxury, Travel, Speaker, Teacher, etc. We collapse the
+ * long tail into the 11 canonical categories used for filtering and
+ * recommended-pages mapping.
+ *
+ * @param string $label Raw category label (e.g., "Developer", "Luxury", "UI").
+ * @return string Canonical category slug, or 'specialized' if no match.
+ */
+function godevs_portfolio_normalize_demo_category( string $label ): string {
+        $label = strtolower( trim( $label ) );
+
+        $map = array(
+                // developer family (engineering / coding)
+                'developer'      => 'developer',
+                'engineer'       => 'developer',
+                'full-stack'     => 'developer',
+                'development'    => 'developer',
+                'web'            => 'developer',
+                'mobile'         => 'developer',
+                'software'       => 'developer',
+                'code'           => 'developer',
+                'programmer'     => 'developer',
+                'technologist'   => 'developer',
+                'syntax'         => 'developer',
+                'terminal'       => 'developer',
+
+                // designer family
+                'designer'       => 'designer',
+                'ui'             => 'designer',
+                'ux'             => 'designer',
+                'product designer' => 'designer',
+                'brand designer'  => 'designer',
+                'graphic'        => 'designer',
+                'branding'       => 'designer',
+                'brand'          => 'designer',
+
+                // creative family (visual / artistic)
+                'creative'       => 'creative',
+                'artist'         => 'creative',
+                'illustrator'    => 'creative',
+                'art curator'    => 'creative',
+                'curator'        => 'creative',
+                'art director'   => 'creative',
+                'film director'  => 'creative',
+                'director'       => 'creative',
+                'motion'         => 'creative',
+                'production'     => 'creative',
+                'studio'         => 'agency',
+                'collective'     => 'agency',
+
+                // photography family
+                'photography'    => 'photography',
+                'photographer'   => 'photography',
+                'photo'          => 'photography',
+                'aperture'       => 'photography',
+                'darkroom'       => 'photography',
+                'exposure'       => 'photography',
+
+                // agency family
+                'agency'         => 'agency',
+                'studio'         => 'agency',
+
+                // business family (consulting / freelance / corporate)
+                'business'       => 'business',
+                'corporate'      => 'business',
+                'consultant'     => 'business',
+                'consulting'     => 'business',
+                'coach'          => 'business',
+                'advisor'        => 'business',
+                'professional advisor' => 'business',
+                'professional'   => 'business',
+                'entrepreneur'   => 'business',
+                'founder'        => 'business',
+                'executive'      => 'business',
+                'manager'        => 'business',
+                'project manager' => 'business',
+                'pm'             => 'business',
+                'marketing'      => 'business',
+                'strategy'       => 'business',
+                'strategist'     => 'business',
+                'copywriter'     => 'business',
+                'freelance'      => 'business',
+                'modern freelance' => 'business',
+                'solo practice'  => 'personal',
+                'independent'    => 'personal',
+
+                // architecture family (physical / built-environment)
+                'architect'      => 'architecture',
+                'architecture'   => 'architecture',
+                'software architect' => 'architecture',
+                'built'          => 'architecture',
+                'interior'       => 'architecture',
+                'furniture'      => 'architecture',
+                'urban'          => 'architecture',
+                'structural'     => 'architecture',
+                'edifice'        => 'architecture',
+                'blueprint'      => 'architecture',
+
+                // personal brand
+                'personal'       => 'personal',
+                'personal brand' => 'personal',
+                'solo'           => 'personal',
+                'signature'      => 'personal',
+                'individual'     => 'personal',
+
+                // education family (academic / teaching / research)
+                'education'      => 'education',
+                'academic'        => 'education',
+                'academia'       => 'education',
+                'professor'      => 'education',
+                'teacher'        => 'education',
+                'researcher'     => 'education',
+                'research'       => 'education',
+                'scholar'        => 'education',
+                'speaker'        => 'education',
+                'course'         => 'education',
+                'thesis'         => 'education',
+                'lecture'        => 'education',
+
+                // lifestyle family (travel / luxury / fashion / wellness)
+                'lifestyle'      => 'lifestyle',
+                'travel'         => 'lifestyle',
+                'luxury'         => 'lifestyle',
+                'fashion'        => 'lifestyle',
+                'wellness'       => 'lifestyle',
+                'couture'        => 'lifestyle',
+                'runway'         => 'lifestyle',
+                'veil'           => 'lifestyle',
+                'obscura'        => 'lifestyle',
+
+                // content creators — lifestyle / personal brand family
+                'content creator' => 'lifestyle',
+                'online creator'  => 'lifestyle',
+                'creator'        => 'lifestyle',
+                'journalist'     => 'lifestyle',
+                'writer'         => 'lifestyle',
+                'scribe'         => 'lifestyle',
+                'author'         => 'lifestyle',
+                'editorial'     => 'lifestyle',
+                'magazine'       => 'lifestyle',
+                'journal'         => 'lifestyle',
+                'inkwell'        => 'lifestyle',
+
+                // additional developer / engineering role labels
+                'devops'         => 'developer',
+                'backend'        => 'developer',
+                'frontend'       => 'developer',
+                'full stack'     => 'developer',
+                'wordpress'      => 'developer',
+
+                // additional business / consulting role labels
+                'hr'             => 'business',
+                'human resources' => 'business',
+                'financial'      => 'business',
+                'finance'        => 'business',
+                'management'     => 'business',
+                'consultancy'    => 'business',
+                'product'        => 'business',
+                'digital'        => 'business',
+
+                // additional creative role labels
+                'music producer' => 'creative',
+                'producer'       => 'creative',
+                'visual'         => 'creative',
+                'portrait'       => 'creative',
+                'landscape'      => 'creative',
+
+                // additional lifestyle role labels
+                'wedding'        => 'lifestyle',
+
+                // layout / style descriptor labels that don't fit a category
+                // — leave them as 'specialized' below
+        );
+
+        if ( isset( $map[ $label ] ) ) {
+                return $map[ $label ];
+        }
+
+        // Try contains-match for compound labels (e.g., "full-stack developer").
+        foreach ( $map as $needle => $canonical ) {
+                if ( false !== strpos( $label, $needle ) ) {
+                        return $canonical;
+                }
+        }
+
+        return 'specialized';
 }
 
 /**
@@ -71,34 +265,34 @@ function godevs_portfolio_demo_pages_per_category(): array {
  * @return array<int,array> List of demo definitions.
  */
 function godevs_portfolio_get_demos(): array {
-	static $demos = null;
-	if ( null !== $demos ) {
-		return $demos;
-	}
+        static $demos = null;
+        if ( null !== $demos ) {
+                return $demos;
+        }
 
-	$demos_dir = get_template_directory() . '/patterns/demos';
-	if ( ! is_dir( $demos_dir ) ) {
-		$demos = array();
-		return $demos;
-	}
+        $demos_dir = get_template_directory() . '/patterns/demos';
+        if ( ! is_dir( $demos_dir ) ) {
+                $demos = array();
+                return $demos;
+        }
 
-	$demos = array();
-	foreach ( glob( $demos_dir . '/*.php' ) as $file ) {
-		$demo = godevs_portfolio_parse_demo_file( $file );
-		if ( $demo ) {
-			$demos[] = $demo;
-		}
-	}
+        $demos = array();
+        foreach ( glob( $demos_dir . '/*.php' ) as $file ) {
+                $demo = godevs_portfolio_parse_demo_file( $file );
+                if ( $demo ) {
+                        $demos[] = $demo;
+                }
+        }
 
-	// Sort by name for predictable display.
-	usort(
-		$demos,
-		static function ( $a, $b ) {
-			return strcmp( $a['name'], $b['name'] );
-		}
-	);
+        // Sort by name for predictable display.
+        usort(
+                $demos,
+                static function ( $a, $b ) {
+                        return strcmp( $a['name'], $b['name'] );
+                }
+        );
 
-	return $demos;
+        return $demos;
 }
 
 /**
@@ -111,104 +305,106 @@ function godevs_portfolio_get_demos(): array {
  * @return array|null Demo definition, or null if the file is invalid.
  */
 function godevs_portfolio_parse_demo_file( string $file ): ?array {
-	$contents = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents — reading a theme file, not user input.
-	if ( false === $contents ) {
-		return null;
-	}
+        $contents = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents — reading a theme file, not user input.
+        if ( false === $contents ) {
+                return null;
+        }
 
-	// Extract the docblock.
-	if ( ! preg_match( '/\/\*\*(.*?)\*\//s', $contents, $m ) ) {
-		return null;
-	}
-	$doc = $m[1];
+        // Extract the docblock.
+        if ( ! preg_match( '/\/\*\*(.*?)\*\//s', $contents, $m ) ) {
+                return null;
+        }
+        $doc = $m[1];
 
-	$meta = array();
-	foreach ( explode( "\n", $doc ) as $line ) {
-		if ( preg_match( '/^\s*\*\s*(\w+)\s*:\s*(.*)$/', $line, $m ) ) {
-			$key = $m[1];
-			$val = trim( $m[2] );
-			if ( isset( $meta[ $key ] ) ) {
-				if ( ! is_array( $meta[ $key ] ) ) {
-					$meta[ $key ] = array( $meta[ $key ] );
-				}
-				$meta[ $key ][] = $val;
-			} else {
-				$meta[ $key ] = $val;
-			}
-		}
-	}
+        $meta = array();
+        foreach ( explode( "\n", $doc ) as $line ) {
+                if ( preg_match( '/^\s*\*\s*(\w+)\s*:\s*(.*)$/', $line, $m ) ) {
+                        $key = $m[1];
+                        $val = trim( $m[2] );
+                        if ( isset( $meta[ $key ] ) ) {
+                                if ( ! is_array( $meta[ $key ] ) ) {
+                                        $meta[ $key ] = array( $meta[ $key ] );
+                                }
+                                $meta[ $key ][] = $val;
+                        } else {
+                                $meta[ $key ] = $val;
+                        }
+                }
+        }
 
-	if ( empty( $meta['Slug'] ) || empty( $meta['Title'] ) ) {
-		return null;
-	}
+        if ( empty( $meta['Slug'] ) || empty( $meta['Title'] ) ) {
+                return null;
+        }
 
-	// Title format: "Demo — <Name> (<Category>)"
-	// Extract name and category from the title.
-	$title   = $meta['Title'];
-	$name    = $title;
-	$cat_raw = '';
-	if ( preg_match( '/^Demo\s+[-—]\s+(.+?)\s*\(([^)]+)\)\s*$/', $title, $m ) ) {
-		$name    = $m[1];
-		$cat_raw = $m[2];
-	}
+        // Title format: "Demo — <Name> (<Category>)"
+        // Extract name and category from the title.
+        $title   = $meta['Title'];
+        $name    = $title;
+        $cat_raw = '';
+        if ( preg_match( '/^Demo\s+[-—]\s+(.+?)\s*\(([^)]+)\)\s*$/', $title, $m ) ) {
+                $name    = $m[1];
+                $cat_raw = $m[2];
+        }
 
-	// Categories: extract first one (used for filtering).
-	$categories_raw = $meta['Categories'] ?? array();
-	if ( ! is_array( $categories_raw ) ) {
-		$categories_raw = array( $categories_raw );
-	}
-	$first_cat = '';
-	foreach ( $categories_raw as $c ) {
-		foreach ( explode( ',', $c ) as $part ) {
-			$part = trim( $part );
-			if ( $part ) {
-				$first_cat = $part;
-				break 2;
-			}
-		}
-	}
+        // Categories header from the pattern file (used for the WordPress
+        // Block Inserter, NOT for our admin filter). We keep it as-is.
+        $categories_raw = $meta['Categories'] ?? array();
+        if ( ! is_array( $categories_raw ) ) {
+                $categories_raw = array( $categories_raw );
+        }
+        $wp_pattern_cat = '';
+        foreach ( $categories_raw as $c ) {
+                foreach ( explode( ',', $c ) as $part ) {
+                        $part = trim( $part );
+                        if ( $part ) {
+                                $wp_pattern_cat = $part;
+                                break 2;
+                        }
+                }
+        }
 
-	// Recommended style variation — extract from Description suffix.
-	$description = $meta['Description'] ?? '';
-	$style       = '';
-	if ( preg_match( '/Recommended style variation:\s*([A-Za-z]+)\.?/i', $description, $m ) ) {
-		$style = ucfirst( strtolower( $m[1] ) );
-	}
+        // Canonical category slug — derived from the title parenthetical.
+        // This drives both the admin filter dropdown and the recommended-pages
+        // mapping. Falls back to 'specialized' if the label is unknown.
+        $category_slug = $cat_raw ? godevs_portfolio_normalize_demo_category( $cat_raw ) : 'specialized';
 
-	// Recommended pages — based on the category suffix.
-	$pages = array( 'home', 'about', 'work', 'contact' ); // default
-	$cat_to_pages = godevs_portfolio_demo_pages_per_category();
-	// Demo categories use the slug suffix (developer/designer/...) — extract.
-	$category_suffix = '';
-	if ( preg_match( '/-([a-z]+)$/', $first_cat, $m ) ) {
-		$category_suffix = $m[1];
-	}
-	if ( isset( $cat_to_pages[ 'godevs-portfolio-demos-' . $category_suffix ] ) ) {
-		$pages = $cat_to_pages[ 'godevs-portfolio-demos-' . $category_suffix ];
-	}
+        // Recommended style variation — extract from Description suffix.
+        $description = $meta['Description'] ?? '';
+        $style       = '';
+        if ( preg_match( '/Recommended style variation:\s*([A-Za-z]+)\.?/i', $description, $m ) ) {
+                $style = ucfirst( strtolower( $m[1] ) );
+        }
 
-	// Preview URL — uses the WordPress pattern preview endpoint.
-	$slug     = $meta['Slug'];
-	$basename = basename( $file, '.php' );
+        // Recommended pages — based on the canonical category slug.
+        $pages          = array( 'home', 'about', 'work', 'contact' ); // default
+        $cat_to_pages   = godevs_portfolio_demo_pages_per_category();
+        if ( isset( $cat_to_pages[ $category_slug ] ) ) {
+                $pages = $cat_to_pages[ $category_slug ];
+        }
 
-	return array(
-		'id'          => $basename,                              // demo ID (filename without .php)
-		'name'        => $name,                                   // display name
-		'slug'        => $slug,                                   // pattern slug
-		'category'    => $cat_raw ?: $category_suffix ?: 'demo',  // category label
-		'cat_slug'    => $first_cat,                              // category slug
-		'description' => $description,
-		'style'       => $style,                                  // recommended style variation
-		'pages'       => $pages,                                  // recommended pages
-		'file'        => $file,                                   // absolute file path
-		'preview_url' => add_query_arg(
-			array(
-				'godevs_preview' => $basename,
-				'_wpnonce'        => wp_create_nonce( 'godevs_preview_' . $basename ),
-			),
-			home_url( '/' )
-		),
-	);
+        // Preview URL — uses the WordPress pattern preview endpoint.
+        $slug     = $meta['Slug'];
+        $basename = basename( $file, '.php' );
+
+        return array(
+                'id'          => $basename,                                  // demo ID (filename without .php)
+                'name'        => $name,                                       // display name
+                'slug'        => $slug,                                       // pattern slug
+                'category'    => $cat_raw ?: ucfirst( $category_slug ),       // category label (display)
+                'cat_slug'    => $category_slug,                              // canonical category slug (for filter)
+                'wp_cat'      => $wp_pattern_cat,                             // WP pattern category slug (for inserter)
+                'description' => $description,
+                'style'       => $style,                                       // recommended style variation
+                'pages'       => $pages,                                       // recommended pages
+                'file'        => $file,                                        // absolute file path
+                'preview_url' => add_query_arg(
+                        array(
+                                'godevs_preview' => $basename,
+                                '_wpnonce'        => wp_create_nonce( 'godevs_preview_' . $basename ),
+                        ),
+                        home_url( '/' )
+                ),
+        );
 }
 
 /**
@@ -218,13 +414,13 @@ function godevs_portfolio_parse_demo_file( string $file ): ?array {
  * @return array|null Demo definition, or null if not found.
  */
 function godevs_portfolio_get_demo( string $demo_id ): ?array {
-	$demo_id = sanitize_file_name( $demo_id );
-	foreach ( godevs_portfolio_get_demos() as $demo ) {
-		if ( $demo['id'] === $demo_id ) {
-			return $demo;
-		}
-	}
-	return null;
+        $demo_id = sanitize_file_name( $demo_id );
+        foreach ( godevs_portfolio_get_demos() as $demo ) {
+                if ( $demo['id'] === $demo_id ) {
+                        return $demo;
+                }
+        }
+        return null;
 }
 
 /**
@@ -233,15 +429,15 @@ function godevs_portfolio_get_demo( string $demo_id ): ?array {
  * @return array<string,string> Map of category slug → category label.
  */
 function godevs_portfolio_get_demo_categories(): array {
-	$cats = array();
-	foreach ( godevs_portfolio_get_demos() as $demo ) {
-		$slug = $demo['cat_slug'];
-		$label = $demo['category'];
-		if ( $slug && ! isset( $cats[ $slug ] ) ) {
-			$cats[ $slug ] = $label;
-		}
-	}
-	return $cats;
+        $cats = array();
+        foreach ( godevs_portfolio_get_demos() as $demo ) {
+                $slug = $demo['cat_slug'];
+                $label = $demo['category'];
+                if ( $slug && ! isset( $cats[ $slug ] ) ) {
+                        $cats[ $slug ] = $label;
+                }
+        }
+        return $cats;
 }
 
 /**
@@ -250,12 +446,12 @@ function godevs_portfolio_get_demo_categories(): array {
  * @return array<string> List of style names.
  */
 function godevs_portfolio_get_demo_styles(): array {
-	$styles = array();
-	foreach ( godevs_portfolio_get_demos() as $demo ) {
-		if ( $demo['style'] && ! in_array( $demo['style'], $styles, true ) ) {
-			$styles[] = $demo['style'];
-		}
-	}
-	sort( $styles );
-	return $styles;
+        $styles = array();
+        foreach ( godevs_portfolio_get_demos() as $demo ) {
+                if ( $demo['style'] && ! in_array( $demo['style'], $styles, true ) ) {
+                        $styles[] = $demo['style'];
+                }
+        }
+        sort( $styles );
+        return $styles;
 }

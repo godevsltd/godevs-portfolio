@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-minimal","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-minimal godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-demo-minimal alignfull">
 
         <!-- Header -->
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"720px"}} -->
+        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"640px"}} -->
+        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
                 <!-- wp:separator {"className":"is-style-thin"} /-->
                 <!-- wp:heading {"level":2,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"600"}}} -->

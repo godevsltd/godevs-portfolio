@@ -1,70 +1,64 @@
 <?php
 /**
- * Title: Hero — Stats Asymmetric (Agency)
+ * Title: Hero — Inline Stats (Single Line)
  * Slug: godevs-portfolio/hero-hero-stats-constrained-agency-1
- * Description: A stats asymmetric hero section with agency-themed content. Uses design tokens and core blocks.
+ * Description: A hero with a true inline stat row — a single horizontal pipe-separated line ("12 yrs · 80 projects · 6 countries") rather than a column grid. The most compact way to communicate track record above the fold.
  * Categories: godevs-portfolio-hero
- * Keywords: hero, stats asymmetric, agency, section, pattern
+ * Keywords: hero, stats, inline, single line, compact, track record
  * Viewport Width: 1280
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}}} -->
-<div class="wp-block-columns are-vertically-aligned-center">
-<!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:55%">
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
-<div class="wp-block-group">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Creative Agency</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","lineHeight":"1.1","letterSpacing":"-0.02em"}}} -->
-<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);line-height:1.1;letter-spacing:-0.02em">We design and build digital products with intent.</h1>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-<p style="font-size:var(--wp--preset--font-size--medium)">A small studio practice working on identity, editorial, and product work.</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:column -->
-<!-- wp:column {"verticalAlignment":"center","width":"45%"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:45%">
-<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|40"}}}} -->
-<div class="wp-block-columns">
-<!-- wp:column -->
-<div class="wp-block-column">
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|x-large","lineHeight":"1"}}} -->
-<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large);line-height:1">120+</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
-<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Projects shipped</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:column -->
-<!-- wp:column -->
-<div class="wp-block-column">
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|x-large","lineHeight":"1"}}} -->
-<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large);line-height:1">8</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
-<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Years in practice</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:column -->
-</div>
-<!-- /wp:columns -->
-</div>
-<!-- /wp:column -->
-</div>
-<!-- /wp:columns -->
-</div>
-<!-- /wp:group -->
+	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
+
+		<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+		<p class="is-style-eyebrow">Independent practice · 2014—2024</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 6vw, 4.5rem)","lineHeight":"1.05","letterSpacing":"-0.025em","fontWeight":"600"}}} -->
+		<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 6vw, 4.5rem);line-height:1.05;letter-spacing:-0.025em;font-weight:600">Ten years. Eighty projects. Six countries.</h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"560px"}}} -->
+		<p style="font-size:var(--wp--preset--font-size--medium);max-width:560px">Identity, editorial, and front-end engineering for teams who care about the details. Currently taking on two engagements for Q3.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
+		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50)">
+
+			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","fontWeight":"600","letterSpacing":"-0.01em"}}} -->
+			<p style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--x-large);font-weight:600;letter-spacing:-0.01em">12 yrs</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large)">·</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","fontWeight":"600","letterSpacing":"-0.01em"}}} -->
+			<p style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--x-large);font-weight:600;letter-spacing:-0.01em">80 projects</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large)">·</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","fontWeight":"600","letterSpacing":"-0.01em"}}} -->
+			<p style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--x-large);font-weight:600;letter-spacing:-0.01em">6 countries</p>
+			<!-- /wp:paragraph -->
+
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:separator {"className":"is-style-thin","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
+		<hr class="wp-block-separator has-alpha-channel-opacity is-style-thin" style="margin-top:var(--wp--preset--spacing--50)"/>
+		<!-- /wp:separator -->
+
+	</div>
+	<!-- /wp:group -->
 </section>
 <!-- /wp:group -->

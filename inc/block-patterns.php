@@ -2,6 +2,11 @@
 /**
  * Pattern category registration.
  *
+ * CRITICAL FALLBACK: This file is one of the 3 files that the OLD version
+ * of functions.php (v1.0.0–v1.1.0) loaded on EVERY request. We use this
+ * file as a fallback loader to pull in the CPT stack even if the user is
+ * running an OLD functions.php that doesn't load those files directly.
+ *
  * @package GoDevs_Portfolio
  * @since   0.1.0
  */
@@ -9,6 +14,30 @@
 if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
+
+// ── FALLBACK LOADER ──────────────────────────────────────────────────────
+// Load ALL inc/ content modules from here as a fallback. This ensures CPTs
+// register on EVERY request even if the user is running an OLD functions.php.
+// require_once guarantees no double-loading if functions.php also loads them.
+$_godevs_bp_dir = get_template_directory() . '/inc';
+
+$_godevs_bp_files = array(
+        '/content/cpt.php',
+        '/content/taxonomies.php',
+        '/content/meta-fields.php',
+        '/content/case-study.php',
+        '/demo-registry.php',
+        '/demo-tracker.php',
+);
+
+foreach ( $_godevs_bp_files as $_godevs_bp_rel ) {
+        $_godevs_bp_full = $_godevs_bp_dir . $_godevs_bp_rel;
+        if ( file_exists( $_godevs_bp_full ) ) {
+                require_once $_godevs_bp_full;
+        }
+}
+
+unset( $_godevs_bp_dir, $_godevs_bp_files, $_godevs_bp_rel, $_godevs_bp_full );
 
 /**
  * Register GoDevs Portfolio pattern categories.
@@ -121,6 +150,11 @@ function godevs_portfolio_register_pattern_categories(): void {
                         'slug'        => 'godevs-portfolio-faq',
                         'title'       => __( 'FAQ', 'godevs-portfolio' ),
                         'description' => __( 'Frequently asked question sections using native Details blocks.', 'godevs-portfolio' ),
+                ),
+                array(
+                        'slug'        => 'godevs-portfolio-case-study',
+                        'title'       => __( 'Case Study', 'godevs-portfolio' ),
+                        'description' => __( 'Case study sections for project deep-dives and results.', 'godevs-portfolio' ),
                 ),
                 array(
                         'slug'        => 'godevs-portfolio-demos',

@@ -11,11 +11,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","backgroundColor":"surface","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","backgroundColor":"surface","layout":{"type":"default"},"className":"godevs-reveal"} -->
 <section class="wp-block-group alignfull has-surface-background-color has-background">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|40","top":"var:preset|spacing|40"}}}} -->
+<!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--50)">
+<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow">By the numbers</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em"}}} -->
+<h2 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);letter-spacing:-0.02em">A track record, in figures.</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|40","top":"var:preset|spacing|40"}}},"className":"godevs-reveal-stagger"} -->
 <div class="wp-block-columns">
 <!-- wp:column -->
 <div class="wp-block-column">
@@ -23,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">120+</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
-<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Projects shipped</p>
+<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Projects delivered</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:column -->
@@ -33,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">8</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
-<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Years in practice</p>
+<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Years of practice</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:column -->

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-personal-brand","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-personal-brand godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-demo-personal-brand alignfull">
 
         <!-- Header -->
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"720px","justifyContent":"center"}} -->
+        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)","justifyContent":"center"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
                 <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
                 <p class="is-style-eyebrow has-text-align-center">Personal / Brand Alt</p>
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull">
         <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-                <!-- wp:columns {"verticalAlignment":"top","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70"}}}} -->
+                <!-- wp:columns {"verticalAlignment":"top","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70"}}},"className":"godevs-reveal-stagger"} -->
                 <div class="wp-block-columns are-vertically-aligned-top">
                         <!-- wp:column {"verticalAlignment":"top","width":"40%"} -->
                         <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:40%">
@@ -151,7 +151,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"720px","justifyContent":"center"}} -->
+        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)","justifyContent":"center"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90);padding-left:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50)">
                 <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
                 <p class="is-style-eyebrow has-text-align-center">Available for new work</p>

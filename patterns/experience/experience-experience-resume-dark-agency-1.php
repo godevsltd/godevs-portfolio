@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"},"className":"godevs-reveal"} -->
 <section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}}} -->
+<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}},"className":"godevs-reveal-stagger"} -->
 <div class="wp-block-columns">
 <!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%">
@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 <!-- wp:paragraph -->
-<p>Working with founders and editorial teams.</p>
+<p>Working with clients.</p>
 <!-- /wp:paragraph -->
 <!-- wp:separator {"className":"is-style-thin"} /-->
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:group -->
 <!-- wp:paragraph -->
-<p>Partnership on brand and product work.</p>
+<p>Collaborative work.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:column -->

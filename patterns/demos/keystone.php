@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-keystone","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-keystone godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-demo-keystone alignfull">
 
         <!-- Header -->
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull">
         <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-                <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}}} -->
+                <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}},"className":"godevs-reveal-stagger"} -->
                 <div class="wp-block-columns are-vertically-aligned-center">
                         <!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
                         <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:55%">
@@ -140,7 +140,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","backgroundColor":"primary","textColor":"contrast","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background">
-        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"720px","justifyContent":"center"}} -->
+        <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90","left":"var:preset|spacing|50","right":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)","justifyContent":"center"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90);padding-left:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50)">
                 <!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
                 <p class="is-style-eyebrow has-text-align-center">Available for new work</p>

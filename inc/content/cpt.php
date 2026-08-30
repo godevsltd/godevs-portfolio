@@ -26,17 +26,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if a content module is enabled.
  *
+ * Reads from the `godevs_portfolio_settings` option. Defaults to TRUE
+ * (enabled) in ALL of these cases:
+ *   - The option does not exist (fresh install)
+ *   - The option exists but the module key is not set
+ *   - The module key is set to '' (empty string — from a stale save)
+ * Only returns FALSE when the module key is EXPLICITLY set to '0'.
+ *
+ * This defensive logic prevents a stale settings option (from a previous
+ * broken version) from disabling all CPTs after an upgrade.
+ *
  * @param string $module Module key (e.g., 'projects', 'services', 'team').
  * @return bool True if enabled.
  */
 function godevs_portfolio_module_enabled( string $module ): bool {
         $settings = get_option( 'godevs_portfolio_settings', array() );
         if ( ! is_array( $settings ) ) {
-                return true; // Default to enabled if settings not yet saved.
+                return true;
         }
         $key = 'module_' . $module;
-        // Default to enabled if not explicitly set.
-        return ! isset( $settings[ $key ] ) || '1' === $settings[ $key ];
+        // Not set → default to enabled.
+        if ( ! isset( $settings[ $key ] ) ) {
+                return true;
+        }
+        $val = $settings[ $key ];
+        // Empty string → treat as "use default" = enabled.
+        if ( '' === $val || null === $val ) {
+                return true;
+        }
+        // Only '0' explicitly disables. Everything else (including '1') enables.
+        return '0' !== $val;
 }
 
 /**

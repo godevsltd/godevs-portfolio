@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-professor","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-demo-professor godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-demo-professor alignfull">
 
         <!-- Header -->
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull">
         <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-                <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}}} -->
+                <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}},"className":"godevs-reveal-stagger"} -->
                 <div class="wp-block-columns are-vertically-aligned-center">
                         <!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
                         <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:55%">

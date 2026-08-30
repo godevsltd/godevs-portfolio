@@ -11,18 +11,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","backgroundColor":"surface","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","backgroundColor":"surface","layout":{"type":"default"},"className":"godevs-reveal"} -->
 <section class="wp-block-group alignfull has-surface-background-color has-background">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}}} -->
+<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}},"className":"godevs-reveal-stagger"} -->
 <div class="wp-block-columns">
 <!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%">
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Creative Agency</p>
+<p class="is-style-eyebrow">Creative Studio</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2} -->
 <h2 class="wp-block-heading">What I do.</h2>
@@ -41,10 +41,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);width:40px">01</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);width:220px">Strategy & Positioning</h3>
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);width:220px">Strategy</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"}}} -->
-<p style="color:var(--wp--preset--color--muted)">Discovery, positioning, and brand framework.</p>
+<p style="color:var(--wp--preset--color--muted)">Discovery and brand framework.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -54,10 +54,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);width:40px">02</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);width:220px">Design & Identity</h3>
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);width:220px">Design</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"}}} -->
-<p style="color:var(--wp--preset--color--muted)">Logo, typography, color, and design systems.</p>
+<p style="color:var(--wp--preset--color--muted)">Typography, color, and design systems.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -67,10 +67,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);width:40px">03</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);width:220px">Engineering & Build</h3>
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);width:220px">Engineering</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"}}} -->
-<p style="color:var(--wp--preset--color--muted)">WordPress, performance, accessibility, and launch.</p>
+<p style="color:var(--wp--preset--color--muted)">Performance, accessibility, and launch.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

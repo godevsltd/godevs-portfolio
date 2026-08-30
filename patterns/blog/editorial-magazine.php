@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-blog-editorial-magazine","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-blog-editorial-magazine godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-blog-editorial-magazine alignfull">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<!-- wp:post-template -->
 				<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
 				<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-					<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60"}}}} -->
+					<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60"}}},"className":"godevs-reveal-stagger"} -->
 					<div class="wp-block-columns are-vertically-aligned-center">
 						<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
 						<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">

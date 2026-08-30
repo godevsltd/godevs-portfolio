@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-portfolio-featured","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-portfolio-featured godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-portfolio-featured alignfull">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
@@ -26,11 +26,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70","top":"var:preset|spacing|50"}}}} -->
+		<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70","top":"var:preset|spacing|50"}}},"className":"godevs-reveal-stagger"} -->
 		<div class="wp-block-columns">
 			<!-- wp:column {"width":"60%"} -->
 			<div class="wp-block-column" style="flex-basis:60%">
-				<!-- wp:query {"queryId":23,"query":{"perPage":1,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false,"taxQuery":null,"parents":[]}} -->
+				<!-- wp:query {"queryId":23,"query":{"perPage":1,"postType":"godevs_project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false,"taxQuery":null,"parents":[]}} -->
 				<div class="wp-block-query">
 					<!-- wp:post-template -->
 						<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"40%"} -->
 			<div class="wp-block-column" style="flex-basis:40%">
-				<!-- wp:query {"queryId":24,"query":{"perPage":3,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","offset":1,"inherit":false,"taxQuery":null,"parents":[]}} -->
+				<!-- wp:query {"queryId":24,"query":{"perPage":3,"postType":"godevs_project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","offset":1,"inherit":false,"taxQuery":null,"parents":[]}} -->
 				<div class="wp-block-query">
 					<!-- wp:post-template -->
 						<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}},"border":{"top":{"color":"var:preset|color|border","width":"1px"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->

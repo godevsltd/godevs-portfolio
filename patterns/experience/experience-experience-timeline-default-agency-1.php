@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","layout":{"type":"default"},"className":"godevs-reveal"} -->
 <section class="wp-block-group alignfull">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--large)">Studio Practice</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Working with founders and editorial teams.</p>
+<p>Working with clients.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--large)">Collaboration · Northbound</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Partnership on brand and product work.</p>
+<p>Collaborative work.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

@@ -11,15 +11,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","className":"wp-block-godevs-testimonials-featured","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","className":"wp-block-godevs-testimonials-featured godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group wp-block-godevs-testimonials-featured alignfull">
-	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
+	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
 		<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
 		<p class="is-style-eyebrow has-text-align-center">Featured testimonial</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60","top":"var:preset|spacing|50"}},"margin":{"top":"var:preset|spacing|60"}}} -->
+		<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60","top":"var:preset|spacing|50"}},"margin":{"top":"var:preset|spacing|60"}},"className":"godevs-reveal-stagger"} -->
 		<div class="wp-block-columns are-vertically-aligned-center" style="margin-top:var(--wp--preset--spacing--60)">
 			<!-- wp:column {"verticalAlignment":"center","width":"33.33%"} -->
 			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:33.33%">
