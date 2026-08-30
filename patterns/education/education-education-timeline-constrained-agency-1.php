@@ -1,66 +1,48 @@
 <?php
 /**
- * Title: Education — Education Timeline (Agency)
+ * Title: Education — Inline List
  * Slug: godevs-portfolio/education-education-timeline-constrained-agency-1
- * Description: A education timeline education section with agency-themed content. Uses design tokens and core blocks.
+ * Description: A simple inline list of education credentials for a minimal About page — credentials displayed as a single horizontal flow with dot separators, no cards or borders. The most compact education composition.
  * Categories: godevs-portfolio-education
- * Keywords: education, education timeline, agency, section, pattern
+ * Keywords: education, inline, list, minimal, compact, horizontal
  * Viewport Width: 1280
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- wp:group {"tagName":"section","layout":{"type":"default"},"className":"godevs-reveal"} -->
+<!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
-<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Education</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">Academic background.</h2>
-<!-- /wp:heading -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}},"border":{"top":{"color":"var:preset|color|border","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border);border-top-width:1px;padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);width:180px">2010 — 2014</p>
-<!-- /wp:paragraph -->
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"},"padding":{"left":"var:preset|spacing|70"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
-<div class="wp-block-group" style="padding-left:var(--wp--preset--spacing--70)">
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|large"}}} -->
-<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--large)">B.A. Design</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Foundation in design, typography, and visual communication.</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}},"border":{"top":{"color":"var:preset|color|border","width":"1px"},"bottom":{"color":"var:preset|color|border","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border);border-top-width:1px;border-bottom-color:var(--wp--preset--color--border);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);width:180px">2014 — 2016</p>
-<!-- /wp:paragraph -->
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"},"padding":{"left":"var:preset|spacing|70"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
-<div class="wp-block-group" style="padding-left:var(--wp--preset--spacing--70)">
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|large"}}} -->
-<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--large)">M.A. Interaction Design</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Advanced study in interaction design and research.</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
+	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
 
-</div>
-<!-- /wp:group -->
+		<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+		<p class="is-style-eyebrow">Education</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"}} -->
+		<div class="wp-block-group">
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+			<p style="font-size:var(--wp--preset--font-size|medium)"><strong>M.A. Interaction Design</strong>, Royal College of Art</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|medium)">·</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+			<p style="font-size:var(--wp--preset--font-size|medium)"><strong>B.A. Design</strong>, Rhode Island School of Design</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:separator {"className":"is-style-thin"} -->
+		<hr class="wp-block-separator has-alpha-channel-opacity is-style-thin"/>
+		<!-- /wp:separator -->
+
+		<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
+		<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">2014—2016 · 2010—2014</p>
+		<!-- /wp:paragraph -->
+
+	</div>
+	<!-- /wp:group -->
 </section>
 <!-- /wp:group -->

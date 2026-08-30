@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:buttons -->
 <div class="wp-block-buttons">
 <!-- wp:button {"className":"is-style-outline","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
-<div class="wp-block-button "is-style-outline""><a href="#contact" class="wp-block-button__link wp-element-button">Choose</a></div>
+<div class="wp-block-button is-style-outline"><a href="#contact" class="wp-block-button__link wp-element-button">Choose</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:buttons -->
 <div class="wp-block-buttons">
 <!-- wp:button {"className":"is-style-outline","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
-<div class="wp-block-button "is-style-outline""><a href="#contact" class="wp-block-button__link wp-element-button">Choose</a></div>
+<div class="wp-block-button is-style-outline"><a href="#contact" class="wp-block-button__link wp-element-button">Choose</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->

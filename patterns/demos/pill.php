@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
-                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
+                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:heading {"level":4} -->
                                 <h4 class="wp-block-heading">Project one</h4>
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
-                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
+                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:heading {"level":4} -->
                                 <h4 class="wp-block-heading">Project two</h4>
@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
-                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
+                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:heading {"level":4} -->
                                 <h4 class="wp-block-heading">Project three</h4>
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- wp:column -->
                         <div class="wp-block-column">
                                 <!-- wp:image {"aspectRatio":"1/1","scale":"cover"} -->
-                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
+                                <figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-architecture.png' ); ?>" alt="Project cover" style="aspect-ratio:1/1;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:heading {"level":4} -->
                                 <h4 class="wp-block-heading">Project four</h4>

@@ -337,7 +337,7 @@ a:hover {
         z-index: 10;
         background-color: var(--wp--preset--color--base, #fafaf7);
         border-bottom: 1px solid var(--wp--preset--color--border, transparent);
-	transition: background-color var(--wp--custom--motion--duration--fast, 150ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1)),
+        transition: background-color var(--wp--custom--motion--duration--fast, 150ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1)),
 }
 
 /* Transparent header variant — used over hero covers. */
@@ -963,49 +963,49 @@ p {
 
 /* 1024px breakpoint — tablet landscape / small laptop */
 @media (max-width: 1024px) {
-	.wp-block-columns {
-		gap: var(--wp--preset--spacing--50, 1.5rem);
-	}
-	.wp-block-group.alignwide {
-		max-width: 100%;
-		padding-left: var(--wp--preset--spacing--40, 1rem);
-		padding-right: var(--wp--preset--spacing--40, 1rem);
-	}
-	.wp-block-post-template.is-layout-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-	}
+        .wp-block-columns {
+                gap: var(--wp--preset--spacing--50, 1.5rem);
+        }
+        .wp-block-group.alignwide {
+                max-width: 100%;
+                padding-left: var(--wp--preset--spacing--40, 1rem);
+                padding-right: var(--wp--preset--spacing--40, 1rem);
+        }
+        .wp-block-post-template.is-layout-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
 }
 
 /* Responsive grid utility — auto-fit with minmax */
 .godevs-grid-auto {
-	display: grid;
-	gap: var(--wp--preset--spacing--50, 1.5rem);
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        display: grid;
+        gap: var(--wp--preset--spacing--50, 1.5rem);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 @media (max-width: 768px) {
-	.godevs-grid-auto {
-		grid-template-columns: 1fr;
-	}
+        .godevs-grid-auto {
+                grid-template-columns: 1fr;
+        }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-	.godevs-grid-auto {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
+        .godevs-grid-auto {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
 }
 
 /* Scroll-reveal utility — opacity/translateY transition */
 .godevs-reveal {
-	opacity: 0;
-	transform: translateY(24px);
-	transition: opacity var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1)),
-				transform var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1)),
+                                transform var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .godevs-reveal.is-visible {
-	opacity: 1;
-	transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
 }
 
 /* Staggered reveal — nth-child delays for grid items */
@@ -1019,129 +1019,228 @@ p {
 
 /* Reduced motion — skip reveal entirely */
 @media (prefers-reduced-motion: reduce) {
-	.godevs-reveal {
-		opacity: 1;
-		transform: none;
-		transition: none;
-	}
-	.godevs-reveal-stagger > * {
-		transition-delay: 0ms !important;
-	}
+        .godevs-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+        }
+        .godevs-reveal-stagger > * {
+                transition-delay: 0ms !important;
+        }
+}
+
+/* ── Hover-reveal utility for portfolio cards ──────────────────────────────
+ * On touch devices and keyboard focus, the meta stays visible (the
+ * .godevs-hover-reveal container reveals its .godevs-hover-reveal-meta on
+ * hover OR focus-within). On reduced-motion, the meta is always visible
+ * and no transform is applied.
+ *
+ * Markup pattern:
+ *   <div class="godevs-hover-reveal">
+ *     <figure>...image...</figure>
+ *     <div class="godevs-hover-reveal-meta">title + meta</div>
+ *   </div>
+ */
+.godevs-hover-reveal {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--wp--custom--radius--md, 8px);
+}
+
+.godevs-hover-reveal .godevs-hover-reveal-meta {
+        opacity: 0;
+        transform: translateY(8px);
+        transition:
+                opacity var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1)),
+                transform var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.godevs-hover-reveal:hover .godevs-hover-reveal-meta,
+.godevs-hover-reveal:focus-within .godevs-hover-reveal-meta {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+/* Image intensifies slightly on hover for visual feedback */
+.godevs-hover-reveal img {
+        transition: transform var(--wp--custom--motion--duration--slow, 500ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.godevs-hover-reveal:hover img {
+        transform: scale(1.03);
+}
+
+/* Touch devices: always show meta (no hover available) */
+@media (hover: none) {
+        .godevs-hover-reveal .godevs-hover-reveal-meta {
+                opacity: 1;
+                transform: none;
+        }
+}
+
+/* Reduced motion: always show meta, no transforms */
+@media (prefers-reduced-motion: reduce) {
+        .godevs-hover-reveal .godevs-hover-reveal-meta {
+                opacity: 1;
+                transform: none;
+                transition: none;
+        }
+        .godevs-hover-reveal img {
+                transition: none;
+        }
+        .godevs-hover-reveal:hover img {
+                transform: none;
+        }
+}
+
+/* ── Masonry grid utility ──────────────────────────────────────────────────
+ * Uses CSS grid with auto-fit + minmax for responsive columns, and
+ * grid-row: span N on alternating items to create staggered heights.
+ * Falls back to a single column on narrow screens.
+ */
+.godevs-masonry {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-auto-rows: 8px;
+        gap: var(--wp--preset--spacing--40, 2rem);
+}
+
+.godevs-masonry-item-tall {
+        grid-row: span 40;
+}
+
+.godevs-masonry-item-medium {
+        grid-row: span 30;
+}
+
+.godevs-masonry-item-short {
+        grid-row: span 24;
+}
+
+@media (max-width: 600px) {
+        .godevs-masonry {
+                grid-template-columns: 1fr;
+        }
+        .godevs-masonry-item-tall,
+        .godevs-masonry-item-medium,
+        .godevs-masonry-item-short {
+                grid-row: auto;
+        }
 }
 
 
 .site-header.is-scrolled {
-	background-color: var(--wp--preset--color--surface, rgba(255, 255, 255, 0.95));
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
-	box-shadow: var(--wp--preset--shadow--raised, 0 4px 12px rgba(10, 10, 10, 0.06));
-	padding-top: var(--wp--preset--spacing--30, 0.75rem);
-	padding-bottom: var(--wp--preset--spacing--30, 0.75rem);
+        background-color: var(--wp--preset--color--surface, rgba(255, 255, 255, 0.95));
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: var(--wp--preset--shadow--raised, 0 4px 12px rgba(10, 10, 10, 0.06));
+        padding-top: var(--wp--preset--spacing--30, 0.75rem);
+        padding-bottom: var(--wp--preset--spacing--30, 0.75rem);
 }
 
 .site-header.is-scrolled.is-transparent,
 .site-header-transparent.is-scrolled {
-	background-color: var(--wp--preset--color--surface, rgba(255, 255, 255, 0.95));
+        background-color: var(--wp--preset--color--surface, rgba(255, 255, 255, 0.95));
 }
 
 /* Header dark variant scroll state */
 .site-header-dark.is-scrolled {
-	background-color: var(--wp--preset--color--primary, #0a0a0a);
-	box-shadow: var(--wp--preset--shadow--raised, 0 4px 12px rgba(0, 0, 0, 0.3));
+        background-color: var(--wp--preset--color--primary, #0a0a0a);
+        box-shadow: var(--wp--preset--shadow--raised, 0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.site-header {
-		transition: none;
-	}
+        .site-header {
+                transition: none;
+        }
 }
 
 /* Expand-on-click search treatment */
 .godevs-search-toggle {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	border: none;
-	background: transparent;
-	cursor: pointer;
-	color: var(--wp--preset--color--foreground, currentColor);
-	border-radius: var(--wp--preset--spacing--20, 4px);
-	transition: background-color var(--wp--custom--motion--duration--fast, 150ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: var(--wp--preset--color--foreground, currentColor);
+        border-radius: var(--wp--preset--spacing--20, 4px);
+        transition: background-color var(--wp--custom--motion--duration--fast, 150ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .godevs-search-toggle:hover {
-	background-color: var(--wp--preset--color--surface-muted, #f5f5f0);
+        background-color: var(--wp--preset--color--surface-muted, #f5f5f0);
 }
 
 .godevs-search-expand {
-	overflow: hidden;
-	max-width: 0;
-	transition: max-width var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        overflow: hidden;
+        max-width: 0;
+        transition: max-width var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .godevs-search-expand.is-open {
-	max-width: 320px;
+        max-width: 320px;
 }
 
 @media (max-width: 480px) {
-	.godevs-search-expand.is-open {
-		max-width: 100%;
-	}
+        .godevs-search-expand.is-open {
+                max-width: 100%;
+        }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.godevs-search-expand {
-		transition: none;
-	}
+        .godevs-search-expand {
+                transition: none;
+        }
 }
 
 /* Section rhythm — alternating backgrounds */
 section.wp-block-group:nth-of-type(even) {
-	background-color: var(--wp--preset--color--surface-muted, transparent);
+        background-color: var(--wp--preset--color--surface-muted, transparent);
 }
 
 /* Project single — meta sidebar treatment */
 .godevs-project-meta {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--wp--preset--spacing--50, 1.5rem);
-	padding: var(--wp--preset--spacing--60, 2rem) 0;
-	border-top: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	border-bottom: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	margin-bottom: var(--wp--preset--spacing--70, 3rem);
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--wp--preset--spacing--50, 1.5rem);
+        padding: var(--wp--preset--spacing--60, 2rem) 0;
+        border-top: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-bottom: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        margin-bottom: var(--wp--preset--spacing--70, 3rem);
 }
 
 .godevs-project-meta dt {
-	font-size: var(--wp--preset--font-size--small, 0.875rem);
-	color: var(--wp--preset--color--muted, #6b7280);
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	margin-bottom: var(--wp--preset--spacing--20, 0.5rem);
+        font-size: var(--wp--preset--font-size--small, 0.875rem);
+        color: var(--wp--preset--color--muted, #6b7280);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: var(--wp--preset--spacing--20, 0.5rem);
 }
 
 .godevs-project-meta dd {
-	margin: 0;
-	font-weight: 600;
+        margin: 0;
+        font-weight: 600;
 }
 
 /* Next project transition — large image + title */
 .godevs-next-project {
-	position: relative;
-	overflow: hidden;
+        position: relative;
+        overflow: hidden;
 }
 
 .godevs-next-project img {
-	transition: transform var(--wp--custom--motion--duration--slow, 500ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        transition: transform var(--wp--custom--motion--duration--slow, 500ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .godevs-next-project:hover img {
-	transform: scale(1.03);
+        transform: scale(1.03);
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.godevs-next-project img {
-		transition: none;
-	}
+        .godevs-next-project img {
+                transition: none;
+        }
 }

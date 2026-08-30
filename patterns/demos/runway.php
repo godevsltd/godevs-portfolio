@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- wp:column {"verticalAlignment":"center","width":"60%"} -->
                         <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60%">
                                 <!-- wp:image {"aspectRatio":"16/9","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover"/></figure>
+                                <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-brand.png' ); ?>" alt="Project cover" style="border-radius:8px;aspect-ratio:16/9;object-fit:cover"/></figure>
                                 <!-- /wp:image -->
                         </div>
                         <!-- /wp:column -->

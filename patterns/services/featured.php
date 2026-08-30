@@ -30,8 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wp-block-columns">
 			<!-- wp:column {"width":"60%"} -->
 			<div class="wp-block-column" style="flex-basis:60%">
-				<!-- wp:group {"className":"is-style-card-default","style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"top":"var:preset|spacing|70","right":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|70"}}},"backgroundColor":"surface","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
-				<div class="wp-block-group is-style-card-default has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70)">
+				<!-- wp:group {"className":"is-style-card-featured","style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"top":"var:preset|spacing|70","right":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|70"}}},"backgroundColor":"surface","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+				<div class="wp-block-group is-style-card-featured has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70)">
 					<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
 					<p class="is-style-eyebrow">Featured · 01</p>
 					<!-- /wp:paragraph -->
