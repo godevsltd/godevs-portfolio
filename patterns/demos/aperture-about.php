@@ -2,9 +2,9 @@
 /**
  * Title: Demo — Aperture (About)
  * Slug: godevs-portfolio/demo-aperture-about
- * Description: About page for the Aperture demo. Bio intro, practice areas, and a closing CTA. Uses the Minimal style variation.
+ * Description: About page for the Aperture demo. Split bio with portrait, gear list, and approach. Uses the Minimal style variation.
  * Categories: godevs-portfolio-demos
- * Keywords: demo, aperture, about, bio, minimal
+ * Keywords: demo, aperture, about, bio, photography
  * Viewport Width: 1280
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,44 +15,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|60"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">About</p>
+<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"var:preset|spacing|60"}}} -->
+<div class="wp-block-columns are-vertically-aligned-center">
+<!-- wp:column {"width":"40%","verticalAlignment":"center"} -->
+<div class="wp-block-column" style="flex-basis:40%">
+<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"var(--wp--custom--radius--lg, 12px)"}}} -->
+<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Portrait of the photographer with camera" style="aspect-ratio:4/5;object-fit:cover;border-radius:12px"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:column -->
+<!-- wp:column {"width":"60%","verticalAlignment":"center","style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+<div class="wp-block-column" style="flex-basis:60%">
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"}}} -->
+<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent)">About</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
-<h2 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);letter-spacing:-0.02em;font-weight:600">The photography practice.</h2>
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2rem, 5vw, 3.5rem)","lineHeight":"1.1","letterSpacing":"-0.025em","fontWeight":"600"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2rem, 5vw, 3.5rem);line-height:1.1;letter-spacing:-0.025em;font-weight:600">Ten years behind the lens.</h1>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"560px"}}} -->
-<p style="font-size:var(--wp--preset--font-size--medium);max-width:560px">Aperture is a photography practice working across editorial, product, and portrait commissions.</p>
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.7"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p style="font-size:var(--wp--preset--font-size|medium);line-height:1.7;max-width:520px">I shoot editorial, product, and portrait photography for brands that care about how they look. Based in Berlin, available worldwide. Natural light, considered composition, no unnecessary retouching.</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:separator {"className":"is-style-thin"} -->
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-thin"/>
-<!-- /wp:separator -->
-
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Practice areas</p>
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|medium);line-height:1.7;max-width:520px">Previously staff photographer at Foundry Co. Now independent, shooting 30-40 projects a year for selected clients.</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
-<h3 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--large);letter-spacing:-0.02em;font-weight:600">What I work on.</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
-<p style="font-size:var(--wp--preset--font-size--medium);max-width:520px">Identity systems, editorial layouts, and the front-end engineering that makes them real. Each engagement is scoped in writing, shipped on schedule, and built to be edited by the client after handoff.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
 <!-- wp:button -->
-<div class="wp-block-button"><a href="#contact" class="wp-block-button__link wp-element-button">Get in touch</a></div>
-<!-- /wp:button -->
-<!-- wp:button {"className":"is-style-text-link"} -->
-<div class="wp-block-button is-style-text-link"><a href="#work" class="wp-block-button__link wp-element-button">See recent work</a></div>
+<div class="wp-block-button"><a href="#contact" class="wp-block-button__link wp-element-button">Book a session</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
-
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
 </div>
 <!-- /wp:group -->
 </section>

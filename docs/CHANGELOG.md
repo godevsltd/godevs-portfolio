@@ -12,6 +12,223 @@ No unreleased changes.
 
 ---
 
+## [2.5.1] — Fixed Demo Library Showing 75 Complete Instead of 10
+
+### Fixed
+
+#### Critical: Demo Library Showed 75 Demos as "Complete" Instead of 10
+
+- **Root cause:** The `is_complete` field was set by `godevs_portfolio_is_demo_complete()`, which checked whether every recommended page had a pattern file in `patterns/demos/`. However, ALL 102 demos had inner-page pattern files (created as stubs in a previous session), so all 102 passed the file-existence check — and 75 of them sorted into the "Ready Demos" section.
+- **Fix:** Changed `is_complete` to use the existing `is_ready` field instead. The `is_ready` field is the production-ready list hardcoded in `godevs_portfolio_parse_demo_file()` — exactly 10 demos: `monolith`, `canvas`, `aperture`, `northbound`, `meridian`, `plan`, `signature`, `scholar`, `minimal`, `director`. These are the only demos that have been fully designed with real content on every page and reviewed.
+- **Result:** The demo library now correctly shows:
+  - **Ready Demos section:** 10 demos (the production-ready ones) with Complete badge + Import button enabled
+  - **Coming Soon section:** 92 demos with "Coming Soon" badge + disabled Import button
+  - The hero stats now show `10 Ready · 92 Coming Soon · 102 Total` instead of `75 Ready · 27 Coming Soon · 102 Total`
+
+### Validation Performed
+
+- PHP static audit (657 files): 0 issues.
+- Confirmed the 10 production-ready demos match the user's list:
+  - monolith (Developer) — 5 pages
+  - canvas (Designer) — 6 pages
+  - aperture (Photography) — 5 pages
+  - northbound (Agency) — 5 pages
+  - meridian (Business) — 5 pages
+  - plan (Architecture) — 5 pages
+  - signature (Personal) — 5 pages
+  - scholar (Education) — 5 pages
+  - minimal (Lifestyle) — 5 pages
+  - director (Specialized) — 4 pages
+
+---
+
+## [2.5.0] — Demo Library Redesign & Live iframe Preview
+
+### Added
+
+#### Demo Library Now Embedded in Theme Settings
+
+- The "Demo Library" is now a tab inside **Appearance → GoDevs Settings** (previously a separate standalone page). The previous "Demo settings" tab has been replaced with the full demo browser UI — filters, grid, live preview modal, and import flow are all accessible from within the settings page.
+- The standalone **Appearance → GoDevs Demos** menu is preserved as a shortcut that jumps directly to the Demo Library tab.
+
+#### Live iframe Preview (Real Rendered Pages)
+
+- New `inc/demo-renderer.php` — a PHP port of the Python `scripts/render-demo-html.py` renderer. It produces a complete HTML5 document for any demo page by:
+  - Stripping the PHP docblock + ABSPATH guard
+  - Replacing `<?php echo esc_url(get_template_directory_uri() . '/path'); ?>` with real theme asset URLs
+  - Resolving `<!-- wp:template-part -->` references recursively (inlining the parts/*.html contents)
+  - Replacing dynamic block stubs (wp:site-logo, wp:navigation, wp:site-title, wp:social-icons) with placeholder HTML
+  - Expanding `var:preset|spacing|40` references into `var(--wp--preset--spacing--40)` CSS variables
+  - Fixing wp:cover block elements with inline absolute positioning
+  - Wrapping the result in an HTML5 document with the Inter webfont, theme.css, and CSS variables derived from theme.json
+- New AJAX endpoint `godevs_render_demo_page` streams the rendered HTML as `text/html` — suitable for direct `<iframe src>` loading.
+- New `godevs_portfolio_render_demo_page_url()` helper generates a nonce-protected URL for the iframe.
+- New `assets/css/demo-preview.css` — the static-render adjustments CSS (cover block layering, header/footer dark variants, column flexbox, button styling, etc.) loaded into the iframe preview. Extracted to a separate file to avoid PHP heredoc brace-counting issues in static audits.
+
+#### Preview Modal Now Uses iframe
+
+- The preview modal's `#godevs-preview-content` div (which previously received raw block markup via `innerHTML` — no CSS context, broken layout) has been replaced with an `<iframe id="godevs-preview-iframe">`. The iframe loads the rendered HTML5 document from the new AJAX endpoint, so the preview shows the **real rendered page** with full CSS, fonts, and layout — exactly as it would appear after import.
+- New "Open in new tab" button in the modal footer — opens the current preview page in a full browser window for closer inspection.
+- iframe is sandboxed (`allow-same-origin allow-scripts allow-popups allow-forms`) for security.
+- A small inline `<script>` in the rendered HTML prevents link clicks from navigating the iframe — the preview stays on the current page.
+- Device switcher (desktop/tablet/mobile) now resizes the iframe to the correct viewport width (1280px / 768px / 390px) with proper aspect ratios.
+
+### Improved
+
+#### Complete UI/UX Redesign of Demo Library
+
+The admin demo library has been completely redesigned with a modern, professional aesthetic:
+
+- **Hero header** — dark gradient background (slate-900 → slate-800) with a premium badge, large headline, subtitle, and three stat cards (Ready / Coming Soon / Imported) showing live counts.
+- **Filter bar** — clean white card with search input (icon + placeholder), category dropdown, style dropdown, clear-filters button, and a live result count pill. All inputs use consistent border-radius, focus states with accent ring, and smooth transitions.
+- **Two-section grid** — demos are split into "Ready Demos" (complete, with blue accent border + hover lift) and "Coming Soon" (faded to 75% opacity). Each section has its own header with icon, title, count badge, and subtitle.
+- **Demo cards** — browser-frame mockup (macOS-style traffic-light dots + URL bar showing the demo name) wrapping a real screenshot thumbnail. Hover reveals a dark overlay with a "Preview Demo" CTA button. Status badges (Complete / Ready / Coming Soon) appear in the top-left corner; Imported badge appears in the top-right.
+- **CSS custom properties** — the entire admin CSS now uses CSS variables (defined on `.godevs-demos-wrap`) for colors, spacing, radii, shadows, transitions, and typography. No more hardcoded hex values scattered throughout.
+- **Responsive** — cards collapse to a single column on mobile; the modal goes full-screen; the device switcher hides labels.
+- **Reduced motion** — all transitions and animations are disabled under `prefers-reduced-motion: reduce`.
+
+#### Sorting: Ready First, Then Coming Soon
+
+- Complete demos (those with all recommended pages as pattern files) sort to the top under the "Ready Demos" section header with a checkmark icon and blue count badge.
+- Incomplete demos (homepage only) sort below under "Coming Soon" with a clock icon and muted count badge.
+- The filter logic now respects both sections — searching/filtering hides individual cards within each section, and hides the entire section header if no cards in it match.
+
+### Validation Performed
+
+- PHP static audit (657 files): 0 issues.
+- JSON validation (12 files): 0 failures.
+- Block markup balance audit (697 files): 16 pre-existing failures (PHP template placeholders, unchanged).
+
+### New Files
+
+- `inc/demo-renderer.php` (582 lines) — PHP demo page renderer + AJAX endpoint
+- `assets/css/demo-preview.css` (75 lines) — Static-render CSS for iframe preview
+
+---
+
+## [2.4.1] — Header/Footer Builder Fixes & Demo Import Match
+
+### Fixed
+
+#### Critical: Both Headers / Both Footers Showing at Once
+
+- **Root cause:** The Header/Footer Builder rendered custom layouts via `wp_body_open` (header) and `wp_footer` (footer) actions — i.e. by `echo`-ing raw HTML at the top/bottom of the page. However, the block templates (`templates/*.html`) ALSO embed `<!-- wp:template-part {"slug":"header"} /-->` at the top and `<!-- wp:template-part {"slug":"footer"} /-->` at the bottom. With no filter suppressing either side, BOTH were rendered on the front-end — producing two `<header>` elements and two `<footer>` elements stacked on every page where a builder layout was active.
+- **Fix:** Added a new `render_block` filter (`godevs_hf_suppress_default_template_part`) in `inc/header-footer-builder.php` that intercepts every `core/template-part` block render. When the slug starts with `header` and a builder header layout is active (or `footer` and a footer layout is active), the filter returns an empty string — completely suppressing the theme's default template-part. The builder-rendered HTML (already echoed on `wp_body_open` / `wp_footer`) is the only header/footer that appears.
+- **Coverage:** The filter also catches demo-pattern-embedded template-parts (e.g. `header-dark`, `footer-minimal`) when a builder layout is active, so the builder always wins on the front-end.
+- **Backward compatibility:** When NO builder layout is active for either type, the filter is a no-op — the default template-part renders normally, exactly as before.
+
+#### Added: Per-Page Header/Footer Layout Override
+
+- New post meta `_godevs_page_header_layout` and `_godevs_page_footer_layout` registered on `page` and `post` post types (with REST exposure and `sanitize_key` callback).
+- New "Header & Footer Layout" meta box on the page/post edit screen — two `<select>` dropdowns listing every saved builder layout, plus the special options:
+  - **"Site-wide default"** (`default`) — use the global builder active layout (if any).
+  - **"Disable builder (use theme parts)"** (`none`) — explicitly turn OFF the builder for this page and use the theme's default `parts/header.html` / `parts/footer.html`.
+- New `godevs_hf_get_active_for_current_post()` function in `inc/header-footer-builder.php` — resolves the active layout for the current request in priority order:
+  1. **Per-post meta** (`_godevs_page_header_layout` / `_godevs_page_footer_layout`) — overrides everything else. Verified to still exist as a saved layout.
+  2. **Site-wide option** (`godevs_hf_active_header` / `godevs_hf_active_footer`) — set via the admin builder UI.
+  3. **None** — fall back to the theme's default template-part.
+- The output functions `godevs_hf_output_header()` and `godevs_hf_output_footer()` now consult `godevs_hf_get_active_for_current_post()` instead of the raw option — so the right layout appears on the right page.
+- Meta box CSS appended to `assets/css/admin-settings.css` for a modern, polished dropdown with focus state.
+
+#### Fixed: Demo Import Did Not Match Screenshots
+
+Multiple fixes to make imported demo content visually match the screenshot previews:
+
+- **Triple-header bug eliminated:** Demo pattern files embed their own `<!-- wp:template-part {"slug":"header-dark"} /-->` references at the top and `<!-- wp:template-part {"slug":"footer-dark"} /-->` at the bottom. When this content became the `post_content` of an imported page, WordPress wrapped it in the active `page.html` template — which ALSO has its own header and footer template-parts. Combined with an active builder layout, this produced THREE headers and THREE footers on a single page.
+- **New `godevs_portfolio_strip_template_parts_from_content()` helper** in `inc/demo-importer.php` removes every `wp:template-part` block from imported page content before `wp_insert_post()`. Handles both self-closing (`<!-- wp:template-part {...} /-->`) and paired (`<!-- wp:template-part {...} --> ... <!-- /wp:template-part -->`) forms. The active theme template's header/footer (or the builder layout, if active) is the only one that renders.
+- **Nav menu now assigned to `primary` location:** Previously the importer created a `<Demo Name> — Navigation` menu but never assigned it to a menu location — so the header's `wp:navigation` block fell back to the default site menu (usually empty). Now the importer sets `nav_menu_locations['primary'] = $nav_menu_id` via `set_theme_mod()`, so the demo's pages appear in the header navigation immediately after import.
+- **Style variation still applies correctly:** No change to the `godevs_portfolio_apply_style_variation()` logic — it continues to write to the `wp_global_styles` post and clear the WP_Theme_JSON_Resolver cache via reflection.
+
+### Validation Performed
+
+- PHP static audit (656 files): 0 issues.
+- Block markup balance audit (697 files): 16 pre-existing failures (PHP template placeholders, unchanged from 2.4.0).
+- Confirmed `godevs_portfolio_strip_template_parts_from_content()` correctly removes header/footer template-part references while preserving body content (tested with sample markup).
+- Confirmed the meta box renders in the page editor's sidebar with a dropdown listing all saved layouts (with a fallback message when no layouts exist).
+
+---
+
+## [2.4.0] — Demo Library UX & Screenshot System
+
+### Added
+
+#### Complete-Demo Detection & Sorting
+
+- New `godevs_portfolio_is_demo_complete()` function checks whether every recommended page (home + inner pages) exists as a pattern file in `patterns/demos/`.
+- Demos are now sorted in the registry: **complete demos first** (alphabetical), then incomplete demos (alphabetical). The "Complete Demos" section is visually separated from "Other Demos" with a section header showing the count.
+- New **"Complete" badge** on demo cards (blue pill with checkmark icon) distinguishes fully-designed demos from homepage-only demos.
+- The results counter at the top of the demo library now reads `N complete · M ready · K total demos` so users can see at a glance how many sites are fully importable.
+- `is_complete` field added to every demo definition returned by `godevs_portfolio_get_demos()`.
+
+#### Real Screenshot Previews
+
+- All 10 complete demos now have **actual screenshots** as their preview images in the demo library, replacing the previous abstract SVG placeholders.
+- New `scripts/render-demo-html.py` — a static HTML renderer that converts each demo PHP pattern into a standalone HTML document by:
+  - Stripping the PHP docblock + ABSPATH guard
+  - Replacing `<?php echo esc_url(get_template_directory_uri() . '/...'); ?>` calls with `file://` URLs to real asset files
+  - Resolving `<!-- wp:template-part -->` references by inlining the corresponding `parts/*.html` file (recursive)
+  - Replacing dynamic block stubs (`wp:site-logo`, `wp:navigation`, `wp:site-title`, `wp:social-icons`) with placeholder HTML
+  - Expanding `var:preset|spacing|40` references into `var(--wp--preset--spacing--40)` CSS variables
+  - Wrapping in an HTML5 document with the Inter webfont, theme.css, and CSS variables derived from theme.json
+- New `scripts/screenshot-demos.py` — a batch-screenshot driver that uses `agent-browser` (Playwright) to capture full-page desktop (1280px) screenshots of all 50 rendered demo pages.
+- 50 screenshots captured (10 demos × 5 inner pages average) — saved to `/home/z/my-project/download/demo-screenshots/`.
+- Preview images optimized to WebP (85% quality) — **3-5x smaller** than the equivalent PNG. The registry prefers WebP over PNG when both exist.
+- Removed obsolete SVG placeholders (plan.svg, signature.svg, minimal.svg, director.svg).
+
+#### Senior UI/UX Review System
+
+- New `scripts/ux-review.py` — uses the VLM (vision-language model) to analyze each demo's above-the-fold screenshot and produce a senior UI/UX design review with severity-classified issues.
+- UX review output saved to `/home/z/my-project/screenshots/ux-review.md` — 3,373-word report covering all 10 complete demos with common themes summary.
+
+### Improved
+
+#### Global Styling Refinements (theme.css)
+
+Based on the VLM-driven UI/UX review of all 10 demos, applied 10 categories of fixes that benefit every demo without modifying any individual pattern file:
+
+1. **Body copy link styling** — Inline `<a>` tags inside paragraphs and headings now use the accent color (#2563EB) with no underline by default, subtle underline on hover, and 150ms color transition. Previously every link fell back to the browser default blue (#0000EE) with underline, which clashed with the editorial palette.
+2. **Stronger CTA links** — "→ View all work" style links (paragraphs containing only a single link) now display as inline-flex with proper spacing, smaller font, and bold weight — giving them visual weight as calls-to-action rather than blending with body copy.
+3. **Improved muted-text contrast** — Body copy using the muted color class now uses `#4B5563` (6.43:1 contrast on base) instead of `#6B7280` (4.43:1, fails WCAG AA). Eyebrow labels keep the lighter muted color where contrast is less critical.
+4. **Body line-height** — Increased from 1.7 → 1.75 for long-form readability.
+5. **Hover/focus states on cards and images** — Added subtle scale + shadow transitions on hover for `.wp-block-image.has-custom-border` and `.is-style-card-bordered`. Previously these had no hover state.
+6. **Section divider rhythm** — Consistent 0.5rem spacing between eyebrow paragraph and the heading that follows it across all demos.
+7. **Dark surface link styling** — Links on dark surfaces (`.has-primary-background-color`, `.site-header-dark`, `.wp-block-cover.is-dark`) now use contrast white with underline, with opacity 0.9 → 1 on hover. Previously they used the dark accent blue which was unreadable on dark backgrounds.
+8. **Default button styling** — `.wp-block-button .wp-block-button__link` now has proper button styling: inline-flex, primary background, contrast text, 0.625rem 1.25rem padding, 4px border-radius, 500 weight, no underline. Previously default buttons fell back to browser link styling.
+9. **Inverse button styling on dark surfaces** — On dark backgrounds, default buttons invert to white background + dark text, and outline buttons get white border + white text. This makes CTAs visible on the dark hero sections used by director, monolith, etc.
+10. **Reduced-motion overrides** — All new transitions are disabled under `prefers-reduced-motion: reduce`.
+
+#### Demo Library Card Polish
+
+- Demo cards in the admin grid now have a subtle `-2px` translate-y on hover, with 300ms transition using the motion token easing curve.
+- Complete demo cards get a subtle blue border highlight to distinguish them from incomplete demos.
+
+### Fixed
+
+#### Demo Renderer CSS Bugs
+
+- Fixed unbalanced parentheses in the static-render CSS variable generator — `var(--wp--preset--color--base` was missing the closing `)`, which broke CSS parsing for the entire stylesheet (only 1 of ~300 rules was being applied).
+- Removed apostrophes from CSS comments (`isn't`, `don't`, `demo's`, etc.) which broke the CSS parser when the stylesheet was loaded as inline `<style>` content. Affected rules now use `is not`, `do not`, `demo`, etc.
+- Fixed the default button CSS selector — was using `.wp-block-button__link:not(.is-style-outline)` but the `is-style-*` classes are on the parent `.wp-block-button` element, not on the `.wp-block-button__link`. Changed to `.wp-block-button:not(.is-style-*) > .wp-block-button__link`.
+
+### Validation Performed
+
+- PHP static audit (656 files): 0 issues
+- JSON validation (12 files): 0 failures
+- Block markup balance audit (697 files): 16 issues — all pre-existing PHP template placeholders (`__BG_STYLE__`) in 16 demos (advisor, blueprint-studio, criterion, curator, editorial, frame-works, grid-city, gridline, momentum, palette, professor, studio-craft, summit, text-link, thesis, verdure). These are intentional PHP template syntax, not real JSON corruption.
+- Gutenberg compatibility audit: 37 issues — all pre-existing in non-demo pattern files.
+- Structure audit: 11 issues — all pre-existing (missing optional directories + 2 demos with hardcoded hex colors + 1 pricing pattern with checkmark emoji).
+
+### New Scripts
+
+- `scripts/render-demo-html.py` — Static HTML renderer for demo pattern files
+- `scripts/screenshot-demos.py` — Batch screenshot driver using agent-browser
+- `scripts/ux-review.py` — VLM-powered senior UI/UX reviewer
+- `scripts/fix-missing-quotes.py` — Detects and fixes missing closing `"` after preset values in JSON attributes
+- `scripts/fix-unbalanced-json.py` — Counts brace balance (ignoring string contents) and appends/removes trailing `}` as needed
+- `scripts/fix-spacing-presets.py` — Replaces undefined `var:preset|spacing|0` and `var:preset|spacing|10` references with valid alternatives
+
+---
+
 ## [0.4.0] — Phase 4 Stability & Demo Import System
 
 ### Fixed

@@ -171,6 +171,11 @@ function godevs_portfolio_ajax_import_demo(): void {
                 wp_send_json_error( array( 'message' => __( 'Demo not found.', 'godevs-portfolio' ) ), 404 );
         }
 
+        // Block imports for non-ready (Coming Soon) demos.
+        if ( empty( $demo['is_ready'] ) ) {
+                wp_send_json_error( array( 'message' => __( 'This demo is coming soon and cannot be imported yet.', 'godevs-portfolio' ) ), 403 );
+        }
+
         $steps = array(
                 array( 'id' => 'prepare', 'label' => __( 'Preparing demo', 'godevs-portfolio' ) ),
                 array( 'id' => 'pages',   'label' => __( 'Creating pages', 'godevs-portfolio' ) ),
@@ -248,6 +253,21 @@ function godevs_portfolio_ajax_import_demo(): void {
                         }
                 }
 
+                // CRITICAL FIX (v2.4.1): Strip embedded `<!-- wp:template-part -->`
+                // references from the page content. The demo pattern files
+                // include their own header/footer template-part references
+                // (e.g. `header-dark`, `footer-minimal`), but when this content
+                // becomes `post_content` on a real page, WordPress wraps it in
+                // the active `page.html` template — which ALSO has its own
+                // header/footer template-part references. That produces a
+                // double-header + double-footer on the rendered page.
+                //
+                // Solution: remove all `wp:template-part` blocks from the
+                // imported page content. The active theme template's header
+                // and footer will be used instead. The Header/Footer Builder
+                // override (if any) takes precedence via the render_block filter.
+                $content = godevs_portfolio_strip_template_parts_from_content( $content );
+
                 $page_id = wp_insert_post(
                         array(
                                 'post_title'   => $title,
@@ -319,6 +339,17 @@ function godevs_portfolio_ajax_import_demo(): void {
                 update_option( 'show_on_front', 'page' );
                 update_option( 'page_on_front', $homepage_id );
                 update_option( 'page_for_posts', 0 );
+        }
+
+        // 4b. Assign the created nav menu to the `primary` menu location.
+        // Previously the menu was created but never assigned, so the demo's
+        // header navigation appeared empty (or fell back to the default site
+        // menu, if any). This makes the imported menu show up in the header
+        // navigation block automatically.
+        if ( $nav_menu_id ) {
+                $locations                 = get_theme_mod( 'nav_menu_locations', array() );
+                $locations['primary']      = (int) $nav_menu_id;
+                set_theme_mod( 'nav_menu_locations', $locations );
         }
 
         // 5. Apply the recommended style variation (if requested).
@@ -433,6 +464,49 @@ function godevs_portfolio_render_demo_markup( array $demo ): string {
         ob_start();
         include $demo['file']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — pattern file output is HTML block markup, not user input.
         return (string) ob_get_clean();
+}
+
+/**
+ * Strip `<!-- wp:template-part ... /-->` blocks from imported page content.
+ *
+ * Demo pattern files (patterns/demos/*.php) embed their own header/footer
+ * template-part references (e.g. `header-dark`, `footer-minimal`). When this
+ * content becomes the `post_content` of an imported page, WordPress wraps
+ * it in the active `page.html` template — which ALSO has its own header and
+ * footer template-part references. That produces a double-header +
+ * double-footer on the rendered page (and a TRIPLE header if a Header/Footer
+ * Builder layout is also active).
+ *
+ * This function removes every `wp:template-part` block from the markup
+ * (both self-closing `<!-- wp:template-part {...} /-->` and paired
+ * `<!-- wp:template-part {...} --> ... <!-- /wp:template-part -->` forms).
+ * The active theme template's header and footer will be used instead.
+ *
+ * @param string $content The raw pattern markup (may contain PHP-processed HTML).
+ * @return string Markup with all `wp:template-part` references removed.
+ * @since 2.4.1
+ */
+function godevs_portfolio_strip_template_parts_from_content( string $content ): string {
+        if ( '' === $content ) {
+                return $content;
+        }
+
+        // Remove self-closing template-part blocks: `<!-- wp:template-part {...} /-->`
+        $content = preg_replace(
+                '/<!--\s*wp:template-part\b[^>]*?\/-->\s*/s',
+                '',
+                $content
+        );
+
+        // Remove paired template-part blocks (with content between open and close):
+        // `<!-- wp:template-part {...} --> ... <!-- /wp:template-part -->`
+        $content = preg_replace(
+                '/<!--\s*wp:template-part\b[^>]*?-->.*?<!--\s*\/wp:template-part\s*-->\s*/s',
+                '',
+                $content
+        );
+
+        return $content;
 }
 
 /**

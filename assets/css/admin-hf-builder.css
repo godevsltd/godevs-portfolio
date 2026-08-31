@@ -1,0 +1,571 @@
+/* GoDevs Portfolio — Header & Footer Builder admin styles
+ * v2.4.0 — Visual drag-and-drop builder with device breakpoints
+ */
+
+/* ═══ Builder Wrapper ═══ */
+.godevs-hf-builder-wrap {
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	overflow: hidden;
+	background: #f9fafb;
+}
+
+/* ═══ Header/Footer Tabs ═══ */
+.godevs-hf-tabs {
+	display: flex;
+	gap: 0;
+	border-bottom: 1px solid #e0e0e0;
+	background: #fff;
+}
+
+.godevs-hf-tab {
+	padding: 14px 24px;
+	border: none;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 600;
+	color: #8c8f94;
+	cursor: pointer;
+	transition: all 0.15s ease;
+	border-bottom: 3px solid transparent;
+}
+
+.godevs-hf-tab:hover {
+	color: #1d2327;
+	background: #f6f7f7;
+}
+
+.godevs-hf-tab.is-active {
+	color: #1d2327;
+	border-bottom-color: #e85d40;
+	background: #fff;
+}
+
+/* ═══ Templates Section ═══ */
+.godevs-hf-templates,
+.godevs-hf-saved-layouts {
+	padding: 24px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.godevs-hf-template-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 16px;
+	margin-top: 12px;
+}
+
+.godevs-hf-template-card {
+	border: 2px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 16px;
+	cursor: pointer;
+	transition: border-color 0.15s ease, transform 0.15s ease;
+	background: #fff;
+}
+
+.godevs-hf-template-card:hover {
+	border-color: #e85d40;
+	transform: translateY(-2px);
+}
+
+.godevs-hf-template-card h4 {
+	margin: 0 0 8px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.godevs-hf-template-card p {
+	margin: 0;
+	font-size: 12px;
+	color: #8c8f94;
+}
+
+/* Mini visual preview */
+.godevs-hf-template-preview {
+	background: #f6f7f7;
+	border-radius: 4px;
+	padding: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 36px;
+}
+
+.godevs-hf-template-preview .preview-block {
+	background: #d0d1d7;
+	border-radius: 2px;
+	height: 12px;
+}
+
+/* ═══ Saved Layouts ═══ */
+.godevs-hf-saved-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 16px;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	margin-bottom: 8px;
+	transition: border-color 0.15s ease;
+}
+
+.godevs-hf-saved-item:hover {
+	border-color: #c3c4c7;
+}
+
+.godevs-hf-saved-item.is-active {
+	border-color: #00a32a;
+	background: #f0fdf4;
+}
+
+.godevs-hf-saved-item-name {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.godevs-hf-saved-item-badge {
+	font-size: 11px;
+	font-weight: 600;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #dcfce7;
+	color: #15803d;
+	margin-left: 8px;
+}
+
+.godevs-hf-saved-item-actions {
+	display: flex;
+	gap: 6px;
+}
+
+.godevs-hf-saved-item-actions button {
+	padding: 4px 10px;
+	font-size: 12px;
+	border-radius: 4px;
+}
+
+/* ═══ Editor Section ═══ */
+.godevs-hf-editor {
+	display: grid;
+	grid-template-columns: 200px 1fr 280px;
+	gap: 0;
+	min-height: 500px;
+}
+
+/* Editor header */
+.godevs-hf-editor-header {
+	grid-column: 1 / -1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 16px;
+	background: #fff;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.godevs-hf-editor-header input {
+	flex: 1;
+	max-width: 300px;
+}
+
+/* Device breakpoint controls */
+.godevs-hf-device-controls {
+	display: flex;
+	gap: 2px;
+	background: #f6f7f7;
+	border-radius: 6px;
+	padding: 2px;
+}
+
+.godevs-hf-device {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border: none;
+	background: transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #8c8f94;
+	transition: all 0.15s ease;
+}
+
+.godevs-hf-device:hover {
+	background: #fff;
+	color: #1d2327;
+}
+
+.godevs-hf-device.is-active {
+	background: #1d2327;
+	color: #fff;
+}
+
+.godevs-hf-device .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+/* ═══ Element Palette (left sidebar) ═══ */
+.godevs-hf-elements-panel {
+	background: #fff;
+	border-right: 1px solid #e0e0e0;
+	padding: 16px;
+	overflow-y: auto;
+}
+
+.godevs-hf-elements-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 12px;
+}
+
+.godevs-hf-element-btn {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 6px;
+	background: #fff;
+	font-size: 13px;
+	color: #50575e;
+	cursor: pointer;
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.godevs-hf-element-btn:hover {
+	border-color: #e85d40;
+	background: #fff8f5;
+	color: #1d2327;
+}
+
+.godevs-hf-element-btn:active {
+	transform: scale(0.97);
+}
+
+.godevs-hf-element-btn .dashicons {
+	font-size: 16px;
+	width: 16px;
+	color: #8c8f94;
+}
+
+.godevs-hf-element-category {
+	font-size: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: #8c8f94;
+	margin: 12px 0 4px;
+}
+
+.godevs-hf-element-category:first-child {
+	margin-top: 0;
+}
+
+/* ═══ Canvas (center) ═══ */
+.godevs-hf-canvas {
+	background: #f0f0f1;
+	padding: 24px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/* Device preview widths */
+.godevs-hf-canvas[data-device="desktop"] .godevs-hf-canvas-inner {
+	max-width: 100%;
+}
+
+.godevs-hf-canvas[data-device="tablet"] .godevs-hf-canvas-inner {
+	max-width: 768px;
+	margin: 0 auto;
+	box-shadow: 0 0 0 1px #dcdcde;
+}
+
+.godevs-hf-canvas[data-device="mobile"] .godevs-hf-canvas-inner {
+	max-width: 375px;
+	margin: 0 auto;
+	box-shadow: 0 0 0 1px #dcdcde;
+}
+
+.godevs-hf-canvas-inner {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+	overflow: hidden;
+	min-height: 200px;
+}
+
+/* Builder rows */
+.godevs-hf-builder-row {
+	position: relative;
+	border-bottom: 1px solid #f0f0f1;
+	transition: outline 0.15s ease;
+	outline: 2px solid transparent;
+}
+
+.godevs-hf-builder-row:hover {
+	outline-color: #e85d40;
+}
+
+.godevs-hf-builder-row.is-selected {
+	outline-color: #e85d40;
+}
+
+.godevs-hf-builder-row-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 4px 8px;
+	background: #f9fafb;
+	font-size: 10px;
+	color: #8c8f94;
+	font-family: monospace;
+}
+
+.godevs-hf-row-actions {
+	display: flex;
+	gap: 4px;
+}
+
+.godevs-hf-row-actions button {
+	padding: 2px 6px;
+	font-size: 10px;
+	border: 1px solid #e0e0e0;
+	background: #fff;
+	border-radius: 3px;
+	cursor: pointer;
+	color: #8c8f94;
+}
+
+.godevs-hf-row-actions button:hover {
+	color: #b32d2e;
+	border-color: #b32d2e;
+}
+
+/* Builder columns */
+.godevs-hf-builder-columns {
+	display: flex;
+	gap: 0;
+	padding: 12px;
+	gap: 12px;
+}
+
+.godevs-hf-builder-col {
+	flex: 1;
+	border: 1px dashed #d0d1d7;
+	border-radius: 4px;
+	padding: 8px;
+	min-height: 48px;
+	position: relative;
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.godevs-hf-builder-col.is-drag-over {
+	border-color: #e85d40;
+	background: #fff8f5;
+}
+
+.godevs-hf-builder-col.is-selected {
+	border-style: solid;
+	border-color: #e85d40;
+}
+
+.godevs-hf-col-label {
+	font-size: 9px;
+	color: #8c8f94;
+	text-transform: uppercase;
+	margin-bottom: 4px;
+	font-family: monospace;
+}
+
+/* Builder elements (inside columns) */
+.godevs-hf-builder-element {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 12px;
+	background: #f6f7f7;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	font-size: 12px;
+	color: #50575e;
+	margin-bottom: 4px;
+	cursor: grab;
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.godevs-hf-builder-element:hover {
+	border-color: #c3c4c7;
+	background: #fff;
+}
+
+.godevs-hf-builder-element.is-selected {
+	border-color: #e85d40;
+	background: #fff8f5;
+}
+
+.godevs-hf-builder-element .dashicons {
+	font-size: 14px;
+	width: 14px;
+	color: #8c8f94;
+}
+
+.godevs-hf-element-label {
+	flex: 1;
+}
+
+.godevs-hf-element-remove {
+	padding: 0;
+	border: none;
+	background: none;
+	color: #c3c4c7;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1;
+}
+
+.godevs-hf-element-remove:hover {
+	color: #b32d2e;
+}
+
+/* Empty column placeholder */
+.godevs-hf-col-empty {
+	text-align: center;
+	font-size: 11px;
+	color: #c3c4c7;
+	padding: 12px;
+	font-style: italic;
+}
+
+/* Add row button */
+.godevs-hf-add-row {
+	text-align: center;
+	padding: 12px;
+	border: 2px dashed #d0d1d7;
+	border-radius: 6px;
+	cursor: pointer;
+	color: #8c8f94;
+	font-size: 13px;
+	font-weight: 500;
+	transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.godevs-hf-add-row:hover {
+	border-color: #e85d40;
+	color: #e85d40;
+}
+
+/* ═══ Settings Panel (right sidebar) ═══ */
+.godevs-hf-settings-panel {
+	background: #fff;
+	border-left: 1px solid #e0e0e0;
+	padding: 16px;
+	overflow-y: auto;
+}
+
+.godevs-hf-settings-group {
+	margin-bottom: 20px;
+}
+
+.godevs-hf-settings-group-title {
+	font-size: 12px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 0 0 8px;
+}
+
+.godevs-hf-setting-field {
+	margin-bottom: 12px;
+}
+
+.godevs-hf-setting-field label {
+	display: block;
+	font-size: 12px;
+	font-weight: 500;
+	color: #50575e;
+	margin-bottom: 4px;
+}
+
+.godevs-hf-setting-field input,
+.godevs-hf-setting-field select {
+	width: 100%;
+	padding: 6px 8px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+.godevs-hf-setting-field input:focus,
+.godevs-hf-setting-field select:focus {
+	border-color: #e85d40;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(232, 93, 64, 0.1);
+}
+
+.godevs-hf-setting-field textarea {
+	width: 100%;
+	padding: 6px 8px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	font-size: 13px;
+	min-height: 60px;
+	resize: vertical;
+}
+
+/* Device visibility toggles */
+.godevs-hf-device-visibility {
+	display: flex;
+	gap: 6px;
+}
+
+.godevs-hf-device-visibility label {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 11px;
+	padding: 4px 8px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.godevs-hf-device-visibility input {
+	width: auto;
+}
+
+.godevs-hf-device-visibility label.is-hidden {
+	opacity: 0.4;
+	text-decoration: line-through;
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 1024px) {
+	.godevs-hf-editor {
+		grid-template-columns: 160px 1fr 240px;
+	}
+}
+
+@media (max-width: 768px) {
+	.godevs-hf-editor {
+		grid-template-columns: 1fr;
+	}
+	.godevs-hf-elements-panel,
+	.godevs-hf-settings-panel {
+		border: none;
+		border-top: 1px solid #e0e0e0;
+		max-height: 200px;
+	}
+	.godevs-hf-canvas {
+		min-height: 300px;
+	}
+}

@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 
 			<!-- Section header -->
-			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10","margin":{"bottom":"var:preset|spacing|60"}}}} -->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"bottom":"var:preset|spacing|60"}}}} -->
 			<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--60)">
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|accent"}}} -->
 				<p class="has-text-color" style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--small)">## Systems in production</p>
@@ -82,12 +82,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="wp-block-columns">
 					<!-- wp:column {"width":"15%"} -->
 					<div class="wp-block-column" style="flex-basis:15%">
-						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|large","fontWeight":"600","color":"var:preset|color|accent"}}}} -->
+						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|large","fontWeight":"600","color":"var:preset|color|accent"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--large);font-weight:600">SPEC-01</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
-					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
+					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 					<div class="wp-block-column" style="flex-basis:55%">
 						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em"}}} -->
 						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);letter-spacing:-0.01em">Headless CMS Migration — Publishing Platform</h3>
@@ -97,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
-					<!-- wp:column {"width":"30%","style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<!-- wp:column {"width":"30%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 					<div class="wp-block-column" style="flex-basis:30%">
 						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--small)"><strong>Stack:</strong> WP + Next.js + Vercel</p>
@@ -122,12 +122,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="wp-block-columns">
 					<!-- wp:column {"width":"15%"} -->
 					<div class="wp-block-column" style="flex-basis:15%">
-						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|large","fontWeight":"600","color":"var:preset|color|accent"}}}} -->
+						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|large","fontWeight":"600","color":"var:preset|color|accent"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--large);font-weight:600">SPEC-02</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
-					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
+					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 					<div class="wp-block-column" style="flex-basis:55%">
 						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em"}}} -->
 						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);letter-spacing:-0.01em">Event-Driven Ordering System — E-commerce</h3>
@@ -137,7 +137,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
-					<!-- wp:column {"width":"30%","style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<!-- wp:column {"width":"30%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 					<div class="wp-block-column" style="flex-basis:30%">
 						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--small)"><strong>Stack:</strong> Kafka + Go + Postgres</p>
@@ -162,12 +162,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="wp-block-columns">
 					<!-- wp:column {"width":"15%"} -->
 					<div class="wp-block-column" style="flex-basis:15%">
-						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|large","fontWeight":"600","color":"var:preset|color|accent"}}}} -->
+						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|large","fontWeight":"600","color":"var:preset|color|accent"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--large);font-weight:600">SPEC-03</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
-					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|10"}}} -->
+					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 					<div class="wp-block-column" style="flex-basis:55%">
 						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em"}}} -->
 						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);letter-spacing:-0.01em">Multi-Tenant SaaS Platform — B2B Analytics</h3>
@@ -177,7 +177,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:column -->
-					<!-- wp:column {"width":"30%","style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+					<!-- wp:column {"width":"30%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 					<div class="wp-block-column" style="flex-basis:30%">
 						<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--small)"><strong>Stack:</strong> Postgres RLS + Node + Redis</p>

@@ -477,3 +477,47 @@
 		transition: none !important;
 	}
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+ * Per-Page Header/Footer Layout Meta Box (v2.4.1)
+ * ═══════════════════════════════════════════════════════════════════ */
+
+#godevs-hf-layout.postbox .inside {
+	padding: 12px 12px 16px;
+}
+
+#_godevs_page_header_layout,
+#_godevs_page_footer_layout {
+	display: block;
+	width: 100%;
+	padding: 6px 8px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+	font-size: 13px;
+	line-height: 1.4;
+	color: #1d2327;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+#_godevs_page_header_layout:focus,
+#_godevs_page_footer_layout:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: 2px solid transparent;
+}
+
+#_godevs_page_header_layout optgroup,
+#_godevs_page_footer_layout optgroup {
+	font-style: normal;
+	font-weight: 600;
+	color: #50575e;
+}
+
+#godevs-hf-layout .postbox-hint {
+	display: block;
+	margin-top: 4px;
+	font-size: 11px;
+	line-height: 1.4;
+	color: #666;
+}

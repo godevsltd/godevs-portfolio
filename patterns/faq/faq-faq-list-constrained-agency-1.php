@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<!-- wp:group {"className":"godevs-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|50"}}} -->
 		<div class="wp-block-group godevs-reveal-stagger">
 
-			<!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|10"}},"typography":{"fontSize":"var:preset|font-size|medium","fontWeight":"600"}} -->
+			<!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|10"}},"typography":{"fontSize":"var:preset|font-size|medium","fontWeight":"600"}}} -->
 			<p class="is-style-eyebrow" style="margin-bottom:var(--wp--preset--spacing--10)">Q · What's your typical timeline?</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"560px"}}} -->

@@ -2,9 +2,9 @@
 /**
  * Title: Demo — Scholar (Teaching)
  * Slug: godevs-portfolio/demo-scholar-teaching
- * Description: Teaching page for the Scholar demo. Courses and programs framed as a services-style composition. Uses the Minimal style variation.
+ * Description: Teaching page for the Scholar demo. Course cards and programs. Uses the Minimal style variation.
  * Categories: godevs-portfolio-demos
- * Keywords: demo, scholar, teaching, courses, programs, minimal
+ * Keywords: demo, scholar, teaching, courses, education
  * Viewport Width: 1280
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,17 +15,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Teaching</p>
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--80)">
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"}}} -->
+<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent)">Teaching</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
-<h2 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);letter-spacing:-0.02em;font-weight:600">Courses & programs.</h2>
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"clamp(2rem, 5vw, 3.5rem)","lineHeight":"1.1","letterSpacing":"-0.025em","fontWeight":"400"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--serif);font-size:clamp(2rem, 5vw, 3.5rem);line-height:1.1;letter-spacing:-0.025em;font-weight:400">Courses & programs.</h1>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"560px"}}} -->
-<p style="font-size:var(--wp--preset--font-size--medium);max-width:560px">Self-paced and cohort-based courses on design, editorial, and front-end engineering. Each is built to be finished, not just started.</p>
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"color":{"text":"var:preset|color|muted"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|medium);max-width:520px">Self-paced and cohort-based courses on design, editorial, and front-end engineering. Each is built to be finished, not just started.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:columns {"className":"godevs-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|40","margin":{"top":"var:preset|spacing|60"}}}} -->
@@ -41,7 +40,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium);letter-spacing:-0.01em">Editorial Design for the Web</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small">A 6-week course on long-form layouts, magazine systems, and component libraries built on Gutenberg.</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">6-week course on long-form layouts, magazine systems, and component libraries built on Gutenberg.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small);margin-top:var(--wp--preset--spacing--20)"><strong>Format:</strong> Cohort-based<br><strong>Level:</strong> Intermediate</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -58,7 +60,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium);letter-spacing:-0.01em">Brand Identity Systems</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small">A 4-week intensive on wordmarks, type pairing, color, and the editorial templates that hold them together.</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">4-week intensive on wordmarks, type pairing, color, and the templates that hold them together.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small);margin-top:var(--wp--preset--spacing--20)"><strong>Format:</strong> Self-paced<br><strong>Level:</strong> Beginner</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -75,7 +80,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium);letter-spacing:-0.01em">Front-end for Designers</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small">A self-paced course on the engineering that makes designs ship — performance, accessibility, and the bits in between.</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">Self-paced course on the engineering that makes designs ship — performance, accessibility, and the bits in between.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small);margin-top:var(--wp--preset--spacing--20)"><strong>Format:</strong> Self-paced<br><strong>Level:</strong> Intermediate</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -83,15 +91,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:column -->
 </div>
 <!-- /wp:columns -->
-
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
-<!-- wp:button -->
-<div class="wp-block-button"><a href="#syllabus" class="wp-block-button__link wp-element-button">View the syllabus</a></div>
-<!-- /wp:button -->
-</div>
-<!-- /wp:buttons -->
-
 </div>
 <!-- /wp:group -->
 </section>

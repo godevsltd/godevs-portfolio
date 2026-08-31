@@ -276,23 +276,98 @@ function godevs_portfolio_get_demos(): array {
                 return $demos;
         }
 
+        // Page-type suffixes that identify INNER PAGE patterns (not homepages).
+        // We only show homepage demos in the demo browser — inner pages are
+        // accessed via the preview modal's page navigation.
+        $page_suffixes = array(
+                '-about', '-work', '-portfolio', '-services', '-case-studies',
+                '-journal', '-blog', '-insights', '-research', '-teaching',
+                '-experience', '-contact',
+        );
+
         $demos = array();
         foreach ( glob( $demos_dir . '/*.php' ) as $file ) {
+                $basename = basename( $file, '.php' );
+
+                // Skip inner-page patterns — only show homepage demos.
+                $is_inner_page = false;
+                foreach ( $page_suffixes as $suffix ) {
+                        // Check if the basename ENDS with a page suffix.
+                        // But be careful: some demo slugs contain dashes (e.g., "atelier-arch").
+                        // A homepage demo like "atelier-arch" should NOT be skipped,
+                        // but "atelier-arch-about" SHOULD be skipped.
+                        // We check if the basename ends with the suffix AND the
+                        // part before the suffix is a known demo slug.
+                        if ( substr( $basename, -strlen( $suffix ) ) === $suffix ) {
+                                $is_inner_page = true;
+                                break;
+                        }
+                }
+
+                if ( $is_inner_page ) {
+                        continue;
+                }
+
                 $demo = godevs_portfolio_parse_demo_file( $file );
                 if ( $demo ) {
                         $demos[] = $demo;
                 }
         }
 
-        // Sort by name for predictable display.
+        // Annotate each demo with its completion status.
+        //
+        // A demo is "complete" (shows in the Ready Demos section) ONLY when it
+        // is in the production-ready list — the 10 demos that have been fully
+        // designed with real content on every page. Other demos may have inner
+        // page pattern files (created as stubs) but are NOT considered complete
+        // until their content is fully written and reviewed.
+        //
+        // The `is_ready` field is set in godevs_portfolio_parse_demo_file() and
+        // lists exactly: monolith, canvas, aperture, northbound, meridian, plan,
+        // signature, scholar, minimal, director.
+        foreach ( $demos as &$demo ) {
+                $demo['is_complete'] = ! empty( $demo['is_ready'] );
+        }
+        unset( $demo );
+
+        // Sort: complete (production-ready) demos first (alphabetical), then
+        // incomplete demos (alphabetical).
         usort(
                 $demos,
                 static function ( $a, $b ) {
+                        if ( $a['is_complete'] !== $b['is_complete'] ) {
+                                return $a['is_complete'] ? -1 : 1;
+                        }
                         return strcmp( $a['name'], $b['name'] );
                 }
         );
 
         return $demos;
+}
+
+/**
+ * Check whether a demo is "complete" — i.e., all of its recommended pages
+ * exist as pattern files in patterns/demos/.
+ *
+ * A demo with only the homepage pattern file is considered incomplete (it
+ * would 404 on inner-page navigation after import). Complete demos sort
+ * to the top of the demo library grid.
+ *
+ * @param string   $demo_id Demo ID (filename without .php).
+ * @param string[] $pages   List of recommended page slugs (e.g., ['home','about','work','contact']).
+ * @return bool True if every recommended page has a pattern file.
+ * @since 2.4.0
+ */
+function godevs_portfolio_is_demo_complete( string $demo_id, array $pages ): bool {
+        if ( empty( $pages ) ) {
+                return false;
+        }
+        foreach ( $pages as $page_slug ) {
+                if ( null === godevs_portfolio_get_demo_page_file( $demo_id, $page_slug ) ) {
+                        return false;
+                }
+        }
+        return true;
 }
 
 /**
@@ -393,8 +468,10 @@ function godevs_portfolio_parse_demo_file( string $file ): ?array {
         $preview_dir       = get_template_directory() . '/assets/images/demo-previews';
         $preview_uri_base  = get_template_directory_uri() . '/assets/images/demo-previews';
 
-        // 1. Try demo-specific preview first.
-        foreach ( array( 'jpg', 'png', 'webp' ) as $ext ) {
+        // 1. Try demo-specific preview first (prefer modern formats: webp, then jpg/png/svg).
+        //    WebP is preferred because real screenshots are saved in both formats and WebP
+        //    is ~3x smaller than the equivalent PNG.
+        foreach ( array( 'webp', 'jpg', 'png', 'svg' ) as $ext ) {
                 $candidate = $preview_dir . '/' . $basename . '.' . $ext;
                 if ( file_exists( $candidate ) ) {
                         $preview_image    = $candidate;
@@ -461,6 +538,14 @@ function godevs_portfolio_parse_demo_file( string $file ): ?array {
         // Page count — number of available pages for this demo.
         $page_count = count( $pages );
 
+        // Production-ready status — only these demos are fully designed and importable.
+        // All other demos show "Coming Soon" in the demo browser.
+        $ready_demos = array(
+                'monolith', 'canvas', 'aperture', 'northbound', 'meridian',
+                'plan', 'signature', 'scholar', 'minimal', 'director',
+        );
+        $is_ready = in_array( $basename, $ready_demos, true );
+
         return array(
                 'id'               => $basename,                                  // demo ID (filename without .php)
                 'name'             => $name,                                       // display name
@@ -476,6 +561,7 @@ function godevs_portfolio_parse_demo_file( string $file ): ?array {
                 'preview_image'    => $preview_image,                                // absolute path to preview image
                 'preview_image_uri' => $preview_image_uri,                           // URI to preview image
                 'preview_alt'      => $preview_alt,                                  // alt text for preview image
+                'is_ready'         => $is_ready,                                     // true = fully designed+importable, false = Coming Soon
                 'preview_url'      => add_query_arg(
                         array(
                                 'godevs_preview' => $basename,

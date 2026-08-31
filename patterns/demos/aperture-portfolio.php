@@ -1,10 +1,10 @@
 <?php
 /**
- * Title: Demo — Aperture (Work)
- * Slug: godevs-portfolio/demo-aperture-work
- * Description: Work page for the Aperture demo. 2-column portfolio grid with selected projects. Uses the Minimal style variation.
+ * Title: Demo — Aperture (Portfolio)
+ * Slug: godevs-portfolio/demo-aperture-portfolio
+ * Description: Portfolio page for the Aperture demo. Image-first gallery grid with series titles. Uses the Minimal style variation.
  * Categories: godevs-portfolio-demos
- * Keywords: demo, aperture, work, portfolio, grid, minimal
+ * Keywords: demo, aperture, portfolio, gallery, photography
  * Viewport Width: 1280
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,84 +15,105 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--80)">
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"}}} -->
+<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent)">Portfolio</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2rem, 5vw, 3.5rem)","lineHeight":"1.1","letterSpacing":"-0.025em","fontWeight":"600"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2rem, 5vw, 3.5rem);line-height:1.1;letter-spacing:-0.025em;font-weight:600">Selected series.</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"color":{"text":"var:preset|color|muted"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|medium);max-width:520px">A selection from the last three years — editorial, product, and portrait work. Each series shot on natural light unless noted.</p>
+<!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Selected work</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
-<h2 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);letter-spacing:-0.02em;font-weight:600">Recent projects.</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"560px"}}} -->
-<p style="font-size:var(--wp--preset--font-size--medium);max-width:560px">A selection from the last several years — kept current, archived honestly. Click any project for the full case study.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:columns {"className":"godevs-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
-<div class="wp-block-columns godevs-reveal-stagger">
+<!-- wp:columns {"className":"godevs-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"top":"var:preset|spacing|60"}}}} -->
+<div class="wp-block-columns godevs-reveal-stagger" style="margin-top:var(--wp--preset--spacing--60)">
 <!-- wp:column -->
-<div class="wp-block-column" style="flex-basis:50%">
-<!-- wp:image {"aspectRatio":"16/10","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project: Studio Field — Identity" style="aspect-ratio:16/10;object-fit:cover;border-radius:8px"/></figure>
+<div class="wp-block-column">
+<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
+<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Spring Campaign — editorial fashion series" style="aspect-ratio:4/5;object-fit:cover;border-radius:8px"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024 · Identity</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">2024 · Editorial</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
-<h3 class="wp-block-heading" style="letter-spacing:-0.01em">Studio Field — Identity</h3>
+<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium)">Spring Campaign</h3>
 <!-- /wp:heading -->
 </div>
 <!-- /wp:column -->
 <!-- wp:column -->
-<div class="wp-block-column" style="flex-basis:50%">
-<!-- wp:image {"aspectRatio":"16/10","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project: Long-form Journal — Redesign" style="aspect-ratio:16/10;object-fit:cover;border-radius:8px"/></figure>
+<div class="wp-block-column">
+<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
+<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Studio Portraits — creative professionals series" style="aspect-ratio:4/5;object-fit:cover;border-radius:8px"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024 · Editorial</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">2024 · Portraits</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
-<h3 class="wp-block-heading" style="letter-spacing:-0.01em">Long-form Journal — Redesign</h3>
+<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium)">Studio Portraits</h3>
 <!-- /wp:heading -->
 </div>
 <!-- /wp:column -->
 <!-- wp:column -->
-<div class="wp-block-column" style="flex-basis:50%">
-<!-- wp:image {"aspectRatio":"16/10","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project: Foundry Co. — Product" style="aspect-ratio:16/10;object-fit:cover;border-radius:8px"/></figure>
+<div class="wp-block-column">
+<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
+<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Foundry Ceramics — product photography series" style="aspect-ratio:4/5;object-fit:cover;border-radius:8px"/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024 · Product</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">2023 · Product</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
-<h3 class="wp-block-heading" style="letter-spacing:-0.01em">Foundry Co. — Product</h3>
-<!-- /wp:heading -->
-</div>
-<!-- /wp:column -->
-<!-- wp:column -->
-<div class="wp-block-column" style="flex-basis:50%">
-<!-- wp:image {"aspectRatio":"16/10","scale":"cover","style":{"border":{"radius":"8px"}}} -->
-<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Project: Northbound — Dashboard" style="aspect-ratio:16/10;object-fit:cover;border-radius:8px"/></figure>
-<!-- /wp:image -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024 · Identity</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
-<h3 class="wp-block-heading" style="letter-spacing:-0.01em">Northbound — Dashboard</h3>
+<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium)">Foundry Ceramics</h3>
 <!-- /wp:heading -->
 </div>
 <!-- /wp:column -->
 </div>
 <!-- /wp:columns -->
 
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
-<!-- wp:button -->
-<div class="wp-block-button"><a href="#contact" class="wp-block-button__link wp-element-button">Start a project</a></div>
-<!-- /wp:button -->
+<!-- wp:columns {"className":"godevs-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"top":"var:preset|spacing|40"}}}} -->
+<div class="wp-block-columns godevs-reveal-stagger" style="margin-top:var(--wp--preset--spacing--40)">
+<!-- wp:column -->
+<div class="wp-block-column">
+<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
+<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Architecture series — brutalist Berlin" style="aspect-ratio:4/5;object-fit:cover;border-radius:8px"/></figure>
+<!-- /wp:image -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">2023 · Architecture</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium)">Brutalist Berlin</h3>
+<!-- /wp:heading -->
 </div>
-<!-- /wp:buttons -->
-
+<!-- /wp:column -->
+<!-- wp:column -->
+<div class="wp-block-column">
+<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
+<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Travel series — Lisbon streets" style="aspect-ratio:4/5;object-fit:cover;border-radius:8px"/></figure>
+<!-- /wp:image -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">2022 · Travel</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium)">Lisbon Streets</h3>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:column -->
+<!-- wp:column -->
+<div class="wp-block-column">
+<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"8px"}}} -->
+<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Wedding series — intimate ceremony" style="aspect-ratio:4/5;object-fit:cover;border-radius:8px"/></figure>
+<!-- /wp:image -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small)">2022 · Wedding</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size|medium)">Intimate Ceremony</h3>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
 </div>
 <!-- /wp:group -->
 </section>

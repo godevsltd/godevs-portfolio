@@ -2,9 +2,9 @@
 /**
  * Title: Demo — Aperture (Contact)
  * Slug: godevs-portfolio/demo-aperture-contact
- * Description: Contact page for the Aperture demo. Split form + info layout with optional FAQ. Uses the Minimal style variation.
+ * Description: Contact page for the Aperture demo. Split info + booking form. Uses the Minimal style variation.
  * Categories: godevs-portfolio-demos
- * Keywords: demo, aperture, contact, form, email, minimal
+ * Keywords: demo, aperture, contact, booking, photography
  * Viewport Width: 1280
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,22 +15,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Contact</p>
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"}}} -->
+<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent)">Contact</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
-<h2 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);letter-spacing:-0.02em;font-weight:600">Get in touch.</h2>
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2rem, 5vw, 3.5rem)","lineHeight":"1.1","letterSpacing":"-0.025em","fontWeight":"600"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2rem, 5vw, 3.5rem);line-height:1.1;letter-spacing:-0.025em;font-weight:600">Book a session.</h1>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"560px"}}} -->
-<p style="font-size:var(--wp--preset--font-size--medium);max-width:560px">For new projects, collaborations, or a quick question. Email is the fastest way to reach me.</p>
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"color":{"text":"var:preset|color|muted"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|medium);max-width:520px">Tell me about your project and I'll send a quote within 24 hours. Currently booking 2-3 weeks out.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:columns {"style":{"spacing":{"blockGap":"var:preset|spacing|50","margin":{"top":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-columns" style="margin-top:var(--wp--preset--spacing--60)">
-
 <!-- wp:column {"width":"40%"} -->
 <div class="wp-block-column" style="flex-basis:40%">
 <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
@@ -43,17 +41,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="is-style-eyebrow" style="margin-top:var(--wp--preset--spacing--40)">Studio</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
-<p style="font-size:var(--wp--preset--font-size|medium)">Berlin, Germany<br>By appointment</p>
+<p style="font-size:var(--wp--preset--font-size|medium)">Berlin, Germany<br>Available worldwide</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+<p class="is-style-eyebrow" style="margin-top:var(--wp--preset--spacing--40)">Social</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+<p style="font-size:var(--wp--preset--font-size|medium)"><a href="#">Instagram</a> · <a href="#">Behance</a> · <a href="#">500px</a></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:column -->
-
 <!-- wp:column {"width":"60%"} -->
 <div class="wp-block-column" style="flex-basis:60%">
 <!-- wp:group {"className":"is-style-card-bordered","style":{"spacing":{"padding":"var:preset|spacing|40","blockGap":"var:preset|spacing|20"}}} -->
 <div class="wp-block-group is-style-card-bordered" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
 <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Send a message</p>
+<p class="is-style-eyebrow">Project brief</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"border":{"color":"var:preset|color|border","width":"1px","radius":"6px"},"spacing":{"padding":"var:preset|spacing|20"},"color":{"text":"var:preset|color|muted"}}} -->
 <p class="has-text-color has-border-color" style="border-color:var(--wp--preset--color--border);border-width:1px;border-radius:6px;color:var(--wp--preset--color--muted);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20)">Your name</p>
@@ -61,10 +64,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:paragraph {"style":{"border":{"color":"var:preset|color|border","width":"1px","radius":"6px"},"spacing":{"padding":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
 <p class="has-text-color has-border-color" style="border-color:var(--wp--preset--color--border);border-width:1px;border-radius:6px;color:var(--wp--preset--color--muted);margin-top:var(--wp--preset--spacing--20);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20)">you@studio.com</p>
 <!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"border":{"color":"var:preset|color|border","width":"1px","radius":"6px"},"spacing":{"padding":"var:preset|spacing|20","minHeight":"100px","margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
+<p class="has-text-color has-border-color" style="border-color:var(--wp--preset--color--border);border-width:1px;border-radius:6px;color:var(--wp--preset--color--muted);min-height:100px;margin-top:var(--wp--preset--spacing--20);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20)">What do you need shot? When? Where?</p>
+<!-- /wp:paragraph -->
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30)">
 <!-- wp:button -->
-<div class="wp-block-button"><a href="#send" class="wp-block-button__link wp-element-button">Send message</a></div>
+<div class="wp-block-button"><a href="#send" class="wp-block-button__link wp-element-button">Send brief</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
@@ -75,10 +81,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group -->
 </div>
 <!-- /wp:column -->
-
 </div>
 <!-- /wp:columns -->
-
 </div>
 <!-- /wp:group -->
 </section>

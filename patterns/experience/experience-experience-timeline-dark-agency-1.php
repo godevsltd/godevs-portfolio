@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wp-block-group godevs-reveal-stagger">
 
 			<!-- Entry 1 -->
-			<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"},"margin":{"left":"var:preset|spacing|10"},"blockGap":"var:preset|spacing|10"}},"border":{"left":{"color":"var:preset|color|accent","width":"2px"}}}} -->
+			<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"},"margin":{"left":"var:preset|spacing|10"},"blockGap":"var:preset|spacing|10"}},"border":{"left":{"color":"var:preset|color|accent","width":"2px"}}} -->
 			<div class="wp-block-group" style="border-left-color:var(--wp--preset--color--accent);border-left-width:2px;padding-left:var(--wp--preset--spacing--50);margin-left:var(--wp--preset--spacing--10)">
 				<!-- wp:group {"style":{"layout":{"selfStretch":"fit","flexSize":"16px"},"spacing":{"margin":{"left":"calc(-1 * var(--wp--preset--spacing--50) - 9px)"},"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10"}}},"layout":{"type":"default"}} -->
 				<div class="wp-block-group" style="margin-left:calc(-1 * var(--wp--preset--spacing--50) - 9px)">
@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<!-- /wp:group -->
 
 			<!-- Entry 2 -->
-			<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"},"margin":{"left":"var:preset|spacing|10","top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|10"}},"border":{"left":{"color":"var:preset|color|accent","width":"2px"}}}} -->
+			<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"},"margin":{"left":"var:preset|spacing|10","top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|10"}},"border":{"left":{"color":"var:preset|color|accent","width":"2px"}}} -->
 			<div class="wp-block-group" style="border-left-color:var(--wp--preset--color--accent);border-left-width:2px;padding-left:var(--wp--preset--spacing--50);margin-left:var(--wp--preset--spacing--10);margin-top:var(--wp--preset--spacing--50)">
 				<!-- wp:html -->
 				<div style="width:16px;height:16px;border-radius:50%;background:var(--wp--preset--color--accent);border:3px solid var(--wp--preset--color--primary);margin-left:calc(-1 * var(--wp--preset--spacing--50) - 9px);"></div>
@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<!-- /wp:group -->
 
 			<!-- Entry 3 -->
-			<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"},"margin":{"left":"var:preset|spacing|10","top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|10"}},"border":{"left":{"color":"var:preset|color|accent","width":"2px"}}}} -->
+			<!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50"},"margin":{"left":"var:preset|spacing|10","top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|10"}},"border":{"left":{"color":"var:preset|color|accent","width":"2px"}}} -->
 			<div class="wp-block-group" style="border-left-color:var(--wp--preset--color--accent);border-left-width:2px;padding-left:var(--wp--preset--spacing--50);margin-left:var(--wp--preset--spacing--10);margin-top:var(--wp--preset--spacing--50)">
 				<!-- wp:html -->
 				<div style="width:16px;height:16px;border-radius:50%;background:var(--wp--preset--color--accent);border:3px solid var(--wp--preset--color--primary);margin-left:calc(-1 * var(--wp--preset--spacing--50) - 9px);"></div>

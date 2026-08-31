@@ -2,9 +2,9 @@
 /**
  * Title: Demo — Signature (About)
  * Slug: godevs-portfolio/demo-signature-about
- * Description: About page for the Signature demo. Bio intro, practice areas, and a closing CTA. Uses the Elegant style variation.
+ * Description: About page for the Signature demo. Split bio with portrait. Uses the Elegant style variation.
  * Categories: godevs-portfolio-demos
- * Keywords: demo, signature, about, bio, elegant
+ * Keywords: demo, signature, about, bio, personal
  * Viewport Width: 1280
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,44 +15,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:group {"tagName":"section","className":"godevs-reveal","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|60"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">About</p>
+<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":"var:preset|spacing|60"}}} -->
+<div class="wp-block-columns are-vertically-aligned-center">
+<!-- wp:column {"width":"40%","verticalAlignment":"center"} -->
+<div class="wp-block-column" style="flex-basis:40%">
+<!-- wp:image {"aspectRatio":"4/5","scale":"cover","style":{"border":{"radius":"var(--wp--custom--radius--lg, 12px)"}}} -->
+<figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="Portrait of the personal brand consultant" style="aspect-ratio:4/5;object-fit:cover;border-radius:12px"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:column -->
+<!-- wp:column {"width":"60%","verticalAlignment":"center","style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+<div class="wp-block-column" style="flex-basis:60%">
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"}}} -->
+<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent)">About</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
-<h2 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xx-large);letter-spacing:-0.02em;font-weight:600">About.</h2>
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"clamp(2rem, 5vw, 3.5rem)","lineHeight":"1.1","letterSpacing":"-0.025em","fontWeight":"400","fontStyle":"italic"}}} -->
+<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--serif);font-size:clamp(2rem, 5vw, 3.5rem);line-height:1.1;letter-spacing:-0.025em;font-weight:400;font-style:italic">A decade of helping people sound like themselves.</h1>
 <!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"560px"}}} -->
-<p style="font-size:var(--wp--preset--font-size--medium);max-width:560px">I'm Signature, a personal brand site.</p>
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.7"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
+<p style="font-size:var(--wp--preset--font-size|medium);line-height:1.7;max-width:520px">I've spent ten years helping founders, creators, and executives build personal brands that feel authentic — not performative. The work is identity, voice, and the digital presence that makes a person recognizable without being loud.</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:separator {"className":"is-style-thin"} -->
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-thin"/>
-<!-- /wp:separator -->
-
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
-<p class="is-style-eyebrow">Practice areas</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
-<h3 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--large);letter-spacing:-0.02em;font-weight:600">What I work on.</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
-<p style="font-size:var(--wp--preset--font-size--medium);max-width:520px">Identity systems, editorial layouts, and the front-end engineering that makes them real. Each engagement is scoped in writing, shipped on schedule, and built to be edited by the client after handoff.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
 <!-- wp:button -->
 <div class="wp-block-button"><a href="#contact" class="wp-block-button__link wp-element-button">Get in touch</a></div>
 <!-- /wp:button -->
-<!-- wp:button {"className":"is-style-text-link"} -->
-<div class="wp-block-button is-style-text-link"><a href="#work" class="wp-block-button__link wp-element-button">See recent work</a></div>
-<!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
-
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
 </div>
 <!-- /wp:group -->
 </section>

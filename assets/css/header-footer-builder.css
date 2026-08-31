@@ -1,0 +1,241 @@
+/* GoDevs Portfolio — Header & Footer Builder front-end styles
+ * v2.3.0
+ */
+
+/* Builder output containers */
+.godevs-hf-header,
+.godevs-hf-footer {
+	width: 100%;
+	z-index: 999;
+}
+
+.godevs-hf-header.godevs-hf-builder-output {
+	position: relative;
+}
+
+.godevs-hf-row.is-sticky {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.godevs-hf-row.is-sticky.is-scrolled {
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Navigation */
+.godevs-hf-nav-wrap {
+	display: flex;
+	align-items: center;
+}
+
+.godevs-hf-nav-menu {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 1.5rem;
+}
+
+.godevs-hf-nav-menu > li > a {
+	color: inherit;
+	text-decoration: none;
+	transition: opacity 0.15s ease;
+}
+
+.godevs-hf-nav-menu > li > a:hover {
+	opacity: 0.7;
+}
+
+.godevs-hf-nav-menu .sub-menu {
+	position: absolute;
+	display: none;
+	flex-direction: column;
+	gap: 0;
+	background: #fff;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	border-radius: 6px;
+	padding: 8px 0;
+	min-width: 200px;
+	margin-top: 8px;
+}
+
+.godevs-hf-nav-menu > li:hover > .sub-menu {
+	display: flex;
+}
+
+.godevs-hf-nav-menu .sub-menu li a {
+	display: block;
+	padding: 8px 16px;
+	color: #1d2327;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.godevs-hf-nav-menu .sub-menu li a:hover {
+	background: #f6f7f7;
+}
+
+/* Buttons */
+.godevs-hf-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 20px;
+	border-radius: var(--wp--custom--radius--sm, 6px);
+	text-decoration: none;
+	font-weight: 600;
+	transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.godevs-hf-button:not(.is-style-outline):not(.is-style-text-link) {
+	background: var(--wp--preset--color--accent, #2563eb);
+	color: var(--wp--preset--color--contrast, #fff);
+}
+
+.godevs-hf-button:hover {
+	opacity: 0.85;
+}
+
+.godevs-hf-button.is-style-outline {
+	border: 1px solid currentColor;
+	background: transparent;
+}
+
+.godevs-hf-button.is-style-text-link {
+	background: transparent;
+	padding: 4px 0;
+}
+
+/* Search icon */
+.godevs-hf-search-icon {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: inherit;
+	display: flex;
+	align-items: center;
+	padding: 4px;
+}
+
+/* Social icons */
+.godevs-hf-social {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+.godevs-hf-social a {
+	color: inherit;
+	text-decoration: none;
+	transition: opacity 0.15s ease;
+}
+
+.godevs-hf-social a:hover {
+	opacity: 0.7;
+}
+
+/* Text / HTML */
+.godevs-hf-text,
+.godevs-hf-html {
+	line-height: 1.5;
+}
+
+/* Copyright */
+.godevs-hf-copyright {
+	line-height: 1.5;
+}
+
+/* Newsletter */
+.godevs-hf-newsletter-title {
+	margin: 0 0 8px;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.godevs-hf-newsletter-form {
+	display: flex;
+	gap: 8px;
+}
+
+.godevs-hf-newsletter-form input[type="email"] {
+	flex: 1;
+	padding: 8px 12px;
+	border: 1px solid rgba(255,255,255,0.3);
+	border-radius: 6px;
+	background: rgba(255,255,255,0.1);
+	color: inherit;
+	font-size: 13px;
+}
+
+.godevs-hf-newsletter-form input[type="email"]::placeholder {
+	color: rgba(255,255,255,0.5);
+}
+
+.godevs-hf-newsletter-form button {
+	padding: 8px 16px;
+	border: none;
+	border-radius: 6px;
+	background: var(--wp--preset--color--accent, #2563eb);
+	color: var(--wp--preset--color--contrast, #fff);
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+/* Logo */
+.godevs-hf-logo img {
+	display: block;
+}
+
+.godevs-hf-site-title {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.godevs-hf-row-inner {
+		flex-direction: column !important;
+		gap: 12px !important;
+	}
+
+	.godevs-hf-col {
+		flex: 0 0 100% !important;
+		justify-content: center;
+	}
+
+	.godevs-hf-nav-menu {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	.godevs-hf-newsletter-form {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 480px) {
+	.godevs-hf-row-inner {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.godevs-hf-nav-menu {
+		font-size: 13px;
+	}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.godevs-hf-row.is-sticky,
+	.godevs-hf-button,
+	.godevs-hf-social a,
+	.godevs-hf-nav-menu > li > a {
+		transition: none !important;
+	}
+}

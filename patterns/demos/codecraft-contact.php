@@ -90,7 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h3 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--large);letter-spacing:-0.02em;font-weight:600">Common questions.</h3>
 <!-- /wp:heading -->
 
-<!-- wp:details {"showContent":true,"style":{"spacing":{"padding":"var:preset|spacing|30","blockGap":"var:preset|spacing|10"},"border":{"color":"var:preset|color|border","radius":"8px","width":"1px"}}} -->
+<!-- wp:details {"showContent":true,"style":{"spacing":{"padding":"var:preset|spacing|30","blockGap":"var:preset|spacing|20"},"border":{"color":"var:preset|color|border","radius":"8px","width":"1px"}}} -->
 <details open class="wp-block-details" style="border-color:var(--wp--preset--color--border);border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 <summary>What's your typical timeline?</summary>
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"spacing":{"margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </details>
 <!-- /wp:details -->
 
-<!-- wp:details {"style":{"spacing":{"padding":"var:preset|spacing|30","blockGap":"var:preset|spacing|10"},"border":{"color":"var:preset|color|border","radius":"8px","width":"1px"}}} -->
+<!-- wp:details {"style":{"spacing":{"padding":"var:preset|spacing|30","blockGap":"var:preset|spacing|20"},"border":{"color":"var:preset|color|border","radius":"8px","width":"1px"}}} -->
 <details class="wp-block-details" style="border-color:var(--wp--preset--color--border);border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 <summary>How do payments work?</summary>
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"spacing":{"margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->

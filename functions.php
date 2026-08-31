@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Theme version.
  */
 if ( ! defined( 'GODEVS_PORTFOLIO_VERSION' ) ) {
-        define( 'GODEVS_PORTFOLIO_VERSION', '2.0.0' );
+        define( 'GODEVS_PORTFOLIO_VERSION', '2.3.0' );
 }
 
 /**
@@ -142,8 +142,10 @@ $_godevs_files = array(
         '/content/case-study.php',
         '/demo-registry.php',
         '/demo-tracker.php',
+        '/demo-renderer.php',
         '/theme-settings.php',
         '/demo-importer.php',
+        '/header-footer-builder.php',
 );
 
 foreach ( $_godevs_files as $_godevs_rel ) {
