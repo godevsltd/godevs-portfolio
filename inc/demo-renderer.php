@@ -377,8 +377,7 @@ function godevs_portfolio_render_wrap_html( string $body_markup, string $demo_id
         $static_css      = file_exists( $static_css_path ) ? file_get_contents( $static_css_path ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
         $static_css      = godevs_portfolio_render_expand_preset_refs( $static_css );
 
-        // Disable links so the iframe preview is non-navigational (clicking a link
-        // shouldn't change the iframe URL — it should stay on the preview).
+        // Use system fonts for the demo preview (no external CDN — WordPress.org compliant).
         $no_nav_js = '<script>document.addEventListener("click", function(e){if(e.target.tagName==="A"){e.preventDefault();}}, false);</script>';
 
         return '<!DOCTYPE html>
@@ -387,9 +386,6 @@ function godevs_portfolio_render_wrap_html( string $body_markup, string $demo_id
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>' . esc_html( $title ) . '</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 ' . $css_vars . '
 

@@ -190,8 +190,8 @@ function godevs_portfolio_register_case_study_meta(): void {
                                 'single'            => true,
                                 'show_in_rest'      => true,
                                 'sanitize_callback' => $sanitize,
-                                'auth_callback'     => static function () {
-                                        return current_user_can( 'edit_posts' );
+                                'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+                                        return current_user_can( 'edit_post', $object_id );
                                 },
                         )
                 );
@@ -370,6 +370,13 @@ function godevs_portfolio_cs_links_cb( WP_Post $post ): void {
  * @return void
  */
 function godevs_portfolio_save_case_study_meta( int $post_id ): void {
+        // Bail on AJAX (Quick Edit) and Cron — these don't send form data.
+        if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+                return;
+        }
+        if ( defined( 'DOING_CRON' ) && DOING_CRON ) {
+                return;
+        }
         if ( ! isset( $_POST['godevs_cs_meta_nonce'] ) ) {
                 return;
         }

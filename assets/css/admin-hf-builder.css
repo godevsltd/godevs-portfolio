@@ -569,3 +569,132 @@
 		min-height: 300px;
 	}
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+ * v3.0.0 — Live Preview Section
+ * ═══════════════════════════════════════════════════════════════════ */
+
+.godevs-hf-live-preview-section {
+	margin-top: 20px;
+	padding: 20px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+}
+
+.godevs-hf-live-preview-container {
+	background: #ffffff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	overflow: hidden;
+	min-height: 80px;
+	position: relative;
+}
+
+.godevs-hf-live-preview {
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.godevs-hf-live-preview.is-loading::before {
+	content: 'Loading preview…';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #8c8f94;
+	font-size: 13px;
+	pointer-events: none;
+}
+
+/* The preview content inherits the front-end builder CSS */
+.godevs-hf-live-preview .godevs-hf-header,
+.godevs-hf-live-preview .godevs-hf-footer {
+	position: relative;
+	z-index: auto;
+}
+
+.godevs-hf-live-preview .godevs-hf-row {
+	position: relative;
+}
+
+/* Responsive device widths for the live preview */
+.godevs-hf-live-preview[data-device="desktop"] .godevs-hf-row-inner {
+	max-width: 100% !important;
+}
+
+.godevs-hf-live-preview[data-device="tablet"] .godevs-hf-row-inner {
+	max-width: 768px !important;
+	margin: 0 auto !important;
+}
+
+.godevs-hf-live-preview[data-device="mobile"] .godevs-hf-row-inner {
+	max-width: 375px !important;
+	margin: 0 auto !important;
+}
+
+/* Hide mobile toggle in admin preview */
+.godevs-hf-live-preview .godevs-hf-mobile-toggle {
+	display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+ * v3.0.0 — Improved Device Switcher (syncs with live preview)
+ * ═══════════════════════════════════════════════════════════════════ */
+
+.godevs-hf-device-controls {
+	display: flex;
+	gap: 4px;
+	padding: 4px;
+	background: #f6f7f7;
+	border-radius: 4px;
+}
+
+.godevs-hf-device {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid transparent;
+	background: transparent;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #8c8f94;
+	transition: all 150ms ease;
+}
+
+.godevs-hf-device:hover {
+	color: #1d2327;
+	background: #ffffff;
+}
+
+.godevs-hf-device.is-active {
+	background: #ffffff;
+	color: #2271b1;
+	border-color: #dcdcde;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.godevs-hf-device .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+/* Per-device visibility dimming in the wireframe canvas */
+.godevs-hf-canvas[data-device="desktop"] .godevs-hf-builder-element[data-hidden-desktop="1"],
+.godevs-hf-canvas[data-device="desktop"] .godevs-hf-builder-col[data-hidden-desktop="1"] {
+	opacity: 0.3;
+}
+
+.godevs-hf-canvas[data-device="tablet"] .godevs-hf-builder-element[data-hidden-tablet="1"],
+.godevs-hf-canvas[data-device="tablet"] .godevs-hf-builder-col[data-hidden-tablet="1"] {
+	opacity: 0.3;
+}
+
+.godevs-hf-canvas[data-device="mobile"] .godevs-hf-builder-element[data-hidden-mobile="1"],
+.godevs-hf-canvas[data-device="mobile"] .godevs-hf-builder-col[data-hidden-mobile="1"] {
+	opacity: 0.3;
+}

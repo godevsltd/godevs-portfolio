@@ -1485,3 +1485,45 @@ p > a[href^="/"]:only-child,
                 transform: none;
         }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+ * CPT Archive Layout Grid (v2.6.0)
+ *
+ * CSS for the settings-controlled archive grid. Column count is set
+ * dynamically by godevs_cpt_archive_enqueue_styles() based on the
+ * theme settings (e.g., portfolio_columns = 3).
+ * ═══════════════════════════════════════════════════════════════════ */
+
+.godevs-archive-grid-2col,
+.godevs-archive-grid-3col,
+.godevs-archive-grid-4col {
+	display: grid;
+	gap: 2rem;
+	margin-bottom: 2rem;
+}
+
+.godevs-archive-grid-2col { grid-template-columns: repeat(2, 1fr); }
+.godevs-archive-grid-3col { grid-template-columns: repeat(3, 1fr); }
+.godevs-archive-grid-4col { grid-template-columns: repeat(4, 1fr); }
+
+/* Tablet — collapse to 2 columns */
+@media (max-width: 1024px) {
+	.godevs-archive-grid-3col,
+	.godevs-archive-grid-4col {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Mobile — single column */
+@media (max-width: 768px) {
+	.godevs-archive-grid-2col,
+	.godevs-archive-grid-3col,
+	.godevs-archive-grid-4col {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* List layout — full-width rows */
+.godevs-archive-list .wp-block-group {
+	margin-bottom: 1.5rem;
+}

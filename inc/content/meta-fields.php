@@ -50,8 +50,8 @@ function godevs_portfolio_register_meta_fields(): void {
                                 'single'            => true,
                                 'show_in_rest'      => true,
                                 'sanitize_callback' => $sanitize,
-                                'auth_callback'     => static function () {
-                                        return current_user_can( 'edit_posts' );
+                                'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+                                        return current_user_can( 'edit_post', $object_id );
                                 },
                         )
                 );
@@ -76,8 +76,8 @@ function godevs_portfolio_register_meta_fields(): void {
                                 'single'            => true,
                                 'show_in_rest'      => true,
                                 'sanitize_callback' => $sanitize,
-                                'auth_callback'     => static function () {
-                                        return current_user_can( 'edit_posts' );
+                                'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+                                        return current_user_can( 'edit_post', $object_id );
                                 },
                         )
                 );
@@ -106,8 +106,8 @@ function godevs_portfolio_register_meta_fields(): void {
                                 'single'            => true,
                                 'show_in_rest'      => true,
                                 'sanitize_callback' => $sanitize,
-                                'auth_callback'     => static function () {
-                                        return current_user_can( 'edit_posts' );
+                                'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+                                        return current_user_can( 'edit_post', $object_id );
                                 },
                         )
                 );
@@ -131,8 +131,8 @@ function godevs_portfolio_register_meta_fields(): void {
                                 'single'            => true,
                                 'show_in_rest'      => true,
                                 'sanitize_callback' => $sanitize,
-                                'auth_callback'     => static function () {
-                                        return current_user_can( 'edit_posts' );
+                                'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+                                        return current_user_can( 'edit_post', $object_id );
                                 },
                         )
                 );
@@ -186,8 +186,8 @@ function godevs_portfolio_register_meta_fields(): void {
                                 'single'            => true,
                                 'show_in_rest'      => true,
                                 'sanitize_callback' => $sanitize,
-                                'auth_callback'     => static function () {
-                                        return current_user_can( 'edit_posts' );
+                                'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+                                        return current_user_can( 'edit_post', $object_id );
                                 },
                         )
                 );
@@ -212,8 +212,8 @@ function godevs_portfolio_register_meta_fields(): void {
                                 'single'            => true,
                                 'show_in_rest'      => true,
                                 'sanitize_callback' => $sanitize,
-                                'auth_callback'     => static function () {
-                                        return current_user_can( 'edit_posts' );
+                                'auth_callback'     => static function ( $allowed, $meta_key, $object_id ) {
+                                        return current_user_can( 'edit_post', $object_id );
                                 },
                         )
                 );
@@ -394,8 +394,19 @@ function godevs_portfolio_save_hf_layout_meta( int $post_id ): void {
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
                 return;
         }
+        // Bail on AJAX (Quick Edit) and Cron.
+        if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+                return;
+        }
+        if ( defined( 'DOING_CRON' ) && DOING_CRON ) {
+                return;
+        }
         // Verify nonce.
         if ( empty( $_POST['godevs_hf_layout_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['godevs_hf_layout_nonce'] ), 'godevs_hf_layout_meta' ) ) {
+                return;
+        }
+        // Check post type — only `page` and `post` support per-page header/footer override.
+        if ( ! in_array( get_post_type( $post_id ), array( 'page', 'post' ), true ) ) {
                 return;
         }
         // Check capabilities.

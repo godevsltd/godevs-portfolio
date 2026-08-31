@@ -50,11 +50,13 @@ function godevs_portfolio_get_default_settings(): array {
                 'header_sticky'           => '1',
                 'header_cta_text'         => '',
                 'header_cta_link'         => '',
+                'default_header_layout'   => '',
                 // Footer
                 'footer_style'            => 'default',
                 'footer_copyright'        => '1',
                 'footer_social'           => '1',
                 'footer_cta'              => '0',
+                'default_footer_layout'   => '',
                 // Blog
                 'blog_layout'             => 'grid',
                 'blog_columns'            => '3',
@@ -70,16 +72,32 @@ function godevs_portfolio_get_default_settings(): array {
                 'portfolio_show_type'     => '1',
                 // Services
                 'services_layout'         => 'grid',
+                'services_columns'       => '3',
                 'services_show_price'     => '0',
                 'services_show_cta'       => '1',
                 // Team
                 'team_layout'             => 'grid',
+                'team_columns'            => '3',
                 'team_show_social'        => '1',
                 'team_show_bio'           => '1',
                 // Testimonials
                 'testimonials_layout'     => 'grid',
+                'testimonials_columns'    => '2',
                 'testimonials_show_avatar' => '1',
                 'testimonials_show_rating' => '1',
+                // Experience
+                'experience_layout'       => 'timeline',
+                'experience_show_dates'   => '1',
+                'experience_show_company' => '1',
+                // Education
+                'education_layout'        => 'timeline',
+                'education_show_dates'    => '1',
+                'education_show_institution' => '1',
+                // Case Studies
+                'case_studies_layout'    => 'grid',
+                'case_studies_columns'   => '3',
+                'case_studies_show_client' => '1',
+                'case_studies_show_results' => '1',
                 // Demo
                 'demo_card_density'      => 'comfortable',
                 'demo_preview_ratio'     => '16/10',
@@ -182,6 +200,17 @@ function godevs_portfolio_ajax_save_settings(): void {
                 $saved++;
         }
 
+        // Sync the "Default Header Layout" and "Default Footer Layout" settings
+        // to the Header/Footer Builder's active layout options. This lets admins
+        // choose the site-wide default header/footer directly from the Header
+        // and Footer settings panels (without having to use the Builder UI).
+        if ( function_exists( 'godevs_hf_set_active' ) ) {
+                $default_header = isset( $_POST['default_header_layout'] ) ? sanitize_key( wp_unslash( $_POST['default_header_layout'] ) ) : '';
+                $default_footer = isset( $_POST['default_footer_layout'] ) ? sanitize_key( wp_unslash( $_POST['default_footer_layout'] ) ) : '';
+                godevs_hf_set_active( 'header', $default_header );
+                godevs_hf_set_active( 'footer', $default_footer );
+        }
+
         // Generate dynamic CSS
         godevs_portfolio_generate_dynamic_css();
 
@@ -210,31 +239,56 @@ add_action( 'wp_ajax_godevs_portfolio_reset_settings', 'godevs_portfolio_ajax_re
 
 /**
  * Generate dynamic CSS from settings and inject via wp_head.
+ *
+ * This function reads the user's saved color, layout, and radius settings
+ * and converts them into CSS custom properties (:root variables). These
+ * override the theme.json defaults so the user's choices actually take
+ * effect on the front-end.
+ *
+ * The CSS is stored in the wp_options table and output via
+ * godevs_portfolio_output_dynamic_css() at wp_head priority 11 — AFTER
+ * WordPress's global-styles (priority 8) so our values win the cascade.
  */
 function godevs_portfolio_generate_dynamic_css(): void {
-        $accent   = godevs_portfolio_get_setting( 'accent_color' );
-        $bg       = godevs_portfolio_get_setting( 'background_color' );
-        $surface  = godevs_portfolio_get_setting( 'surface_color' );
-        $text     = godevs_portfolio_get_setting( 'text_color' );
-        $muted    = godevs_portfolio_get_setting( 'muted_color' );
-        $card_r   = godevs_portfolio_get_setting( 'card_radius' );
-        $btn_r    = godevs_portfolio_get_setting( 'button_radius' );
-        $container = godevs_portfolio_get_setting( 'container_width' );
-        $content  = godevs_portfolio_get_setting( 'content_width' );
+        $accent     = godevs_portfolio_get_setting( 'accent_color' );
+        $accent_h   = godevs_portfolio_get_setting( 'accent_hover' );
+        $bg         = godevs_portfolio_get_setting( 'background_color' );
+        $surface    = godevs_portfolio_get_setting( 'surface_color' );
+        $text       = godevs_portfolio_get_setting( 'text_color' );
+        $muted      = godevs_portfolio_get_setting( 'muted_color' );
+        $card_r     = godevs_portfolio_get_setting( 'card_radius' );
+        $btn_r      = godevs_portfolio_get_setting( 'button_radius' );
+        $container  = godevs_portfolio_get_setting( 'container_width' );
+        $content    = godevs_portfolio_get_setting( 'content_width' );
 
         $css = ":root{";
+        // Colors — override theme.json palette defaults.
         $css .= "--wp--preset--color--accent:{$accent};";
+        $css .= "--wp--preset--color--accent-hover:{$accent_h};";
         $css .= "--wp--preset--color--base:{$bg};";
         $css .= "--wp--preset--color--surface:{$surface};";
         $css .= "--wp--preset--color--foreground:{$text};";
         $css .= "--wp--preset--color--muted:{$muted};";
+        // Radii — custom properties consumed by cards and buttons.
         $css .= "--wp--custom--radius--md:{$card_r}px;";
         $css .= "--wp--custom--radius--sm:{$btn_r}px;";
+        // Layout widths.
         $css .= "--wp--style--root--content-size:{$content}px;";
         $css .= "--wp--style--root--wide-size:{$container}px;";
         $css .= "}";
 
-        update_option( 'godevs_portfolio_dynamic_css', $css );
+        // Also emit a body-level override so theme.json's body styles
+        // pick up the new colors immediately.
+        $css .= "body{background-color:{$bg};color:{$text};}";
+        $css .= ".has-accent-color.has-text-color,.has-accent-color{color:{$accent}!important;}";
+        $css .= ".has-text-color[style*=\"muted\"],.has-muted-color.has-text-color,.has-muted-color{color:{$muted}!important;}";
+        $css .= "a{color:{$accent};}";
+        $css .= "a:hover{color:{$accent_h};}";
+        $css .= ".wp-block-button__link{border-radius:{$btn_r}px;}";
+        $css .= ".is-style-card-bordered{border-radius:{$card_r}px;}";
+        $css .= ".wp-block-image.has-custom-border img{border-radius:{$card_r}px;}";
+
+        update_option( 'godevs_portfolio_dynamic_css', apply_filters( 'godevs_portfolio_dynamic_css', $css ) );
 }
 
 function godevs_portfolio_output_dynamic_css(): void {
@@ -243,7 +297,9 @@ function godevs_portfolio_output_dynamic_css(): void {
                 echo '<style id="godevs-dynamic-settings">' . $css . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
 }
-add_action( 'wp_head', 'godevs_portfolio_output_dynamic_css', 5 );
+// CRITICAL: Priority 11 ensures our CSS loads AFTER WordPress's global-styles
+// (priority 8), so user's saved colors override theme.json defaults.
+add_action( 'wp_head', 'godevs_portfolio_output_dynamic_css', 11 );
 
 // ════════════════════════════════════════════════════════════════════════════
 // RENDER PAGE
@@ -297,6 +353,9 @@ function godevs_portfolio_settings_render_page(): void {
                                         <li><a href="#services" data-section="services"><span class="dashicons dashicons-admin-tools"></span> <?php esc_html_e( 'Services', 'godevs-portfolio' ); ?></a></li>
                                         <li><a href="#team" data-section="team"><span class="dashicons dashicons-groups"></span> <?php esc_html_e( 'Team', 'godevs-portfolio' ); ?></a></li>
                                         <li><a href="#testimonials" data-section="testimonials"><span class="dashicons dashicons-format-quote"></span> <?php esc_html_e( 'Testimonials', 'godevs-portfolio' ); ?></a></li>
+                                        <li><a href="#experience" data-section="experience"><span class="dashicons dashicons-businessperson"></span> <?php esc_html_e( 'Experience', 'godevs-portfolio' ); ?></a></li>
+                                        <li><a href="#education" data-section="education"><span class="dashicons dashicons-welcome-learn-more"></span> <?php esc_html_e( 'Education', 'godevs-portfolio' ); ?></a></li>
+                                        <li><a href="#case-studies" data-section="case-studies"><span class="dashicons dashicons-portfolio"></span> <?php esc_html_e( 'Case Studies', 'godevs-portfolio' ); ?></a></li>
                                         <li><a href="#demo" data-section="demo"><span class="dashicons dashicons-images-alt"></span> <?php esc_html_e( 'Demo Library', 'godevs-portfolio' ); ?></a></li>
                                         <li><a href="#builder" data-section="builder"><span class="dashicons dashicons-layout"></span> <?php esc_html_e( 'Header & Footer', 'godevs-portfolio' ); ?></a></li>
                                         <li><a href="#performance" data-section="performance"><span class="dashicons dashicons-performance"></span> <?php esc_html_e( 'Performance', 'godevs-portfolio' ); ?></a></li>
@@ -364,10 +423,22 @@ function godevs_portfolio_settings_render_page(): void {
                                         <!-- ═══ HEADER ═══ -->
                                         <div class="godevs-panel" id="panel-header">
                                                 <h2 class="godevs-panel-title"><?php esc_html_e( 'Header', 'godevs-portfolio' ); ?></h2>
-                                                <p class="godevs-panel-desc"><?php esc_html_e( 'Configure the site header.', 'godevs-portfolio' ); ?></p>
+                                                <p class="godevs-panel-desc"><?php esc_html_e( 'Configure the site header. Choose a custom builder layout as the site-wide default, or use the theme default.', 'godevs-portfolio' ); ?></p>
 
                                                 <?php
-                                                godevs_setting_select( 'header_style', __( 'Header style', 'godevs-portfolio' ), array( 'default' => 'Default', 'minimal' => 'Minimal', 'centered' => 'Centered', 'split' => 'Split', 'transparent' => 'Transparent', 'dark' => 'Dark' ), __( 'Which header template part to use.', 'godevs-portfolio' ) );
+                                                // Default Header Layout — choose from saved builder layouts.
+                                                $header_layouts_options = array( '' => __( '— Use theme default (no builder) —', 'godevs-portfolio' ) );
+                                                if ( function_exists( 'godevs_hf_get_layouts' ) ) {
+                                                        $saved_header_layouts = godevs_hf_get_layouts();
+                                                        if ( ! empty( $saved_header_layouts['header'] ) ) {
+                                                                foreach ( $saved_header_layouts['header'] as $slug => $data ) {
+                                                                        $header_layouts_options[ $slug ] = $data['label'] ?? $slug;
+                                                                }
+                                                        }
+                                                }
+                                                godevs_setting_select( 'default_header_layout', __( 'Default header layout', 'godevs-portfolio' ), $header_layouts_options, __( 'Choose a custom builder layout to use as the site-wide header. Create new layouts in the Header &amp; Footer Builder tab.', 'godevs-portfolio' ) );
+
+                                                godevs_setting_select( 'header_style', __( 'Header style (theme default)', 'godevs-portfolio' ), array( 'default' => 'Default', 'minimal' => 'Minimal', 'centered' => 'Centered', 'split' => 'Split', 'transparent' => 'Transparent', 'dark' => 'Dark' ), __( 'Which header template part to use when no builder layout is active.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'header_sticky', __( 'Sticky header', 'godevs-portfolio' ), __( 'Keep the header fixed on scroll.', 'godevs-portfolio' ) );
                                                 godevs_setting_text( 'header_cta_text', __( 'Header CTA text', 'godevs-portfolio' ), __( 'Button text in the header (leave empty to hide).', 'godevs-portfolio' ) );
                                                 godevs_setting_text( 'header_cta_link', __( 'Header CTA link', 'godevs-portfolio' ), __( 'URL for the header CTA button.', 'godevs-portfolio' ) );
@@ -377,10 +448,22 @@ function godevs_portfolio_settings_render_page(): void {
                                         <!-- ═══ FOOTER ═══ -->
                                         <div class="godevs-panel" id="panel-footer">
                                                 <h2 class="godevs-panel-title"><?php esc_html_e( 'Footer', 'godevs-portfolio' ); ?></h2>
-                                                <p class="godevs-panel-desc"><?php esc_html_e( 'Configure the site footer.', 'godevs-portfolio' ); ?></p>
+                                                <p class="godevs-panel-desc"><?php esc_html_e( 'Configure the site footer. Choose a custom builder layout as the site-wide default, or use the theme default.', 'godevs-portfolio' ); ?></p>
 
                                                 <?php
-                                                godevs_setting_select( 'footer_style', __( 'Footer style', 'godevs-portfolio' ), array( 'default' => 'Default', 'minimal' => 'Minimal', 'multi-column' => 'Multi-column', 'social' => 'Social-first', 'cta' => 'CTA footer', 'newsletter' => 'Newsletter', 'dark' => 'Dark' ), __( 'Which footer template part to use.', 'godevs-portfolio' ) );
+                                                // Default Footer Layout — choose from saved builder layouts.
+                                                $footer_layouts_options = array( '' => __( '— Use theme default (no builder) —', 'godevs-portfolio' ) );
+                                                if ( function_exists( 'godevs_hf_get_layouts' ) ) {
+                                                        $saved_footer_layouts = godevs_hf_get_layouts();
+                                                        if ( ! empty( $saved_footer_layouts['footer'] ) ) {
+                                                                foreach ( $saved_footer_layouts['footer'] as $slug => $data ) {
+                                                                        $footer_layouts_options[ $slug ] = $data['label'] ?? $slug;
+                                                                }
+                                                        }
+                                                }
+                                                godevs_setting_select( 'default_footer_layout', __( 'Default footer layout', 'godevs-portfolio' ), $footer_layouts_options, __( 'Choose a custom builder layout to use as the site-wide footer. Create new layouts in the Header &amp; Footer Builder tab.', 'godevs-portfolio' ) );
+
+                                                godevs_setting_select( 'footer_style', __( 'Footer style (theme default)', 'godevs-portfolio' ), array( 'default' => 'Default', 'minimal' => 'Minimal', 'multi-column' => 'Multi-column', 'social' => 'Social-first', 'cta' => 'CTA footer', 'newsletter' => 'Newsletter', 'dark' => 'Dark' ), __( 'Which footer template part to use when no builder layout is active.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'footer_copyright', __( 'Show copyright', 'godevs-portfolio' ), __( 'Display copyright text in footer.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'footer_social', __( 'Show social links', 'godevs-portfolio' ), __( 'Display social media links in footer.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'footer_cta', __( 'Footer CTA', 'godevs-portfolio' ), __( 'Show a CTA band above the footer.', 'godevs-portfolio' ) );
@@ -423,6 +506,7 @@ function godevs_portfolio_settings_render_page(): void {
 
                                                 <?php
                                                 godevs_setting_select( 'services_layout', __( 'Services layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'list' => 'List', 'numbered' => 'Numbered' ), __( 'How services are displayed.', 'godevs-portfolio' ) );
+                                                godevs_setting_select( 'services_columns', __( 'Grid columns', 'godevs-portfolio' ), array( '2' => '2 columns', '3' => '3 columns', '4' => '4 columns' ), __( 'Column count for grid layout.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'services_show_price', __( 'Show price', 'godevs-portfolio' ), __( 'Display service price (if set).', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'services_show_cta', __( 'Show CTA', 'godevs-portfolio' ), __( 'Display call-to-action on service singles.', 'godevs-portfolio' ) );
                                                 ?>
@@ -435,6 +519,7 @@ function godevs_portfolio_settings_render_page(): void {
 
                                                 <?php
                                                 godevs_setting_select( 'team_layout', __( 'Team layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'list' => 'List', 'featured' => 'Featured lead' ), __( 'How team members are displayed.', 'godevs-portfolio' ) );
+                                                godevs_setting_select( 'team_columns', __( 'Grid columns', 'godevs-portfolio' ), array( '2' => '2 columns', '3' => '3 columns', '4' => '4 columns' ), __( 'Column count for grid layout.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'team_show_social', __( 'Show social links', 'godevs-portfolio' ), __( 'Display social media links for team members.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'team_show_bio', __( 'Show bio', 'godevs-portfolio' ), __( 'Display short biography.', 'godevs-portfolio' ) );
                                                 ?>
@@ -447,8 +532,46 @@ function godevs_portfolio_settings_render_page(): void {
 
                                                 <?php
                                                 godevs_setting_select( 'testimonials_layout', __( 'Testimonials layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'single' => 'Single quote', 'slide' => 'Slide row' ), __( 'How testimonials are displayed.', 'godevs-portfolio' ) );
+                                                godevs_setting_select( 'testimonials_columns', __( 'Grid columns', 'godevs-portfolio' ), array( '2' => '2 columns', '3' => '3 columns' ), __( 'Column count for grid layout.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'testimonials_show_avatar', __( 'Show avatar', 'godevs-portfolio' ), __( 'Display client avatar/photo.', 'godevs-portfolio' ) );
                                                 godevs_setting_toggle( 'testimonials_show_rating', __( 'Show rating', 'godevs-portfolio' ), __( 'Display star rating.', 'godevs-portfolio' ) );
+                                                ?>
+                                        </div>
+
+                                        <!-- ═══ EXPERIENCE ═══ -->
+                                        <div class="godevs-panel" id="panel-experience">
+                                                <h2 class="godevs-panel-title"><?php esc_html_e( 'Experience', 'godevs-portfolio' ); ?></h2>
+                                                <p class="godevs-panel-desc"><?php esc_html_e( 'Configure work experience archive display.', 'godevs-portfolio' ); ?></p>
+
+                                                <?php
+                                                godevs_setting_select( 'experience_layout', __( 'Experience layout', 'godevs-portfolio' ), array( 'timeline' => 'Timeline', 'list' => 'List', 'grid' => 'Grid' ), __( 'How experience entries are displayed.', 'godevs-portfolio' ) );
+                                                godevs_setting_toggle( 'experience_show_dates', __( 'Show dates', 'godevs-portfolio' ), __( 'Display start/end dates.', 'godevs-portfolio' ) );
+                                                godevs_setting_toggle( 'experience_show_company', __( 'Show company', 'godevs-portfolio' ), __( 'Display company name.', 'godevs-portfolio' ) );
+                                                ?>
+                                        </div>
+
+                                        <!-- ═══ EDUCATION ═══ -->
+                                        <div class="godevs-panel" id="panel-education">
+                                                <h2 class="godevs-panel-title"><?php esc_html_e( 'Education', 'godevs-portfolio' ); ?></h2>
+                                                <p class="godevs-panel-desc"><?php esc_html_e( 'Configure education archive display.', 'godevs-portfolio' ); ?></p>
+
+                                                <?php
+                                                godevs_setting_select( 'education_layout', __( 'Education layout', 'godevs-portfolio' ), array( 'timeline' => 'Timeline', 'list' => 'List', 'grid' => 'Grid' ), __( 'How education entries are displayed.', 'godevs-portfolio' ) );
+                                                godevs_setting_toggle( 'education_show_dates', __( 'Show dates', 'godevs-portfolio' ), __( 'Display start/end dates.', 'godevs-portfolio' ) );
+                                                godevs_setting_toggle( 'education_show_institution', __( 'Show institution', 'godevs-portfolio' ), __( 'Display institution name.', 'godevs-portfolio' ) );
+                                                ?>
+                                        </div>
+
+                                        <!-- ═══ CASE STUDIES ═══ -->
+                                        <div class="godevs-panel" id="panel-case-studies">
+                                                <h2 class="godevs-panel-title"><?php esc_html_e( 'Case Studies', 'godevs-portfolio' ); ?></h2>
+                                                <p class="godevs-panel-desc"><?php esc_html_e( 'Configure case study archive display.', 'godevs-portfolio' ); ?></p>
+
+                                                <?php
+                                                godevs_setting_select( 'case_studies_layout', __( 'Case studies layout', 'godevs-portfolio' ), array( 'grid' => 'Grid', 'list' => 'List', 'showcase' => 'Showcase' ), __( 'How case studies are displayed.', 'godevs-portfolio' ) );
+                                                godevs_setting_select( 'case_studies_columns', __( 'Grid columns', 'godevs-portfolio' ), array( '2' => '2 columns', '3' => '3 columns' ), __( 'Column count for grid layout.', 'godevs-portfolio' ) );
+                                                godevs_setting_toggle( 'case_studies_show_client', __( 'Show client', 'godevs-portfolio' ), __( 'Display client name.', 'godevs-portfolio' ) );
+                                                godevs_setting_toggle( 'case_studies_show_results', __( 'Show results', 'godevs-portfolio' ), __( 'Display key results/metrics.', 'godevs-portfolio' ) );
                                                 ?>
                                         </div>
 
@@ -495,16 +618,26 @@ function godevs_portfolio_settings_render_page(): void {
                                                                         <button type="button" class="button button-primary" id="godevs-hf-save-layout"><?php esc_html_e( 'Save Layout', 'godevs-portfolio' ); ?></button>
                                                                 </div>
 
-                                                                <div class="godevs-hf-canvas" id="godevs-hf-canvas"></div>
-
                                                                 <div class="godevs-hf-elements-panel">
                                                                         <p class="godevs-setting-group-title"><?php esc_html_e( 'Elements', 'godevs-portfolio' ); ?></p>
                                                                         <div class="godevs-hf-elements-list" id="godevs-hf-elements-list"></div>
                                                                 </div>
 
+                                                                <div class="godevs-hf-canvas" id="godevs-hf-canvas"></div>
+
                                                                 <div class="godevs-hf-settings-panel" id="godevs-hf-settings-panel" style="display:none;">
                                                                         <p class="godevs-setting-group-title"><?php esc_html_e( 'Element Settings', 'godevs-portfolio' ); ?></p>
                                                                         <div id="godevs-hf-element-settings"></div>
+                                                                </div>
+                                                        </div>
+
+                                                        <!-- Live Preview — shows the actual rendered HTML as the user edits -->
+                                                        <div class="godevs-hf-live-preview-section" id="godevs-hf-live-preview-section" style="display:none;">
+                                                                <p class="godevs-setting-group-title"><?php esc_html_e( 'Live Preview', 'godevs-portfolio' ); ?></p>
+                                                                <div class="godevs-hf-live-preview-container">
+                                                                        <div class="godevs-hf-live-preview" id="godevs-hf-live-preview" data-device="desktop">
+                                                                                <p style="padding:20px;text-align:center;color:#8c8f94"><?php esc_html_e( 'Load a template or add elements to see a live preview.', 'godevs-portfolio' ); ?></p>
+                                                                        </div>
                                                                 </div>
                                                         </div>
                                                 </div>

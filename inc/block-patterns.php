@@ -152,11 +152,6 @@ function godevs_portfolio_register_pattern_categories(): void {
                         'description' => __( 'Frequently asked question sections using native Details blocks.', 'godevs-portfolio' ),
                 ),
                 array(
-                        'slug'        => 'godevs-portfolio-case-study',
-                        'title'       => __( 'Case Study', 'godevs-portfolio' ),
-                        'description' => __( 'Case study sections for project deep-dives and results.', 'godevs-portfolio' ),
-                ),
-                array(
                         'slug'        => 'godevs-portfolio-demos',
                         'title'       => __( 'Demos', 'godevs-portfolio' ),
                         'description' => __( 'Ready-made portfolio websites — each a distinct composition of patterns and a chosen style variation. Insert one to start a new portfolio site instantly.', 'godevs-portfolio' ),

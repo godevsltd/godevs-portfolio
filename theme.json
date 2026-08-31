@@ -104,6 +104,21 @@
 			},
 			"spacingSizes": [
 				{
+					"slug": "0",
+					"size": "0",
+					"name": "None"
+				},
+				{
+					"slug": "10",
+					"size": "0.25rem",
+					"name": "3XS"
+				},
+				{
+					"slug": "15",
+					"size": "0.375rem",
+					"name": "3XS+"
+				},
+				{
 					"slug": "20",
 					"size": "0.5rem",
 					"name": "2XS"
@@ -744,117 +759,140 @@
 		{
 			"name": "header",
 			"title": "Header",
-			"description": "Default site header with logo, navigation, and primary CTA."
+			"description": "Default site header with logo, navigation, and primary CTA.",
+			"area": "header"
 		},
 		{
 			"name": "header-minimal",
 			"title": "Header Minimal",
-			"description": "Minimal header with logo and navigation only."
+			"description": "Minimal header with logo and navigation only.",
+			"area": "header"
 		},
 		{
 			"name": "header-transparent",
 			"title": "Header Transparent",
-			"description": "Transparent header for use over hero covers."
+			"description": "Transparent header for use over hero covers.",
+			"area": "header"
 		},
 		{
 			"name": "header-centered",
 			"title": "Header Centered",
-			"description": "Centered header with logo above a centered navigation."
+			"description": "Centered header with logo above a centered navigation.",
+			"area": "header"
 		},
 		{
 			"name": "header-split",
 			"title": "Header Split",
-			"description": "Split header with logo on the left and site title + tagline grouped together."
+			"description": "Split header with logo on the left and site title + tagline grouped together.",
+			"area": "header"
 		},
 		{
 			"name": "header-with-search",
 			"title": "Header With Search",
-			"description": "Header with a search affordance in the navigation row."
+			"description": "Header with a search affordance in the navigation row.",
+			"area": "header"
 		},
 		{
 			"name": "header-with-language-switcher",
 			"title": "Header With Language Switcher",
-			"description": "Header with a small language switcher label beside the navigation."
+			"description": "Header with a small language switcher label beside the navigation.",
+			"area": "header"
 		},
 		{
 			"name": "header-portfolio",
 			"title": "Header Portfolio",
-			"description": "Portfolio-focused header with a pill-style CTA button."
+			"description": "Portfolio-focused header with a pill-style CTA button.",
+			"area": "header"
 		},
 		{
 			"name": "header-dark",
 			"title": "Header Dark",
-			"description": "Dark inverted header with primary background and contrast text."
+			"description": "Dark inverted header with primary background and contrast text.",
+			"area": "header"
 		},
 		{
 			"name": "header-cta",
 			"title": "Header CTA",
-			"description": "Header with a text-link CTA instead of a button."
+			"description": "Header with a text-link CTA instead of a button.",
+			"area": "header"
 		},
 		{
 			"name": "header-editorial",
 			"title": "Header Editorial",
-			"description": "Magazine-style header with masthead, date, and centered navigation beneath a divider."
+			"description": "Magazine-style header with masthead, date, and centered navigation beneath a divider.",
+			"area": "header"
 		},
 		{
 			"name": "header-stacked",
 			"title": "Header Stacked",
-			"description": "Stacked header with large centered title, divider, and navigation below."
+			"description": "Stacked header with large centered title, divider, and navigation below.",
+			"area": "header"
 		},
 		{
 			"name": "footer",
 			"title": "Footer",
-			"description": "Default site footer with brand, navigation, and social links."
+			"description": "Default site footer with brand, navigation, and social links.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-minimal",
 			"title": "Footer Minimal",
-			"description": "Minimal footer with logo and copyright only."
+			"description": "Minimal footer with logo and copyright only.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-cta",
 			"title": "Footer CTA",
-			"description": "Footer with a call-to-action band above the footer content."
+			"description": "Footer with a call-to-action band above the footer content.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-newsletter",
 			"title": "Footer Newsletter",
-			"description": "Footer with a newsletter signup area above the footer content."
+			"description": "Footer with a newsletter signup area above the footer content.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-multi-column",
 			"title": "Footer Multi Column",
-			"description": "Multi-column footer with brand, navigation, and contact information."
+			"description": "Multi-column footer with brand, navigation, and contact information.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-compact",
 			"title": "Footer Compact",
-			"description": "Compact single-row footer with brand and copyright."
+			"description": "Compact single-row footer with brand and copyright.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-dark",
 			"title": "Footer Dark",
-			"description": "Dark inverted footer with primary background."
+			"description": "Dark inverted footer with primary background.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-social",
 			"title": "Footer Social",
-			"description": "Social-led footer with prominent social icons row."
+			"description": "Social-led footer with prominent social icons row.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-portfolio",
 			"title": "Footer Portfolio",
-			"description": "Portfolio-focused footer with quick links and contact email."
+			"description": "Portfolio-focused footer with quick links and contact email.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-editorial",
 			"title": "Footer Editorial",
-			"description": "Magazine-style footer with masthead and small navigation row."
+			"description": "Magazine-style footer with masthead and small navigation row.",
+			"area": "footer"
 		},
 		{
 			"name": "footer-large-type",
 			"title": "Footer Large Type",
-			"description": "Footer dominated by an oversized brand wordmark and minimal supporting text."
+			"description": "Footer dominated by an oversized brand wordmark and minimal supporting text.",
+			"area": "footer"
 		}
 	]
 }

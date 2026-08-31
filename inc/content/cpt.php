@@ -40,22 +40,29 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return bool True if enabled.
  */
 function godevs_portfolio_module_enabled( string $module ): bool {
-        $settings = get_option( 'godevs_portfolio_settings', array() );
-        if ( ! is_array( $settings ) ) {
-                return true;
-        }
         $key = 'module_' . $module;
-        // Not set → default to enabled.
-        if ( ! isset( $settings[ $key ] ) ) {
-                return true;
+
+        // Primary source: individual option set by Theme Settings.
+        // This is the path that the Theme Settings AJAX save uses.
+        $individual = get_option( 'godevs_portfolio_' . $key, null );
+        if ( null !== $individual ) {
+                return '0' !== $individual;
         }
-        $val = $settings[ $key ];
-        // Empty string → treat as "use default" = enabled.
-        if ( '' === $val || null === $val ) {
-                return true;
+
+        // Fallback: check the combined array option (used by the seed function
+        // on theme activation). This ensures backward compatibility with
+        // sites that were activated before the individual-option system.
+        $settings = get_option( 'godevs_portfolio_settings', array() );
+        if ( is_array( $settings ) && isset( $settings[ $key ] ) ) {
+                $val = $settings[ $key ];
+                if ( '' === $val || null === $val ) {
+                        return true;
+                }
+                return '0' !== $val;
         }
-        // Only '0' explicitly disables. Everything else (including '1') enables.
-        return '0' !== $val;
+
+        // Default: module is enabled.
+        return true;
 }
 
 /**
@@ -295,14 +302,62 @@ function godevs_portfolio_register_post_types(): void {
                                 'show_in_rest'        => false,
                                 'has_archive'         => false,
                                 'publicly_queryable'  => false,
-                                'exclude_from_search'  => true,
+                                'exclude_from_search' => true,
                                 'menu_position'       => 12,
                                 'menu_icon'           => 'dashicons-calendar-alt',
-                                'supports'            => array( 'title', 'editor', 'custom-fields' ),
-                                'capability_type'     => 'post',
+                                'supports'            => array( 'title', 'editor', 'custom-fields', 'revisions' ),
+                                // Use dedicated 'booking' capability_type so Contributors/Authors
+                                // cannot read/edit/delete bookings containing PII (name, email, phone).
+                                // Only Administrators (granted via godevs_portfolio_grant_booking_caps()
+                                // on theme activation) can manage bookings.
+                                'capability_type'     => 'booking',
                                 'map_meta_cap'        => true,
                         )
                 );
         }
 }
 add_action( 'init', 'godevs_portfolio_register_post_types' );
+
+/**
+ * Grant booking capabilities to Administrators on theme activation.
+ *
+ * Because the booking CPT uses `capability_type => 'booking'`, no role has
+ * the required capabilities by default. This function grants the full set of
+ * booking caps to the Administrator role. Hooked to `after_switch_theme` so
+ * it runs once on theme activation, and also to `admin_init` as a fallback
+ * for sites that activated the theme via WP-CLI or other non-standard paths.
+ *
+ * @since 2.8.0
+ */
+function godevs_portfolio_grant_booking_caps(): void {
+        $admin = get_role( 'administrator' );
+        if ( ! $admin ) {
+                return;
+        }
+
+        $caps = array(
+                'edit_bookings',
+                'edit_others_bookings',
+                'delete_bookings',
+                'delete_others_bookings',
+                'publish_bookings',
+                'read_private_bookings',
+                'edit_booking',
+                'delete_booking',
+                'read_booking',
+        );
+
+        $needs_flush = false;
+        foreach ( $caps as $cap ) {
+                if ( ! $admin->has_cap( $cap ) ) {
+                        $admin->add_cap( $cap );
+                        $needs_flush = true;
+                }
+        }
+
+        if ( $needs_flush ) {
+                $admin->add_cap( 'manage_bookings' );
+        }
+}
+add_action( 'after_switch_theme', 'godevs_portfolio_grant_booking_caps' );
+add_action( 'admin_init', 'godevs_portfolio_grant_booking_caps' );

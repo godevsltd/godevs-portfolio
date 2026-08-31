@@ -21,6 +21,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array Saved layouts keyed by type (header/footer) then by slug.
  */
 function godevs_hf_get_layouts(): array {
+        // Check for a transient override (used by the live preview AJAX endpoint).
+        $preview = get_transient( 'godevs_hf_preview_layouts' );
+        if ( is_array( $preview ) ) {
+                return $preview;
+        }
+
         $saved = get_option( 'godevs_hf_layouts', array() );
         if ( ! is_array( $saved ) ) {
                 return array(
@@ -285,6 +291,101 @@ function godevs_hf_get_header_templates(): array {
                                 ),
                         ),
                 ),
+                // ═══ NEW v2.7.0 STARTER TEMPLATES ═══
+                'editorial' => array(
+                        'label' => __( 'Editorial Magazine', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '100', 'elements' => array(
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'EST. 2024 — INDEPENDENT PUBLICATION', 'font_size' => '11', 'align' => 'center' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'height' => '32', 'background' => 'var(--wp--preset--color--primary)', 'text_color' => 'var(--wp--preset--color--contrast)', 'sticky' => '0', 'padding_top' => '6', 'padding_bottom' => '6' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '100', 'elements' => array(
+                                                        array( 'type' => 'site_title', 'settings' => array( 'font_size' => '28', 'font_weight' => '700', 'align' => 'center' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'height' => '72', 'background' => '', 'sticky' => '0', 'padding_top' => '12', 'padding_bottom' => '12' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '100', 'elements' => array(
+                                                        array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '13', 'font_weight' => '600', 'align' => 'center' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'height' => '48', 'background' => '', 'sticky' => '1', 'padding_top' => '8', 'padding_bottom' => '8' ),
+                                ),
+                        ),
+                ),
+                'dark-stack' => array(
+                        'label' => __( 'Dark Stacked', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '33', 'elements' => array( array( 'type' => 'logo' ) ) ),
+                                                array( 'width' => '34', 'elements' => array( array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '14', 'align' => 'center' ) ) ) ),
+                                                array( 'width' => '33', 'elements' => array(
+                                                        array( 'type' => 'social_icons', 'settings' => array( 'size' => '16' ) ),
+                                                        array( 'type' => 'button', 'settings' => array( 'text' => 'Hire Me', 'link' => '#contact', 'style' => 'outline' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'height' => '80', 'background' => 'var(--wp--preset--color--primary)', 'text_color' => 'var(--wp--preset--color--contrast)', 'sticky' => '1' ),
+                                ),
+                        ),
+                ),
+                'search-hero' => array(
+                        'label' => __( 'Search Hero', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '25', 'elements' => array( array( 'type' => 'logo' ) ) ),
+                                                array( 'width' => '50', 'elements' => array( array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '14' ) ) ) ),
+                                                array( 'width' => '25', 'elements' => array( array( 'type' => 'search', 'settings' => array( 'style' => 'expand' ) ) ) ),
+                                        ),
+                                        'settings' => array( 'height' => '72', 'background' => '', 'sticky' => '1' ),
+                                ),
+                        ),
+                ),
+                'mega-nav' => array(
+                        'label' => __( 'Mega Navigation', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '20', 'elements' => array( array( 'type' => 'logo' ) ) ),
+                                                array( 'width' => '60', 'elements' => array( array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '14', 'font_weight' => '600' ) ) ) ),
+                                                array( 'width' => '20', 'elements' => array(
+                                                        array( 'type' => 'search', 'settings' => array( 'style' => 'icon' ) ),
+                                                        array( 'type' => 'button', 'settings' => array( 'text' => 'Get Started', 'link' => '#signup', 'style' => 'primary' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'height' => '76', 'background' => '', 'sticky' => '1', 'padding_top' => '12', 'padding_bottom' => '12' ),
+                                ),
+                        ),
+                ),
+                'sticky-cta' => array(
+                        'label' => __( 'Sticky CTA Bar', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '40', 'elements' => array( array( 'type' => 'logo' ) ) ),
+                                                array( 'width' => '40', 'elements' => array( array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '14' ) ) ) ),
+                                                array( 'width' => '20', 'elements' => array( array( 'type' => 'button', 'settings' => array( 'text' => 'Book a Call', 'link' => '#contact', 'style' => 'primary' ) ) ) ),
+                                        ),
+                                        'settings' => array( 'height' => '64', 'background' => '', 'sticky' => '1' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '70', 'elements' => array( array( 'type' => 'text', 'settings' => array( 'content' => '🎉 Limited-time offer: 20% off all services this month', 'font_size' => '13' ) ) ) ),
+                                                array( 'width' => '30', 'elements' => array( array( 'type' => 'button', 'settings' => array( 'text' => 'Claim Offer', 'link' => '#offer', 'style' => 'text' ) ) ) ),
+                                        ),
+                                        'settings' => array( 'height' => '40', 'background' => 'var(--wp--preset--color--accent)', 'text_color' => 'var(--wp--preset--color--contrast)', 'sticky' => '0', 'padding_top' => '8', 'padding_bottom' => '8' ),
+                                ),
+                        ),
+                ),
         );
 }
 
@@ -404,6 +505,149 @@ function godevs_hf_get_footer_templates(): array {
                                 ),
                         ),
                 ),
+                // ═══ NEW v2.7.0 FOOTER TEMPLATES ═══
+                'newsletter-focus' => array(
+                        'label' => __( 'Newsletter Focus', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '60', 'elements' => array(
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'Subscribe to our newsletter', 'font_size' => '20', 'font_weight' => '600' ) ),
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'Monthly insights on design, development, and the creative process. No spam.', 'font_size' => '13' ) ),
+                                                ) ),
+                                                array( 'width' => '40', 'elements' => array(
+                                                        array( 'type' => 'newsletter' ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '60', 'padding_bottom' => '60', 'background' => 'var(--wp--preset--color--surface-muted)' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '33', 'elements' => array( array( 'type' => 'logo' ), array( 'type' => 'copyright' ) ) ),
+                                                array( 'width' => '34', 'elements' => array( array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '12' ) ) ) ),
+                                                array( 'width' => '33', 'elements' => array( array( 'type' => 'social_icons', 'settings' => array( 'size' => '14' ) ) ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '24', 'padding_bottom' => '24', 'background' => '' ),
+                                ),
+                        ),
+                ),
+                'mega-footer' => array(
+                        'label' => __( 'Mega Footer', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '25', 'elements' => array(
+                                                        array( 'type' => 'site_title', 'settings' => array( 'font_size' => '22', 'font_weight' => '700' ) ),
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'Building thoughtful digital products since 2014.', 'font_size' => '13' ) ),
+                                                ) ),
+                                                array( 'width' => '20', 'elements' => array(
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'Company', 'font_size' => '12', 'font_weight' => '700' ) ),
+                                                        array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '13' ) ),
+                                                ) ),
+                                                array( 'width' => '20', 'elements' => array(
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'Resources', 'font_size' => '12', 'font_weight' => '700' ) ),
+                                                        array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '13' ) ),
+                                                ) ),
+                                                array( 'width' => '15', 'elements' => array(
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'Contact', 'font_size' => '12', 'font_weight' => '700' ) ),
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'hello@studio.com<br>Berlin, DE', 'font_size' => '13' ) ),
+                                                ) ),
+                                                array( 'width' => '20', 'elements' => array(
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'Follow', 'font_size' => '12', 'font_weight' => '700' ) ),
+                                                        array( 'type' => 'social_icons', 'settings' => array( 'size' => '16' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '80', 'padding_bottom' => '40', 'background' => 'var(--wp--preset--color--primary)', 'text_color' => 'var(--wp--preset--color--contrast)' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '50', 'elements' => array( array( 'type' => 'copyright' ) ) ),
+                                                array( 'width' => '50', 'elements' => array( array( 'type' => 'text', 'settings' => array( 'content' => 'Made with care in Berlin', 'font_size' => '12', 'align' => 'right' ) ) ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '20', 'padding_bottom' => '20', 'background' => '#000000', 'text_color' => '#6b7280' ),
+                                ),
+                        ),
+                ),
+                'minimal-dark' => array(
+                        'label' => __( 'Minimal Dark', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '100', 'elements' => array(
+                                                        array( 'type' => 'site_title', 'settings' => array( 'font_size' => '18', 'font_weight' => '600', 'align' => 'center' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '32', 'padding_bottom' => '24', 'background' => '#0a0a0a', 'text_color' => '#ffffff' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '100', 'elements' => array(
+                                                        array( 'type' => 'social_icons', 'settings' => array( 'size' => '18' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '0', 'padding_bottom' => '32', 'background' => '#0a0a0a', 'text_color' => '#ffffff' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '100', 'elements' => array( array( 'type' => 'copyright' ) ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '16', 'padding_bottom' => '16', 'background' => '#050505', 'text_color' => '#6b7280' ),
+                                ),
+                        ),
+                ),
+                'widgetized' => array(
+                        'label' => __( 'Widgetized Footer', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '33', 'elements' => array( array( 'type' => 'widget_area', 'settings' => array( 'sidebar_id' => 'godevs-hf-footer' ) ) ) ),
+                                                array( 'width' => '33', 'elements' => array( array( 'type' => 'widget_area', 'settings' => array( 'sidebar_id' => 'godevs-hf-footer' ) ) ) ),
+                                                array( 'width' => '34', 'elements' => array(
+                                                        array( 'type' => 'logo' ),
+                                                        array( 'type' => 'text', 'settings' => array( 'content' => 'A widgetized footer layout — drag widgets into the sidebars to populate these columns.', 'font_size' => '13' ) ),
+                                                        array( 'type' => 'social_icons', 'settings' => array( 'size' => '14' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '60', 'padding_bottom' => '40', 'background' => 'var(--wp--preset--color--surface-muted)' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '50', 'elements' => array( array( 'type' => 'copyright' ) ) ),
+                                                array( 'width' => '50', 'elements' => array( array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '12' ) ) ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '20', 'padding_bottom' => '20', 'background' => '', 'text_color' => 'var(--wp--preset--color--muted)' ),
+                                ),
+                        ),
+                ),
+                'credit-row' => array(
+                        'label' => __( 'Credit Row', 'godevs-portfolio' ),
+                        'rows'  => array(
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '100', 'elements' => array(
+                                                        array( 'type' => 'site_title', 'settings' => array( 'font_size' => '24', 'font_weight' => '700', 'align' => 'center' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '48', 'padding_bottom' => '32', 'background' => '', 'text_color' => 'var(--wp--preset--color--text)' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '100', 'elements' => array(
+                                                        array( 'type' => 'nav_menu', 'settings' => array( 'font_size' => '13', 'align' => 'center' ) ),
+                                                ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '0', 'padding_bottom' => '24', 'background' => '', 'text_color' => 'var(--wp--preset--color--text)' ),
+                                ),
+                                array(
+                                        'columns' => array(
+                                                array( 'width' => '33', 'elements' => array( array( 'type' => 'copyright' ) ) ),
+                                                array( 'width' => '34', 'elements' => array( array( 'type' => 'social_icons', 'settings' => array( 'size' => '14' ) ) ) ),
+                                                array( 'width' => '33', 'elements' => array( array( 'type' => 'text', 'settings' => array( 'content' => 'Designed & built by GoDevs', 'font_size' => '12', 'align' => 'right' ) ) ) ),
+                                        ),
+                                        'settings' => array( 'padding_top' => '20', 'padding_bottom' => '20', 'background' => 'var(--wp--preset--color--surface-muted)', 'text_color' => 'var(--wp--preset--color--muted)' ),
+                                ),
+                        ),
+                ),
         );
 }
 
@@ -477,10 +721,15 @@ function godevs_hf_render_element( array $element ): string {
                         } else {
                                 $out = '<ul class="godevs-hf-nav-menu"><li><a href="' . esc_url( home_url( '/' ) ) . '">Home</a></li></ul>';
                         }
-                        // Wrap with inline font sizing.
+                        // Wrap with inline font sizing + mobile toggle button.
                         $fs = $s['font_size'] ?? '14';
                         $fw = $s['font_weight'] ?? '500';
-                        $out = '<div class="godevs-hf-nav-wrap" style="font-size:' . esc_attr( $fs ) . 'px;font-weight:' . esc_attr( $fw ) . '">' . $out . '</div>';
+                        $align = $s['align'] ?? '';
+                        $align_style = $align ? ' justify-content:' . esc_attr( $align ) . ';' : '';
+                        $out = '<div class="godevs-hf-nav-wrap is-mobile-collapsed" style="font-size:' . esc_attr( $fs ) . 'px;font-weight:' . esc_attr( $fw ) . ';' . $align_style . '">'
+                                . '<button class="godevs-hf-mobile-toggle" aria-label="' . esc_attr__( 'Toggle menu', 'godevs-portfolio' ) . '" aria-expanded="false"><span></span></button>'
+                                . $out
+                                . '</div>';
                         break;
 
                 case 'button':
@@ -613,15 +862,53 @@ function godevs_hf_render_layout( string $type ): string {
                 if ( '1' === $sticky ) {
                         $classes .= ' is-sticky';
                 }
+                // Auto-detect dark/light variant for proper contrast on nav/buttons.
+                if ( $bg ) {
+                        $is_dark = godevs_hf_is_dark_color( $bg );
+                        $classes .= $is_dark ? ' is-dark' : ' is-light';
+                }
 
                 $out .= '<div class="' . esc_attr( $classes ) . '" style="' . esc_attr( implode( ';', $style_parts ) ) . '">';
                 $out .= '<div class="godevs-hf-row-inner" style="max-width:var(--wp--style--root--wide-size,1280px);margin:0 auto;display:flex;gap:var(--wp--preset--spacing--40,2rem);align-items:center;justify-content:space-between">';
 
                 foreach ( $row['columns'] as $col ) {
                         $width = $col['width'] ?? '33';
-                        $out  .= '<div class="godevs-hf-col" style="flex:0 0 ' . esc_attr( $width ) . '%;display:flex;align-items:center;gap:var(--wp--preset--spacing--20,1rem)">';
+
+                        // Build responsive visibility data attributes for the column.
+                        $col_attrs = '';
+                        if ( isset( $col['visible_desktop'] ) && ! $col['visible_desktop'] ) {
+                                $col_attrs .= ' data-hidden-desktop="1"';
+                        }
+                        if ( isset( $col['visible_tablet'] ) && ! $col['visible_tablet'] ) {
+                                $col_attrs .= ' data-hidden-tablet="1"';
+                        }
+                        if ( isset( $col['visible_mobile'] ) && ! $col['visible_mobile'] ) {
+                                $col_attrs .= ' data-hidden-mobile="1"';
+                        }
+
+                        $out .= '<div class="godevs-hf-col"' . $col_attrs . ' style="flex:0 0 ' . esc_attr( $width ) . '%;display:flex;align-items:center;gap:var(--wp--preset--spacing--20,1rem)">';
                         foreach ( $col['elements'] as $element ) {
-                                $out .= godevs_hf_render_element( $element );
+                                $element_html = godevs_hf_render_element( $element );
+
+                                // Build responsive visibility data attributes for the element.
+                                $s = $element['settings'] ?? array();
+                                $el_attrs = '';
+                                if ( isset( $s['visible_desktop'] ) && ! $s['visible_desktop'] ) {
+                                        $el_attrs .= ' data-hidden-desktop="1"';
+                                }
+                                if ( isset( $s['visible_tablet'] ) && ! $s['visible_tablet'] ) {
+                                        $el_attrs .= ' data-hidden-tablet="1"';
+                                }
+                                if ( isset( $s['visible_mobile'] ) && ! $s['visible_mobile'] ) {
+                                        $el_attrs .= ' data-hidden-mobile="1"';
+                                }
+
+                                // Wrap each element in a div with visibility attrs (if any).
+                                if ( $el_attrs ) {
+                                        $out .= '<div class="godevs-hf-element"' . $el_attrs . '>' . $element_html . '</div>';
+                                } else {
+                                        $out .= $element_html;
+                                }
                         }
                         $out .= '</div>';
                 }
@@ -631,6 +918,46 @@ function godevs_hf_render_layout( string $type ): string {
 
         $out .= '</' . $tag . '>';
         return $out;
+}
+
+/**
+ * Determine if a color value is "dark" (for auto-applying is-dark class).
+ *
+ * @param string $color CSS color value (hex, rgb, rgba, var, etc.).
+ * @return bool True if the color is dark enough to need white text.
+ */
+function godevs_hf_is_dark_color( string $color ): bool {
+        // Handle CSS variables — can't determine, assume not dark.
+        if ( 0 === strpos( $color, 'var(' ) ) {
+                // Check for known dark vars.
+                return false !== strpos( $color, 'primary' ) || false !== strpos( $color, 'contrast' );
+        }
+        // Handle named colors.
+        if ( 'transparent' === $color || '' === $color ) {
+                return false;
+        }
+        // Parse hex color.
+        if ( preg_match( '/^#?([a-f0-9]{3}|[a-f0-9]{6})$/i', $color, $m ) ) {
+                $hex = $m[1];
+                if ( 3 === strlen( $hex ) ) {
+                        $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+                }
+                $r = hexdec( substr( $hex, 0, 2 ) );
+                $g = hexdec( substr( $hex, 2, 2 ) );
+                $b = hexdec( substr( $hex, 4, 2 ) );
+                // Relative luminance (sRGB).
+                $luminance = ( 0.299 * $r + 0.587 * $g + 0.114 * $b ) / 255;
+                return $luminance < 0.5;
+        }
+        // Parse rgb()/rgba().
+        if ( preg_match( '/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i', $color, $m ) ) {
+                $r = (int) $m[1];
+                $g = (int) $m[2];
+                $b = (int) $m[3];
+                $luminance = ( 0.299 * $r + 0.587 * $g + 0.114 * $b ) / 255;
+                return $luminance < 0.5;
+        }
+        return false;
 }
 
 /**
@@ -849,6 +1176,59 @@ function godevs_hf_ajax_get_layouts(): void {
 }
 add_action( 'wp_ajax_godevs_hf_get_layouts', 'godevs_hf_ajax_get_layouts' );
 
+/**
+ * AJAX endpoint: Render a live preview of the full layout as HTML.
+ *
+ * Used by the admin builder canvas to show a real-time preview of the
+ * header/footer as the user edits. Returns rendered HTML that the JS
+ * injects into the canvas container.
+ *
+ * @since 3.0.0
+ */
+function godevs_hf_ajax_render_preview(): void {
+        check_ajax_referer( 'godevs_settings_save', 'nonce' );
+        if ( ! current_user_can( 'manage_options' ) ) {
+                wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'godevs-portfolio' ) ), 403 );
+        }
+
+        $type = isset( $_POST['layout_type'] ) ? sanitize_key( wp_unslash( $_POST['layout_type'] ) ) : 'header';
+        $layout_data = isset( $_POST['layout_data'] ) ? json_decode( wp_unslash( $_POST['layout_data'] ), true ) : array();
+
+        if ( ! is_array( $layout_data ) || empty( $layout_data['rows'] ) ) {
+                wp_send_json_error( array( 'message' => __( 'Invalid layout data.', 'godevs-portfolio' ) ), 400 );
+        }
+
+        // Temporarily save the layout so we can use the existing renderer.
+        // We use a transient to avoid polluting the actual options.
+        $temp_slug = '_preview_' . $type;
+        $layouts = godevs_hf_get_layouts();
+        if ( ! isset( $layouts[ $type ] ) ) {
+                $layouts[ $type ] = array();
+        }
+        $layouts[ $type ][ $temp_slug ] = $layout_data;
+        set_transient( 'godevs_hf_preview_layouts', $layouts, 60 );
+
+        // Override the active layout to our temp slug.
+        $original_active = godevs_hf_get_active( $type );
+        godevs_hf_set_active( $type, $temp_slug );
+
+        // Render.
+        $html = godevs_hf_render_layout( $type );
+
+        // Restore the original active layout.
+        godevs_hf_set_active( $type, $original_active ?: '' );
+
+        // Clean up the transient.
+        delete_transient( 'godevs_hf_preview_layouts' );
+
+        if ( ! $html ) {
+                wp_send_json_error( array( 'message' => __( 'Could not render preview.', 'godevs-portfolio' ) ), 500 );
+        }
+
+        wp_send_json_success( array( 'html' => $html ) );
+}
+add_action( 'wp_ajax_godevs_hf_render_preview', 'godevs_hf_ajax_render_preview' );
+
 // ════════════════════════════════════════════════════════════════════════════
 // BUILDER CSS
 // ════════════════════════════════════════════════════════════════════════════
@@ -860,6 +1240,12 @@ function godevs_hf_enqueue_css(): void {
         $css = get_template_directory() . '/assets/css/header-footer-builder.css';
         if ( file_exists( $css ) ) {
                 wp_enqueue_style( 'godevs-hf-builder', get_template_directory_uri() . '/assets/css/header-footer-builder.css', array(), (string) filemtime( $css ) );
+        }
+
+        // Enqueue front-end JS for mobile hamburger menu + sticky scroll shadow.
+        $js = get_template_directory() . '/assets/js/hf-frontend.js';
+        if ( file_exists( $js ) ) {
+                wp_enqueue_script( 'godevs-hf-frontend', get_template_directory_uri() . '/assets/js/hf-frontend.js', array(), (string) filemtime( $js ), true );
         }
 }
 add_action( 'wp_enqueue_scripts', 'godevs_hf_enqueue_css' );

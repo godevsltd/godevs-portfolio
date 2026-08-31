@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Theme version.
  */
 if ( ! defined( 'GODEVS_PORTFOLIO_VERSION' ) ) {
-        define( 'GODEVS_PORTFOLIO_VERSION', '2.3.0' );
+        define( 'GODEVS_PORTFOLIO_VERSION', '1.0.0' );
 }
 
 /**
@@ -140,9 +140,14 @@ $_godevs_files = array(
         '/content/taxonomies.php',
         '/content/meta-fields.php',
         '/content/case-study.php',
+        '/booking-system.php',
+        '/front-forms.php',
+        '/settings-integration.php',
         '/demo-registry.php',
         '/demo-tracker.php',
         '/demo-renderer.php',
+        '/cpt-archives.php',
+        '/cpt-admin.php',
         '/theme-settings.php',
         '/demo-importer.php',
         '/header-footer-builder.php',
