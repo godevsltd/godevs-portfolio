@@ -40,57 +40,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<tbody>
 				<tr>
 					<td>Discovery workshop</td>
-					<td>✓</td>
-					<td>✓</td>
-					<td>✓</td>
+					<td>Included</td>
+					<td>Included</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td>Brand strategy doc</td>
-					<td>✓</td>
-					<td>✓</td>
-					<td>✓</td>
+					<td>Included</td>
+					<td>Included</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td>Identity system</td>
 					<td>—</td>
-					<td>✓</td>
-					<td>✓</td>
+					<td>Included</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td>WordPress build</td>
 					<td>—</td>
-					<td>✓</td>
-					<td>✓</td>
+					<td>Included</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td>Component library</td>
 					<td>—</td>
-					<td>✓</td>
-					<td>✓</td>
+					<td>Included</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td>Editor training</td>
 					<td>—</td>
-					<td>✓</td>
-					<td>✓</td>
+					<td>Included</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td>Performance audit</td>
 					<td>—</td>
 					<td>—</td>
-					<td>✓</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td>Quarterly retainer</td>
 					<td>—</td>
 					<td>—</td>
-					<td>✓</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td>Priority availability</td>
 					<td>—</td>
 					<td>—</td>
-					<td>✓</td>
+					<td>Included</td>
 				</tr>
 				<tr>
 					<td><strong>Timeline</strong></td>

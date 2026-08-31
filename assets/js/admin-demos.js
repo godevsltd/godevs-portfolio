@@ -374,11 +374,23 @@
         function showImportConfirmation( data ) {
                 var demo = data.demo;
                 var isImported = data.isImported;
+                var importedCount = api.imported ? api.imported.length : 0;
                 var warning = '';
                 var styleLine = '';
 
                 if ( isImported ) {
-                        warning = '<div class="godevs-warning">This demo has already been imported. Importing again will create a new set of pages and a new navigation menu.</div>';
+                        warning = '<div class="godevs-warning">This demo has already been imported. Importing again will replace the previous pages and navigation menu.</div>';
+                }
+
+                // Inform the user that other imported demos will be replaced.
+                var otherImports = importedCount - ( isImported ? 1 : 0 );
+                var replaceNotice = '';
+                if ( otherImports > 0 ) {
+                        replaceNotice = '<div class="godevs-info">You have ' + otherImports +
+                                ' other imported demo' + ( otherImports === 1 ? '' : 's' ) +
+                                '. Importing this demo will <strong>automatically remove</strong> ' +
+                                ( otherImports === 1 ? 'it' : 'them' ) +
+                                ' so only this demo\'s pages are visible on your site.</div>';
                 }
 
                 if ( demo.style ) {
@@ -391,13 +403,16 @@
                         '<p>' + escapeHTML( demo.description ) + '</p>' +
                         styleLine +
                         warning +
+                        replaceNotice +
                         '<p>This will create:</p>' +
                         '<ul>' +
                                 '<li>' + demo.pages.length + ' page' + ( demo.pages.length === 1 ? '' : 's' ) + '</li>' +
-                                '<li>1 navigation menu</li>' +
+                                '<li>1 navigation menu (with only this demo\'s pages)</li>' +
                                 '<li>Demo content (the homepage will be populated with the demo pattern markup)</li>' +
                         '</ul>' +
-                        '<p>Existing content will not be deleted.</p>' +
+                        ( otherImports > 0 || isImported
+                                ? '<p><strong>Previously imported demo pages will be moved to trash</strong> (recoverable from the Trash in Pages).</p>'
+                                : '<p>Your other existing pages will not be deleted.</p>' ) +
                         '<p><strong>Choose import mode:</strong></p>' +
                         '<p>' +
                                 '<label><input type="radio" name="godevs-import-mode" value="safe" checked> ' +
@@ -516,6 +531,12 @@
                                         errorsHTML = '<p><strong>Some steps had issues:</strong></p><ul>' +
                                                 data.errors.map( function ( e ) { return '<li>' + escapeHTML( e ) + '</li>'; } ).join( '' ) +
                                                 '</ul>';
+                                }
+                                var replacedHTML = '';
+                                if ( data.replaced_demos && data.replaced_demos.length > 0 ) {
+                                        replacedHTML = '<p><strong>Replaced demo(s):</strong> ' +
+                                                data.replaced_demos.map( escapeHTML ).join( ', ' ) +
+                                                ' — their pages were moved to trash.</p>';
                                 }
                                 setTimeout( function () {
                                         hideProgress();

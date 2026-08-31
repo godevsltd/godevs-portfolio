@@ -200,6 +200,51 @@ function godevs_portfolio_ajax_import_demo(): void {
         $homepage_id     = 0;
         $style_applied   = '';
         $errors          = array();
+        $replaced_demos  = array();
+
+        // ═══ AUTO-CLEANUP: Remove ALL previously imported demos ═══
+        // This ensures only ONE demo's pages are visible on the site at any
+        // time. When a new demo is imported, all previously imported demo
+        // pages, navigation menus, and homepage settings are cleanly removed
+        // so the user sees ONLY the newly imported demo's content.
+        $previous_imports = godevs_portfolio_tracker_get_all();
+        foreach ( $previous_imports as $prev_demo_id => $prev_record ) {
+                // Skip the demo being imported (in case it's a re-import).
+                if ( $prev_demo_id === $demo_id ) {
+                        continue;
+                }
+
+                // Remove the previous demo (trashes its pages, deletes its nav menu).
+                $remove_result = godevs_portfolio_tracker_remove( $prev_demo_id, true );
+                if ( ! empty( $remove_result['success'] ) ) {
+                        $replaced_demos[] = $prev_demo_id;
+                }
+        }
+
+        // Also clean up any orphaned demo menus (from failed imports, etc.).
+        // Delete any nav menu whose name ends with "— Navigation" that isn't
+        // currently assigned to a location. This catches stale menus.
+        $existing_menus = wp_get_nav_menus();
+        $current_locations = get_theme_mod( 'nav_menu_locations', array() );
+        foreach ( $existing_menus as $menu ) {
+                // Skip menus assigned to a location.
+                if ( in_array( (int) $menu->term_id, array_map( 'absint', array_values( $current_locations ) ), true ) ) {
+                        continue;
+                }
+                // Only delete menus created by our demo importer.
+                if ( false !== strpos( $menu->name, '— Navigation' ) ) {
+                        wp_delete_nav_menu( $menu->term_id );
+                }
+        }
+
+        // Also handle re-import of the SAME demo — remove its old pages first
+        // so we don't get duplicate pages with suffix slugs (home-director-2).
+        if ( isset( $previous_imports[ $demo_id ] ) ) {
+                $remove_result = godevs_portfolio_tracker_remove( $demo_id, true );
+                if ( ! empty( $remove_result['success'] ) ) {
+                        $replaced_demos[] = $demo_id;
+                }
+        }
 
         // 1. Read the demo pattern markup (the homepage content).
         $homepage_markup = godevs_portfolio_render_demo_markup( $demo );
@@ -398,6 +443,7 @@ function godevs_portfolio_ajax_import_demo(): void {
                         'style'       => $style_applied,
                         'errors'      => $errors,
                         'steps'       => $steps,
+                        'replaced_demos' => $replaced_demos,
                         'editHomepageUrl' => $homepage_id ? admin_url( 'post.php?post=' . $homepage_id . '&action=edit' ) : '',
                         'editSiteUrl'      => admin_url( 'site-editor.php' ),
                 )

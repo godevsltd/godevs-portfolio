@@ -24,13 +24,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<img class="wp-block-cover__image-background wp-image-0" alt="Featured landscape photograph from the Aperture portfolio" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" style="object-fit:cover;object-position:center"/>
 		<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|70","left":"var:preset|spacing|70","right":"var:preset|spacing|70","top":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
 		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"#ffffff"},"typography":{"letterSpacing":"0.15em","textTransform":"uppercase"}}} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|contrast"},"typography":{"letterSpacing":"0.15em","textTransform":"uppercase"}}} -->
 			<p class="is-style-eyebrow has-text-color" style="color:#ffffff;letter-spacing:0.15em;text-transform:uppercase">Photography · Berlin</p>
 			<!-- /wp:paragraph -->
-			<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 7vw, 5rem)","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"600"},"color":{"text":"#ffffff"}}} -->
+			<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 7vw, 5rem)","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"600"},"color":{"text":"var:preset|color|contrast"}}} -->
 			<h1 class="wp-block-heading has-text-color" style="color:#ffffff;font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 7vw, 5rem);line-height:1;letter-spacing:-0.03em;font-weight:600">Light, held still.</h1>
 			<!-- /wp:heading -->
-			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"color":{"text":"#e0e0e0"},"layout":{"selfStretch":"fit","flexSize":"480px"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"color":{"text":"var:preset|color|muted"},"layout":{"selfStretch":"fit","flexSize":"480px"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
 			<p class="has-text-color" style="color:#e0e0e0;font-size:var(--wp--preset--font-size--large);line-height:1.5;max-width:480px;margin-top:var(--wp--preset--spacing--30)">Editorial, product, and portrait photography for brands that care about how they look. Ten years behind the lens, still learning.</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->

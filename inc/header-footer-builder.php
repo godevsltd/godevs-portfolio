@@ -700,11 +700,35 @@ function godevs_hf_render_element( array $element ): string {
                         $locations = get_nav_menu_locations();
                         if ( $menu_id ) {
                                 $menu = wp_get_nav_menu_object( $menu_id );
-                        } elseif ( isset( $locations['primary'] ) ) {
+                        } elseif ( ! empty( $locations['primary'] ) ) {
                                 $menu = wp_get_nav_menu_object( $locations['primary'] );
                         } else {
-                                $menus = wp_get_nav_menus();
-                                $menu  = $menus[0] ?? null;
+                                // No menu assigned to primary. Instead of blindly
+                                // picking the first menu by term_id (which would
+                                // show the OLDEST demo's pages), prefer the most
+                                // recently created "— Navigation" menu (which is
+                                // the menu the demo importer just created).
+                                $all_menus = wp_get_nav_menus( array( 'orderby' => 'date' ) );
+                                $menu      = null;
+                                if ( ! empty( $all_menus ) && is_array( $all_menus ) ) {
+                                        // wp_get_nav_menus returns terms; sort by term_id DESC (newest first).
+                                        usort(
+                                                $all_menus,
+                                                static function ( $a, $b ) {
+                                                        return (int) $b->term_id - (int) $a->term_id;
+                                                }
+                                        );
+                                        foreach ( $all_menus as $candidate ) {
+                                                if ( false !== strpos( $candidate->name, '— Navigation' ) ) {
+                                                        $menu = $candidate;
+                                                        break;
+                                                }
+                                        }
+                                        // If no demo menu found, fall back to the newest menu.
+                                        if ( ! $menu ) {
+                                                $menu = $all_menus[0];
+                                        }
+                                }
                         }
                         if ( $menu ) {
                                 $out = wp_nav_menu( array(
