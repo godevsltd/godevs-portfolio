@@ -429,6 +429,23 @@ function godevs_portfolio_ajax_import_demo(): void {
                 $style_applied
         );
 
+        // 6b. Clear caches so the imported content appears immediately on the
+        // front-end. This addresses the "old data still shows" report:
+        //   - clean_post_cache() flushes the individual page's object cache
+        //   - wp_cache_delete() clears the options cache (for page_on_front etc.)
+        //   - WP_Theme_JSON_Resolver cache is cleared by apply_style_variation
+        //   - rewrite_rules are flushed in case the importer created new slugs
+        foreach ( $created_pages as $page_id ) {
+                clean_post_cache( $page_id );
+        }
+        if ( $homepage_id ) {
+                clean_post_cache( $homepage_id );
+        }
+        wp_cache_delete( 'godevs_portfolio_imports', 'options' );
+        wp_cache_delete( 'page_on_front', 'options' );
+        wp_cache_delete( 'show_on_front', 'options' );
+        wp_cache_delete( 'alloptions', 'options' );
+
         // 7. Return the result.
         wp_send_json_success(
                 array(
@@ -445,6 +462,8 @@ function godevs_portfolio_ajax_import_demo(): void {
                         'steps'       => $steps,
                         'replaced_demos' => $replaced_demos,
                         'editHomepageUrl' => $homepage_id ? admin_url( 'post.php?post=' . $homepage_id . '&action=edit' ) : '',
+                        'viewSiteUrl'    => home_url( '/' ),
+                        'viewSiteLabel'  => __( 'View Live Site →', 'godevs-portfolio' ),
                         'editSiteUrl'      => admin_url( 'site-editor.php' ),
                 )
         );

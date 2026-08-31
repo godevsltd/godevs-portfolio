@@ -356,8 +356,128 @@ function godevs_portfolio_seed_default_settings(): void {
 
         // Also reset the rewrite version so the version-bump flusher re-runs.
         delete_option( 'godevs_portfolio_rewrite_version' );
+
+        // Seed a default homepage so the theme shows a beautiful page even
+        // before the user imports a demo. This page uses the front-page.html
+        // template which renders post_content — so the hero + sections below
+        // appear immediately on activation.
+        godevs_portfolio_seed_default_homepage();
 }
 add_action( 'after_switch_theme', 'godevs_portfolio_seed_default_settings' );
+
+/**
+ * Seed a default homepage with the theme's hero pattern on theme activation.
+ *
+ * Creates a "Home" page with the front-page-default-hero pattern + dynamic
+ * content sections. The demo importer will replace this page when a demo
+ * is imported (the auto-cleanup trashes it via the tracker).
+ *
+ * @return void
+ * @since 1.0.0
+ */
+function godevs_portfolio_seed_default_homepage(): void {
+        // Only seed if no homepage is set AND no page is currently the front.
+        $current_home = (int) get_option( 'page_on_front', 0 );
+        if ( $current_home && get_post( $current_home ) ) {
+                return; // User already has a homepage — don't overwrite.
+        }
+
+        // Check if a page called "Home" already exists.
+        $existing = get_page_by_path( 'home' );
+        if ( $existing ) {
+                update_option( 'show_on_front', 'page' );
+                update_option( 'page_on_front', $existing->ID );
+                return;
+        }
+
+        // Build the default homepage content using the hero pattern + dynamic sections.
+        $content  = '<!-- wp:group {"tagName":"section","className":"wp-block-godevs-front-hero","layout":{"type":"default"}} -->';
+        $content .= '<section class="wp-block-group wp-block-godevs-front-hero alignfull">';
+        $content .= '<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"720px"}} -->';
+        $content .= '<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">';
+        $content .= '<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"letterSpacing":"0.15em","textTransform":"uppercase"}}} -->';
+        $content .= '<p class="is-style-eyebrow has-text-align-center has-text-color" style="color:var(--wp--preset--color--accent);letter-spacing:0.15em;text-transform:uppercase">Portfolio · 2014 — 2024</p>';
+        $content .= '<!-- /wp:paragraph -->';
+        $content .= '<!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xxx-large","lineHeight":"1.05","letterSpacing":"-0.02em","fontWeight":"600"}}} -->';
+        $content .= '<h1 class="wp-block-heading has-text-align-center" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);line-height:1.05;letter-spacing:-0.02em;font-weight:600">Building considered portfolio sites that hold up over time.</h1>';
+        $content .= '<!-- /wp:heading -->';
+        $content .= '<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.7"}}} -->';
+        $content .= '<p class="has-text-align-center" style="font-size:var(--wp--preset--font-size--medium);line-height:1.7">A decade of editorial design, accessibility, and front-end engineering. The work spans identity systems, publications, and product portfolios.</p>';
+        $content .= '<!-- /wp:paragraph -->';
+        $content .= '<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->';
+        $content .= '<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60)">';
+        $content .= '<!-- wp:button -->';
+        $content .= '<div class="wp-block-button"><a href="/work" class="wp-block-button__link wp-element-button">Browse the portfolio</a></div>';
+        $content .= '<!-- /wp:button -->';
+        $content .= '<!-- wp:button {"className":"is-style-text-link"} -->';
+        $content .= '<div class="wp-block-button is-style-text-link"><a href="/about" class="wp-block-button__link wp-element-button">About the practice</a></div>';
+        $content .= '<!-- /wp:button -->';
+        $content .= '</div>';
+        $content .= '<!-- /wp:buttons -->';
+        $content .= '</div>';
+        $content .= '<!-- /wp:group -->';
+        $content .= '</section>';
+        $content .= '<!-- /wp:group -->';
+
+        // Add dynamic portfolio section.
+        $content .= '<!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->';
+        $content .= '<section class="wp-block-group alignfull">';
+        $content .= '<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|60"}},"layout":{"type":"default"}} -->';
+        $content .= '<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">';
+        $content .= '<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->';
+        $content .= '<div class="wp-block-group">';
+        $content .= '<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"}}} -->';
+        $content .= '<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent)">Selected Work</p>';
+        $content .= '<!-- /wp:paragraph -->';
+        $content .= '<!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->';
+        $content .= '<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);letter-spacing:-0.02em;font-weight:600">Recent projects.</h2>';
+        $content .= '<!-- /wp:heading -->';
+        $content .= '</div>';
+        $content .= '<!-- /wp:group -->';
+        $content .= '<!-- wp:query {"queryId":1,"query":{"perPage":6,"postType":"godevs_project","order":"desc","orderBy":"date"}} -->';
+        $content .= '<!-- wp:post-template {"className":"godevs-grid-3"} -->';
+        $content .= '<!-- wp:group {"className":"is-style-card-media","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->';
+        $content .= '<div class="wp-block-group is-style-card-media">';
+        $content .= '<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/10"} /-->';
+        $content .= '<!-- wp:group {"style":{"spacing":{"padding":"var:preset|spacing|40","blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->';
+        $content .= '<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">';
+        $content .= '<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->';
+        $content .= '<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)"><!-- wp:post-date {"format":"Y"} /--></p>';
+        $content .= '<!-- /wp:paragraph -->';
+        $content .= '<!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|large","letterSpacing":"-0.01em","fontWeight":"600"}}} /-->';
+        $content .= '</div>';
+        $content .= '<!-- /wp:group -->';
+        $content .= '</div>';
+        $content .= '<!-- /wp:group -->';
+        $content .= '<!-- /wp:post-template -->';
+        $content .= '<!-- wp:query-no-results -->';
+        $content .= '<!-- wp:paragraph {"align":"center","style":{"color":{"text":"var:preset|color|muted"}}} -->';
+        $content .= '<p class="has-text-align-center has-text-color" style="color:var(--wp--preset--color--muted)">No projects yet. Add your first project to see it here.</p>';
+        $content .= '<!-- /wp:paragraph -->';
+        $content .= '<!-- /wp:query-no-results -->';
+        $content .= '<!-- /wp:query -->';
+        $content .= '</div>';
+        $content .= '<!-- /wp:group -->';
+        $content .= '</section>';
+        $content .= '<!-- /wp:group -->';
+
+        $page_id = wp_insert_post(
+                array(
+                        'post_title'   => __( 'Home', 'godevs-portfolio' ),
+                        'post_name'    => 'home',
+                        'post_status'  => 'publish',
+                        'post_type'    => 'page',
+                        'post_content' => $content,
+                ),
+                true
+        );
+
+        if ( ! is_wp_error( $page_id ) && $page_id ) {
+                update_option( 'show_on_front', 'page' );
+                update_option( 'page_on_front', (int) $page_id );
+                clean_post_cache( $page_id );
+        }
+}
 
 /**
  * Flush rewrite rules on theme activation and deactivation.

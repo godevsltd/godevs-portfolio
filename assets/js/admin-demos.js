@@ -415,10 +415,10 @@
                                 : '<p>Your other existing pages will not be deleted.</p>' ) +
                         '<p><strong>Choose import mode:</strong></p>' +
                         '<p>' +
-                                '<label><input type="radio" name="godevs-import-mode" value="safe" checked> ' +
-                                '<strong>Safe Import</strong> — for existing sites. Creates pages without changing homepage or style.</label><br>' +
-                                '<label><input type="radio" name="godevs-import-mode" value="starter"> ' +
-                                '<strong>Starter Import</strong> — for fresh sites. Sets the new homepage and applies the recommended style.</label>' +
+                                '<label><input type="radio" name="godevs-import-mode" value="starter" checked> ' +
+                                '<strong>Starter Import</strong> — recommended. Sets the demo as your homepage and applies the recommended style.</label><br>' +
+                                '<label><input type="radio" name="godevs-import-mode" value="safe"> ' +
+                                '<strong>Safe Import</strong> — for existing sites. Creates pages without changing your current homepage or style.</label>' +
                         '</p>';
 
                 if ( demo.style ) {
@@ -538,10 +538,20 @@
                                                 data.replaced_demos.map( escapeHTML ).join( ', ' ) +
                                                 ' — their pages were moved to trash.</p>';
                                 }
+                                var successMsg = 'Import complete!';
+                                if ( data.viewSiteUrl ) {
+                                        successMsg += ' Redirecting to your live site…';
+                                }
                                 setTimeout( function () {
                                         hideProgress();
-                                        window.location.reload();
-                                }, 800 );
+                                        if ( data.viewSiteUrl ) {
+                                                // Redirect to the live site so the user immediately
+                                                // sees the imported demo content.
+                                                window.location.href = data.viewSiteUrl;
+                                        } else {
+                                                window.location.reload();
+                                        }
+                                }, 1200 );
                         } )
                         .catch( function () {
                                 window.alert( 'Network error during import.' );
