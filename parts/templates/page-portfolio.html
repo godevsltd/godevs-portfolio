@@ -1,0 +1,65 @@
+<!-- wp:template-part {"slug":"header","theme":"godevs-portfolio","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--80)">
+        <!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40","margin":{"bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+        <div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--80)">
+                <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"letterSpacing":"0.15em","textTransform":"uppercase"}}} -->
+                <p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent);letter-spacing:0.15em;text-transform:uppercase">Portfolio</p>
+                <!-- /wp:paragraph -->
+                <!-- wp:post-title {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xxx-large","lineHeight":"1.05","letterSpacing":"-0.02em","fontWeight":"600"}}} /-->
+                <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"},"layout":{"selfStretch":"fit","flexSize":"560px"}}} -->
+                <p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--medium);line-height:1.7;max-width:560px">A curated selection of work — kept current, archived honestly. Every project below is pulled live from the Projects custom post type.</p>
+                <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- ═══ PAGE CONTENT — rendered from the imported demo's post_content ═══ -->
+        <!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|60","margin":{"bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
+        <div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--80)">
+                <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- ═══ DYNAMIC QUERY — Live projects from the godevs_project CPT ═══ -->
+        <!-- wp:query {"queryId":101,"query":{"perPage":12,"postType":"godevs_project","order":"desc","orderBy":"date"}} -->
+        <!-- wp:post-template {"className":"godevs-grid-3"} -->
+        <!-- wp:group {"className":"is-style-card-media","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+        <div class="wp-block-group is-style-card-media">
+                <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/10"} /-->
+                <!-- wp:group {"style":{"spacing":{"padding":"var:preset|spacing|40","blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+                <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+                        <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
+                        <p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)"><!-- wp:post-date {"format":"Y"} /--> · <!-- wp:post-terms {"term":"godevs_project_category"} /--></p>
+                        <!-- /wp:paragraph -->
+                        <!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|large","letterSpacing":"-0.01em","fontWeight":"600"}}} /-->
+                        <!-- wp:post-excerpt {"moreText":"View project →","excerptLength":20,"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6"}}} /-->
+                </div>
+                <!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
+        <!-- /wp:post-template -->
+
+        <!-- wp:query-no-results -->
+        <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"480px"}} -->
+        <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+                <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|large","fontWeight":"600"},"color":{"text":"var:preset|color|muted"}}} -->
+                <p class="has-text-align-center has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large);font-weight:600">No projects yet.</p>
+                <!-- /wp:paragraph -->
+                <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
+                <p class="has-text-align-center has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">Add your first project in the Projects admin section and it will appear here automatically.</p>
+                <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
+        <!-- /wp:query-no-results -->
+
+        <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+        <!-- wp:query-pagination-previous /-->
+        <!-- wp:query-pagination-numbers /-->
+        <!-- wp:query-pagination-next /-->
+        <!-- /wp:query-pagination -->
+        <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer-cta","theme":"godevs-portfolio","tagName":"footer"} /-->

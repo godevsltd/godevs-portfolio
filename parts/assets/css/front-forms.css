@@ -1,0 +1,171 @@
+/**
+ * GoDevs Portfolio — Front-end Forms Styles
+ *
+ * Styles for the [godevs_booking_form] and [godevs_proposal_form] shortcodes.
+ * Modern, clean, responsive design that matches the theme's aesthetic.
+ *
+ * @package GoDevs_Portfolio
+ * @since   2.9.0
+ */
+
+.godevs-form-wrap {
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+.godevs-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.godevs-form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+}
+
+.godevs-form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.godevs-form-field label {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--wp--preset--color--text, #0a0a0a);
+}
+
+.godevs-form-field .required {
+	color: var(--wp--preset--color--accent, #2563eb);
+}
+
+.godevs-form-field input[type="text"],
+.godevs-form-field input[type="email"],
+.godevs-form-field input[type="tel"],
+.godevs-form-field input[type="date"],
+.godevs-form-field input[type="time"],
+.godevs-form-field select,
+.godevs-form-field textarea {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+	border-radius: 6px;
+	font-size: 0.9375rem;
+	font-family: inherit;
+	background: var(--wp--preset--color--surface, #ffffff);
+	color: var(--wp--preset--color--text, #0a0a0a);
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+	box-sizing: border-box;
+}
+
+.godevs-form-field input:focus,
+.godevs-form-field select:focus,
+.godevs-form-field textarea:focus {
+	outline: none;
+	border-color: var(--wp--preset--color--accent, #2563eb);
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.godevs-form-field textarea {
+	resize: vertical;
+	min-height: 120px;
+}
+
+.godevs-form-field input::placeholder,
+.godevs-form-field textarea::placeholder {
+	color: var(--wp--preset--color--muted, #6b7280);
+	opacity: 0.7;
+}
+
+.godevs-form-submit {
+	align-self: flex-start;
+	padding: 0.75rem 2rem;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	background: var(--wp--preset--color--primary, #0a0a0a);
+	color: var(--wp--preset--color--contrast, #ffffff);
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.godevs-form-submit:hover {
+	opacity: 0.85;
+}
+
+.godevs-form-submit:active {
+	transform: translateY(1px);
+}
+
+.godevs-form-submit.is-loading {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+.godevs-form-submit.is-loading::after {
+	content: '';
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-left: 8px;
+	border: 2px solid currentColor;
+	border-top-color: transparent;
+	border-radius: 50%;
+	animation: godevs-form-spin 0.8s linear infinite;
+	vertical-align: middle;
+}
+
+@keyframes godevs-form-spin {
+	to { transform: rotate(360deg); }
+}
+
+.godevs-form-message {
+	padding: 0;
+	margin: 0;
+	font-size: 0.875rem;
+	min-height: 0;
+	transition: padding 200ms ease, margin 200ms ease;
+	overflow: hidden;
+}
+
+.godevs-form-message.is-visible {
+	padding: 0.75rem 1rem;
+	margin-top: 0.5rem;
+	border-radius: 6px;
+}
+
+.godevs-form-message.is-success {
+	background: #dcfce7;
+	color: #15803d;
+	border: 1px solid #bbf7d0;
+}
+
+.godevs-form-message.is-error {
+	background: #fee2e2;
+	color: #b91c1c;
+	border: 1px solid #fecaca;
+}
+
+.godevs-form-disabled {
+	padding: 2rem;
+	text-align: center;
+	color: var(--wp--preset--color--muted, #6b7280);
+	background: var(--wp--preset--color--surface-muted, #f5f5f0);
+	border-radius: 8px;
+}
+
+/* Responsive — stack the two-column rows on mobile */
+@media (max-width: 600px) {
+	.godevs-form-row {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.godevs-form-submit {
+		width: 100%;
+		text-align: center;
+	}
+}

@@ -1,0 +1,109 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Dark",
+	"description": "A deep, considered dark mode — neutral dark background, off-white text, brighter accent for accessibility. Favored by developers and design studios.",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "primary", "color": "#FAFAF7", "name": "Primary" },
+				{ "slug": "secondary", "color": "#C8C8C5", "name": "Secondary" },
+				{ "slug": "accent", "color": "#60A5FA", "name": "Accent" },
+				{ "slug": "base", "color": "#0A0A0A", "name": "Base" },
+				{ "slug": "surface", "color": "#141414", "name": "Surface" },
+				{ "slug": "surface-elevated", "color": "#1E1E1E", "name": "Surface Elevated" },
+				{ "slug": "foreground", "color": "#FAFAF7", "name": "Foreground" },
+				{ "slug": "muted", "color": "#9CA3AF", "name": "Muted" },
+				{ "slug": "border", "color": "#262626", "name": "Border" },
+				{ "slug": "success", "color": "#4ADE80", "name": "Success" },
+				{ "slug": "warning", "color": "#FBBF24", "name": "Warning" },
+				{ "slug": "error", "color": "#F87171", "name": "Error" },
+				{ "slug": "contrast", "color": "#0A0A0A", "name": "Contrast" }
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "#0A0A0A",
+			"text": "#FAFAF7"
+		},
+		"spacing": {
+			"padding": {
+				"top": "0",
+				"right": "var:preset|spacing|50",
+				"bottom": "0",
+				"left": "var:preset|spacing|50"
+			},
+			"blockGap": "var:preset|spacing|50"
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|body",
+			"fontSize": "var:preset|font-size|normal",
+			"lineHeight": "1.6"
+		},
+		"elements": {
+			"link": {
+				"color": { "text": "#60A5FA" },
+				"typography": { "textDecoration": "underline" }
+			},
+			"heading": {
+				"color": { "text": "#FAFAF7" },
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontWeight": "700",
+					"lineHeight": "1.15",
+					"letterSpacing": "-0.01em"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontSize": "var:preset|font-size|xx-large",
+					"lineHeight": "1.05",
+					"letterSpacing": "-0.02em"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var:preset|font-size|x-large",
+					"lineHeight": "1.1"
+				}
+			},
+			"button": {
+				"border": { "radius": "4px" },
+				"color": {
+					"background": "#FAFAF7",
+					"text": "#0A0A0A"
+				},
+				"typography": {
+					"fontWeight": "600"
+				},
+				":hover": {
+					"color": { "background": "#C8C8C5" }
+				}
+			},
+			"caption": {
+				"color": { "text": "#9CA3AF" }
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"color": { "text": "#FAFAF7" }
+			},
+			"core/post-date": {
+				"color": { "text": "#9CA3AF" }
+			},
+			"core/post-terms": {
+				"color": { "text": "#9CA3AF" },
+				"elements": {
+					"link": { "color": { "text": "#60A5FA" } }
+				}
+			},
+			"core/post-author-name": {
+				"color": { "text": "#9CA3AF" }
+			},
+			"core/separator": {
+				"color": { "text": "#262626" }
+			}
+		}
+	}
+}
