@@ -77,7 +77,7 @@
                         $grid.html( '<div class="notice notice-error inline"><p><strong>Error loading templates:</strong> ' + errorMsg + '</p><p>Please check your browser console and WordPress error logs. Common causes: nonce expired, security plugin blocking admin-ajax, or PHP fatal error.</p></div>' );
                         $savedList.html( '' );
                         if ( window.console ) {
-                                console.error( '[Header/Footer Builder] loadLayouts failed:', { textStatus: textStatus, errorThrown: errorThrown, status: jqXHR.status, responseText: jqXHR.responseText } );
+                                if ( window.console ) { console.error( '[Header/Footer Builder] loadLayouts failed:', { textStatus: textStatus, errorThrown: errorThrown, status: jqXHR.status, responseText: jqXHR.responseText } ); }
                         }
                 } );
         }
