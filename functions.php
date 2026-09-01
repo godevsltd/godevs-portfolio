@@ -336,7 +336,7 @@ function godevs_portfolio_seed_default_settings(): void {
                 $defaults = array(
                         'header_sticky'         => '1',
                         'footer_copyright'      => '1',
-                        'footer_social_visible' => '1',
+                        'footer_social'           => '1',
                         'blog_show_author'      => '1',
                         'blog_show_date'        => '1',
                         'blog_show_categories'  => '1',
@@ -407,10 +407,10 @@ function godevs_portfolio_seed_default_homepage(): void {
         $content .= '<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->';
         $content .= '<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60)">';
         $content .= '<!-- wp:button -->';
-        $content .= '<div class="wp-block-button"><a href="/work" class="wp-block-button__link wp-element-button">Browse the portfolio</a></div>';
+        $content .= '<div class="wp-block-button"><a href="#portfolio" class="wp-block-button__link wp-element-button">Browse the portfolio</a></div>';
         $content .= '<!-- /wp:button -->';
         $content .= '<!-- wp:button {"className":"is-style-text-link"} -->';
-        $content .= '<div class="wp-block-button is-style-text-link"><a href="/about" class="wp-block-button__link wp-element-button">About the practice</a></div>';
+        $content .= '<div class="wp-block-button is-style-text-link"><a href="#contact" class="wp-block-button__link wp-element-button">Get in touch</a></div>';
         $content .= '<!-- /wp:button -->';
         $content .= '</div>';
         $content .= '<!-- /wp:buttons -->';
@@ -559,7 +559,7 @@ function godevs_portfolio_upgrade_handler(): void {
                 $defaults = array(
                         'header_sticky'         => '1',
                         'footer_copyright'      => '1',
-                        'footer_social_visible' => '1',
+                        'footer_social'           => '1',
                         'blog_show_author'      => '1',
                         'blog_show_date'        => '1',
                         'blog_show_categories'  => '1',

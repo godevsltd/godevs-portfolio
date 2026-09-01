@@ -222,5 +222,81 @@ function godevs_portfolio_register_block_styles(): void {
                         'is_default'   => false,
                 )
         );
+
+        // ═══ Modern card variants (v1.1.0) ═══
+        // These have CSS in theme.css but were missing PHP registration.
+        // Without registration, they don't appear in the editor's style picker.
+
+        register_block_style(
+                'core/group',
+                array(
+                        'name'         => 'card-pro',
+                        'label'        => __( 'Card Pro', 'godevs-portfolio' ),
+                        'is_default'   => false,
+                )
+        );
+
+        register_block_style(
+                'core/group',
+                array(
+                        'name'         => 'card-media',
+                        'label'        => __( 'Card Media', 'godevs-portfolio' ),
+                        'is_default'   => false,
+                )
+        );
+
+        register_block_style(
+                'core/group',
+                array(
+                        'name'         => 'card-overlay',
+                        'label'        => __( 'Card Overlay', 'godevs-portfolio' ),
+                        'is_default'   => false,
+                )
+        );
+
+        register_block_style(
+                'core/group',
+                array(
+                        'name'         => 'card-compact',
+                        'label'        => __( 'Card Compact', 'godevs-portfolio' ),
+                        'is_default'   => false,
+                )
+        );
+
+        register_block_style(
+                'core/group',
+                array(
+                        'name'         => 'card-accent',
+                        'label'        => __( 'Card Accent', 'godevs-portfolio' ),
+                        'is_default'   => false,
+                )
+        );
+
+        register_block_style(
+                'core/group',
+                array(
+                        'name'         => 'card-profile',
+                        'label'        => __( 'Card Profile', 'godevs-portfolio' ),
+                        'is_default'   => false,
+                )
+        );
+
+        register_block_style(
+                'core/group',
+                array(
+                        'name'         => 'card-quote',
+                        'label'        => __( 'Card Quote', 'godevs-portfolio' ),
+                        'is_default'   => false,
+                )
+        );
+
+        register_block_style(
+                'core/group',
+                array(
+                        'name'         => 'card-stats',
+                        'label'        => __( 'Card Stats', 'godevs-portfolio' ),
+                        'is_default'   => false,
+                )
+        );
 }
 add_action( 'init', 'godevs_portfolio_register_block_styles' );

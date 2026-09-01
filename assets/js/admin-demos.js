@@ -505,12 +505,25 @@
         }
 
         function performImport( demoId, mode, applyStyle ) {
+                // Lock the UI to prevent duplicate import clicks.
+                var importBtns = document.querySelectorAll( '.godevs-demo-import-btn, .godevs-preview-import-btn' );
+                importBtns.forEach( function ( btn ) {
+                        btn.disabled = true;
+                        btn.style.opacity = '0.5';
+                } );
+
                 post( 'godevs_portfolio_import_demo', {
                         demo_id: demoId,
                         mode: mode,
                         apply_style: applyStyle ? 1 : 0,
                 } )
                         .then( function ( resp ) {
+                                // Re-enable buttons regardless of outcome.
+                                importBtns.forEach( function ( btn ) {
+                                        btn.disabled = false;
+                                        btn.style.opacity = '';
+                                } );
+
                                 if ( resp && resp.data && resp.data.steps ) {
                                         showProgress( resp.data.steps );
                                 }
@@ -554,6 +567,10 @@
                                 }, 1200 );
                         } )
                         .catch( function () {
+                                importBtns.forEach( function ( btn ) {
+                                        btn.disabled = false;
+                                        btn.style.opacity = '';
+                                } );
                                 window.alert( 'Network error during import.' );
                                 hideProgress();
                         } );

@@ -116,7 +116,7 @@
 			.catch(function (error) {
 				showMessage(form, i18n.error || 'Network error. Please try again.', 'error');
 				if (window.console) {
-					console.error('[GoDevs Forms] Submission failed:', error);
+					if (window.console) { console.error('[GoDevs Forms] Submission failed:', error); }
 				}
 			})
 			.then(function () {

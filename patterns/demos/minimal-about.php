@@ -123,10 +123,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
 <!-- wp:button -->
-<div class="wp-block-button"><a href="/contact" class="wp-block-button__link wp-element-button">Get in touch</a></div>
+<div class="wp-block-button"><a href="#contact" class="wp-block-button__link wp-element-button">Get in touch</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"is-style-text-link"} -->
-<div class="wp-block-button is-style-text-link"><a href="/work" class="wp-block-button__link wp-element-button">See recent work</a></div>
+<div class="wp-block-button is-style-text-link"><a href="#work" class="wp-block-button__link wp-element-button">See recent work</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->

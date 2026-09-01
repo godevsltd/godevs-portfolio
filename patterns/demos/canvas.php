@@ -25,13 +25,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|70","left":"var:preset|spacing|70","right":"var:preset|spacing|70","top":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
 		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70)">
 			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|contrast"},"typography":{"letterSpacing":"0.2em"}}} -->
-			<p class="is-style-eyebrow has-text-color" style="color:#ffffff;letter-spacing:0.2em">UI / Product Designer</p>
+			<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.2em">UI / Product Designer</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 7vw, 5rem)","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"700"},"color":{"text":"var:preset|color|contrast"}}} -->
-			<h1 class="wp-block-heading has-text-color" style="color:#ffffff;font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 7vw, 5rem);line-height:1;letter-spacing:-0.03em;font-weight:700">Designing interfaces people actually want to use.</h1>
+			<h1 class="wp-block-heading has-text-color" style="color:var(--wp--preset--color--contrast);font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 7vw, 5rem);line-height:1;letter-spacing:-0.03em;font-weight:700">Designing interfaces people actually want to use.</h1>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"color":{"text":"var:preset|color|muted"},"layout":{"selfStretch":"fit","flexSize":"480px"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
-			<p class="has-text-color" style="color:#e0e0e0;font-size:var(--wp--preset--font-size--large);line-height:1.5;max-width:480px;margin-top:var(--wp--preset--spacing--40)">A decade of designing digital products — from early-stage startups to established platforms. Currently designing systems that scale.</p>
+			<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--large);line-height:1.5;max-width:480px;margin-top:var(--wp--preset--spacing--40)">A decade of designing digital products — from early-stage startups to established platforms. Currently designing systems that scale.</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">

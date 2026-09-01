@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 \t\t\t\t\t\t\t<circle cx="200" cy="150" r="8" fill="var(--wp--preset--color--accent)"/>
 \t\t\t\t\t\t\t<circle cx="200" cy="150" r="20" fill="var(--wp--preset--color--accent)" opacity="0.2"/>
 \t\t\t\t\t\t</svg>
-\t\t\t\t\t\t<p style="position:relative;font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size|small);color:var(--wp--preset--color--muted);text-align:center;padding:20px;">Berlin · 52.5200° N, 13.4050° E</p>
+\t\t\t\t\t\t<p style="position:relative;font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size|small);color:var(--wp--preset--color--muted);text-align:center;padding:var(--wp--preset--spacing--40);">Berlin · 52.5200° N, 13.4050° E</p>
 \t\t\t\t\t</div>
 \t\t\t\t\t<!-- /wp:html -->
 \t\t\t\t\t<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"spacing":{"margin":{"top":"var:preset|spacing|0"}}}} -->

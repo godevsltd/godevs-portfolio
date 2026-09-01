@@ -295,10 +295,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
 				<!-- wp:button {"className":"is-style-fill","style":{"border":{"radius":"0px"}}} -->
-				<div class="wp-block-button is-style-fill"><a href="/contact" class="wp-block-button__link wp-element-button" style="border-radius:0px">Get in touch</a></div>
+				<div class="wp-block-button is-style-fill"><a href="#contact" class="wp-block-button__link wp-element-button" style="border-radius:0px">Get in touch</a></div>
 				<!-- /wp:button -->
 				<!-- wp:button {"className":"is-style-outline","textColor":"contrast","style":{"border":{"radius":"0px"},"spacing":{"margin":{"left":"var:preset|spacing|20"}}}} -->
-				<div class="wp-block-button is-style-outline" style="margin-left:var(--wp--preset--spacing--20)"><a href="/about" class="wp-block-button__link has-contrast-color has-text-color wp-element-button" style="border-radius:0px">Read bio</a></div>
+				<div class="wp-block-button is-style-outline" style="margin-left:var(--wp--preset--spacing--20)"><a href="#about" class="wp-block-button__link has-contrast-color has-text-color wp-element-button" style="border-radius:0px">Read bio</a></div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->

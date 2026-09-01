@@ -205,9 +205,10 @@ function godevs_portfolio_ajax_import_demo(): void {
         // ═══ AUTO-CLEANUP: Remove ALL previously imported demos ═══
         // This ensures only ONE demo's pages are visible on the site at any
         // time. When a new demo is imported, all previously imported demo
-        // pages, navigation menus, and homepage settings are cleanly removed
-        // so the user sees ONLY the newly imported demo's content.
+        // pages, navigation menus, style variations, and homepage settings
+        // are cleanly removed so the user sees ONLY the newly imported demo.
         $previous_imports = godevs_portfolio_tracker_get_all();
+        $had_previous_import = false;
         foreach ( $previous_imports as $prev_demo_id => $prev_record ) {
                 // Skip the demo being imported (in case it's a re-import).
                 if ( $prev_demo_id === $demo_id ) {
@@ -245,6 +246,27 @@ function godevs_portfolio_ajax_import_demo(): void {
                         $replaced_demos[] = $demo_id;
                 }
         }
+
+        // ═══ RESET STYLE VARIATION ═══
+        // If there was a previous import with a style applied, reset the
+        // global styles post so the new demo's style (or the default) starts
+        // from a clean state. This prevents the old demo's colors/typography
+        // from leaking into the new demo.
+        if ( ! empty( $previous_imports ) ) {
+                godevs_portfolio_reset_style_variation();
+        }
+
+        // ═══ CONCURRENCY LOCK ═══
+        // Prevent duplicate imports from concurrent admin requests.
+        if ( get_transient( 'godevs_import_lock' ) ) {
+                wp_send_json_error(
+                        array(
+                                'message' => __( 'Another import is in progress. Please wait a moment and try again.', 'godevs-portfolio' ),
+                        ),
+                        409
+                );
+        }
+        set_transient( 'godevs_import_lock', 1, 60 );
 
         // 1. Read the demo pattern markup (the homepage content).
         $homepage_markup = godevs_portfolio_render_demo_markup( $demo );
@@ -350,32 +372,35 @@ function godevs_portfolio_ajax_import_demo(): void {
         );
         $menu_exists = wp_get_nav_menu_object( $menu_name );
         if ( $menu_exists ) {
-                $nav_menu_id = $menu_exists->term_id;
-        } else {
-                $menu_id = wp_create_nav_menu( $menu_name );
-                if ( is_wp_error( $menu_id ) ) {
-                        $errors[] = sprintf(
-                                /* translators: %s: error message. */
-                                __( 'Navigation: %s', 'godevs-portfolio' ),
-                                $menu_id->get_error_message()
-                        );
-                } else {
-                        $nav_menu_id = (int) $menu_id;
+                // Delete the existing menu and create a fresh one.
+                // This prevents stale items from a previous import leaking into
+                // the new demo's navigation.
+                wp_delete_nav_menu( $menu_exists->term_id );
+        }
 
-                        // Add menu items for each created page.
-                        foreach ( $created_pages as $page_slug => $page_id ) {
-                                wp_update_nav_menu_item(
-                                        $nav_menu_id,
-                                        0,
-                                        array(
-                                                'menu-item-title'     => ucfirst( $page_slug ),
-                                                'menu-item-object'     => 'page',
-                                                'menu-item-object-id' => $page_id,
-                                                'menu-item-type'       => 'post_type',
-                                                'menu-item-status'     => 'publish',
-                                        )
-                                );
-                        }
+        $menu_id = wp_create_nav_menu( $menu_name );
+        if ( is_wp_error( $menu_id ) ) {
+                $errors[] = sprintf(
+                        /* translators: %s: error message. */
+                        __( 'Navigation: %s', 'godevs-portfolio' ),
+                        $menu_id->get_error_message()
+                );
+        } else {
+                $nav_menu_id = (int) $menu_id;
+
+                // Add menu items for each created page.
+                foreach ( $created_pages as $page_slug => $page_id ) {
+                        wp_update_nav_menu_item(
+                                $nav_menu_id,
+                                0,
+                                array(
+                                        'menu-item-title'     => ucfirst( $page_slug ),
+                                        'menu-item-object'    => 'page',
+                                        'menu-item-object-id' => $page_id,
+                                        'menu-item-type'      => 'post_type',
+                                        'menu-item-status'    => 'publish',
+                                )
+                        );
                 }
         }
 
@@ -446,7 +471,8 @@ function godevs_portfolio_ajax_import_demo(): void {
         wp_cache_delete( 'show_on_front', 'options' );
         wp_cache_delete( 'alloptions', 'options' );
 
-        // 7. Return the result.
+        // 7. Clear the import lock and return the result.
+        delete_transient( 'godevs_import_lock' );
         wp_send_json_success(
                 array(
                         'demo'        => array(
@@ -628,12 +654,35 @@ function godevs_portfolio_apply_style_variation( string $style_slug ): bool {
         }
 
         // Build the global styles post content.
-        // This merges the variation's styles into the theme's global styles.
+        // CRITICAL: Include 'isGlobalStylesUserThemeJSON' so WordPress
+        // recognizes this as a valid user-edited global styles override.
+        // Also MERGE with any existing user customizations instead of
+        // overwriting them entirely — this preserves Site Editor changes.
         $global_styles = array(
-                'version'  => 3,
-                'styles'   => $style_data['styles'] ?? array(),
-                'settings' => $style_data['settings'] ?? array(),
+                'version'                     => 3,
+                'isGlobalStylesUserThemeJSON' => true,
+                'styles'                      => $style_data['styles'] ?? array(),
+                'settings'                    => $style_data['settings'] ?? array(),
         );
+
+        // If there's an existing post, try to merge user customizations.
+        if ( $post_id ) {
+                $existing_content = get_post_field( 'post_content', $post_id );
+                $existing_data     = json_decode( $existing_content, true );
+                if ( is_array( $existing_data ) ) {
+                        // Preserve any user-added custom CSS.
+                        if ( isset( $existing_data['styles']['css'] ) ) {
+                                $global_styles['styles']['css'] = $existing_data['styles']['css'];
+                        }
+                        // Preserve any user-added custom properties.
+                        if ( isset( $existing_data['styles']['custom'] ) ) {
+                                $global_styles['styles']['custom'] = array_merge(
+                                        $existing_data['styles']['custom'] ?? array(),
+                                        $global_styles['styles']['custom'] ?? array()
+                                );
+                        }
+                }
+        }
 
         $post_content = wp_json_encode( $global_styles );
 
@@ -670,6 +719,71 @@ function godevs_portfolio_apply_style_variation( string $style_slug ): bool {
         if ( class_exists( 'WP_Theme_JSON_Resolver' ) ) {
                 // The resolver has a static cache that needs to be cleared.
                 // We use reflection to access the private $cache property.
+                $reflection = new ReflectionClass( 'WP_Theme_JSON_Resolver' );
+                if ( $reflection->hasProperty( 'cache' ) ) {
+                        $cache_prop = $reflection->getProperty( 'cache' );
+                        $cache_prop->setAccessible( true );
+                        $cache_prop->setValue( null, array() );
+                }
+        }
+
+        return true;
+}
+
+/**
+ * Reset the global styles post to the theme's default (no variation).
+ *
+ * This is called during the auto-cleanup phase when a previous demo is
+ * removed. It clears any style variation that was applied by the previous
+ * demo so the new demo starts from a clean state.
+ *
+ * @return bool True on success.
+ * @since 1.0.0
+ */
+function godevs_portfolio_reset_style_variation(): bool {
+        $stylesheet = get_stylesheet();
+
+        $args = array(
+                'post_type'      => 'wp_global_styles',
+                'post_status'    => 'publish',
+                'posts_per_page' => 1,
+                'tax_query'      => array(
+                        array(
+                                'taxonomy' => 'wp_theme',
+                                'field'    => 'name',
+                                'terms'    => $stylesheet,
+                        ),
+                ),
+        );
+
+        $query = new WP_Query( $args );
+        if ( $query->have_posts() ) {
+                $query->the_post();
+                $post_id = get_the_ID();
+                wp_reset_postdata();
+
+                // Reset the post content to an empty global styles object.
+                // This removes any variation's color/typography overrides
+                // while preserving the post (so WordPress doesn't re-create
+                // it on the next request).
+                $empty_styles = wp_json_encode(
+                        array(
+                                'version'                     => 3,
+                                'isGlobalStylesUserThemeJSON' => true,
+                                'styles'                      => array(),
+                                'settings'                    => array(),
+                        )
+                );
+                wp_update_post(
+                        array(
+                                'ID'           => $post_id,
+                                'post_content' => $empty_styles,
+                        )
+                );
+        }
+
+        // Clear the resolver cache.
+        if ( class_exists( 'WP_Theme_JSON_Resolver' ) ) {
                 $reflection = new ReflectionClass( 'WP_Theme_JSON_Resolver' );
                 if ( $reflection->hasProperty( 'cache' ) ) {
                         $cache_prop = $reflection->getProperty( 'cache' );
