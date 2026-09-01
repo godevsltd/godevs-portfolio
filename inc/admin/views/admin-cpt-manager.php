@@ -169,7 +169,7 @@ $total_pages  = $posts_query->max_num_pages;
                                                                         <div class="godevs-cpt-thumb godevs-cpt-thumb-placeholder"><span class="dashicons <?php echo esc_attr( $cpt_info['icon'] ?? 'dashicons-admin-post' ); ?>"></span></div>
                                                                 <?php endif; ?>
                                                                 <div class="godevs-cpt-title-info">
-                                                                        <strong><a href="<?php echo esc_url( $edit_url ); ?>"><?php echo esc_html( get_the_title( $post->ID ) ?: sprintf( '(no title) — ID #%d', $post->ID ) ); ?></a></strong>
+                                                                        <strong><a href="<?php echo esc_url( $edit_url ); ?>"><?php echo esc_html( get_the_title( $post->ID ) ?: sprintf( __( '(no title) — ID #%d', 'godevs-portfolio' ), $post->ID ) ); ?></a></strong>
                                                                         <?php
                                                                         // Show meta summary (first 2 meta fields).
                                                                         $meta_keys = godevs_cpt_admin_get_meta_keys( $current );

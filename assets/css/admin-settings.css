@@ -521,3 +521,125 @@
 	line-height: 1.4;
 	color: #666;
 }
+
+/* ─── Settings Search (UX-B) ─── */
+.godevs-settings-search-wrap {
+	position: relative;
+	margin: 0 0 12px 0;
+	padding: 0 4px;
+}
+
+.godevs-settings-search {
+	width: 100%;
+	height: 34px;
+	padding: 0 28px 0 30px;
+	border: 1px solid #c3c4c7;
+	border-radius: 6px;
+	background: #fff;
+	font-size: 13px;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+	box-sizing: border-box;
+}
+
+.godevs-settings-search:focus {
+	border-color: #2563EB;
+	box-shadow: 0 0 0 1px #2563EB;
+	outline: 2px solid transparent;
+}
+
+.godevs-settings-search-icon {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #8c8f94;
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	pointer-events: none;
+}
+
+.godevs-settings-search-clear {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 18px;
+	height: 18px;
+	border: none;
+	border-radius: 50%;
+	background: #dcdcde;
+	color: #1d2327;
+	font-size: 14px;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 150ms ease;
+}
+
+.godevs-settings-search-clear:hover {
+	background: #c3c4c7;
+}
+
+.godevs-search-results-count {
+	margin: 0 4px 8px;
+	padding: 6px 10px;
+	font-size: 11px;
+	color: #50575e;
+	background: #f0f6ff;
+	border-radius: 4px;
+	border-left: 3px solid #2563EB;
+}
+
+/* Highlight matched sections */
+.godevs-panel.is-search-match {
+	animation: godevs-search-fade-in 200ms ease-out;
+}
+
+@keyframes godevs-search-fade-in {
+	from { opacity: 0.5; }
+	to   { opacity: 1; }
+}
+
+/* When searching, dim non-matching nav items */
+.godevs-settings-nav.is-searching li {
+	opacity: 0.45;
+}
+
+.godevs-settings-nav.is-searching li:has(a:visible) {
+	opacity: 1;
+}
+
+/* ─── Welcome Panel (UX-A) ─── */
+.godevs-welcome-panel {
+	background: linear-gradient(135deg, #f0f6ff 0%, #fafafa 100%);
+	border: 1px solid #c3d4f0;
+	border-radius: 12px;
+	padding: 24px;
+	margin: 0 0 24px 0;
+}
+
+.godevs-welcome-panel a:hover {
+	border-color: #2563EB !important;
+	box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+	transform: translateY(-1px);
+}
+
+/* ─── After-Import Notice ─── */
+.godevs-imported-notice {
+	border-left-color: #00a32a !important;
+	padding: 16px 20px !important;
+}
+
+.godevs-imported-notice .button-primary {
+	background: #00a32a;
+	border-color: #00a32a;
+}
+
+.godevs-imported-notice .button-primary:hover {
+	background: #008a20;
+	border-color: #008a20;
+}

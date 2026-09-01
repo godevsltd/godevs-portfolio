@@ -176,7 +176,7 @@ function godevs_hf_get_elements(): array {
                         'label'    => __( 'HTML', 'godevs-portfolio' ),
                         'icon'     => 'dashicons-editor-code',
                         'category' => 'content',
-                        'defaults' => array( 'content' => '<p>Custom HTML</p>' ),
+                        'defaults' => array( 'content' => '<p>' . esc_html__( 'Custom HTML', 'godevs-portfolio' ) . '</p>' ),
                 ),
                 'image' => array(
                         'label'    => __( 'Image', 'godevs-portfolio' ),
@@ -1300,3 +1300,205 @@ function godevs_hf_register_sidebars(): void {
         ) );
 }
 add_action( 'widgets_init', 'godevs_hf_register_sidebars' );
+
+// ════════════════════════════════════════════════════════════════════════════
+// SVG PREVIEW MINIATURES (UX-C)
+// ════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Generate an SVG miniature of a starter template based on its row/column
+ * structure. Each element is rendered as a small colored block that
+ * communicates its type at a glance.
+ *
+ * Element icons (mini 4×4 to 8×8 blocks):
+ *   - logo          → square (gradient brand mark)
+ *   - site_title    → 2-line text bars
+ *   - tagline       → 1-line text bar (thinner)
+ *   - nav_menu      → 3 short text bars
+ *   - button        → rounded pill (accent color)
+ *   - search        → circle (search icon)
+ *   - social_icons  → 3 small circles
+ *   - text          → 1-line text bar
+ *   - html          → bracketed text block
+ *   - image        → rectangle with mountain icon
+ *   - copyright     → "©" text block
+ *   - widget_area   → vertical stack of bars
+ *
+ * @param array  $template Template definition (label + rows).
+ * @param string $type     'header' or 'footer'.
+ * @return string Inline SVG markup.
+ */
+function godevs_hf_render_template_miniature( array $template, string $type = 'header' ): string {
+        $rows = $template['rows'] ?? array();
+        if ( empty( $rows ) ) {
+                return '<div class="godevs-hf-miniature-empty">' . esc_html__( 'Empty layout', 'godevs-portfolio' ) . '</div>';
+        }
+
+        // Compute total miniature height based on row count.
+        $row_count = count( $rows );
+        $row_h = 28; // each row in miniature
+        $gap = 4;
+        $total_h = ( $row_h * $row_count ) + ( $gap * ( $row_count - 1 ) );
+        $w = 240;
+
+        $svg = '<svg viewBox="0 0 ' . $w . ' ' . $total_h . '" xmlns="http://www.w3.org/2000/svg" class="godevs-hf-miniature-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">';
+
+        // Background.
+        $svg .= '<rect width="' . $w . '" height="' . $total_h . '" fill="#fafafa"/>';
+
+        $y = 0;
+        foreach ( $rows as $row ) {
+                $row_settings = $row['settings'] ?? array();
+                $bg = isset( $row_settings['background'] ) && $row_settings['background']
+                        ? 'fill="' . esc_attr( $row_settings['background'] ) . '"'
+                        : 'fill="#ffffff"';
+                // For dark backgrounds (var(--wp--preset--color--primary)), use a dark gray.
+                if ( false !== strpos( $bg, 'preset--color--primary' ) || false !== strpos( $bg, 'preset--color--accent' ) ) {
+                        $bg = 'fill="#1a1a1a"';
+                }
+
+                $svg .= '<rect x="0" y="' . $y . '" width="' . $w . '" height="' . $row_h . '" ' . $bg . '/>';
+
+                // Render each column.
+                $x_offset = 8;
+                $columns = $row['columns'] ?? array();
+                foreach ( $columns as $col ) {
+                        $col_w = (int) ( ( (int) $col['width'] / 100 ) * ( $w - 16 ) );
+                        $elements = $col['elements'] ?? array();
+                        $element_x = $x_offset;
+                        foreach ( $elements as $el ) {
+                                $el_svg = godevs_hf_render_element_miniature( $el, $element_x, $y + 6, $row_h - 12 );
+                                $svg .= $el_svg;
+                                // Advance x by element width + gap.
+                                $element_x += 30;
+                        }
+                        $x_offset += $col_w;
+                }
+
+                $y += $row_h + $gap;
+        }
+
+        $svg .= '</svg>';
+        return $svg;
+}
+
+/**
+ * Render a single element as inline SVG fragment.
+ *
+ * @param array $el     Element definition with 'type' and optional 'settings'.
+ * @param int   $x      Top-left X.
+ * @param int   $y      Top-left Y.
+ * @param int   $h      Available height.
+ * @return string SVG fragment.
+ */
+function godevs_hf_render_element_miniature( array $el, int $x, int $y, int $h ): string {
+        $type = $el['type'] ?? 'text';
+        $accent = '#2563EB';
+        $muted = '#9ca3af';
+
+        switch ( $type ) {
+                case 'logo':
+                        // Square gradient brand mark.
+                        return '<defs><linearGradient id="g' . $x . $y . '" x1="0%" y1="0%" x2="100%" y2="100%">' .
+                                '<stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#1d4ed8"/>' .
+                                '</linearGradient></defs>' .
+                                '<rect x="' . $x . '" y="' . $y . '" width="' . ( $h - 2 ) . '" height="' . ( $h - 2 ) . '" rx="4" fill="url(#g' . $x . $y . ')"/>';
+
+                case 'site_title':
+                        // 2-line text bars (logo-size).
+                        return '<rect x="' . $x . '" y="' . ( $y + 2 ) . '" width="' . ( $h * 1.4 ) . '" height="4" rx="2" fill="#1d2327"/>' .
+                                '<rect x="' . $x . '" y="' . ( $y + 10 ) . '" width="' . ( $h * 0.9 ) . '" height="3" rx="1.5" fill="#50575e"/>';
+
+                case 'tagline':
+                        // 1-line thin bar.
+                        return '<rect x="' . $x . '" y="' . ( $y + 4 ) . '" width="' . ( $h * 0.7 ) . '" height="3" rx="1.5" fill="#8c8f94"/>';
+
+                case 'nav_menu':
+                        // 3-4 short text bars.
+                        $bar_w = 14;
+                        $gap = 4;
+                        $out = '';
+                        for ( $i = 0; $i < 4; $i++ ) {
+                                $bx = $x + ( $i * ( $bar_w + $gap ) );
+                                $out .= '<rect x="' . $bx . '" y="' . ( $y + ( $h / 2 ) - 2 ) . '" width="' . $bar_w . '" height="3" rx="1.5" fill="#1d2327"/>';
+                        }
+                        return $out;
+
+                case 'button':
+                        // Pill-shaped accent button.
+                        return '<rect x="' . $x . '" y="' . $y . '" width="' . ( $h * 1.6 ) . '" height="' . $h . '" rx="' . ( $h / 2 ) . '" fill="' . $accent . '"/>';
+
+                case 'search':
+                        // Circle with a stem (search icon).
+                        $cx = $x + ( $h / 2 );
+                        $cy = $y + ( $h / 2 );
+                        $r = ( $h / 2 ) - 2;
+                        return '<circle cx="' . $cx . '" cy="' . $cy . '" r="' . $r . '" stroke="#1d2327" stroke-width="1.5" fill="none"/>' .
+                                '<line x1="' . ( $cx + $r - 2 ) . '" y1="' . ( $cy + $r - 2 ) . '" x2="' . ( $cx + $r + 3 ) . '" y2="' . ( $cy + $r + 3 ) . '" stroke="#1d2327" stroke-width="1.5"/>';
+
+                case 'social_icons':
+                        // 3 small circles.
+                        $out = '';
+                        $sz = 6;
+                        $gap = 4;
+                        for ( $i = 0; $i < 3; $i++ ) {
+                                $cx = $x + ( $i * ( $sz + $gap ) ) + ( $sz / 2 );
+                                $cy = $y + ( $h / 2 );
+                                $out .= '<circle cx="' . $cx . '" cy="' . $cy . '" r="' . ( $sz / 2 ) . '" fill="#1d2327"/>';
+                        }
+                        return $out;
+
+                case 'text':
+                        // 1-line text bar.
+                        return '<rect x="' . $x . '" y="' . ( $y + ( $h / 2 ) - 2 ) . '" width="' . ( $h * 1.2 ) . '" height="3" rx="1.5" fill="#50575e"/>';
+
+                case 'image':
+                        // Rect with mountain.
+                        return '<rect x="' . $x . '" y="' . $y . '" width="' . ( $h * 1.4 ) . '" height="' . $h . '" rx="3" fill="#f0f0f1" stroke="#dcdcde"/>' .
+                                '<path d="M ' . ( $x + 3 ) . ' ' . ( $y + $h - 4 ) . ' L ' . ( $x + ( $h * 0.5 ) ) . ' ' . ( $y + ( $h * 0.4 ) ) . ' L ' . ( $x + ( $h * 0.8 ) ) . ' ' . ( $y + $h - 4 ) . ' Z" fill="#9ca3af"/>';
+
+                case 'copyright':
+                        // "©" text + bar.
+                        return '<rect x="' . $x . '" y="' . ( $y + ( $h / 2 ) - 2 ) . '" width="' . ( $h * 1.5 ) . '" height="3" rx="1.5" fill="#8c8f94"/>';
+
+                case 'widget_area':
+                        // Stack of 3 bars (different widths).
+                        return '<rect x="' . $x . '" y="' . $y . '" width="' . ( $h * 1.4 ) . '" height="3" rx="1.5" fill="#50575e"/>' .
+                                '<rect x="' . $x . '" y="' . ( $y + 6 ) . '" width="' . ( $h * 1.1 ) . '" height="3" rx="1.5" fill="#50575e"/>' .
+                                '<rect x="' . $x . '" y="' . ( $y + 12 ) . '" width="' . ( $h * 1.3 ) . '" height="3" rx="1.5" fill="#50575e"/>';
+
+                case 'html':
+                default:
+                        // Bracketed block.
+                        return '<rect x="' . $x . '" y="' . $y . '" width="' . ( $h * 1.4 ) . '" height="' . $h . '" rx="2" fill="none" stroke="#8c8f94" stroke-width="1" stroke-dasharray="3 2"/>';
+        }
+}
+
+/**
+ * AJAX endpoint: Get all starter templates with miniature SVGs.
+ *
+ * Returns each template's label, slug, miniature SVG, and active state.
+ *
+ * @return void
+ */
+function godevs_hf_ajax_get_template_miniatures(): void {
+        check_ajax_referer( 'godevs_settings_save', 'nonce' );
+        if ( ! current_user_can( 'manage_options' ) ) {
+                wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'godevs-portfolio' ) ), 403 );
+        }
+        $type = isset( $_POST['layout_type'] ) ? sanitize_key( wp_unslash( $_POST['layout_type'] ) ) : 'header';
+        $templates = 'header' === $type ? godevs_hf_get_header_templates() : godevs_hf_get_footer_templates();
+        $active = godevs_hf_get_active( $type );
+
+        $out = array();
+        foreach ( $templates as $slug => $tpl ) {
+                $out[] = array(
+                        'slug'      => $slug,
+                        'label'     => $tpl['label'],
+                        'isActive'  => ( $active === $slug ),
+                        'miniature' => godevs_hf_render_template_miniature( $tpl, $type ),
+                );
+        }
+        wp_send_json_success( array( 'templates' => $out, 'active' => $active ) );
+}
+add_action( 'wp_ajax_godevs_hf_get_miniatures', 'godevs_hf_ajax_get_template_miniatures' );

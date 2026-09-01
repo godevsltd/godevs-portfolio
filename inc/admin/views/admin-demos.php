@@ -298,7 +298,7 @@ function godevs_portfolio_render_demo_card( array $demo, array $imported ): stri
         $is_ready    = ! empty( $demo['is_ready'] );
         $is_complete = ! empty( $demo['is_complete'] );
         $preview_uri = $demo['preview_image_uri'] ?? '';
-        $preview_alt = $demo['preview_alt'] ?? sprintf( 'Homepage preview of the %s demo', $demo['name'] );
+        $preview_alt = $demo['preview_alt'] ?? sprintf( __( 'Homepage preview of the %s demo', 'godevs-portfolio' ), $demo['name'] );
         $page_count  = $demo['page_count'] ?? count( $demo['pages'] );
 
         $card_classes = 'godevs-demo-card';

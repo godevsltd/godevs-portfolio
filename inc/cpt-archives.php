@@ -163,9 +163,9 @@ function godevs_cpt_archive_service_template( string $layout, int $columns ): st
         $card .= '<!-- wp:group {"className":"is-style-card-bordered","style":{"spacing":{"padding":"var:preset|spacing|40","blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->';
         $card .= '<div class="wp-block-group is-style-card-bordered" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">';
         $card .= '<!-- wp:post-title {"isLink":true,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em"}}} /-->';
-        $card .= '<!-- wp:post-excerpt {"moreText":"Read more","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} /-->';
+        $card .= '<!-- wp:post-excerpt {"moreText":"' . __( 'Read more', 'godevs-portfolio' ) . '","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} /-->';
         if ( $show_price === '1' ) {
-                $card .= '<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} --><p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)"><strong>Price:</strong> <!-- wp:post-meta {"key":"_godevs_service_price"} /--></p><!-- /wp:paragraph -->';
+                $card .= '<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} --><p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)"><strong>' . esc_html__( 'Price:', 'godevs-portfolio' ) . '</strong> <!-- wp:post-meta {"key":"_godevs_service_price"} /--></p><!-- /wp:paragraph -->';
         }
         $card .= '</div>';
         $card .= '<!-- /wp:group -->';
@@ -247,7 +247,7 @@ function godevs_cpt_archive_experience_template( string $layout ): string {
         $card .= '<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--border);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">';
         $card .= '<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} --><div class="wp-block-group">';
         if ( $show_dates === '1' ) {
-                $card .= '<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} --><p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)"><strong>Start:</strong> <!-- wp:post-meta {"key":"_godevs_experience_start"} /--> · <strong>End:</strong> <!-- wp:post-meta {"key":"_godevs_experience_end"} /--></p><!-- /wp:paragraph -->';
+                $card .= '<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} --><p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)"><strong>' . esc_html__( 'Start:', 'godevs-portfolio' ) . '</strong> <!-- wp:post-meta {"key":"_godevs_experience_start"} /--> &middot; <strong>' . esc_html__( 'End:', 'godevs-portfolio' ) . '</strong> <!-- wp:post-meta {"key":"_godevs_experience_end"} /--></p><!-- /wp:paragraph -->';
         }
         $card .= '<!-- wp:post-title {"isLink":true,"style":{"typography":{"fontSize":"var:preset|font-size|large","letterSpacing":"-0.01em"}}} /-->';
         if ( $show_company === '1' ) {
@@ -255,7 +255,7 @@ function godevs_cpt_archive_experience_template( string $layout ): string {
         }
         $card .= '<!-- wp:post-meta {"key":"_godevs_experience_position","style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} /-->';
         $card .= '</div><!-- /wp:group -->';
-        $card .= '<!-- wp:post-excerpt {"moreText":"Read more","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} /-->';
+        $card .= '<!-- wp:post-excerpt {"moreText":"' . __( 'Read more', 'godevs-portfolio' ) . '","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} /-->';
         $card .= '</div>';
         $card .= '<!-- /wp:group -->';
 
@@ -276,7 +276,7 @@ function godevs_cpt_archive_education_template( string $layout ): string {
         $card .= '<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--border);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">';
         $card .= '<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} --><div class="wp-block-group">';
         if ( $show_dates === '1' ) {
-                $card .= '<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} --><p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)"><strong>Start:</strong> <!-- wp:post-meta {"key":"_godevs_education_start"} /--> · <strong>End:</strong> <!-- wp:post-meta {"key":"_godevs_education_end"} /--></p><!-- /wp:paragraph -->';
+                $card .= '<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} --><p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)"><strong>' . esc_html__( 'Start:', 'godevs-portfolio' ) . '</strong> <!-- wp:post-meta {"key":"_godevs_education_start"} /--> &middot; <strong>' . esc_html__( 'End:', 'godevs-portfolio' ) . '</strong> <!-- wp:post-meta {"key":"_godevs_education_end"} /--></p><!-- /wp:paragraph -->';
         }
         $card .= '<!-- wp:post-title {"isLink":true,"style":{"typography":{"fontSize":"var:preset|font-size|large","letterSpacing":"-0.01em"}}} /-->';
         if ( $show_institution === '1' ) {
@@ -284,7 +284,7 @@ function godevs_cpt_archive_education_template( string $layout ): string {
         }
         $card .= '<!-- wp:post-meta {"key":"_godevs_education_degree","style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} /-->';
         $card .= '</div><!-- /wp:group -->';
-        $card .= '<!-- wp:post-excerpt {"moreText":"Read more","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} /-->';
+        $card .= '<!-- wp:post-excerpt {"moreText":"' . __( 'Read more', 'godevs-portfolio' ) . '","style":{"typography":{"fontSize":"var:preset|font-size|small"}}} /-->';
         $card .= '</div>';
         $card .= '<!-- /wp:group -->';
 
@@ -329,40 +329,46 @@ function godevs_cpt_archive_case_study_template( string $layout, int $columns ):
 }
 
 /**
- * pre_render_block filter: Replace the inner blocks of `core/post-template`
+ * render_block_data filter: Replace the inner blocks of `core/post-template`
  * on CPT archives with settings-aware markup BEFORE the loop runs.
  *
- * This is the correct WordPress pattern (vs the previous render_block filter
- * which destroyed the post loop context by re-rendering blocks outside the
- * loop). pre_render_block lets us swap the `innerBlocks` of the post-template
- * block, and WordPress core handles the per-post iteration correctly —
- * `wp:post-title`, `wp:post-featured-image`, etc. all resolve to the current
- * post in the loop.
+ * IMPORTANT: This filter uses `render_block_data` (NOT `pre_render_block`).
+ * The `pre_render_block` filter only allows short-circuiting the render with a
+ * string return value — it does NOT propagate block modifications back to
+ * WordPress for further rendering. `render_block_data` is the correct filter
+ * for modifying the parsed block (including its innerBlocks) before WordPress
+ * iterates and renders it.
  *
- * @param array|null $block The block array, or null to short-circuit rendering.
- * @param array      $parent_block The parent block (if any).
- * @return array|null Modified block array, or null to skip.
+ * For `core/post-template` specifically, the inner blocks are iterated once
+ * per post in the query loop with the correct post context, so swapping them
+ * here causes `wp:post-title`, `wp:post-featured-image`, etc. to resolve to
+ * the current post in each iteration.
+ *
+ * @param array     $parsed_block  The block being rendered.
+ * @param array     $source_block  An un-modified copy of the original block.
+ * @param WP_Block|null $parent_block The parent block (if any).
+ * @return array Modified parsed block (unchanged if not a CPT post-template).
  */
-function godevs_cpt_archive_pre_render_block( ?array $block, array $parent_block = array() ): ?array {
-        if ( 'core/post-template' !== ( $block['blockName'] ?? '' ) ) {
-                return $block;
+function godevs_cpt_archive_modify_post_template( array $parsed_block, array $source_block = array(), $parent_block = null ): array {
+        if ( 'core/post-template' !== ( $parsed_block['blockName'] ?? '' ) ) {
+                return $parsed_block;
         }
 
         $cpt = godevs_cpt_archive_get_current_type();
         if ( ! $cpt ) {
-                return $block;
+                return $parsed_block;
         }
 
         // Only intercept CPTs that have a settings map.
         $map = godevs_cpt_archive_settings_map();
         if ( ! isset( $map[ $cpt ] ) ) {
-                return $block;
+                return $parsed_block;
         }
 
         // Generate the settings-aware inner template (block markup).
         $inner = godevs_cpt_archive_generate_inner_template( $cpt );
         if ( '' === $inner ) {
-                return $block;
+                return $parsed_block;
         }
 
         // Parse our generated markup into block objects, then replace the
@@ -380,23 +386,105 @@ function godevs_cpt_archive_pre_render_block( ?array $block, array $parent_block
         }
 
         if ( empty( $clean_blocks ) ) {
-                return $block;
+                return $parsed_block;
         }
 
-        // Replace the innerBlocks — this is what core/post-template iterates over.
-        $block['innerBlocks'] = $clean_blocks;
-        // Also update innerContent to match (null markers between blocks for block separators).
-        $block['innerContent'] = array();
+        // Replace the innerBlocks — this is what core/post-template iterates over
+        // when rendering each post in the query loop.
+        $parsed_block['innerBlocks'] = $clean_blocks;
+
+        // innerContent is a list of string fragments and null markers.
+        // null markers indicate where an inner block should be rendered.
+        // The string fragments are HTML that goes BETWEEN inner blocks.
+        // For our case, we have no inter-block HTML, so innerContent is a
+        // list of nulls (one per inner block) with empty strings between them.
+        //
+        // CRITICAL: We must NOT put serialized block markup (<!-- wp:... -->)
+        // in innerContent — that gets echoed literally. Each entry is either:
+        //   - null (render the next inner block here), OR
+        //   - a string of HTML to output verbatim (between inner blocks)
+        $parsed_block['innerContent'] = array();
         foreach ( $clean_blocks as $i => $b ) {
                 if ( $i > 0 ) {
-                        $block['innerContent'][] = null; // block separator.
+                        $parsed_block['innerContent'][] = ''; // Empty string between blocks (no separator HTML).
                 }
-                $block['innerContent'][] = serialize_block( $b );
+                $parsed_block['innerContent'][] = null; // null = render inner block $i here.
         }
+
+        // Also clear innerHTML so it doesn't conflict.
+        $parsed_block['innerHTML'] = '';
+
+        // IMPORTANT: Normalize each inner block to remove any leftover
+        // comment-markup HTML from parse_blocks. parse_blocks() preserves
+        // the raw block markup in innerHTML/innerContent of nested blocks,
+        // which causes WP_Block::render to echo the comment markup verbatim.
+        // We recursively walk each clean block and replace innerContent
+        // entries that are strings of block markup with empty strings,
+        // leaving only null markers for inner-block rendering.
+        foreach ( $parsed_block['innerBlocks'] as &$inner_block ) {
+                $inner_block = godevs_cpt_archive_normalize_block( $inner_block );
+        }
+        unset( $inner_block );
+
+        return $parsed_block;
+}
+add_filter( 'render_block_data', 'godevs_cpt_archive_modify_post_template', 10, 3 );
+
+/**
+ * Recursively normalize a parsed block to remove raw block-comment markup
+ * from innerContent/innerHTML.
+ *
+ * After parse_blocks(), inner blocks may have innerContent entries that
+ * are strings like '<!-- wp:post-title /-->' instead of null markers.
+ * WordPress's WP_Block::render will echo these strings verbatim, causing
+ * the comment markup to appear as visible text on the frontend.
+ *
+ * This function walks the block tree and:
+ *   1. Re-builds innerContent from scratch as a list of nulls + empty strings
+ *      so that ONLY inner blocks (no markup) are rendered.
+ *   2. Re-builds innerHTML by concatenating the rendered HTML of inner blocks.
+ *
+ * This is the safest approach — we ignore whatever parse_blocks stored in
+ * innerContent/innerHTML and reconstruct them from innerBlocks.
+ *
+ * @param array $block Parsed block array.
+ * @return array Normalized block.
+ */
+function godevs_cpt_archive_normalize_block( array $block ): array {
+        // Recursively normalize inner blocks first.
+        if ( ! empty( $block['innerBlocks'] ) ) {
+                foreach ( $block['innerBlocks'] as &$child ) {
+                        $child = godevs_cpt_archive_normalize_block( $child );
+                }
+                unset( $child );
+        }
+
+        // Reconstruct innerContent as null markers + empty strings.
+        // Each inner block gets a null marker; between them we put empty strings.
+        // This ensures WordPress ONLY outputs the rendered inner blocks.
+        $new_inner_content = array();
+        $inner_html_parts  = array();
+
+        if ( ! empty( $block['innerBlocks'] ) ) {
+                foreach ( $block['innerBlocks'] as $i => $child ) {
+                        if ( $i > 0 ) {
+                                $new_inner_content[] = ''; // Empty separator.
+                        }
+                        $new_inner_content[] = null; // Render inner block $i here.
+                        // Capture the child's rendered HTML for innerHTML reconstruction.
+                        $inner_html_parts[] = $child['innerHTML'] ?? '';
+                }
+        }
+
+        $block['innerContent'] = $new_inner_content;
+
+        // Reconstruct innerHTML: just the concatenation of inner blocks' HTML.
+        // This is what WP_Block::render uses to compute the rendered output
+        // when the block is not dynamic.
+        $block['innerHTML'] = implode( '', $inner_html_parts );
 
         return $block;
 }
-add_filter( 'pre_render_block', 'godevs_cpt_archive_pre_render_block', 10, 2 );
 
 /**
  * Enqueue archive layout CSS (grid column counts).

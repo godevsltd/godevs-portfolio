@@ -151,6 +151,8 @@ $_godevs_files = array(
         '/theme-settings.php',
         '/demo-importer.php',
         '/header-footer-builder.php',
+        '/settings-deadend-fixes.php',
+        '/onboarding.php',
 );
 
 foreach ( $_godevs_files as $_godevs_rel ) {

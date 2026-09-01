@@ -1722,3 +1722,110 @@ p > a[href^="/"]:only-child,
 	}
 	.wp-block-group.is-style-card-pro:hover { transform: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Settings Dead-End Fixes — frontend consumers for the 12 previously-orphan
+   settings (added v1.0.0).
+   These rules are toggled by body classes added in inc/settings-deadend-fixes.php
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 4. HEADER STICKY OFF — disable sticky positioning + transitions */
+body.godevs-header-sticky-off .site-header,
+body.godevs-header-sticky-off header.wp-block-template-part {
+	position: relative !important;
+	top: auto !important;
+	transition: none !important;
+}
+
+/* 11. MOTION OFF — disable all transitions + animations */
+body.godevs-motion-off *,
+body.godevs-motion-off *::before,
+body.godevs-motion-off *::after {
+	transition: none !important;
+	animation: none !important;
+	animation-duration: 0s !important;
+}
+
+body.godevs-motion-off .godevs-reveal {
+	opacity: 1 !important;
+	transform: none !important;
+}
+
+/* 12. REDUCED MOTION (forced) — same as prefers-reduced-motion but always on */
+body.godevs-force-reduced-motion *,
+body.godevs-force-reduced-motion *::before,
+body.godevs-force-reduced-motion *::after {
+	transition: none !important;
+	animation: none !important;
+	scroll-behavior: auto !important;
+}
+
+body.godevs-force-reduced-motion .godevs-reveal {
+	opacity: 1 !important;
+	transform: none !important;
+}
+
+/* 5 & 6. HEADER CTA — injected button styling */
+.godevs-header-cta-wrap {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	padding-left: 16px;
+}
+
+.godevs-header-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 16px;
+	border-radius: var(--wp--custom--radius--sm, 6px);
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	background: var(--wp--preset--color--accent, #2563EB);
+	color: var(--wp--preset--color--contrast, #fff);
+	border: 1px solid transparent;
+	transition: background 200ms ease, transform 200ms ease;
+}
+
+.godevs-header-cta:hover {
+	background: var(--wp--preset--color--accent-hover, #1d4ed8);
+	transform: translateY(-1px);
+}
+
+.godevs-header-cta:visited {
+	color: var(--wp--preset--color--contrast, #fff);
+}
+
+/* 7. FOOTER COPYRIGHT OFF */
+body .godevs-hide-copyright .wp-block-post-date,
+body .godevs-hide-copyright .godevs-footer-copyright,
+body .godevs-hide-copyright p:has(> .godevs-copyright-text) {
+	display: none !important;
+}
+
+/* 8. FOOTER SOCIAL OFF */
+body .godevs-hide-social .wp-block-social-links,
+body .godevs-hide-social .godevs-footer-social {
+	display: none !important;
+}
+
+/* 9. FOOTER CTA ON — show the CTA strip (off by default) */
+body .godevs-show-footer-cta .godevs-footer-cta {
+	display: block !important;
+}
+
+.godevs-footer-cta {
+	display: none; /* Hidden by default; only shows when footer_cta='1' */
+}
+
+/* 10. SERVICES SHOW_CTA OFF — hide CTA on services archive */
+body.godevs-services-cta-off .godevs-services-cta,
+body.godevs-services-cta-off .wp-block-query .godevs-cta-section {
+	display: none !important;
+}
+
+/* Search match highlight (admin only — but harmless here) */
+.is-search-match {
+	animation: godevs-search-fade-in 200ms ease-out;
+}

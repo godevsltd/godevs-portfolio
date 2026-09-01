@@ -271,6 +271,10 @@ function godevs_portfolio_ajax_import_demo(): void {
         // 1. Read the demo pattern markup (the homepage content).
         $homepage_markup = godevs_portfolio_render_demo_markup( $demo );
         if ( '' === $homepage_markup ) {
+                // CRITICAL: Release the import lock on the early-return error path
+                // so the user can immediately retry. Without this, the lock holds
+                // for the full 60-second TTL and blocks legitimate retries.
+                delete_transient( 'godevs_import_lock' );
                 wp_send_json_error(
                         array(
                                 'message' => __( 'Could not read demo markup.', 'godevs-portfolio' ),
@@ -459,7 +463,9 @@ function godevs_portfolio_ajax_import_demo(): void {
         //   - clean_post_cache() flushes the individual page's object cache
         //   - wp_cache_delete() clears the options cache (for page_on_front etc.)
         //   - WP_Theme_JSON_Resolver cache is cleared by apply_style_variation
-        //   - rewrite_rules are flushed in case the importer created new slugs
+        //   - rewrite_rules are flushed so the new page slugs (home-<demo>,
+        //     about-<demo>, etc.) are immediately queryable without a manual
+        //     visit to Settings → Permalinks.
         foreach ( $created_pages as $page_id ) {
                 clean_post_cache( $page_id );
         }
@@ -471,8 +477,24 @@ function godevs_portfolio_ajax_import_demo(): void {
         wp_cache_delete( 'show_on_front', 'options' );
         wp_cache_delete( 'alloptions', 'options' );
 
+        // 6c. Flush rewrite rules so the new page slugs are immediately
+        // queryable. Without this, /home-<demo>/ etc. would 404 until the
+        // user manually re-saves permalinks in Settings → Permalinks.
+        // Uses the default hard-flush (regenerates rewrite_rules option AND
+        // rewrites .htaccess if the server supports it). The functions.php
+        // after_switch_theme handler also flushes on theme switch; this
+        // call ensures that any pages created DURING import (after the
+        // theme-switch flush) are picked up immediately.
+        flush_rewrite_rules();
+
         // 7. Clear the import lock and return the result.
         delete_transient( 'godevs_import_lock' );
+
+        // 7.5. Fire the post-import action — used by the onboarding module
+        // to display the "Demo imported successfully!" admin notice with
+        // next-action buttons (View Site, Edit Homepage, Customize Theme).
+        do_action( 'godevs_portfolio_demo_imported', $demo['id'], $homepage_id );
+
         wp_send_json_success(
                 array(
                         'demo'        => array(

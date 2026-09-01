@@ -112,6 +112,12 @@ function godevs_booking_form_shortcode( array $atts = array() ): string {
                 <form class="godevs-form" method="post" autocomplete="on" novalidate>
                         <?php wp_nonce_field( 'godevs_booking_form', 'godevs_booking_nonce' ); ?>
                         <input type="hidden" name="action" value="godevs_submit_booking" />
+                        <!-- Honeypot anti-spam field — hidden from real users via CSS. -->
+                        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+                                <label><?php esc_html_e( 'Leave this field empty', 'godevs-portfolio' ); ?>
+                                        <input type="text" name="godevs_hp" tabindex="-1" autocomplete="off" />
+                                </label>
+                        </div>
 
                         <div class="godevs-form-row">
                                 <div class="godevs-form-field">
@@ -188,6 +194,12 @@ function godevs_proposal_form_shortcode(): string {
                 <form class="godevs-form" method="post" autocomplete="on" novalidate>
                         <?php wp_nonce_field( 'godevs_proposal_form', 'godevs_proposal_nonce' ); ?>
                         <input type="hidden" name="action" value="godevs_submit_proposal" />
+                        <!-- Honeypot anti-spam field. -->
+                        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+                                <label><?php esc_html_e( 'Leave this field empty', 'godevs-portfolio' ); ?>
+                                        <input type="text" name="godevs_hp" tabindex="-1" autocomplete="off" />
+                                </label>
+                        </div>
 
                         <div class="godevs-form-row">
                                 <div class="godevs-form-field">
@@ -255,6 +267,11 @@ add_shortcode( 'godevs_proposal_form', 'godevs_proposal_form_shortcode' );
 function godevs_ajax_submit_booking(): void {
         check_ajax_referer( 'godevs_booking_form', 'nonce' );
 
+        // Honeypot anti-spam check — if filled, silently fail.
+        if ( ! empty( $_POST['godevs_hp'] ) ) {
+                wp_send_json_error( array( 'message' => __( 'Spam detected.', 'godevs-portfolio' ) ), 400 );
+        }
+
         // Sanitize and validate input.
         $name    = isset( $_POST['booking_name'] ) ? sanitize_text_field( wp_unslash( $_POST['booking_name'] ) ) : '';
         $email   = isset( $_POST['booking_email'] ) ? sanitize_email( wp_unslash( $_POST['booking_email'] ) ) : '';
@@ -302,7 +319,7 @@ function godevs_ajax_submit_booking(): void {
         $site_name   = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
         $subject     = sprintf( '[%s] New Booking: %s', $site_name, $name );
 
-        $email_body  = sprintf( "New booking request received:\n\n", 'godevs-portfolio' );
+        $email_body  = __( "New booking request received:\n\n", 'godevs-portfolio' );
         $email_body .= sprintf( __( "Name: %s\n", 'godevs-portfolio' ), $name );
         $email_body .= sprintf( __( "Email: %s\n", 'godevs-portfolio' ), $email );
         if ( $phone ) {
@@ -344,6 +361,11 @@ add_action( 'wp_ajax_nopriv_godevs_submit_booking', 'godevs_ajax_submit_booking'
 function godevs_ajax_submit_proposal(): void {
         check_ajax_referer( 'godevs_proposal_form', 'nonce' );
 
+        // Honeypot anti-spam check.
+        if ( ! empty( $_POST['godevs_hp'] ) ) {
+                wp_send_json_error( array( 'message' => __( 'Spam detected.', 'godevs-portfolio' ) ), 400 );
+        }
+
         // Sanitize and validate input.
         $name     = isset( $_POST['proposal_name'] ) ? sanitize_text_field( wp_unslash( $_POST['proposal_name'] ) ) : '';
         $email    = isset( $_POST['proposal_email'] ) ? sanitize_email( wp_unslash( $_POST['proposal_email'] ) ) : '';
@@ -365,7 +387,7 @@ function godevs_ajax_submit_proposal(): void {
         $site_name   = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
         $subject     = sprintf( '[%s] New Proposal: %s', $site_name, $name );
 
-        $email_body  = sprintf( "New project proposal received:\n\n", 'godevs-portfolio' );
+        $email_body  = __( "New project proposal received:\n\n", 'godevs-portfolio' );
         $email_body .= sprintf( __( "Name: %s\n", 'godevs-portfolio' ), $name );
         $email_body .= sprintf( __( "Email: %s\n", 'godevs-portfolio' ), $email );
         if ( $company ) {

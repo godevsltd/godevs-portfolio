@@ -341,6 +341,13 @@ function godevs_portfolio_settings_render_page(): void {
                         <!-- Sidebar Nav -->
                         <nav class="godevs-settings-nav" id="godevs-settings-nav">
                                 <p class="godevs-nav-label"><?php esc_html_e( 'SETTINGS', 'godevs-portfolio' ); ?></p>
+                                <div class="godevs-settings-search-wrap">
+                                        <span class="dashicons dashicons-search godevs-settings-search-icon" aria-hidden="true"></span>
+                                        <label for="godevs-settings-search" class="screen-reader-text"><?php esc_html_e( 'Search settings', 'godevs-portfolio' ); ?></label>
+                                        <input type="search" id="godevs-settings-search" class="godevs-settings-search" placeholder="<?php esc_attr_e( 'Search settings…', 'godevs-portfolio' ); ?>" autocomplete="off" />
+                                        <button type="button" id="godevs-settings-search-clear" class="godevs-settings-search-clear" aria-label="<?php esc_attr_e( 'Clear search', 'godevs-portfolio' ); ?>" style="display:none;">&times;</button>
+                                </div>
+                                <p class="godevs-search-results-count" id="godevs-search-results-count" style="display:none;"></p>
                                 <ul>
                                         <li><a href="#general" class="is-active" data-section="general"><span class="dashicons dashicons-admin-generic"></span> <?php esc_html_e( 'General', 'godevs-portfolio' ); ?></a></li>
                                         <li><a href="#typography" data-section="typography"><span class="dashicons dashicons-editor-textcolor"></span> <?php esc_html_e( 'Typography', 'godevs-portfolio' ); ?></a></li>
@@ -365,6 +372,7 @@ function godevs_portfolio_settings_render_page(): void {
 
                         <!-- Content Panels -->
                         <div class="godevs-settings-content" id="godevs-settings-content">
+                                <?php do_action( 'godevs_portfolio_settings_before_panels' ); ?>
                                 <form id="godevs-settings-form" autocomplete="off">
 
                                         <!-- ═══ GENERAL ═══ -->
