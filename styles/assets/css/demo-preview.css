@@ -1,0 +1,109 @@
+/* GoDevs Portfolio — Demo Preview Static-Render CSS
+ *
+ * This CSS is injected into the iframe preview HTML to ensure WordPress
+ * block markup renders correctly without the WordPress block editor's
+ * default styles. It complements theme.css by providing layout for
+ * blocks that normally rely on WP's runtime CSS generation.
+ *
+ * Loaded by inc/demo-renderer.php → godevs_portfolio_render_wrap_html().
+ *
+ * @package GoDevs_Portfolio
+ * @since   2.5.0
+ */
+
+/* Cover block */
+.wp-block-cover { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; min-height: 480px; background: var(--wp--preset--color--primary); }
+.wp-block-cover > .wp-block-cover__background { position: absolute !important; inset: 0 !important; z-index: 1 !important; background-color: var(--wp--preset--color--primary) !important; }
+.wp-block-cover > .wp-block-cover__image-background { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover !important; z-index: 0 !important; }
+.wp-block-cover > .wp-block-cover__inner-container { position: relative !important; z-index: 2 !important; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.wp-block-cover.is-dark, .wp-block-cover.is-dark .wp-block-heading, .wp-block-cover.is-dark p { color: #ffffff; }
+
+/* Header/Footer dark variants */
+.site-header-dark, .site-footer-dark { background-color: var(--wp--preset--color--primary) !important; color: var(--wp--preset--color--contrast) !important; }
+.site-header-dark a, .site-footer-dark a, .site-header-dark .wp-block-navigation, .site-header-dark .wp-block-navigation a { color: var(--wp--preset--color--contrast); }
+.site-header .wp-block-group.alignwide, .site-header > .wp-block-group { display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 2rem; gap: 1rem; }
+.site-header .wp-block-group > .wp-block-group { display: flex; align-items: center; gap: 1rem; }
+.site-header-dark { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.site-footer { border-top: 1px solid var(--wp--preset--color--border); }
+.site-footer-dark { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+
+/* Layout primitives */
+.wp-block-group.alignfull { width: 100%; max-width: 100% !important; margin-left: 0; margin-right: 0; }
+.wp-block-group.alignwide { max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
+
+/* Columns */
+.wp-block-columns { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; }
+.wp-block-column { flex: 1; min-width: 0; }
+.wp-block-column[style*="33.33%"] { flex: 0 0 33.33%; }
+.wp-block-column[style*="50%"] { flex: 0 0 calc(50% - 0.75rem); }
+.wp-block-column[style*="58%"] { flex: 0 0 58%; }
+.wp-block-column[style*="42%"] { flex: 0 0 42%; }
+.wp-block-column[style*="60%"] { flex: 0 0 60%; }
+.wp-block-column[style*="40%"] { flex: 0 0 40%; }
+.wp-block-column[style*="70%"] { flex: 0 0 70%; }
+.wp-block-column[style*="30%"] { flex: 0 0 30%; }
+.wp-block-column[style*="55%"] { flex: 0 0 55%; }
+.wp-block-column[style*="45%"] { flex: 0 0 45%; }
+.are-vertically-aligned-center .wp-block-column { align-self: center; }
+
+/* Flex layout for groups */
+.wp-block-group[style*="flex"], .wp-block-group .wp-block-group[style*="justify-content"] { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.wp-block-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.wp-block-button { display: inline-flex; }
+.wp-block-button__link { display: inline-flex; align-items: center; justify-content: center; padding: 0.625rem 1.25rem; background: var(--wp--preset--color--primary); color: var(--wp--preset--color--contrast); text-decoration: none; border-radius: 4px; font-weight: 500; font-size: 0.9375rem; border: 1px solid transparent; transition: opacity 150ms ease; }
+.wp-block-button:hover .wp-block-button__link { opacity: 0.85; }
+.wp-block-button.is-style-outline .wp-block-button__link { background: transparent; color: var(--wp--preset--color--primary); border-color: var(--wp--preset--color--primary); }
+.wp-block-button.is-style-text-link .wp-block-button__link { background: transparent; color: var(--wp--preset--color--primary); border: none; padding: 0.5rem 0; text-decoration: underline; }
+
+/* Inverse buttons on dark surfaces */
+.has-primary-background-color .wp-block-button:not(.is-style-outline):not(.is-style-text-link):not(.is-style-pill):not(.is-style-arrow) > .wp-block-button__link { background-color: var(--wp--preset--color--contrast); color: var(--wp--preset--color--primary); }
+.has-primary-background-color .wp-block-button.is-style-outline > .wp-block-button__link { border-color: var(--wp--preset--color--contrast); color: var(--wp--preset--color--contrast); }
+
+/* Images */
+.wp-block-image img { display: block; max-width: 100%; height: auto; }
+
+/* Separator */
+.wp-block-separator { border: none; border-top: 1px solid var(--wp--preset--color--border); margin: 2rem auto; max-width: 1280px; }
+.wp-block-separator.is-style-thin { border-top-width: 1px; opacity: 1; }
+
+/* Pullquote */
+.wp-block-pullquote { padding: 2rem 0; text-align: center; }
+.wp-block-pullquote blockquote { margin: 0; border: none; padding: 0; }
+.wp-block-pullquote cite { display: block; margin-top: 1rem; font-size: 0.875rem; font-style: normal; opacity: 0.7; }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 { margin: 0 0 0.5em 0; font-weight: 600; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.15; }
+h3 { font-size: 1.5rem; line-height: 1.2; }
+p { margin: 0 0 1em 0; }
+
+/* Surface colors */
+.has-surface-muted-background-color { background-color: var(--wp--preset--color--surface-muted); }
+.has-primary-background-color { background-color: var(--wp--preset--color--primary); }
+.has-contrast-color, .has-contrast-color.has-text-color { color: var(--wp--preset--color--contrast); }
+.has-muted-color, .has-muted-color.has-text-color { color: var(--wp--preset--color--muted); }
+.has-accent-color, .has-accent-color.has-text-color { color: var(--wp--preset--color--accent); }
+
+/* Links */
+a { color: var(--wp--preset--color--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { opacity: 0.8; }
+.has-primary-background-color a, .site-header-dark a, .site-footer-dark a, .wp-block-cover.is-dark a { color: var(--wp--preset--color--contrast); text-decoration: underline; text-underline-offset: 3px; opacity: 0.9; }
+
+/* Card + Eyebrow */
+.is-style-card-bordered { border: 1px solid var(--wp--preset--color--border); border-radius: 8px; padding: 2rem !important; }
+.is-style-eyebrow { font-size: 0.75rem !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: var(--wp--preset--color--muted); margin: 0 0 0.5rem 0 !important; }
+
+/* Project meta */
+.godevs-project-meta { padding: 0; }
+.godevs-project-meta p { margin: 0 0 0.5rem 0; }
+
+/* Reveal — disable for screenshots */
+.godevs-reveal { opacity: 1 !important; transform: none !important; }
+.godevs-reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+
+body { overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+
+/* Override the global img rule for cover background */
+.wp-block-cover > img.wp-block-cover__image-background { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover !important; z-index: 0 !important; }
