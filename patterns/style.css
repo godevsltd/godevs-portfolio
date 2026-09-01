@@ -1,0 +1,33 @@
+/*
+Theme Name: GoDevs Portfolio
+Theme URI: https://godevs.net/
+Author: GoDevs
+Author URI: https://godevs.net/
+Description: GoDevs Portfolio is a premium, Gutenberg-first, Full Site Editing WordPress block theme designed for developers, designers, freelancers, agencies, and creators. Built on a scalable design system with reusable patterns, editorial typography, generous whitespace, and accessibility at its core.
+Version: 1.0.0
+Requires at least: 6.5
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: godevs-portfolio
+Tags: full-site-editing, block-patterns, block-styles, portfolio, editorial, accessibility-ready, translation-ready, threaded-comments, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options
+*/
+
+/*
+ * GoDevs Portfolio styles
+ *
+ * The bulk of the theme styling is emitted by WordPress from theme.json
+ * (design tokens + block-level styles + element styles).
+ *
+ * This file holds:
+ *   - The WordPress theme header above (required)
+ *   - Supplementary CSS that cannot be expressed in theme.json
+ *
+ * Supplementary CSS is loaded separately from assets/css/theme.css to keep
+ * this file's payload minimal — WordPress loads style.css by default.
+ *
+ * See docs/PERFORMANCE.md and docs/WORDPRESS-STANDARDS.md for the rationale.
+ */
+
+/* No additional CSS here. The theme relies on theme.json for design tokens. */

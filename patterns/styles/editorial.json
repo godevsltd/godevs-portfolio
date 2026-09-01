@@ -1,0 +1,164 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Editorial",
+	"description": "A magazine-inspired palette — serif display type paired with sans body, warm cream background, ink black text, muted brown accent. Reads as a publication.",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "primary", "color": "#1A1A1A", "name": "Primary" },
+				{ "slug": "secondary", "color": "#4A4A4A", "name": "Secondary" },
+				{ "slug": "accent", "color": "#8B4513", "name": "Accent" },
+				{ "slug": "base", "color": "#F5F0E5", "name": "Base" },
+				{ "slug": "surface", "color": "#FFFFFF", "name": "Surface" },
+				{ "slug": "surface-elevated", "color": "#FFFEF8", "name": "Surface Elevated" },
+				{ "slug": "foreground", "color": "#1A1A1A", "name": "Foreground" },
+				{ "slug": "muted", "color": "#6B5E50", "name": "Muted" },
+				{ "slug": "border", "color": "#D4CCB8", "name": "Border" },
+				{ "slug": "success", "color": "#2D5E3E", "name": "Success" },
+				{ "slug": "warning", "color": "#9C5A0A", "name": "Warning" },
+				{ "slug": "error", "color": "#8B1A1A", "name": "Error" },
+				{ "slug": "contrast", "color": "#F5F0E5", "name": "Contrast" }
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "display",
+					"name": "Display",
+					"fontFamily": "\"Georgia\", \"Times New Roman\", \"Times\", serif"
+				},
+				{
+					"slug": "body",
+					"name": "Body",
+					"fontFamily": "\"Inter\", \"SF Pro Text\", \"Segoe UI\", system-ui, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Arial, sans-serif"
+				},
+				{
+					"slug": "mono",
+					"name": "Mono",
+					"fontFamily": "\"SF Mono\", \"JetBrains Mono\", \"Menlo\", \"Consolas\", monospace"
+				},
+				{
+					"slug": "serif",
+					"name": "Serif",
+					"fontFamily": "\"Georgia\", \"Times New Roman\", \"Times\", serif"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "#F5F0E5",
+			"text": "#1A1A1A"
+		},
+		"spacing": {
+			"padding": {
+				"top": "0",
+				"right": "var:preset|spacing|60",
+				"bottom": "0",
+				"left": "var:preset|spacing|60"
+			},
+			"blockGap": "var:preset|spacing|60"
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|body",
+			"fontSize": "var:preset|font-size|normal",
+			"lineHeight": "1.7"
+		},
+		"elements": {
+			"link": {
+				"color": { "text": "#8B4513" },
+				"typography": { "textDecoration": "underline" }
+			},
+			"heading": {
+				"color": { "text": "#1A1A1A" },
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontWeight": "700",
+					"lineHeight": "1.15",
+					"letterSpacing": "-0.01em"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontSize": "var:preset|font-size|xx-large",
+					"lineHeight": "1.05",
+					"letterSpacing": "-0.02em",
+					"fontWeight": "700"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontSize": "var:preset|font-size|x-large",
+					"lineHeight": "1.1"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontSize": "var:preset|font-size|large"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|display"
+				}
+			},
+			"button": {
+				"border": { "radius": "0" },
+				"color": {
+					"background": "#1A1A1A",
+					"text": "#F5F0E5"
+				},
+				"typography": {
+					"fontFamily": "var:preset|font-family|body",
+					"fontWeight": "500"
+				},
+				":hover": {
+					"color": { "background": "#4A4A4A" }
+				}
+			},
+			"caption": {
+				"color": { "text": "#6B5E50" },
+				"typography": {
+					"fontFamily": "var:preset|font-family|body",
+					"fontStyle": "italic"
+				}
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontWeight": "700",
+					"letterSpacing": "-0.02em"
+				}
+			},
+			"core/post-title": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontSize": "var:preset|font-size|xx-large",
+					"lineHeight": "1.05",
+					"fontWeight": "700"
+				}
+			},
+			"core/separator": {
+				"color": { "text": "#D4CCB8" }
+			},
+			"core/quote": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontStyle": "italic"
+				}
+			},
+			"core/pullquote": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|display",
+					"fontStyle": "italic"
+				}
+			}
+		}
+	}
+}

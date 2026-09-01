@@ -1,0 +1,506 @@
+/**
+ * GoDevs Portfolio — CPT Manager Admin Styles
+ *
+ * Modern, professional UI for the Content Manager admin page at
+ * Appearance → Content Manager.
+ *
+ * @package GoDevs_Portfolio
+ * @since   2.6.0
+ */
+
+.godevs-cpt-manager-wrap {
+	--cm-color-bg: #ffffff;
+	--cm-color-surface: #ffffff;
+	--cm-color-surface-muted: #f9fafb;
+	--cm-color-border: #e5e7eb;
+	--cm-color-text: #111827;
+	--cm-color-text-secondary: #4b5563;
+	--cm-color-text-muted: #6b7280;
+	--cm-color-accent: #2563eb;
+	--cm-color-accent-bg: #dbeafe;
+	--cm-color-success: #15803d;
+	--cm-color-success-bg: #dcfce7;
+	--cm-color-warning: #b45309;
+	--cm-color-warning-bg: #fef3c7;
+	--cm-color-danger: #b91c1c;
+	--cm-color-danger-bg: #fee2e2;
+	--cm-radius: 8px;
+	--cm-radius-sm: 4px;
+	--cm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--cm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+	--cm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+	--cm-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	color: var(--cm-color-text);
+	margin: 0;
+	padding: 0;
+}
+
+/* ═══ HEADER ═══ */
+.godevs-cpt-header {
+	background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+	color: #ffffff;
+	border-radius: var(--cm-radius);
+	padding: 32px 24px;
+	margin-bottom: 24px;
+}
+
+.godevs-cpt-header-inner {
+	position: relative;
+	z-index: 1;
+}
+
+.godevs-cpt-title {
+	font-size: 24px;
+	font-weight: 700;
+	margin: 0 0 8px 0;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #ffffff;
+}
+
+.godevs-cpt-title .dashicons {
+	font-size: 24px;
+	width: 24px;
+	height: 24px;
+	color: #60a5fa;
+}
+
+.godevs-cpt-subtitle {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #cbd5e1;
+	margin: 0;
+	max-width: 640px;
+}
+
+/* ═══ DASHBOARD CARDS ═══ */
+.godevs-cpt-dashboard {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 16px;
+	margin-bottom: 32px;
+}
+
+.godevs-cpt-card {
+	background: var(--cm-color-surface);
+	border: 1px solid var(--cm-color-border);
+	border-radius: var(--cm-radius);
+	overflow: hidden;
+	transition: transform var(--cm-transition), box-shadow var(--cm-transition), border-color var(--cm-transition);
+}
+
+.godevs-cpt-card:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--cm-shadow-md);
+	border-color: #d1d5db;
+}
+
+.godevs-cpt-card.is-active {
+	border-color: var(--cm-color-accent);
+	box-shadow: 0 0 0 1px var(--cm-color-accent), var(--cm-shadow-md);
+}
+
+.godevs-cpt-card-main {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 16px;
+	text-decoration: none;
+	color: inherit;
+}
+
+.godevs-cpt-card-icon {
+	font-size: 24px;
+	width: 24px;
+	height: 24px;
+	color: var(--cm-color-accent);
+	flex-shrink: 0;
+}
+
+.godevs-cpt-card-label {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--cm-color-text);
+	flex: 1;
+}
+
+.godevs-cpt-card-count {
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--cm-color-accent);
+	font-variant-numeric: tabular-nums;
+}
+
+.godevs-cpt-card-actions {
+	display: flex;
+	gap: 4px;
+	padding: 0 12px 12px 12px;
+	border-top: 1px solid var(--cm-color-border);
+	padding-top: 8px;
+	margin: 0 4px;
+}
+
+.godevs-cpt-card-actions .button {
+	flex: 1;
+	justify-content: center;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 11px;
+	padding: 4px 8px;
+}
+
+.godevs-cpt-card-actions .button .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+}
+
+/* ═══ LIST SECTION ═══ */
+.godevs-cpt-list-section {
+	background: var(--cm-color-surface);
+	border: 1px solid var(--cm-color-border);
+	border-radius: var(--cm-radius);
+	overflow: hidden;
+}
+
+.godevs-cpt-list-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	padding: 20px 24px;
+	border-bottom: 1px solid var(--cm-color-border);
+	background: var(--cm-color-surface-muted);
+	flex-wrap: wrap;
+}
+
+.godevs-cpt-list-title {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--cm-color-text);
+}
+
+.godevs-cpt-list-title .dashicons {
+	color: var(--cm-color-accent);
+}
+
+.godevs-cpt-list-count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 24px;
+	height: 22px;
+	padding: 0 8px;
+	background: var(--cm-color-accent-bg);
+	color: var(--cm-color-accent);
+	font-size: 12px;
+	font-weight: 600;
+	border-radius: 999px;
+}
+
+.godevs-cpt-list-actions {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.godevs-cpt-search-form {
+	display: flex;
+	gap: 4px;
+}
+
+.godevs-cpt-search-input {
+	padding: 6px 10px;
+	border: 1px solid var(--cm-color-border);
+	border-radius: var(--cm-radius-sm);
+	font-size: 13px;
+	min-width: 200px;
+}
+
+.godevs-cpt-search-input:focus {
+	outline: none;
+	border-color: var(--cm-color-accent);
+	box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.godevs-cpt-list-actions .button .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+/* ═══ TABLE ═══ */
+.godevs-cpt-table {
+	border: none;
+	border-radius: 0;
+}
+
+.godevs-cpt-table thead th {
+	background: var(--cm-color-surface-muted);
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--cm-color-text-secondary);
+	padding: 10px 16px;
+	border-bottom: 1px solid var(--cm-color-border);
+}
+
+.godevs-cpt-table tbody td {
+	padding: 12px 16px;
+	vertical-align: middle;
+}
+
+.godevs-cpt-table tbody tr:hover {
+	background: var(--cm-color-surface-muted);
+}
+
+.godevs-cpt-col-title { width: 50%; }
+.godevs-cpt-col-status { width: 120px; }
+.godevs-cpt-col-date { width: 160px; font-size: 12px; color: var(--cm-color-text-muted); }
+.godevs-cpt-col-actions { width: 200px; }
+
+.godevs-cpt-title-cell {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.godevs-cpt-thumb {
+	width: 40px;
+	height: 40px;
+	border-radius: var(--cm-radius-sm);
+	overflow: hidden;
+	flex-shrink: 0;
+	border: 1px solid var(--cm-color-border);
+}
+
+.godevs-cpt-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.godevs-cpt-thumb-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--cm-color-surface-muted);
+}
+
+.godevs-cpt-thumb-placeholder .dashicons {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	color: var(--cm-color-text-muted);
+}
+
+.godevs-cpt-title-info {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+}
+
+.godevs-cpt-title-info strong a {
+	color: var(--cm-color-text);
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.godevs-cpt-title-info strong a:hover {
+	color: var(--cm-color-accent);
+}
+
+.godevs-cpt-meta-summary {
+	font-size: 11px;
+	color: var(--cm-color-text-muted);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 400px;
+}
+
+/* Status badges */
+.godevs-cpt-status-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	font-size: 11px;
+	font-weight: 600;
+	border-radius: 999px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.godevs-cpt-status-badge.is-published {
+	background: var(--cm-color-success-bg);
+	color: var(--cm-color-success);
+}
+
+.godevs-cpt-status-badge.is-draft {
+	background: var(--cm-color-warning-bg);
+	color: var(--cm-color-warning);
+}
+
+.godevs-cpt-status-badge.is-other {
+	background: var(--cm-color-surface-muted);
+	color: var(--cm-color-text-muted);
+}
+
+/* Row actions */
+.godevs-cpt-row-actions {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+}
+
+.godevs-cpt-row-actions .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 12px;
+	padding: 4px 8px;
+}
+
+.godevs-cpt-row-actions .button .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+}
+
+.godevs-cpt-delete {
+	color: var(--cm-color-danger) !important;
+	border-color: transparent !important;
+	background: transparent !important;
+	padding: 4px 6px !important;
+}
+
+.godevs-cpt-delete:hover {
+	background: var(--cm-color-danger-bg) !important;
+	border-color: var(--cm-color-danger) !important;
+}
+
+/* ═══ EMPTY STATE ═══ */
+.godevs-cpt-empty {
+	text-align: center;
+	padding: 48px 24px;
+	color: var(--cm-color-text-muted);
+}
+
+.godevs-cpt-empty .dashicons {
+	font-size: 48px;
+	width: 48px;
+	height: 48px;
+	color: var(--cm-color-border);
+	margin-bottom: 12px;
+}
+
+.godevs-cpt-empty h3 {
+	font-size: 18px;
+	color: var(--cm-color-text);
+	margin: 0 0 8px 0;
+}
+
+.godevs-cpt-empty p {
+	font-size: 14px;
+	margin: 0 0 20px 0;
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* ═══ PAGINATION ═══ */
+.godevs-cpt-pagination {
+	margin: 16px 24px;
+}
+
+.godevs-cpt-pagination ul {
+	display: flex;
+	gap: 2px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	justify-content: center;
+}
+
+.godevs-cpt-pagination li a,
+.godevs-cpt-pagination li span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 32px;
+	height: 32px;
+	padding: 0 8px;
+	border: 1px solid var(--cm-color-border);
+	border-radius: var(--cm-radius-sm);
+	text-decoration: none;
+	font-size: 13px;
+	color: var(--cm-color-text-secondary);
+	transition: background var(--cm-transition), color var(--cm-transition);
+}
+
+.godevs-cpt-pagination li a:hover {
+	background: var(--cm-color-surface-muted);
+	color: var(--cm-color-text);
+}
+
+.godevs-cpt-pagination li .current {
+	background: var(--cm-color-accent);
+	border-color: var(--cm-color-accent);
+	color: #ffffff;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 782px) {
+	.godevs-cpt-dashboard {
+		grid-template-columns: 1fr;
+	}
+
+	.godevs-cpt-list-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.godevs-cpt-list-actions {
+		width: 100%;
+	}
+
+	.godevs-cpt-search-input {
+		min-width: 0;
+		flex: 1;
+	}
+
+	.godevs-cpt-table thead {
+		display: none;
+	}
+
+	.godevs-cpt-table tbody td {
+		display: block;
+		padding: 8px 16px;
+	}
+
+	.godevs-cpt-table tbody tr {
+		border-bottom: 8px solid var(--cm-color-surface-muted);
+	}
+
+	.godevs-cpt-col-status,
+	.godevs-cpt-col-date {
+		width: 100%;
+	}
+
+	.godevs-cpt-col-actions {
+		width: 100%;
+	}
+}
