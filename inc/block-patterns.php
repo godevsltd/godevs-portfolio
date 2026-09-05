@@ -165,3 +165,99 @@ function godevs_portfolio_register_pattern_categories(): void {
         }
 }
 add_action( 'init', 'godevs_portfolio_register_pattern_categories' );
+
+/**
+ * Register block patterns from subdirectories of the patterns/ folder.
+ *
+ * WordPress core only auto-discovers patterns in the top-level patterns/
+ * directory (via glob). Patterns in subdirectories (patterns/demos/,
+ * patterns/services/, patterns/stats/, patterns/dynamic/) are NOT
+ * auto-registered. This function recursively scans the patterns directory
+ * and registers any pattern files that have a valid pattern header.
+ *
+ * Patterns already registered (by core or by an earlier call) are
+ * skipped to avoid conflicts.
+ *
+ * @return void
+ * @since 1.1.0
+ */
+function godevs_portfolio_register_subdirectory_patterns(): void {
+        $registry  = WP_Block_Patterns_Registry::get_instance();
+        $patterns_dir = get_template_directory() . '/patterns';
+        $text_domain = 'godevs-portfolio';
+
+        if ( ! is_dir( $patterns_dir ) ) {
+                return;
+        }
+
+        // Recursively find all .php files in the patterns directory.
+        $iterator = new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator( $patterns_dir, FilesystemIterator::SKIP_DOTS ),
+                RecursiveIteratorIterator::LEAVES_ONLY
+        );
+
+        $default_headers = array(
+                'title'         => 'Title',
+                'slug'          => 'Slug',
+                'description'   => 'Description',
+                'viewportWidth' => 'Viewport Width',
+                'inserter'      => 'Inserter',
+                'categories'    => 'Categories',
+                'keywords'      => 'Keywords',
+                'blockTypes'    => 'Block Types',
+                'postTypes'     => 'Post Types',
+                'templateTypes' => 'Template Types',
+        );
+
+        foreach ( $iterator as $file ) {
+                // Only process .php files.
+                if ( $file->getExtension() !== 'php' ) {
+                        continue;
+                }
+
+                // Skip index.php (silence is golden).
+                if ( $file->getFilename() === 'index.php' ) {
+                        continue;
+                }
+
+                $file_path = $file->getPathname();
+                $pattern   = get_file_data( $file_path, $default_headers );
+
+                // Skip files without a slug (not a pattern).
+                if ( empty( $pattern['slug'] ) ) {
+                        continue;
+                }
+
+                // Skip if already registered (core auto-discovers top-level patterns).
+                if ( $registry->is_registered( $pattern['slug'] ) ) {
+                        continue;
+                }
+
+                // Validate slug format.
+                if ( ! preg_match( '/^[A-z0-9\/_-]+$/', $pattern['slug'] ) ) {
+                        continue;
+                }
+
+                // Parse comma-separated properties.
+                $properties_to_parse = array( 'categories', 'keywords', 'blockTypes', 'postTypes', 'templateTypes' );
+                foreach ( $properties_to_parse as $property ) {
+                        if ( ! empty( $pattern[ $property ] ) ) {
+                                $pattern[ $property ] = array_filter( array_map( 'trim', explode( ',', $pattern[ $property ] ) ) );
+                        } else {
+                                unset( $pattern[ $property ] );
+                        }
+                }
+
+                // Set the file path so the pattern can be loaded on demand.
+                $pattern['filePath'] = $file_path;
+
+                // Translate title and description.
+                $pattern['title'] = translate_with_gettext_context( $pattern['title'], 'Pattern title', $text_domain );
+                if ( ! empty( $pattern['description'] ) ) {
+                        $pattern['description'] = translate_with_gettext_context( $pattern['description'], 'Pattern description', $text_domain );
+                }
+
+                register_block_pattern( $pattern['slug'], $pattern );
+        }
+}
+add_action( 'init', 'godevs_portfolio_register_subdirectory_patterns', 20 );
