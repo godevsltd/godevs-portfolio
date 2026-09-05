@@ -258,7 +258,7 @@ function godevs_booking_admin_notices(): void {
         if ( ! isset( $_GET['booking_status_changed'] ) ) {
                 return;
         }
-        $count = (int) $_GET['booking_status_changed'];
+        $count = isset( $_GET['booking_status_changed'] ) ? absint( wp_unslash( $_GET['booking_status_changed'] ) ) : 0;
         if ( $count < 1 ) {
                 return;
         }

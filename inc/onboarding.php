@@ -93,11 +93,11 @@ function godevs_onboarding_welcome_notice(): void {
                 return;
         }
         // Don't show on the Welcome screen itself (it's redundant).
-        if ( isset( $_GET['welcome'] ) && '1' === $_GET['welcome'] ) {
+        if ( isset( $_GET['welcome'] ) && '1' === sanitize_key( wp_unslash( $_GET['welcome'] ) ) ) {
                 return;
         }
         // Don't show on the demo library page (user is already there).
-        if ( isset( $_GET['page'] ) && 'godevs-portfolio-demos' === $_GET['page'] ) {
+        if ( isset( $_GET['page'] ) && 'godevs-portfolio-demos' === sanitize_key( wp_unslash( $_GET['page'] ) ) ) {
                 return;
         }
         // Bail if dismissed.
@@ -105,7 +105,7 @@ function godevs_onboarding_welcome_notice(): void {
                 return;
         }
         // Don't show on the settings page itself — that has its own welcome panel.
-        if ( isset( $_GET['page'] ) && 'godevs-portfolio-settings' === $_GET['page'] ) {
+        if ( isset( $_GET['page'] ) && 'godevs-portfolio-settings' === sanitize_key( wp_unslash( $_GET['page'] ) ) ) {
                 return;
         }
         ?>
@@ -365,7 +365,7 @@ function godevs_onboarding_after_import_notice(): void {
         $settings_url = admin_url( 'themes.php?page=godevs-portfolio-settings' );
 
         // Don't show on the demo library page itself — show on the next page they visit.
-        if ( isset( $_GET['page'] ) && 'godevs-portfolio-demos' === $_GET['page'] ) {
+        if ( isset( $_GET['page'] ) && 'godevs-portfolio-demos' === sanitize_key( wp_unslash( $_GET['page'] ) ) ) {
                 return;
         }
         ?>

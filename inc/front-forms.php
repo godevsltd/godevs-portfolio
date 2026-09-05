@@ -268,11 +268,14 @@ function godevs_ajax_submit_booking(): void {
         check_ajax_referer( 'godevs_booking_form', 'nonce' );
 
         // Honeypot anti-spam check — if filled, silently fail.
-        if ( ! empty( $_POST['godevs_hp'] ) ) {
+        // Note: we intentionally do NOT read or use the honeypot value — we only
+        // check whether the field was filled by a bot. No sanitization needed.
+        if ( isset( $_POST['godevs_hp'] ) && '' !== wp_unslash( $_POST['godevs_hp'] ) ) {
                 wp_send_json_error( array( 'message' => __( 'Spam detected.', 'godevs-portfolio' ) ), 400 );
         }
 
         // Sanitize and validate input.
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- verified above via check_ajax_referer().
         $name    = isset( $_POST['booking_name'] ) ? sanitize_text_field( wp_unslash( $_POST['booking_name'] ) ) : '';
         $email   = isset( $_POST['booking_email'] ) ? sanitize_email( wp_unslash( $_POST['booking_email'] ) ) : '';
         $phone   = isset( $_POST['booking_phone'] ) ? sanitize_text_field( wp_unslash( $_POST['booking_phone'] ) ) : '';
@@ -280,6 +283,7 @@ function godevs_ajax_submit_booking(): void {
         $date    = isset( $_POST['booking_date'] ) ? sanitize_text_field( wp_unslash( $_POST['booking_date'] ) ) : '';
         $time    = isset( $_POST['booking_time'] ) ? sanitize_text_field( wp_unslash( $_POST['booking_time'] ) ) : '';
         $message = isset( $_POST['booking_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['booking_message'] ) ) : '';
+        // phpcs:enable WordPress.Security.NonceVerification.Recommended.
 
         // Validate required fields.
         if ( empty( $name ) || empty( $email ) ) {
@@ -362,17 +366,21 @@ function godevs_ajax_submit_proposal(): void {
         check_ajax_referer( 'godevs_proposal_form', 'nonce' );
 
         // Honeypot anti-spam check.
-        if ( ! empty( $_POST['godevs_hp'] ) ) {
+        // We intentionally do NOT read or use the honeypot value — we only check
+        // whether the field was filled by a bot. No sanitization needed.
+        if ( isset( $_POST['godevs_hp'] ) && '' !== wp_unslash( $_POST['godevs_hp'] ) ) {
                 wp_send_json_error( array( 'message' => __( 'Spam detected.', 'godevs-portfolio' ) ), 400 );
         }
 
         // Sanitize and validate input.
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- verified above via check_ajax_referer().
         $name     = isset( $_POST['proposal_name'] ) ? sanitize_text_field( wp_unslash( $_POST['proposal_name'] ) ) : '';
         $email    = isset( $_POST['proposal_email'] ) ? sanitize_email( wp_unslash( $_POST['proposal_email'] ) ) : '';
         $company  = isset( $_POST['proposal_company'] ) ? sanitize_text_field( wp_unslash( $_POST['proposal_company'] ) ) : '';
         $budget   = isset( $_POST['proposal_budget'] ) ? sanitize_text_field( wp_unslash( $_POST['proposal_budget'] ) ) : '';
         $type     = isset( $_POST['proposal_type'] ) ? sanitize_text_field( wp_unslash( $_POST['proposal_type'] ) ) : '';
         $message  = isset( $_POST['proposal_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['proposal_message'] ) ) : '';
+        // phpcs:enable WordPress.Security.NonceVerification.Recommended.
 
         // Validate required fields.
         if ( empty( $name ) || empty( $email ) || empty( $message ) ) {

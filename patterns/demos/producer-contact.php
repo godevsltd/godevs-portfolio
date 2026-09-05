@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:buttons -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small);margin-top:var(--wp--preset--spacing--20)">Note: Placeholder form. Replace with Contact Form 7 or WPForms.</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|small);margin-top:var(--wp--preset--spacing--20)">Note: This is a visual placeholder. Edit this page in the Site Editor to add your contact details and links.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

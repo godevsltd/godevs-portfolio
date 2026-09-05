@@ -168,7 +168,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <!-- /wp:buttons -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);margin-top:var(--wp--preset--spacing--20)">Placeholder form — replace with Contact Form 7 or WPForms in production.</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);margin-top:var(--wp--preset--spacing--20)">Placeholder form — replace with your preferred contact method in production.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

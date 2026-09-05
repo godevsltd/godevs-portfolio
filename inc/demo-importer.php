@@ -156,7 +156,8 @@ function godevs_portfolio_ajax_import_demo(): void {
         $mode    = isset( $_POST['mode'] ) ? sanitize_key( wp_unslash( $_POST['mode'] ) ) : 'safe';
         // The JS sends apply_style as '1' or '0'. Cast to int first, then bool —
         // (bool) '0' is TRUE in PHP because non-empty strings are truthy.
-        $apply_style = isset( $_POST['apply_style'] ) ? ( '1' === (string) $_POST['apply_style'] ) : false;
+        $apply_style = isset( $_POST['apply_style'] ) ? ( '1' === (string) wp_unslash( $_POST['apply_style'] ) ) : false;
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- verified above via check_ajax_referer().
 
         if ( ! $demo_id ) {
                 wp_send_json_error( array( 'message' => __( 'Missing demo ID.', 'godevs-portfolio' ) ), 400 );
@@ -515,6 +516,7 @@ function godevs_portfolio_ajax_import_demo(): void {
                         'editSiteUrl'      => admin_url( 'site-editor.php' ),
                 )
         );
+        // phpcs:enable WordPress.Security.NonceVerification.Recommended.
 }
 add_action( 'wp_ajax_godevs_portfolio_import_demo', 'godevs_portfolio_ajax_import_demo' );
 

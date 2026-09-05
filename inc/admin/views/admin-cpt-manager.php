@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $cpts       = godevs_cpt_admin_get_theme_cpts();
 $current    = isset( $_GET['cpt'] ) ? sanitize_key( wp_unslash( $_GET['cpt'] ) ) : '';
 $search     = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
-$paged      = isset( $_GET['paged'] ) ? max( 1, (int) $_GET['paged'] ) : 1;
+$paged      = isset( $_GET['paged'] ) ? max( 1, absint( wp_unslash( $_GET['paged'] ) ) ) : 1;
 $per_page   = 20;
 
 // Validate CPT.

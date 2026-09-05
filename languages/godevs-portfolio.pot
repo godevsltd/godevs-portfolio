@@ -1,926 +1,2753 @@
-# Copyright (C) 2024 GoDevs
-# This file is distributed under the GNU General Public License v2 or later.
+# Copyright (C) 2026 GoDevs Portfolio
+# This file is distributed under the same license as the GoDevs Portfolio package.
 msgid ""
 msgstr ""
-"Project-Id-Version: GoDevs Portfolio 1.0.0\n"
-"Report-Msgid-Bugs-To: https://godevs.net/\n"
-"POT-Creation-Date: 2026-09-01 05:55\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: GoDevs Portfolio\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Domain: godevs-portfolio\n"
-
-#: inc/front-forms.php:226
-msgid "$15,000 — $50,000"
-msgstr ""
-
-#: inc/front-forms.php:225
-msgid "$5,000 — $15,000"
-msgstr ""
-
-#: inc/front-forms.php:227
-msgid "$50,000+"
-msgstr ""
-
-#: inc/booking-system.php:272
-msgid "%d booking status updated."
-msgid_plural "%d booking statuses updated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/admin/views/admin-demos.php:416
-msgid "%d page"
-msgid_plural "%d pages"
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions.php:260
-msgid "(CPTs register on the init hook — visit any admin page to trigger it.)"
-msgstr ""
-
-#: inc/onboarding.php:204
-msgid "1. Import a Demo"
-msgstr ""
-
-#: inc/settings-integration.php:302
-msgid "16:10"
-msgstr ""
-
-#: inc/settings-integration.php:303
-msgid "16:9"
-msgstr ""
-
-#: inc/onboarding.php:209
-msgid "2. Pick a Header"
-msgstr ""
-
-#: inc/onboarding.php:214
-msgid "3. Customize Colors"
-msgstr ""
-
-#: inc/onboarding.php:219
-msgid "4. Edit Templates"
-msgstr ""
-
-#: inc/settings-integration.php:304
-msgid "4:3"
-msgstr ""
-
-#: inc/onboarding.php:198
-msgid "A premium Gutenberg-first block theme. Here's how to get your site live in 5 minutes."
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:151
-msgid "Actions"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:80
-msgid "Add"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:141
-msgid "Add First %s"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:115
-msgid "Add New %s"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:78
-msgid "Add new"
-msgstr ""
-
-#: inc/booking-system.php:358
-msgid "Admin Notes"
-msgstr ""
-
-#: inc/theme-settings.php:369, inc/theme-settings.php:668
-msgid "Advanced"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:84
-msgid "All"
-msgstr ""
-
-#: functions.php:238
-msgid "All 10 component files loaded ✓"
-msgstr ""
-
-#: functions.php:256
-msgid "All 9 CPTs registered ✓"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:93
-msgid "All categories"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:420
-msgid "All pages"
-msgstr ""
-
-#: functions.php:247
-msgid "All registration functions exist ✓"
-msgstr ""
-
-#: inc/booking-system.php:151
-msgid "All statuses"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:103
-msgid "All styles"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:120
-msgid "Archive Settings"
-msgstr ""
-
-#: inc/settings-integration.php:306
-msgid "Aspect ratio for demo preview images."
-msgstr ""
-
-#: inc/theme-settings.php:358, inc/theme-settings.php:483
-msgid "Blog"
-msgstr ""
-
-#: inc/front-forms.php:91
-msgid "Bookings are currently disabled."
-msgstr ""
-
-#: inc/front-forms.php:238
-msgid "Branding / Identity"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:54
-msgid "Browse complete portfolio sites, preview them live in the browser, and import with all pages, navigation, and the recommended style variation applied. Your existing content is never deleted."
-msgstr ""
-
-#: inc/theme-settings.php:589
-msgid "Browse, preview, and import complete portfolio websites. Preview any demo live — then import with one click. Your existing content is never deleted."
-msgstr ""
-
-#: inc/front-forms.php:221
-msgid "Budget Range"
-msgstr ""
-
-#: inc/settings-integration.php:158
-msgid "By"
-msgstr ""
-
-#: functions.php:245
-msgid "CPT functions:"
-msgstr ""
-
-#: inc/theme-settings.php:694
-msgid "CPTs registered"
-msgstr ""
-
-#: functions.php:254
-msgid "CPTs registered:"
-msgstr ""
-
-#: inc/settings-integration.php:292
-msgid "Card density"
-msgstr ""
-
-#: inc/theme-settings.php:365, inc/theme-settings.php:575
-msgid "Case Studies"
-msgstr ""
-
-#: inc/booking-system.php:350
-msgid "Changing the status will send an email notification to the client."
-msgstr ""
-
-#: inc/onboarding.php:210
-msgid "Choose from 10 ready-made header layouts."
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:181
-msgid "Clear all filters"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:112
-msgid "Clear filters"
-msgstr ""
-
-#: inc/theme-settings.php:348
-msgid "Clear search"
-msgstr ""
-
-#: inc/booking-system.php:354
-msgid "Client Message"
-msgstr ""
-
-#: inc/booking-system.php:319
-msgid "Client Name"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:211
-msgid "Close preview"
-msgstr ""
-
-#: inc/theme-settings.php:354, inc/theme-settings.php:404
-msgid "Colors"
-msgstr ""
-
-#: inc/settings-integration.php:294
-msgid "Comfortable"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:337, inc/admin/views/admin-demos.php:368, inc/admin/views/admin-demos.php:158
-msgid "Coming Soon"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:64
-msgid "Coming soon"
-msgstr ""
-
-#: inc/settings-integration.php:295
-msgid "Compact"
-msgstr ""
-
-#: inc/front-forms.php:217
-msgid "Company / Organization"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:333
-msgid "Complete"
-msgstr ""
-
-#: inc/theme-settings.php:484
-msgid "Configure blog archive and single post display."
-msgstr ""
-
-#: inc/theme-settings.php:576
-msgid "Configure case study archive display."
-msgstr ""
-
-#: inc/theme-settings.php:564
-msgid "Configure education archive display."
-msgstr ""
-
-#: inc/theme-settings.php:381
-msgid "Configure general settings for the GoDevs Portfolio theme."
-msgstr ""
-
-#: inc/theme-settings.php:499
-msgid "Configure project archive and single display."
-msgstr ""
-
-#: inc/theme-settings.php:513
-msgid "Configure service archive and single display."
-msgstr ""
-
-#: inc/theme-settings.php:526
-msgid "Configure team member display."
-msgstr ""
-
-#: inc/theme-settings.php:539
-msgid "Configure testimonial display."
-msgstr ""
-
-#: inc/theme-settings.php:459
-msgid "Configure the site footer. Choose a custom builder layout as the site-wide default, or use the theme default."
-msgstr ""
-
-#: inc/theme-settings.php:434
-msgid "Configure the site header. Choose a custom builder layout as the site-wide default, or use the theme default."
-msgstr ""
-
-#: inc/theme-settings.php:552
-msgid "Configure work experience archive display."
-msgstr ""
-
-#: inc/front-forms.php:239
-msgid "Consulting"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:52
-msgid "Content Manager"
-msgstr ""
-
-#: inc/theme-settings.php:672
-msgid "Content modules"
-msgstr ""
-
-#: inc/theme-settings.php:420
-msgid "Control container widths, radii, and spacing."
-msgstr ""
-
-#: inc/theme-settings.php:392
-msgid "Control fonts, weights, and type scaling."
-msgstr ""
-
-#: inc/theme-settings.php:657
-msgid "Control motion, loading, and optimization."
-msgstr ""
-
-#: inc/demo-renderer.php:452
-msgid "Could not render demo page."
-msgstr ""
-
-#: inc/header-footer-builder.php:179
-msgid "Custom HTML"
-msgstr ""
-
-#: inc/onboarding.php:399
-msgid "Customize Theme"
-msgstr ""
-
-#: inc/theme-settings.php:405
-msgid "Customize the color palette. Changes apply via CSS custom properties."
-msgstr ""
-
-#: inc/theme-settings.php:366, inc/theme-settings.php:588
-msgid "Demo Library"
-msgstr ""
-
-#: functions.php:264
-msgid "Demo import page:"
-msgstr ""
-
-#: inc/onboarding.php:379
-msgid "Demo imported successfully!"
-msgstr ""
-
-#: functions.php:268
-msgid "Demo importer NOT loaded"
-msgstr ""
-
-#: functions.php:266
-msgid "Demo importer loaded — look under Appearance → GoDevs Demos ✓"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:227
-msgid "Demo live preview"
-msgstr ""
-
-#: inc/demo-renderer.php:445
-msgid "Demo not found."
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:200, inc/admin/views/admin-demos.php:198
-msgid "Desktop"
-msgstr ""
-
-#: inc/onboarding.php:310
-msgid "Do it →"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:200, inc/admin/views/admin-cpt-manager.php:198
-msgid "Edit"
-msgstr ""
-
-#: inc/onboarding.php:391
-msgid "Edit Homepage"
-msgstr ""
-
-#: inc/onboarding.php:395
-msgid "Edit Navigation"
-msgstr ""
-
-#: inc/theme-settings.php:364, inc/theme-settings.php:563
-msgid "Education"
-msgstr ""
-
-#: inc/theme-settings.php:637
-msgid "Element Settings"
-msgstr ""
-
-#: inc/theme-settings.php:630
-msgid "Elements"
-msgstr ""
-
-#: inc/booking-system.php:323, inc/front-forms.php:128, inc/front-forms.php:210
-msgid "Email"
-msgstr ""
-
-#: inc/header-footer-builder.php:1334
-msgid "Empty layout"
-msgstr ""
-
-#: inc/theme-settings.php:673
-msgid "Enable or disable custom post types. Disabled modules preserve existing content but hide admin menus."
-msgstr ""
-
-#: inc/cpt-archives.php:250, inc/cpt-archives.php:279
-msgid "End:"
-msgstr ""
-
-#: inc/theme-settings.php:363, inc/theme-settings.php:551
-msgid "Experience"
-msgstr ""
-
-#: inc/content/case-study.php:359
-msgid "Featured"
-msgstr ""
-
-#: functions.php:236
-msgid "Files loaded:"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:91
-msgid "Filter by category"
-msgstr ""
-
-#: inc/booking-system.php:149
-msgid "Filter by status"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:101
-msgid "Filter by style variation"
-msgstr ""
-
-#: inc/theme-settings.php:357, inc/theme-settings.php:458
-msgid "Footer"
-msgstr ""
-
-#: inc/theme-settings.php:605
-msgid "Footer Builder"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:138
-msgid "Fully designed home + inner pages — ready to import with one click."
-msgstr ""
-
-#: inc/theme-settings.php:352, inc/theme-settings.php:380
-msgid "General"
-msgstr ""
-
-#: inc/theme-settings.php:325
-msgid "GoDevs Portfolio"
+"Language-Team: GoDevs <hello@godevs.net>\n"
+"Last-Translator: GoDevs <hello@godevs.net>\n"
+"POT-Creation-Date: 2026-09-05 02:40+0000\n"
+"Report-Msgid-Bugs-To: https://godevs.net/\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: functions.php:62
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:63
+msgid "Footer Menu"
 msgstr ""
 
 #: functions.php:232
 msgid "GoDevs Portfolio — Diagnostic Status"
 msgstr ""
 
-#: inc/theme-settings.php:356, inc/theme-settings.php:433
-msgid "Header"
-msgstr ""
-
-#: inc/theme-settings.php:367
-msgid "Header & Footer"
-msgstr ""
-
-#: inc/theme-settings.php:599
-msgid "Header & Footer Builder"
-msgstr ""
-
-#: inc/theme-settings.php:604
-msgid "Header Builder"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:161
-msgid "Homepage patterns available — inner pages are being designed."
-msgstr ""
-
-#: functions.php:272
-msgid "If CPTs are not registered, visit Settings → Permalinks and click Save Changes to flush rewrite rules."
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:246
-msgid "Import Demo"
-msgstr ""
-
-#: inc/onboarding.php:125
-msgid "Import a Demo"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:343, inc/admin/views/admin-demos.php:68
-msgid "Imported"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:257
-msgid "Importing demo…"
-msgstr ""
-
-#: inc/demo-renderer.php:430, inc/cpt-admin.php:52
-msgid "Insufficient permissions."
-msgstr ""
-
-#: inc/booking-system.php:359
-msgid "Internal notes (not shown to client)"
-msgstr ""
-
-#: inc/theme-settings.php:355, inc/theme-settings.php:419
-msgid "Layout"
-msgstr ""
-
-#: inc/theme-settings.php:620
-msgid "Layout name"
-msgstr ""
-
-#: inc/front-forms.php:117, inc/front-forms.php:199
-msgid "Leave this field empty"
-msgstr ""
-
-#: inc/theme-settings.php:644
-msgid "Live Preview"
-msgstr ""
-
-#: inc/content/case-study.php:349
-msgid "Live URL"
-msgstr ""
-
-#: inc/theme-settings.php:647
-msgid "Load a template or add elements to see a live preview."
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:222
-msgid "Loading live preview…"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:82
-msgid "Manage all"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:55
-msgid "Manage all your theme content types from one dashboard. View, edit, add, and preview projects, services, team, testimonials, and more."
-msgstr ""
-
-#: inc/content/case-study.php:361
-msgid "Mark as featured case study"
-msgstr ""
-
-#: inc/onboarding.php:215
-msgid "Match your brand with the color picker."
-msgstr ""
-
-#: inc/front-forms.php:164
-msgid "Message"
-msgstr ""
-
-#: inc/demo-renderer.php:438
-msgid "Missing demo ID."
-msgstr ""
-
-#: functions.php:240
-msgid "Missing files:"
-msgstr ""
-
-#: functions.php:249
-msgid "Missing functions:"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:208, inc/admin/views/admin-demos.php:206
-msgid "Mobile"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:150
-msgid "Modified"
-msgstr ""
-
-#: inc/theme-settings.php:669
-msgid "Module visibility and system controls."
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:208
-msgid "Move this item to trash?"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:179
-msgid "No demos found"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:180
-msgid "No demos match your current filters. Try adjusting your search or category."
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:129
-msgid "No items found"
-msgstr ""
-
-#: inc/content/meta-fields.php:376
-msgid "No saved layouts yet — create one in Appearance → GoDevs Settings → Header/Footer Builder."
-msgstr ""
-
-#: inc/demo-renderer.php:423
-msgid "Nonce verification failed."
-msgstr ""
-
-#: functions.php:258
-msgid "Not yet registered:"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:51
-msgid "One click to import."
-msgstr ""
-
-#: inc/onboarding.php:133
-msgid "Open Site Editor"
-msgstr ""
-
-#: inc/onboarding.php:316
-msgid "Open Theme Settings →"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:243, inc/admin/views/admin-demos.php:241
-msgid "Open in new tab"
-msgstr ""
-
-#: inc/onboarding.php:220
-msgid "Open the Site Editor to customize any page."
-msgstr ""
-
-#: inc/front-forms.php:240
-msgid "Other"
-msgstr ""
-
-#: inc/theme-settings.php:695
-msgid "PHP version"
-msgstr ""
-
-#: inc/theme-settings.php:368, inc/theme-settings.php:656
-msgid "Performance"
-msgstr ""
-
-#: inc/booking-system.php:327, inc/front-forms.php:135
-msgid "Phone"
-msgstr ""
-
-#: inc/theme-settings.php:359, inc/theme-settings.php:498
-msgid "Portfolio"
-msgstr ""
-
-#: inc/booking-system.php:335, inc/front-forms.php:154
-msgid "Preferred Date"
-msgstr ""
-
-#: inc/booking-system.php:339, inc/front-forms.php:158
-msgid "Preferred Time"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:47
-msgid "Premium Demo Library"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:354
-msgid "Preview"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:407
-msgid "Preview Demo"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:197
-msgid "Preview device"
-msgstr ""
-
-#: inc/settings-integration.php:300
-msgid "Preview ratio"
-msgstr ""
-
-#: inc/cpt-archives.php:168
-msgid "Price:"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:50
-msgid "Production-ready websites."
-msgstr ""
-
-#: inc/front-forms.php:245
-msgid "Project Details"
-msgstr ""
-
-#: inc/front-forms.php:233
-msgid "Project Type"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:335
-msgid "Ready"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:135
-msgid "Ready Demos"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:60
-msgid "Ready demos"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:362
-msgid "Remove demo"
-msgstr ""
-
-#: inc/content/case-study.php:354
-msgid "Repository URL"
-msgstr ""
-
-#: inc/front-forms.php:169
-msgid "Request Booking"
-msgstr ""
-
-#: inc/theme-settings.php:332
-msgid "Reset"
-msgstr ""
-
-#: inc/content/case-study.php:328
-msgid "Result"
-msgstr ""
-
-#: inc/theme-settings.php:343
-msgid "SETTINGS"
-msgstr ""
-
-#: inc/theme-settings.php:626
-msgid "Save Layout"
-msgstr ""
-
-#: inc/theme-settings.php:335
-msgid "Save changes"
-msgstr ""
-
-#: inc/content/meta-fields.php:364
-msgid "Saved layouts"
-msgstr ""
-
-#: inc/header-footer-builder.php:776, inc/admin/views/admin-cpt-manager.php:110
-msgid "Search"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:77
-msgid "Search demos"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:85
-msgid "Search demos by name, category, or style…"
-msgstr ""
-
-#: inc/theme-settings.php:346
-msgid "Search settings"
-msgstr ""
-
-#: inc/theme-settings.php:347
-msgid "Search settings…"
-msgstr ""
-
-#: inc/admin/views/admin-cpt-manager.php:109
-msgid "Search…"
-msgstr ""
-
-#: inc/front-forms.php:250
-msgid "Send Proposal"
-msgstr ""
-
-#: inc/booking-system.php:331, inc/front-forms.php:139
-msgid "Service"
-msgstr ""
-
-#: inc/theme-settings.php:360, inc/theme-settings.php:512
-msgid "Services"
-msgstr ""
-
-#: inc/onboarding.php:297
-msgid "Setup progress"
-msgstr ""
-
-#: inc/content/meta-fields.php:358
-msgid "Site-wide default"
-msgstr ""
-
-#: inc/settings-integration.php:297
-msgid "Spacing between demo cards in the library."
-msgstr ""
-
-#: inc/onboarding.php:205
-msgid "Start with a complete pre-built site you can customize."
-msgstr ""
-
-#: inc/cpt-archives.php:250, inc/cpt-archives.php:279
-msgid "Start:"
-msgstr ""
-
-#: inc/theme-settings.php:609
-msgid "Starter Templates"
-msgstr ""
-
-#: inc/booking-system.php:343, inc/admin/views/admin-cpt-manager.php:149
-msgid "Status"
-msgstr ""
-
-#: inc/theme-settings.php:688
-msgid "System status"
-msgstr ""
-
-#: inc/admin/views/admin-demos.php:204, inc/admin/views/admin-demos.php:202
-msgid "Tablet"
-msgstr ""
-
-#: inc/theme-settings.php:361, inc/theme-settings.php:525
-msgid "Team"
-msgstr ""
-
-#: inc/front-forms.php:165
-msgid "Tell us about your project or what you need…"
-msgstr ""
-
-#: inc/front-forms.php:246
-msgid "Tell us about your project — goals, timeline, scope, anything that helps us understand what you need."
-msgstr ""
-
-#: inc/theme-settings.php:362, inc/theme-settings.php:538
-msgid "Testimonials"
-msgstr ""
-
-#: inc/onboarding.php:120
-msgid "Thanks for installing! Get started in minutes — import a demo, pick a header, customize your colors, and publish."
-msgstr ""
-
-#: inc/onboarding.php:129, inc/theme-settings.php:326
-msgid "Theme Settings"
-msgstr ""
-
-#: inc/theme-settings.php:693
-msgid "Theme version"
-msgstr ""
-
 #: functions.php:234
 msgid "Theme version:"
 msgstr ""
 
-#: inc/admin/views/admin-cpt-manager.php:134
-msgid "There are no %s yet. Create your first one to get started."
+#: functions.php:236
+msgid "Files loaded:"
 msgstr ""
 
-#: inc/admin/views/admin-cpt-manager.php:148
-msgid "Title"
+#: functions.php:245
+msgid "Missing files:"
 msgstr ""
 
-#: inc/header-footer-builder.php:754
-msgid "Toggle menu"
+#: functions.php:241
+msgid "All %d component files loaded ✓"
 msgstr ""
 
-#: inc/admin/views/admin-cpt-manager.php:208
-msgid "Trash"
+#: functions.php:250
+msgid "CPT functions:"
 msgstr ""
 
-#: inc/theme-settings.php:353, inc/theme-settings.php:391
-msgid "Typography"
+#: functions.php:254
+msgid "Missing functions:"
 msgstr ""
 
-#: inc/front-forms.php:224
-msgid "Under $5,000"
+#: functions.php:252
+msgid "All registration functions exist ✓"
 msgstr ""
 
-#: inc/admin/views/admin-cpt-manager.php:205, inc/admin/views/admin-cpt-manager.php:203
-msgid "View"
+#: functions.php:259
+msgid "CPTs registered:"
 msgstr ""
 
-#: inc/onboarding.php:387
-msgid "View Site"
+#: functions.php:263
+msgid "Not yet registered:"
 msgstr ""
 
-#: inc/admin/views/admin-cpt-manager.php:87
-msgid "View archive"
+#: functions.php:265
+msgid "(CPTs register on the init hook — visit any admin page to trigger it.)"
 msgstr ""
 
-#: inc/theme-settings.php:600
-msgid "Visually build custom headers and footers with drag-and-drop elements. Choose a starter template or create your own."
+#: functions.php:261
+msgid "All 9 CPTs registered ✓"
 msgstr ""
 
-#: inc/front-forms.php:237
-msgid "Web Development"
+#: functions.php:269
+msgid "Demo import page:"
 msgstr ""
 
-#: inc/front-forms.php:236
-msgid "Website Design"
+#: functions.php:273
+msgid "Demo importer NOT loaded"
 msgstr ""
 
-#: inc/onboarding.php:117, inc/onboarding.php:197
-msgid "Welcome to GoDevs Portfolio"
+#: functions.php:271
+msgid "Demo importer loaded — look under Appearance → GoDevs Demos ✓"
 msgstr ""
 
-#: inc/theme-settings.php:696
-msgid "WordPress version"
+#: functions.php:277
+msgid "If CPTs are not registered, visit Settings → Permalinks and click Save Changes to flush rewrite rules."
 msgstr ""
 
-#: inc/demo-importer.php:49, inc/theme-settings.php:310
+#: functions.php:483, inc/demo-importer.php:289, inc/demo-importer.php:289, inc/demo-registry.php:646, inc/demo-registry.php:646, inc/admin/views/admin-demos.php:281, inc/admin/views/admin-demos.php:281
+msgid "Home"
+msgstr ""
+
+#: inc/block-patterns.php:56, inc/block-patterns.php:56
+msgid "Hero"
+msgstr ""
+
+#: inc/block-patterns.php:57, inc/block-patterns.php:57
+msgid "Top-of-page introductions and opening sections."
+msgstr ""
+
+#: inc/block-patterns.php:61, inc/block-patterns.php:61, inc/demo-importer.php:290, inc/demo-importer.php:290
+msgid "About"
+msgstr ""
+
+#: inc/block-patterns.php:62, inc/block-patterns.php:62
+msgid "Bio and about sections."
+msgstr ""
+
+#: inc/block-patterns.php:66, inc/block-patterns.php:66, inc/cpt-admin.php:87, inc/cpt-admin.php:87, inc/demo-importer.php:293, inc/demo-importer.php:293, inc/theme-settings.php:474, inc/theme-settings.php:626, inc/theme-settings.php:790, inc/theme-settings.php:474, inc/theme-settings.php:626, inc/theme-settings.php:790, inc/content/cpt.php:116, inc/content/cpt.php:127, inc/content/cpt.php:116, inc/content/cpt.php:127
+msgid "Services"
+msgstr ""
+
+#: inc/block-patterns.php:67, inc/block-patterns.php:67
+msgid "Service offerings and feature lists."
+msgstr ""
+
+#: inc/block-patterns.php:71, inc/block-patterns.php:71, inc/demo-importer.php:292, inc/demo-importer.php:292, inc/theme-settings.php:473, inc/theme-settings.php:612, inc/theme-settings.php:473, inc/theme-settings.php:612
+msgid "Portfolio"
+msgstr ""
+
+#: inc/block-patterns.php:72, inc/block-patterns.php:72
+msgid "Project showcases and portfolio grids."
+msgstr ""
+
+#: inc/block-patterns.php:76, inc/block-patterns.php:76, inc/cpt-admin.php:77, inc/cpt-admin.php:77, inc/theme-settings.php:789, inc/theme-settings.php:789, inc/content/cpt.php:84, inc/content/cpt.php:95, inc/content/cpt.php:84, inc/content/cpt.php:95
+msgid "Projects"
+msgstr ""
+
+#: inc/block-patterns.php:77, inc/block-patterns.php:77
+msgid "Case study openers and project deep-dives."
+msgstr ""
+
+#: inc/block-patterns.php:81, inc/block-patterns.php:81
+msgid "Skills"
+msgstr ""
+
+#: inc/block-patterns.php:82, inc/block-patterns.php:82
+msgid "Skill lists and proficiency displays."
+msgstr ""
+
+#: inc/block-patterns.php:86, inc/block-patterns.php:86, inc/cpt-admin.php:117, inc/cpt-admin.php:118, inc/cpt-admin.php:117, inc/cpt-admin.php:118, inc/demo-importer.php:300, inc/demo-importer.php:300, inc/theme-settings.php:477, inc/theme-settings.php:665, inc/theme-settings.php:794, inc/theme-settings.php:477, inc/theme-settings.php:665, inc/theme-settings.php:794, inc/content/cpt.php:212, inc/content/cpt.php:213, inc/content/cpt.php:218, inc/content/cpt.php:212, inc/content/cpt.php:213, inc/content/cpt.php:218
+msgid "Experience"
+msgstr ""
+
+#: inc/block-patterns.php:87, inc/block-patterns.php:87
+msgid "Work history, timelines, and résumé sections."
+msgstr ""
+
+#: inc/block-patterns.php:91, inc/block-patterns.php:91, inc/cpt-admin.php:127, inc/cpt-admin.php:128, inc/cpt-admin.php:127, inc/cpt-admin.php:128, inc/theme-settings.php:478, inc/theme-settings.php:677, inc/theme-settings.php:795, inc/theme-settings.php:478, inc/theme-settings.php:677, inc/theme-settings.php:795, inc/content/cpt.php:238, inc/content/cpt.php:239, inc/content/cpt.php:244, inc/content/cpt.php:238, inc/content/cpt.php:239, inc/content/cpt.php:244
+msgid "Education"
+msgstr ""
+
+#: inc/block-patterns.php:92, inc/block-patterns.php:92
+msgid "Education and certification sections."
+msgstr ""
+
+#: inc/block-patterns.php:96, inc/block-patterns.php:96, inc/cpt-admin.php:107, inc/cpt-admin.php:107, inc/theme-settings.php:476, inc/theme-settings.php:652, inc/theme-settings.php:792, inc/theme-settings.php:476, inc/theme-settings.php:652, inc/theme-settings.php:792, inc/content/cpt.php:180, inc/content/cpt.php:191, inc/content/cpt.php:180, inc/content/cpt.php:191
+msgid "Testimonials"
+msgstr ""
+
+#: inc/block-patterns.php:97, inc/block-patterns.php:97
+msgid "Client and peer endorsements."
+msgstr ""
+
+#: inc/block-patterns.php:101, inc/block-patterns.php:101, inc/cpt-admin.php:97, inc/cpt-admin.php:97, inc/theme-settings.php:475, inc/theme-settings.php:639, inc/theme-settings.php:791, inc/theme-settings.php:475, inc/theme-settings.php:639, inc/theme-settings.php:791, inc/content/cpt.php:148, inc/content/cpt.php:159, inc/content/cpt.php:148, inc/content/cpt.php:159
+msgid "Team"
+msgstr ""
+
+#: inc/block-patterns.php:102, inc/block-patterns.php:102
+msgid "Team grids and member profiles."
+msgstr ""
+
+#: inc/block-patterns.php:106, inc/block-patterns.php:106
+msgid "Pricing"
+msgstr ""
+
+#: inc/block-patterns.php:107, inc/block-patterns.php:107
+msgid "Pricing tables and plan comparisons."
+msgstr ""
+
+#: inc/block-patterns.php:111, inc/block-patterns.php:111
+msgid "Stats"
+msgstr ""
+
+#: inc/block-patterns.php:112, inc/block-patterns.php:112
+msgid "Numerical highlights, statistics, and metric grids."
+msgstr ""
+
+#: inc/block-patterns.php:116, inc/block-patterns.php:116, inc/demo-importer.php:296, inc/demo-importer.php:296, inc/theme-settings.php:472, inc/theme-settings.php:597, inc/theme-settings.php:472, inc/theme-settings.php:597
+msgid "Blog"
+msgstr ""
+
+#: inc/block-patterns.php:117, inc/block-patterns.php:117
+msgid "Post lists, featured posts, and magazine layouts."
+msgstr ""
+
+#: inc/block-patterns.php:121, inc/block-patterns.php:121, inc/cpt-admin.php:138, inc/cpt-admin.php:138, inc/content/case-study.php:42, inc/content/case-study.php:42
+msgid "Case Study"
+msgstr ""
+
+#: inc/block-patterns.php:122, inc/block-patterns.php:122
+msgid "Long-form case study sections."
+msgstr ""
+
+#: inc/block-patterns.php:126, inc/block-patterns.php:126
+msgid "CTA"
+msgstr ""
+
+#: inc/block-patterns.php:127, inc/block-patterns.php:127
+msgid "Call-to-action bands and sections."
+msgstr ""
+
+#: inc/block-patterns.php:131, inc/block-patterns.php:131, inc/booking-system.php:64, inc/booking-system.php:64, inc/demo-importer.php:301, inc/demo-importer.php:301
+msgid "Contact"
+msgstr ""
+
+#: inc/block-patterns.php:132, inc/block-patterns.php:132
+msgid "Contact sections and contact CTAs."
+msgstr ""
+
+#: inc/block-patterns.php:136, inc/block-patterns.php:136, inc/theme-settings.php:470, inc/theme-settings.php:547, inc/theme-settings.php:470, inc/theme-settings.php:547
+msgid "Header"
+msgstr ""
+
+#: inc/block-patterns.php:137, inc/block-patterns.php:137
+msgid "Site header variations."
+msgstr ""
+
+#: inc/block-patterns.php:141, inc/block-patterns.php:141, inc/theme-settings.php:471, inc/theme-settings.php:572, inc/theme-settings.php:471, inc/theme-settings.php:572
+msgid "Footer"
+msgstr ""
+
+#: inc/block-patterns.php:142, inc/block-patterns.php:142
+msgid "Site footer variations."
+msgstr ""
+
+#: inc/block-patterns.php:146, inc/block-patterns.php:146
+msgid "Pages"
+msgstr ""
+
+#: inc/block-patterns.php:147, inc/block-patterns.php:147
+msgid "Full-page compositions for landing and key pages."
+msgstr ""
+
+#: inc/block-patterns.php:151, inc/block-patterns.php:151, inc/cpt-admin.php:148, inc/cpt-admin.php:148, inc/content/cpt.php:265, inc/content/cpt.php:265
+msgid "FAQ"
+msgstr ""
+
+#: inc/block-patterns.php:152, inc/block-patterns.php:152
+msgid "Frequently asked question sections using native Details blocks."
+msgstr ""
+
+#: inc/block-patterns.php:156, inc/block-patterns.php:156
+msgid "Demos"
+msgstr ""
+
+#: inc/block-patterns.php:157, inc/block-patterns.php:157
+msgid "Ready-made portfolio websites — each a distinct composition of patterns and a chosen style variation. Insert one to start a new portfolio site instantly."
+msgstr ""
+
+#: inc/block-styles.php:63, inc/block-styles.php:63
+msgid "Outline"
+msgstr ""
+
+#: inc/block-styles.php:72, inc/block-styles.php:72
+msgid "Text Link"
+msgstr ""
+
+#: inc/block-styles.php:81, inc/block-styles.php:81
+msgid "Pill"
+msgstr ""
+
+#: inc/block-styles.php:91, inc/block-styles.php:91
+msgid "Card Default"
+msgstr ""
+
+#: inc/block-styles.php:100, inc/block-styles.php:100
+msgid "Card Bordered"
+msgstr ""
+
+#: inc/block-styles.php:109, inc/block-styles.php:109
+msgid "Card Elevated"
+msgstr ""
+
+#: inc/block-styles.php:118, inc/block-styles.php:118
+msgid "Card Minimal"
+msgstr ""
+
+#: inc/block-styles.php:127, inc/block-styles.php:127
+msgid "Card Editorial"
+msgstr ""
+
+#: inc/block-styles.php:136, inc/block-styles.php:136
+msgid "Card Featured"
+msgstr ""
+
+#: inc/block-styles.php:145, inc/block-styles.php:145
+msgid "Card Numbered"
+msgstr ""
+
+#: inc/block-styles.php:155, inc/block-styles.php:155
+msgid "Thin"
+msgstr ""
+
+#: inc/block-styles.php:164, inc/block-styles.php:164
+msgid "Dots"
+msgstr ""
+
+#: inc/block-styles.php:174, inc/block-styles.php:174
+msgid "Arrow"
+msgstr ""
+
+#: inc/block-styles.php:184, inc/block-styles.php:184
+msgid "Rounded"
+msgstr ""
+
+#: inc/block-styles.php:193, inc/block-styles.php:193
+msgid "Framed"
+msgstr ""
+
+#: inc/block-styles.php:202, inc/block-styles.php:202
+msgid "Soft"
+msgstr ""
+
+#: inc/block-styles.php:211, inc/block-styles.php:211
+msgid "Full Bleed"
+msgstr ""
+
+#: inc/block-styles.php:221, inc/block-styles.php:221
+msgid "Eyebrow"
+msgstr ""
+
+#: inc/block-styles.php:234, inc/block-styles.php:234
+msgid "Card Pro"
+msgstr ""
+
+#: inc/block-styles.php:243, inc/block-styles.php:243
+msgid "Card Media"
+msgstr ""
+
+#: inc/block-styles.php:252, inc/block-styles.php:252
+msgid "Card Overlay"
+msgstr ""
+
+#: inc/block-styles.php:261, inc/block-styles.php:261
+msgid "Card Compact"
+msgstr ""
+
+#: inc/block-styles.php:270, inc/block-styles.php:270
+msgid "Card Accent"
+msgstr ""
+
+#: inc/block-styles.php:279, inc/block-styles.php:279
+msgid "Card Profile"
+msgstr ""
+
+#: inc/block-styles.php:288, inc/block-styles.php:288
+msgid "Card Quote"
+msgstr ""
+
+#: inc/block-styles.php:297, inc/block-styles.php:297
+msgid "Card Stats"
+msgstr ""
+
+#: inc/booking-system.php:32, inc/booking-system.php:32
+msgid "Pending"
+msgstr ""
+
+#: inc/booking-system.php:33, inc/booking-system.php:33
+msgid "Confirmed"
+msgstr ""
+
+#: inc/booking-system.php:34, inc/booking-system.php:34
+msgid "Completed"
+msgstr ""
+
+#: inc/booking-system.php:35, inc/booking-system.php:35
+msgid "Cancelled"
+msgstr ""
+
+#: inc/booking-system.php:63, inc/booking-system.php:63, inc/content/case-study.php:262, inc/content/case-study.php:262
+msgid "Client"
+msgstr ""
+
+#: inc/booking-system.php:65, inc/booking-system.php:331, inc/booking-system.php:65, inc/booking-system.php:331, inc/cpt-admin.php:88, inc/cpt-admin.php:88, inc/front-forms.php:139, inc/front-forms.php:139, inc/content/cpt.php:117, inc/content/cpt.php:117
+msgid "Service"
+msgstr ""
+
+#: inc/booking-system.php:66, inc/booking-system.php:66
+msgid "Date &amp; Time"
+msgstr ""
+
+#: inc/booking-system.php:67, inc/booking-system.php:343, inc/booking-system.php:67, inc/booking-system.php:343, inc/content/case-study.php:269, inc/content/case-study.php:269, inc/admin/views/admin-cpt-manager.php:149, inc/admin/views/admin-cpt-manager.php:149
+msgid "Status"
+msgstr ""
+
+#: inc/booking-system.php:68, inc/booking-system.php:68
+msgid "Submitted"
+msgstr ""
+
+#: inc/booking-system.php:149, inc/booking-system.php:149
+msgid "Filter by status"
+msgstr ""
+
+#: inc/booking-system.php:151, inc/booking-system.php:151
+msgid "All statuses"
+msgstr ""
+
+#: inc/booking-system.php:203, inc/booking-system.php:203
+msgid "Mark as Confirmed"
+msgstr ""
+
+#: inc/booking-system.php:204, inc/booking-system.php:204
+msgid "Mark as Completed"
+msgstr ""
+
+#: inc/booking-system.php:205, inc/booking-system.php:205
+msgid "Mark as Cancelled"
+msgstr ""
+
+#: inc/booking-system.php:206, inc/booking-system.php:206
+msgid "Mark as Pending"
+msgstr ""
+
+#. translators: %d: number of bookings updated.
+#: inc/booking-system.php:272, inc/booking-system.php:272
+msgid "%d booking status updated."
+msgid_plural "%d booking statuses updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/booking-system.php:289, inc/booking-system.php:289
+msgid "Booking Details"
+msgstr ""
+
+#: inc/booking-system.php:319, inc/booking-system.php:319
+msgid "Client Name"
+msgstr ""
+
+#: inc/booking-system.php:323, inc/booking-system.php:323, inc/front-forms.php:128, inc/front-forms.php:210, inc/front-forms.php:128, inc/front-forms.php:210
+msgid "Email"
+msgstr ""
+
+#: inc/booking-system.php:327, inc/booking-system.php:327, inc/front-forms.php:135, inc/front-forms.php:135
+msgid "Phone"
+msgstr ""
+
+#: inc/booking-system.php:335, inc/booking-system.php:335, inc/front-forms.php:154, inc/front-forms.php:154
+msgid "Preferred Date"
+msgstr ""
+
+#: inc/booking-system.php:339, inc/booking-system.php:339, inc/front-forms.php:158, inc/front-forms.php:158
+msgid "Preferred Time"
+msgstr ""
+
+#: inc/booking-system.php:350, inc/booking-system.php:350
+msgid "Changing the status will send an email notification to the client."
+msgstr ""
+
+#: inc/booking-system.php:354, inc/booking-system.php:354
+msgid "Client Message"
+msgstr ""
+
+#: inc/booking-system.php:358, inc/booking-system.php:358
+msgid "Admin Notes"
+msgstr ""
+
+#: inc/booking-system.php:359, inc/booking-system.php:359
+msgid "Internal notes (not shown to client)"
+msgstr ""
+
+#. translators: 1: site name, 2: status label.
+#: inc/booking-system.php:451, inc/booking-system.php:451
+msgid "[%1$s] Your booking is now %2$s"
+msgstr ""
+
+#: inc/booking-system.php:456, inc/booking-system.php:456
+msgid "Hello %s,"
+msgstr ""
+
+#. translators: 1: status label.
+#: inc/booking-system.php:459, inc/booking-system.php:459
+msgid "Your booking status has been updated to: %s"
+msgstr ""
+
+#: inc/booking-system.php:464, inc/booking-system.php:464
+msgid "Service: %s"
+msgstr ""
+
+#: inc/booking-system.php:467, inc/booking-system.php:467
+msgid "Date: %s"
+msgstr ""
+
+#: inc/booking-system.php:474, inc/booking-system.php:474
+msgid "Thank you for choosing us."
+msgstr ""
+
+#: inc/booking-system.php:475, inc/booking-system.php:475
+msgid "— %s"
+msgstr ""
+
+#: inc/cpt-admin.php:23, inc/cpt-admin.php:24, inc/cpt-admin.php:23, inc/cpt-admin.php:24, inc/admin/views/admin-cpt-manager.php:52, inc/admin/views/admin-cpt-manager.php:52
+msgid "Content Manager"
+msgstr ""
+
+#: inc/cpt-admin.php:52, inc/cpt-admin.php:52, inc/demo-importer.php:104, inc/demo-importer.php:152, inc/demo-importer.php:533, inc/demo-importer.php:832, inc/demo-importer.php:877, inc/demo-importer.php:928, inc/demo-importer.php:104, inc/demo-importer.php:152, inc/demo-importer.php:533, inc/demo-importer.php:832, inc/demo-importer.php:877, inc/demo-importer.php:928, inc/demo-renderer.php:430, inc/demo-renderer.php:430, inc/header-footer-builder.php:1117, inc/header-footer-builder.php:1141, inc/header-footer-builder.php:1165, inc/header-footer-builder.php:1184, inc/header-footer-builder.php:1215, inc/header-footer-builder.php:1487, inc/header-footer-builder.php:1117, inc/header-footer-builder.php:1141, inc/header-footer-builder.php:1165, inc/header-footer-builder.php:1184, inc/header-footer-builder.php:1215, inc/header-footer-builder.php:1487, inc/onboarding.php:166, inc/onboarding.php:432, inc/onboarding.php:166, inc/onboarding.php:432, inc/theme-settings.php:254, inc/theme-settings.php:311, inc/theme-settings.php:254, inc/theme-settings.php:311
+msgid "Insufficient permissions."
+msgstr ""
+
+#: inc/cpt-admin.php:78, inc/cpt-admin.php:78, inc/content/cpt.php:85, inc/content/cpt.php:85
+msgid "Project"
+msgstr ""
+
+#: inc/cpt-admin.php:98, inc/cpt-admin.php:98, inc/content/cpt.php:149, inc/content/cpt.php:149
+msgid "Team Member"
+msgstr ""
+
+#: inc/cpt-admin.php:108, inc/cpt-admin.php:108, inc/content/cpt.php:181, inc/content/cpt.php:181
+msgid "Testimonial"
+msgstr ""
+
+#: inc/cpt-admin.php:137, inc/cpt-admin.php:137, inc/demo-importer.php:294, inc/demo-importer.php:294, inc/theme-settings.php:479, inc/theme-settings.php:689, inc/theme-settings.php:797, inc/theme-settings.php:479, inc/theme-settings.php:689, inc/theme-settings.php:797, inc/content/case-study.php:41, inc/content/case-study.php:52, inc/content/case-study.php:41, inc/content/case-study.php:52
+msgid "Case Studies"
+msgstr ""
+
+#: inc/cpt-admin.php:147, inc/cpt-admin.php:147, inc/theme-settings.php:796, inc/theme-settings.php:796, inc/content/cpt.php:264, inc/content/cpt.php:270, inc/content/cpt.php:264, inc/content/cpt.php:270
+msgid "FAQs"
+msgstr ""
+
+#: inc/cpt-admin.php:157, inc/cpt-admin.php:157, inc/theme-settings.php:793, inc/theme-settings.php:793, inc/content/cpt.php:291, inc/content/cpt.php:297, inc/content/cpt.php:291, inc/content/cpt.php:297
+msgid "Bookings"
+msgstr ""
+
+#: inc/cpt-admin.php:158, inc/cpt-admin.php:158, inc/content/cpt.php:292, inc/content/cpt.php:292
+msgid "Booking"
+msgstr ""
+
+#: inc/cpt-archives.php:166, inc/cpt-archives.php:258, inc/cpt-archives.php:287, inc/cpt-archives.php:166, inc/cpt-archives.php:258, inc/cpt-archives.php:287, inc/settings-integration.php:155, inc/settings-integration.php:155
+msgid "Read more"
+msgstr ""
+
+#: inc/cpt-archives.php:168, inc/cpt-archives.php:168
+msgid "Price:"
+msgstr ""
+
+#: inc/cpt-archives.php:250, inc/cpt-archives.php:279, inc/cpt-archives.php:250, inc/cpt-archives.php:279
+msgid "Start:"
+msgstr ""
+
+#: inc/cpt-archives.php:250, inc/cpt-archives.php:279, inc/cpt-archives.php:250, inc/cpt-archives.php:279
+msgid "End:"
+msgstr ""
+
+#: inc/demo-importer.php:33, inc/demo-importer.php:34, inc/demo-importer.php:33, inc/demo-importer.php:34
+msgid "GoDevs Demos"
+msgstr ""
+
+#: inc/demo-importer.php:49, inc/demo-importer.php:49, inc/theme-settings.php:424, inc/theme-settings.php:424
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: inc/theme-settings.php:614
-msgid "Your Layouts"
+#: inc/demo-importer.php:109, inc/demo-importer.php:162, inc/demo-importer.php:538, inc/demo-importer.php:837, inc/demo-importer.php:882, inc/demo-importer.php:935, inc/demo-importer.php:109, inc/demo-importer.php:162, inc/demo-importer.php:538, inc/demo-importer.php:837, inc/demo-importer.php:882, inc/demo-importer.php:935, inc/demo-renderer.php:438, inc/demo-renderer.php:438
+msgid "Missing demo ID."
 msgstr ""
 
-#: inc/front-forms.php:124, inc/front-forms.php:206
+#: inc/demo-importer.php:114, inc/demo-importer.php:171, inc/demo-importer.php:842, inc/demo-importer.php:887, inc/demo-importer.php:940, inc/demo-importer.php:114, inc/demo-importer.php:171, inc/demo-importer.php:842, inc/demo-importer.php:887, inc/demo-importer.php:940, inc/demo-renderer.php:445, inc/demo-renderer.php:445
+msgid "Demo not found."
+msgstr ""
+
+#: inc/demo-importer.php:166, inc/demo-importer.php:166
+msgid "Invalid import mode."
+msgstr ""
+
+#: inc/demo-importer.php:176, inc/demo-importer.php:176
+msgid "This demo is coming soon and cannot be imported yet."
+msgstr ""
+
+#: inc/demo-importer.php:180, inc/demo-importer.php:180
+msgid "Preparing demo"
+msgstr ""
+
+#: inc/demo-importer.php:181, inc/demo-importer.php:181
+msgid "Creating pages"
+msgstr ""
+
+#: inc/demo-importer.php:182, inc/demo-importer.php:182
+msgid "Creating navigation"
+msgstr ""
+
+#: inc/demo-importer.php:186, inc/demo-importer.php:186
+msgid "Applying homepage"
+msgstr ""
+
+#: inc/demo-importer.php:189, inc/demo-importer.php:189
+msgid "Applying demo layout"
+msgstr ""
+
+#: inc/demo-importer.php:192, inc/demo-importer.php:192
+msgid "Applying style variation"
+msgstr ""
+
+#: inc/demo-importer.php:195, inc/demo-importer.php:195, inc/admin/views/admin-demos.php:333, inc/admin/views/admin-demos.php:333
+msgid "Complete"
+msgstr ""
+
+#: inc/demo-importer.php:264, inc/demo-importer.php:264
+msgid "Another import is in progress. Please wait a moment and try again."
+msgstr ""
+
+#: inc/demo-importer.php:280, inc/demo-importer.php:280
+msgid "Could not read demo markup."
+msgstr ""
+
+#: inc/demo-importer.php:291, inc/demo-importer.php:291
+msgid "Work"
+msgstr ""
+
+#: inc/demo-importer.php:295, inc/demo-importer.php:295
+msgid "Journal"
+msgstr ""
+
+#: inc/demo-importer.php:297, inc/demo-importer.php:297
+msgid "Insights"
+msgstr ""
+
+#: inc/demo-importer.php:298, inc/demo-importer.php:298
+msgid "Research"
+msgstr ""
+
+#: inc/demo-importer.php:299, inc/demo-importer.php:299
+msgid "Teaching"
+msgstr ""
+
+#. translators: 1: page slug, 2: error message.
+#: inc/demo-importer.php:359, inc/demo-importer.php:359
+msgid "Page \"%1$s\": %2$s"
+msgstr ""
+
+#. translators: %s: demo name.
+#: inc/demo-importer.php:374, inc/demo-importer.php:374
+msgid "%s — Navigation"
+msgstr ""
+
+#. translators: %s: error message.
+#: inc/demo-importer.php:389, inc/demo-importer.php:389
+msgid "Navigation: %s"
+msgstr ""
+
+#: inc/demo-importer.php:514, inc/demo-importer.php:514
+msgid "View Live Site →"
+msgstr ""
+
+#: inc/demo-importer.php:546, inc/demo-importer.php:546
+msgid "Could not remove demo."
+msgstr ""
+
+#: inc/demo-importer.php:847, inc/demo-importer.php:847
+msgid "Could not render demo."
+msgstr ""
+
+#: inc/demo-importer.php:946, inc/demo-importer.php:946
+msgid "Page not found for this demo."
+msgstr ""
+
+#: inc/demo-importer.php:958, inc/demo-importer.php:958
+msgid "Could not render page."
+msgstr ""
+
+#. translators: %s: demo name.
+#: inc/demo-registry.php:534, inc/demo-registry.php:534, inc/admin/views/admin-demos.php:301, inc/admin/views/admin-demos.php:301
+msgid "Homepage preview of the %s demo"
+msgstr ""
+
+#: inc/demo-renderer.php:423, inc/demo-renderer.php:423
+msgid "Nonce verification failed."
+msgstr ""
+
+#: inc/demo-renderer.php:452, inc/demo-renderer.php:452
+msgid "Could not render demo page."
+msgstr ""
+
+#: inc/demo-tracker.php:134, inc/demo-tracker.php:134
+msgid "Demo is not imported."
+msgstr ""
+
+#. translators: %d: page ID.
+#: inc/demo-tracker.php:152, inc/demo-tracker.php:152
+msgid "Could not trash page ID %d."
+msgstr ""
+
+#: inc/front-forms.php:56, inc/front-forms.php:56
+msgid "Sending…"
+msgstr ""
+
+#: inc/front-forms.php:57, inc/front-forms.php:354, inc/front-forms.php:57, inc/front-forms.php:354
+msgid "Booking request sent! We'll get back to you shortly."
+msgstr ""
+
+#: inc/front-forms.php:58, inc/front-forms.php:424, inc/front-forms.php:58, inc/front-forms.php:424
+msgid "Proposal sent! We'll review and respond within 48 hours."
+msgstr ""
+
+#: inc/front-forms.php:59, inc/front-forms.php:59
+msgid "Something went wrong. Please try again or email us directly."
+msgstr ""
+
+#: inc/front-forms.php:60, inc/front-forms.php:387, inc/front-forms.php:60, inc/front-forms.php:387
+msgid "Please fill in all required fields."
+msgstr ""
+
+#: inc/front-forms.php:61, inc/front-forms.php:61
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: inc/front-forms.php:91, inc/front-forms.php:91
+msgid "Bookings are currently disabled."
+msgstr ""
+
+#: inc/front-forms.php:117, inc/front-forms.php:199, inc/front-forms.php:117, inc/front-forms.php:199
+msgid "Leave this field empty"
+msgstr ""
+
+#: inc/front-forms.php:124, inc/front-forms.php:206, inc/front-forms.php:124, inc/front-forms.php:206
 msgid "Your Name"
 msgstr ""
 
-#: inc/onboarding.php:382
-msgid "Your homepage is ready, header and footer are applied, and a navigation menu has been created. Here's what to do next:"
-msgstr ""
-
-#: inc/content/meta-fields.php:361
-msgid "— Disable builder (use theme parts)"
-msgstr ""
-
-#: inc/front-forms.php:141
+#: inc/front-forms.php:141, inc/front-forms.php:141
 msgid "— Select a service —"
 msgstr ""
 
-#: inc/front-forms.php:223, inc/front-forms.php:235
+#: inc/front-forms.php:164, inc/front-forms.php:164
+msgid "Message"
+msgstr ""
+
+#: inc/front-forms.php:165, inc/front-forms.php:165
+msgid "Tell us about your project or what you need…"
+msgstr ""
+
+#: inc/front-forms.php:169, inc/front-forms.php:169
+msgid "Request Booking"
+msgstr ""
+
+#: inc/front-forms.php:217, inc/front-forms.php:217
+msgid "Company / Organization"
+msgstr ""
+
+#: inc/front-forms.php:221, inc/front-forms.php:221
+msgid "Budget Range"
+msgstr ""
+
+#: inc/front-forms.php:223, inc/front-forms.php:235, inc/front-forms.php:223, inc/front-forms.php:235
 msgid "— Select —"
+msgstr ""
+
+#: inc/front-forms.php:224, inc/front-forms.php:224, inc/front-forms.php:224, inc/front-forms.php:224
+msgid "Under $5,000"
+msgstr ""
+
+#: inc/front-forms.php:225, inc/front-forms.php:225, inc/front-forms.php:225, inc/front-forms.php:225
+msgid "$5,000 — $15,000"
+msgstr ""
+
+#: inc/front-forms.php:226, inc/front-forms.php:226, inc/front-forms.php:226, inc/front-forms.php:226
+msgid "$15,000 — $50,000"
+msgstr ""
+
+#: inc/front-forms.php:227, inc/front-forms.php:227, inc/front-forms.php:227, inc/front-forms.php:227
+msgid "$50,000+"
+msgstr ""
+
+#: inc/front-forms.php:233, inc/front-forms.php:233, inc/content/case-study.php:266, inc/content/case-study.php:266
+msgid "Project Type"
+msgstr ""
+
+#: inc/front-forms.php:236, inc/front-forms.php:236, inc/front-forms.php:236, inc/front-forms.php:236
+msgid "Website Design"
+msgstr ""
+
+#: inc/front-forms.php:237, inc/front-forms.php:237, inc/front-forms.php:237, inc/front-forms.php:237
+msgid "Web Development"
+msgstr ""
+
+#: inc/front-forms.php:238, inc/front-forms.php:238, inc/front-forms.php:238, inc/front-forms.php:238
+msgid "Branding / Identity"
+msgstr ""
+
+#: inc/front-forms.php:239, inc/front-forms.php:239, inc/front-forms.php:239, inc/front-forms.php:239
+msgid "Consulting"
+msgstr ""
+
+#: inc/front-forms.php:240, inc/front-forms.php:240, inc/front-forms.php:240, inc/front-forms.php:240
+msgid "Other"
+msgstr ""
+
+#: inc/front-forms.php:245, inc/front-forms.php:245
+msgid "Project Details"
+msgstr ""
+
+#: inc/front-forms.php:246, inc/front-forms.php:246
+msgid "Tell us about your project — goals, timeline, scope, anything that helps us understand what you need."
+msgstr ""
+
+#: inc/front-forms.php:250, inc/front-forms.php:250
+msgid "Send Proposal"
+msgstr ""
+
+#: inc/front-forms.php:274, inc/front-forms.php:372, inc/front-forms.php:274, inc/front-forms.php:372
+msgid "Spam detected."
+msgstr ""
+
+#: inc/front-forms.php:290, inc/front-forms.php:290
+msgid "Please provide your name and email."
+msgstr ""
+
+#: inc/front-forms.php:293, inc/front-forms.php:390, inc/front-forms.php:293, inc/front-forms.php:390
+msgid "Please provide a valid email address."
+msgstr ""
+
+#: inc/front-forms.php:300, inc/front-forms.php:300
+msgid "General Booking"
+msgstr ""
+
+#: inc/front-forms.php:308, inc/front-forms.php:308
+msgid "Could not create booking. Please try again."
+msgstr ""
+
+#: inc/front-forms.php:326, inc/front-forms.php:326
+msgid ""
+"New booking request received:\n"
+"\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:327, inc/front-forms.php:399, inc/front-forms.php:327, inc/front-forms.php:399
+msgid ""
+"Name: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:328, inc/front-forms.php:400, inc/front-forms.php:328, inc/front-forms.php:400
+msgid ""
+"Email: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:330, inc/front-forms.php:330
+msgid ""
+"Phone: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:333, inc/front-forms.php:333
+msgid ""
+"Service: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:336, inc/front-forms.php:336
+msgid ""
+"Preferred Date: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:339, inc/front-forms.php:339
+msgid ""
+"Preferred Time: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:342, inc/front-forms.php:342
+msgid ""
+"\n"
+"Message:\n"
+"%s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:344, inc/front-forms.php:344
+msgid ""
+"Manage booking: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:398, inc/front-forms.php:398
+msgid ""
+"New project proposal received:\n"
+"\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:402, inc/front-forms.php:402
+msgid ""
+"Company: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:405, inc/front-forms.php:405
+msgid ""
+"Project Type: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:408, inc/front-forms.php:408
+msgid ""
+"Budget: %s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:410, inc/front-forms.php:410
+msgid ""
+"Project Details:\n"
+"%s\n"
+""
+msgstr ""
+
+#: inc/front-forms.php:421, inc/front-forms.php:421
+msgid "Could not send proposal. Please try again or email us directly."
+msgstr ""
+
+#: inc/header-footer-builder.php:120, inc/header-footer-builder.php:120
+msgid "Site Logo"
+msgstr ""
+
+#: inc/header-footer-builder.php:126, inc/header-footer-builder.php:126
+msgid "Site Title"
+msgstr ""
+
+#: inc/header-footer-builder.php:132, inc/header-footer-builder.php:132
+msgid "Site Tagline"
+msgstr ""
+
+#: inc/header-footer-builder.php:140, inc/header-footer-builder.php:140
+msgid "Navigation Menu"
+msgstr ""
+
+#: inc/header-footer-builder.php:148, inc/header-footer-builder.php:148
+msgid "Button"
+msgstr ""
+
+#: inc/header-footer-builder.php:151, inc/header-footer-builder.php:760, inc/header-footer-builder.php:151, inc/header-footer-builder.php:760
+msgid "Get Started"
+msgstr ""
+
+#: inc/header-footer-builder.php:154, inc/header-footer-builder.php:776, inc/header-footer-builder.php:154, inc/header-footer-builder.php:776, inc/admin/views/admin-cpt-manager.php:110, inc/admin/views/admin-cpt-manager.php:110
+msgid "Search"
+msgstr ""
+
+#: inc/header-footer-builder.php:162, inc/header-footer-builder.php:162
+msgid "Social Icons"
+msgstr ""
+
+#: inc/header-footer-builder.php:170, inc/header-footer-builder.php:170, inc/theme-settings.php:526, inc/theme-settings.php:526
+msgid "Text"
+msgstr ""
+
+#: inc/header-footer-builder.php:173, inc/header-footer-builder.php:173
+msgid "Custom text"
+msgstr ""
+
+#: inc/header-footer-builder.php:176, inc/header-footer-builder.php:176
+msgid "HTML"
+msgstr ""
+
+#: inc/header-footer-builder.php:179, inc/header-footer-builder.php:179
+msgid "Custom HTML"
+msgstr ""
+
+#: inc/header-footer-builder.php:182, inc/header-footer-builder.php:182
+msgid "Image"
+msgstr ""
+
+#: inc/header-footer-builder.php:190, inc/header-footer-builder.php:190
+msgid "Copyright"
+msgstr ""
+
+#: inc/header-footer-builder.php:196, inc/header-footer-builder.php:196
+msgid "Widget Area"
+msgstr ""
+
+#: inc/header-footer-builder.php:202, inc/header-footer-builder.php:202
+msgid "Newsletter"
+msgstr ""
+
+#: inc/header-footer-builder.php:205, inc/header-footer-builder.php:205, inc/header-footer-builder.php:829, inc/header-footer-builder.php:831, inc/header-footer-builder.php:205, inc/header-footer-builder.php:205, inc/header-footer-builder.php:829, inc/header-footer-builder.php:831
+msgid "Subscribe"
+msgstr ""
+
+#: inc/header-footer-builder.php:205, inc/header-footer-builder.php:830, inc/header-footer-builder.php:205, inc/header-footer-builder.php:830
+msgid "Your email"
+msgstr ""
+
+#: inc/header-footer-builder.php:218, inc/header-footer-builder.php:218
+msgid "Minimal Developer"
+msgstr ""
+
+#: inc/header-footer-builder.php:231, inc/header-footer-builder.php:231
+msgid "Modern Agency"
+msgstr ""
+
+#: inc/header-footer-builder.php:247, inc/header-footer-builder.php:247
+msgid "Corporate"
+msgstr ""
+
+#: inc/header-footer-builder.php:269, inc/header-footer-builder.php:269
+msgid "Transparent Hero"
+msgstr ""
+
+#: inc/header-footer-builder.php:282, inc/header-footer-builder.php:282
+msgid "Split Header"
+msgstr ""
+
+#: inc/header-footer-builder.php:296, inc/header-footer-builder.php:296
+msgid "Editorial Magazine"
+msgstr ""
+
+#: inc/header-footer-builder.php:325, inc/header-footer-builder.php:325
+msgid "Dark Stacked"
+msgstr ""
+
+#: inc/header-footer-builder.php:341, inc/header-footer-builder.php:341
+msgid "Search Hero"
+msgstr ""
+
+#: inc/header-footer-builder.php:354, inc/header-footer-builder.php:354
+msgid "Mega Navigation"
+msgstr ""
+
+#: inc/header-footer-builder.php:370, inc/header-footer-builder.php:370
+msgid "Sticky CTA Bar"
+msgstr ""
+
+#: inc/header-footer-builder.php:400, inc/header-footer-builder.php:400
+msgid "Minimal Footer"
+msgstr ""
+
+#: inc/header-footer-builder.php:412, inc/header-footer-builder.php:412
+msgid "Multi-Column Footer"
+msgstr ""
+
+#: inc/header-footer-builder.php:439, inc/header-footer-builder.php:439
+msgid "CTA Footer"
+msgstr ""
+
+#: inc/header-footer-builder.php:461, inc/header-footer-builder.php:461
+msgid "Dark Developer Footer"
+msgstr ""
+
+#: inc/header-footer-builder.php:490, inc/header-footer-builder.php:490
+msgid "Social-First Footer"
+msgstr ""
+
+#: inc/header-footer-builder.php:510, inc/header-footer-builder.php:510
+msgid "Newsletter Focus"
+msgstr ""
+
+#: inc/header-footer-builder.php:535, inc/header-footer-builder.php:535
+msgid "Mega Footer"
+msgstr ""
+
+#: inc/header-footer-builder.php:572, inc/header-footer-builder.php:572
+msgid "Minimal Dark"
+msgstr ""
+
+#: inc/header-footer-builder.php:599, inc/header-footer-builder.php:599
+msgid "Widgetized Footer"
+msgstr ""
+
+#: inc/header-footer-builder.php:623, inc/header-footer-builder.php:623
+msgid "Credit Row"
+msgstr ""
+
+#: inc/header-footer-builder.php:754, inc/header-footer-builder.php:754
+msgid "Toggle menu"
+msgstr ""
+
+#: inc/header-footer-builder.php:1125, inc/header-footer-builder.php:1148, inc/header-footer-builder.php:1125, inc/header-footer-builder.php:1148
+msgid "Invalid layout."
+msgstr ""
+
+#: inc/header-footer-builder.php:1134, inc/header-footer-builder.php:1134
+msgid "Layout saved."
+msgstr ""
+
+#: inc/header-footer-builder.php:1158, inc/header-footer-builder.php:1158
+msgid "Layout deleted."
+msgstr ""
+
+#: inc/header-footer-builder.php:1172, inc/header-footer-builder.php:1172
+msgid "Invalid type."
+msgstr ""
+
+#: inc/header-footer-builder.php:1177, inc/header-footer-builder.php:1177
+msgid "Active layout updated."
+msgstr ""
+
+#: inc/header-footer-builder.php:1222, inc/header-footer-builder.php:1222
+msgid "Invalid layout data."
+msgstr ""
+
+#: inc/header-footer-builder.php:1249, inc/header-footer-builder.php:1249
+msgid "Could not render preview."
+msgstr ""
+
+#: inc/header-footer-builder.php:1283, inc/header-footer-builder.php:1283
+msgid "Header Widget Area"
+msgstr ""
+
+#: inc/header-footer-builder.php:1285, inc/header-footer-builder.php:1285
+msgid "Widgets placed here appear in the Header Builder widget area."
+msgstr ""
+
+#: inc/header-footer-builder.php:1293, inc/header-footer-builder.php:1293
+msgid "Footer Widget Area"
+msgstr ""
+
+#: inc/header-footer-builder.php:1295, inc/header-footer-builder.php:1295
+msgid "Widgets placed here appear in the Footer Builder widget area."
+msgstr ""
+
+#: inc/header-footer-builder.php:1334, inc/header-footer-builder.php:1334
+msgid "Empty layout"
+msgstr ""
+
+#: inc/onboarding.php:117, inc/onboarding.php:197, inc/onboarding.php:117, inc/onboarding.php:197
+msgid "Welcome to GoDevs Portfolio"
+msgstr ""
+
+#: inc/onboarding.php:120, inc/onboarding.php:120
+msgid "Thanks for installing! Get started in minutes — import a demo, pick a header, customize your colors, and publish."
+msgstr ""
+
+#: inc/onboarding.php:125, inc/onboarding.php:125
+msgid "Import a Demo"
+msgstr ""
+
+#: inc/onboarding.php:129, inc/onboarding.php:129, inc/theme-settings.php:440, inc/theme-settings.php:440
+msgid "Theme Settings"
+msgstr ""
+
+#: inc/onboarding.php:133, inc/onboarding.php:133
+msgid "Open Site Editor"
+msgstr ""
+
+#: inc/onboarding.php:198, inc/onboarding.php:198
+msgid "A premium Gutenberg-first block theme. Here's how to get your site live in 5 minutes."
+msgstr ""
+
+#: inc/onboarding.php:204, inc/onboarding.php:204
+msgid "1. Import a Demo"
+msgstr ""
+
+#: inc/onboarding.php:205, inc/onboarding.php:205
+msgid "Start with a complete pre-built site you can customize."
+msgstr ""
+
+#: inc/onboarding.php:209, inc/onboarding.php:209
+msgid "2. Pick a Header"
+msgstr ""
+
+#: inc/onboarding.php:210, inc/onboarding.php:210
+msgid "Choose from 10 ready-made header layouts."
+msgstr ""
+
+#: inc/onboarding.php:214, inc/onboarding.php:214
+msgid "3. Customize Colors"
+msgstr ""
+
+#: inc/onboarding.php:215, inc/onboarding.php:215
+msgid "Match your brand with the color picker."
+msgstr ""
+
+#: inc/onboarding.php:219, inc/onboarding.php:219
+msgid "4. Edit Templates"
+msgstr ""
+
+#: inc/onboarding.php:220, inc/onboarding.php:220
+msgid "Open the Site Editor to customize any page."
+msgstr ""
+
+#: inc/onboarding.php:243, inc/onboarding.php:243
+msgid "GoDevs Portfolio — Quick Start"
+msgstr ""
+
+#: inc/onboarding.php:266, inc/onboarding.php:266
+msgid "Import a demo"
+msgstr ""
+
+#: inc/onboarding.php:272, inc/onboarding.php:272
+msgid "Choose a header"
+msgstr ""
+
+#: inc/onboarding.php:278, inc/onboarding.php:278
+msgid "Choose a footer"
+msgstr ""
+
+#: inc/onboarding.php:284, inc/onboarding.php:284
+msgid "Customize colors"
+msgstr ""
+
+#: inc/onboarding.php:297, inc/onboarding.php:297
+msgid "Setup progress"
+msgstr ""
+
+#: inc/onboarding.php:310, inc/onboarding.php:310
+msgid "Do it →"
+msgstr ""
+
+#: inc/onboarding.php:316, inc/onboarding.php:316
+msgid "Open Theme Settings →"
+msgstr ""
+
+#: inc/onboarding.php:379, inc/onboarding.php:379
+msgid "Demo imported successfully!"
+msgstr ""
+
+#: inc/onboarding.php:382, inc/onboarding.php:382
+msgid "Your homepage is ready, header and footer are applied, and a navigation menu has been created. Here's what to do next:"
+msgstr ""
+
+#: inc/onboarding.php:387, inc/onboarding.php:387
+msgid "View Site"
+msgstr ""
+
+#: inc/onboarding.php:391, inc/onboarding.php:391
+msgid "Edit Homepage"
+msgstr ""
+
+#: inc/onboarding.php:395, inc/onboarding.php:395
+msgid "Edit Navigation"
+msgstr ""
+
+#: inc/onboarding.php:399, inc/onboarding.php:399
+msgid "Customize Theme"
+msgstr ""
+
+#: inc/settings-integration.php:158, inc/settings-integration.php:158
+msgid "By"
+msgstr ""
+
+#: inc/settings-integration.php:292, inc/settings-integration.php:292
+msgid "Card density"
+msgstr ""
+
+#: inc/settings-integration.php:294, inc/settings-integration.php:294
+msgid "Comfortable"
+msgstr ""
+
+#: inc/settings-integration.php:295, inc/settings-integration.php:295
+msgid "Compact"
+msgstr ""
+
+#: inc/settings-integration.php:297, inc/settings-integration.php:297
+msgid "Spacing between demo cards in the library."
+msgstr ""
+
+#: inc/settings-integration.php:300, inc/settings-integration.php:300
+msgid "Preview ratio"
+msgstr ""
+
+#: inc/settings-integration.php:302, inc/settings-integration.php:302
+msgid "16:10"
+msgstr ""
+
+#: inc/settings-integration.php:303, inc/settings-integration.php:303
+msgid "16:9"
+msgstr ""
+
+#: inc/settings-integration.php:304, inc/settings-integration.php:304
+msgid "4:3"
+msgstr ""
+
+#: inc/settings-integration.php:306, inc/settings-integration.php:306
+msgid "Aspect ratio for demo preview images."
+msgstr ""
+
+#: inc/theme-settings.php:132, inc/theme-settings.php:133, inc/theme-settings.php:132, inc/theme-settings.php:133
+msgid "GoDevs Settings"
+msgstr ""
+
+#: inc/theme-settings.php:238, inc/theme-settings.php:238
+msgid "Settings saved successfully."
+msgstr ""
+
+#: inc/theme-settings.php:239, inc/theme-settings.php:239
+msgid "Error saving settings."
+msgstr ""
+
+#: inc/theme-settings.php:240, inc/theme-settings.php:240
+msgid "Reset all settings to defaults? This cannot be undone."
+msgstr ""
+
+#: inc/theme-settings.php:241, inc/theme-settings.php:321, inc/theme-settings.php:241, inc/theme-settings.php:321
+msgid "Settings reset to defaults."
+msgstr ""
+
+#: inc/theme-settings.php:303, inc/theme-settings.php:303
+msgid "Saved %d settings."
+msgstr ""
+
+#: inc/theme-settings.php:439, inc/theme-settings.php:439
+msgid "GoDevs Portfolio"
+msgstr ""
+
+#: inc/theme-settings.php:446, inc/theme-settings.php:446
+msgid "Reset"
+msgstr ""
+
+#: inc/theme-settings.php:449, inc/theme-settings.php:449
+msgid "Save changes"
+msgstr ""
+
+#: inc/theme-settings.php:457, inc/theme-settings.php:457
+msgid "SETTINGS"
+msgstr ""
+
+#: inc/theme-settings.php:460, inc/theme-settings.php:460
+msgid "Search settings"
+msgstr ""
+
+#: inc/theme-settings.php:461, inc/theme-settings.php:461
+msgid "Search settings…"
+msgstr ""
+
+#: inc/theme-settings.php:462, inc/theme-settings.php:462
+msgid "Clear search"
+msgstr ""
+
+#: inc/theme-settings.php:466, inc/theme-settings.php:494, inc/theme-settings.php:466, inc/theme-settings.php:494
+msgid "General"
+msgstr ""
+
+#: inc/theme-settings.php:467, inc/theme-settings.php:505, inc/theme-settings.php:467, inc/theme-settings.php:505
+msgid "Typography"
+msgstr ""
+
+#: inc/theme-settings.php:468, inc/theme-settings.php:518, inc/theme-settings.php:468, inc/theme-settings.php:518
+msgid "Colors"
+msgstr ""
+
+#: inc/theme-settings.php:469, inc/theme-settings.php:533, inc/theme-settings.php:469, inc/theme-settings.php:533
+msgid "Layout"
+msgstr ""
+
+#: inc/theme-settings.php:480, inc/theme-settings.php:702, inc/theme-settings.php:480, inc/theme-settings.php:702
+msgid "Demo Library"
+msgstr ""
+
+#: inc/theme-settings.php:481, inc/theme-settings.php:481
+msgid "Header & Footer"
+msgstr ""
+
+#: inc/theme-settings.php:482, inc/theme-settings.php:770, inc/theme-settings.php:482, inc/theme-settings.php:770
+msgid "Performance"
+msgstr ""
+
+#: inc/theme-settings.php:483, inc/theme-settings.php:782, inc/theme-settings.php:483, inc/theme-settings.php:782
+msgid "Advanced"
+msgstr ""
+
+#: inc/theme-settings.php:495, inc/theme-settings.php:495
+msgid "Configure general settings for the GoDevs Portfolio theme."
+msgstr ""
+
+#: inc/theme-settings.php:498, inc/theme-settings.php:498
+msgid "Brand name"
+msgstr ""
+
+#: inc/theme-settings.php:498, inc/theme-settings.php:498
+msgid "Displayed in headers and footers."
+msgstr ""
+
+#: inc/theme-settings.php:499, inc/theme-settings.php:499
+msgid "Brand tagline"
+msgstr ""
+
+#: inc/theme-settings.php:499, inc/theme-settings.php:499
+msgid "Short description shown under the brand name."
+msgstr ""
+
+#: inc/theme-settings.php:506, inc/theme-settings.php:506
+msgid "Control fonts, weights, and type scaling."
+msgstr ""
+
+#: inc/theme-settings.php:509, inc/theme-settings.php:509
+msgid "Display font"
+msgstr ""
+
+#: inc/theme-settings.php:509, inc/theme-settings.php:509
+msgid "Used for headings and hero text."
+msgstr ""
+
+#: inc/theme-settings.php:510, inc/theme-settings.php:510
+msgid "Body font"
+msgstr ""
+
+#: inc/theme-settings.php:510, inc/theme-settings.php:510
+msgid "Used for paragraph text."
+msgstr ""
+
+#: inc/theme-settings.php:511, inc/theme-settings.php:511
+msgid "Heading weight"
+msgstr ""
+
+#: inc/theme-settings.php:511, inc/theme-settings.php:511
+msgid "Font weight for all headings."
+msgstr ""
+
+#: inc/theme-settings.php:512, inc/theme-settings.php:512
+msgid "Type scale"
+msgstr ""
+
+#: inc/theme-settings.php:512, inc/theme-settings.php:512
+msgid "Fluid scales with viewport; fixed uses static sizes."
+msgstr ""
+
+#: inc/theme-settings.php:519, inc/theme-settings.php:519
+msgid "Customize the color palette. Changes apply via CSS custom properties."
+msgstr ""
+
+#: inc/theme-settings.php:522, inc/theme-settings.php:522
+msgid "Accent color"
+msgstr ""
+
+#: inc/theme-settings.php:522, inc/theme-settings.php:522
+msgid "Used for links, buttons, and highlights."
+msgstr ""
+
+#: inc/theme-settings.php:523, inc/theme-settings.php:523
+msgid "Accent hover"
+msgstr ""
+
+#: inc/theme-settings.php:523, inc/theme-settings.php:523
+msgid "Darker shade for hover states."
+msgstr ""
+
+#: inc/theme-settings.php:524, inc/theme-settings.php:524
+msgid "Surface"
+msgstr ""
+
+#: inc/theme-settings.php:524, inc/theme-settings.php:524
+msgid "Card and panel background."
+msgstr ""
+
+#: inc/theme-settings.php:525, inc/theme-settings.php:525
+msgid "Background"
+msgstr ""
+
+#: inc/theme-settings.php:525, inc/theme-settings.php:525
+msgid "Main page background."
+msgstr ""
+
+#: inc/theme-settings.php:526, inc/theme-settings.php:526
+msgid "Primary body text color."
+msgstr ""
+
+#: inc/theme-settings.php:527, inc/theme-settings.php:527
+msgid "Muted text"
+msgstr ""
+
+#: inc/theme-settings.php:527, inc/theme-settings.php:527
+msgid "Secondary/caption text."
+msgstr ""
+
+#: inc/theme-settings.php:534, inc/theme-settings.php:534
+msgid "Control container widths, radii, and spacing."
+msgstr ""
+
+#: inc/theme-settings.php:537, inc/theme-settings.php:537
+msgid "Container width (px)"
+msgstr ""
+
+#: inc/theme-settings.php:537, inc/theme-settings.php:537
+msgid "Maximum wide content width."
+msgstr ""
+
+#: inc/theme-settings.php:538, inc/theme-settings.php:538
+msgid "Content width (px)"
+msgstr ""
+
+#: inc/theme-settings.php:538, inc/theme-settings.php:538
+msgid "Maximum constrained text width."
+msgstr ""
+
+#: inc/theme-settings.php:539, inc/theme-settings.php:539
+msgid "Card radius (px)"
+msgstr ""
+
+#: inc/theme-settings.php:539, inc/theme-settings.php:539
+msgid "Border radius for cards."
+msgstr ""
+
+#: inc/theme-settings.php:540, inc/theme-settings.php:540
+msgid "Button radius (px)"
+msgstr ""
+
+#: inc/theme-settings.php:540, inc/theme-settings.php:540
+msgid "Border radius for buttons."
+msgstr ""
+
+#: inc/theme-settings.php:541, inc/theme-settings.php:541
+msgid "Spacing scale"
+msgstr ""
+
+#: inc/theme-settings.php:541, inc/theme-settings.php:541
+msgid "Controls vertical rhythm between sections."
+msgstr ""
+
+#: inc/theme-settings.php:548, inc/theme-settings.php:548
+msgid "Configure the site header. Choose a custom builder layout as the site-wide default, or use the theme default."
+msgstr ""
+
+#: inc/theme-settings.php:552, inc/theme-settings.php:577, inc/theme-settings.php:552, inc/theme-settings.php:577
+msgid "— Use theme default (no builder) —"
+msgstr ""
+
+#: inc/theme-settings.php:561, inc/theme-settings.php:561
+msgid "Default header layout"
+msgstr ""
+
+#: inc/theme-settings.php:561, inc/theme-settings.php:561
+msgid "Choose a custom builder layout to use as the site-wide header. Create new layouts in the Header &amp; Footer Builder tab."
+msgstr ""
+
+#: inc/theme-settings.php:563, inc/theme-settings.php:563
+msgid "Header style (theme default)"
+msgstr ""
+
+#: inc/theme-settings.php:563, inc/theme-settings.php:563
+msgid "Which header template part to use when no builder layout is active."
+msgstr ""
+
+#: inc/theme-settings.php:564, inc/theme-settings.php:564
+msgid "Sticky header"
+msgstr ""
+
+#: inc/theme-settings.php:564, inc/theme-settings.php:564
+msgid "Keep the header fixed on scroll."
+msgstr ""
+
+#: inc/theme-settings.php:565, inc/theme-settings.php:565
+msgid "Header CTA text"
+msgstr ""
+
+#: inc/theme-settings.php:565, inc/theme-settings.php:565
+msgid "Button text in the header (leave empty to hide)."
+msgstr ""
+
+#: inc/theme-settings.php:566, inc/theme-settings.php:566
+msgid "Header CTA link"
+msgstr ""
+
+#: inc/theme-settings.php:566, inc/theme-settings.php:566
+msgid "URL for the header CTA button."
+msgstr ""
+
+#: inc/theme-settings.php:573, inc/theme-settings.php:573
+msgid "Configure the site footer. Choose a custom builder layout as the site-wide default, or use the theme default."
+msgstr ""
+
+#: inc/theme-settings.php:586, inc/theme-settings.php:586
+msgid "Default footer layout"
+msgstr ""
+
+#: inc/theme-settings.php:586, inc/theme-settings.php:586
+msgid "Choose a custom builder layout to use as the site-wide footer. Create new layouts in the Header &amp; Footer Builder tab."
+msgstr ""
+
+#: inc/theme-settings.php:588, inc/theme-settings.php:588
+msgid "Footer style (theme default)"
+msgstr ""
+
+#: inc/theme-settings.php:588, inc/theme-settings.php:588
+msgid "Which footer template part to use when no builder layout is active."
+msgstr ""
+
+#: inc/theme-settings.php:589, inc/theme-settings.php:589
+msgid "Show copyright"
+msgstr ""
+
+#: inc/theme-settings.php:589, inc/theme-settings.php:589
+msgid "Display copyright text in footer."
+msgstr ""
+
+#: inc/theme-settings.php:590, inc/theme-settings.php:645, inc/theme-settings.php:590, inc/theme-settings.php:645
+msgid "Show social links"
+msgstr ""
+
+#: inc/theme-settings.php:590, inc/theme-settings.php:590
+msgid "Display social media links in footer."
+msgstr ""
+
+#: inc/theme-settings.php:591, inc/theme-settings.php:591
+msgid "Footer CTA"
+msgstr ""
+
+#: inc/theme-settings.php:591, inc/theme-settings.php:591
+msgid "Show a CTA band above the footer."
+msgstr ""
+
+#: inc/theme-settings.php:598, inc/theme-settings.php:598
+msgid "Configure blog archive and single post display."
+msgstr ""
+
+#: inc/theme-settings.php:601, inc/theme-settings.php:601
+msgid "Blog layout"
+msgstr ""
+
+#: inc/theme-settings.php:601, inc/theme-settings.php:601
+msgid "How posts are displayed on archive pages."
+msgstr ""
+
+#: inc/theme-settings.php:602, inc/theme-settings.php:617, inc/theme-settings.php:631, inc/theme-settings.php:644, inc/theme-settings.php:657, inc/theme-settings.php:694, inc/theme-settings.php:602, inc/theme-settings.php:617, inc/theme-settings.php:631, inc/theme-settings.php:644, inc/theme-settings.php:657, inc/theme-settings.php:694
+msgid "Grid columns"
+msgstr ""
+
+#: inc/theme-settings.php:602, inc/theme-settings.php:617, inc/theme-settings.php:631, inc/theme-settings.php:644, inc/theme-settings.php:657, inc/theme-settings.php:694, inc/theme-settings.php:602, inc/theme-settings.php:617, inc/theme-settings.php:631, inc/theme-settings.php:644, inc/theme-settings.php:657, inc/theme-settings.php:694
+msgid "Column count for grid layout."
+msgstr ""
+
+#: inc/theme-settings.php:603, inc/theme-settings.php:603
+msgid "Show author"
+msgstr ""
+
+#: inc/theme-settings.php:603, inc/theme-settings.php:603
+msgid "Display author name on posts."
+msgstr ""
+
+#: inc/theme-settings.php:604, inc/theme-settings.php:604
+msgid "Show date"
+msgstr ""
+
+#: inc/theme-settings.php:604, inc/theme-settings.php:604
+msgid "Display publish date on posts."
+msgstr ""
+
+#: inc/theme-settings.php:605, inc/theme-settings.php:605
+msgid "Show categories"
+msgstr ""
+
+#: inc/theme-settings.php:605, inc/theme-settings.php:605
+msgid "Display categories on posts."
+msgstr ""
+
+#: inc/theme-settings.php:606, inc/theme-settings.php:606
+msgid "Show featured image"
+msgstr ""
+
+#: inc/theme-settings.php:606, inc/theme-settings.php:606
+msgid "Display featured image on posts."
+msgstr ""
+
+#: inc/theme-settings.php:613, inc/theme-settings.php:613
+msgid "Configure project archive and single display."
+msgstr ""
+
+#: inc/theme-settings.php:616, inc/theme-settings.php:616
+msgid "Portfolio layout"
+msgstr ""
+
+#: inc/theme-settings.php:616, inc/theme-settings.php:616
+msgid "How projects are displayed."
+msgstr ""
+
+#: inc/theme-settings.php:618, inc/theme-settings.php:695, inc/theme-settings.php:618, inc/theme-settings.php:695
+msgid "Show client"
+msgstr ""
+
+#: inc/theme-settings.php:618, inc/theme-settings.php:618
+msgid "Display client name on projects."
+msgstr ""
+
+#: inc/theme-settings.php:619, inc/theme-settings.php:619
+msgid "Show year"
+msgstr ""
+
+#: inc/theme-settings.php:619, inc/theme-settings.php:619
+msgid "Display project year."
+msgstr ""
+
+#: inc/theme-settings.php:620, inc/theme-settings.php:620
+msgid "Show project type"
+msgstr ""
+
+#: inc/theme-settings.php:620, inc/theme-settings.php:620
+msgid "Display project type/category."
+msgstr ""
+
+#: inc/theme-settings.php:627, inc/theme-settings.php:627
+msgid "Configure service archive and single display."
+msgstr ""
+
+#: inc/theme-settings.php:630, inc/theme-settings.php:630
+msgid "Services layout"
+msgstr ""
+
+#: inc/theme-settings.php:630, inc/theme-settings.php:630
+msgid "How services are displayed."
+msgstr ""
+
+#: inc/theme-settings.php:632, inc/theme-settings.php:632
+msgid "Show price"
+msgstr ""
+
+#: inc/theme-settings.php:632, inc/theme-settings.php:632
+msgid "Display service price (if set)."
+msgstr ""
+
+#: inc/theme-settings.php:633, inc/theme-settings.php:633
+msgid "Show CTA"
+msgstr ""
+
+#: inc/theme-settings.php:633, inc/theme-settings.php:633
+msgid "Display call-to-action on service singles."
+msgstr ""
+
+#: inc/theme-settings.php:640, inc/theme-settings.php:640
+msgid "Configure team member display."
+msgstr ""
+
+#: inc/theme-settings.php:643, inc/theme-settings.php:643
+msgid "Team layout"
+msgstr ""
+
+#: inc/theme-settings.php:643, inc/theme-settings.php:643
+msgid "How team members are displayed."
+msgstr ""
+
+#: inc/theme-settings.php:645, inc/theme-settings.php:645
+msgid "Display social media links for team members."
+msgstr ""
+
+#: inc/theme-settings.php:646, inc/theme-settings.php:646
+msgid "Show bio"
+msgstr ""
+
+#: inc/theme-settings.php:646, inc/theme-settings.php:646
+msgid "Display short biography."
+msgstr ""
+
+#: inc/theme-settings.php:653, inc/theme-settings.php:653
+msgid "Configure testimonial display."
+msgstr ""
+
+#: inc/theme-settings.php:656, inc/theme-settings.php:656
+msgid "Testimonials layout"
+msgstr ""
+
+#: inc/theme-settings.php:656, inc/theme-settings.php:656
+msgid "How testimonials are displayed."
+msgstr ""
+
+#: inc/theme-settings.php:658, inc/theme-settings.php:658
+msgid "Show avatar"
+msgstr ""
+
+#: inc/theme-settings.php:658, inc/theme-settings.php:658
+msgid "Display client avatar/photo."
+msgstr ""
+
+#: inc/theme-settings.php:659, inc/theme-settings.php:659
+msgid "Show rating"
+msgstr ""
+
+#: inc/theme-settings.php:659, inc/theme-settings.php:659
+msgid "Display star rating."
+msgstr ""
+
+#: inc/theme-settings.php:666, inc/theme-settings.php:666
+msgid "Configure work experience archive display."
+msgstr ""
+
+#: inc/theme-settings.php:669, inc/theme-settings.php:669
+msgid "Experience layout"
+msgstr ""
+
+#: inc/theme-settings.php:669, inc/theme-settings.php:669
+msgid "How experience entries are displayed."
+msgstr ""
+
+#: inc/theme-settings.php:670, inc/theme-settings.php:682, inc/theme-settings.php:670, inc/theme-settings.php:682
+msgid "Show dates"
+msgstr ""
+
+#: inc/theme-settings.php:670, inc/theme-settings.php:682, inc/theme-settings.php:670, inc/theme-settings.php:682
+msgid "Display start/end dates."
+msgstr ""
+
+#: inc/theme-settings.php:671, inc/theme-settings.php:671
+msgid "Show company"
+msgstr ""
+
+#: inc/theme-settings.php:671, inc/theme-settings.php:671
+msgid "Display company name."
+msgstr ""
+
+#: inc/theme-settings.php:678, inc/theme-settings.php:678
+msgid "Configure education archive display."
+msgstr ""
+
+#: inc/theme-settings.php:681, inc/theme-settings.php:681
+msgid "Education layout"
+msgstr ""
+
+#: inc/theme-settings.php:681, inc/theme-settings.php:681
+msgid "How education entries are displayed."
+msgstr ""
+
+#: inc/theme-settings.php:683, inc/theme-settings.php:683
+msgid "Show institution"
+msgstr ""
+
+#: inc/theme-settings.php:683, inc/theme-settings.php:683
+msgid "Display institution name."
+msgstr ""
+
+#: inc/theme-settings.php:690, inc/theme-settings.php:690
+msgid "Configure case study archive display."
+msgstr ""
+
+#: inc/theme-settings.php:693, inc/theme-settings.php:693
+msgid "Case studies layout"
+msgstr ""
+
+#: inc/theme-settings.php:693, inc/theme-settings.php:693
+msgid "How case studies are displayed."
+msgstr ""
+
+#: inc/theme-settings.php:695, inc/theme-settings.php:695
+msgid "Display client name."
+msgstr ""
+
+#: inc/theme-settings.php:696, inc/theme-settings.php:696
+msgid "Show results"
+msgstr ""
+
+#: inc/theme-settings.php:696, inc/theme-settings.php:696
+msgid "Display key results/metrics."
+msgstr ""
+
+#: inc/theme-settings.php:703, inc/theme-settings.php:703
+msgid "Browse, preview, and import complete portfolio websites. Preview any demo live — then import with one click. Your existing content is never deleted."
+msgstr ""
+
+#: inc/theme-settings.php:713, inc/theme-settings.php:713
+msgid "Header & Footer Builder"
+msgstr ""
+
+#: inc/theme-settings.php:714, inc/theme-settings.php:714
+msgid "Visually build custom headers and footers with drag-and-drop elements. Choose a starter template or create your own."
+msgstr ""
+
+#: inc/theme-settings.php:718, inc/theme-settings.php:718
+msgid "Header Builder"
+msgstr ""
+
+#: inc/theme-settings.php:719, inc/theme-settings.php:719
+msgid "Footer Builder"
+msgstr ""
+
+#: inc/theme-settings.php:723, inc/theme-settings.php:723
+msgid "Starter Templates"
+msgstr ""
+
+#: inc/theme-settings.php:728, inc/theme-settings.php:728
+msgid "Your Layouts"
+msgstr ""
+
+#: inc/theme-settings.php:734, inc/theme-settings.php:734
+msgid "Layout name"
+msgstr ""
+
+#: inc/theme-settings.php:740, inc/theme-settings.php:740
+msgid "Save Layout"
+msgstr ""
+
+#: inc/theme-settings.php:744, inc/theme-settings.php:744
+msgid "Elements"
+msgstr ""
+
+#: inc/theme-settings.php:751, inc/theme-settings.php:751
+msgid "Element Settings"
+msgstr ""
+
+#: inc/theme-settings.php:758, inc/theme-settings.php:758
+msgid "Live Preview"
+msgstr ""
+
+#: inc/theme-settings.php:761, inc/theme-settings.php:761
+msgid "Load a template or add elements to see a live preview."
+msgstr ""
+
+#: inc/theme-settings.php:771, inc/theme-settings.php:771
+msgid "Control motion, loading, and optimization."
+msgstr ""
+
+#: inc/theme-settings.php:774, inc/theme-settings.php:774
+msgid "Enable motion"
+msgstr ""
+
+#: inc/theme-settings.php:774, inc/theme-settings.php:774
+msgid "Scroll-reveal and hover animations."
+msgstr ""
+
+#: inc/theme-settings.php:775, inc/theme-settings.php:775
+msgid "Force reduced motion"
+msgstr ""
+
+#: inc/theme-settings.php:775, inc/theme-settings.php:775
+msgid "Disable all animations site-wide (overrides user preference)."
+msgstr ""
+
+#: inc/theme-settings.php:776, inc/theme-settings.php:776
+msgid "Lazy load images"
+msgstr ""
+
+#: inc/theme-settings.php:776, inc/theme-settings.php:776
+msgid "Add loading=\"lazy\" to all images."
+msgstr ""
+
+#: inc/theme-settings.php:783, inc/theme-settings.php:783
+msgid "Module visibility and system controls."
+msgstr ""
+
+#: inc/theme-settings.php:786, inc/theme-settings.php:786
+msgid "Content modules"
+msgstr ""
+
+#: inc/theme-settings.php:787, inc/theme-settings.php:787
+msgid "Enable or disable custom post types. Disabled modules preserve existing content but hide admin menus."
+msgstr ""
+
+#: inc/theme-settings.php:789, inc/theme-settings.php:789
+msgid "Project portfolio CPT."
+msgstr ""
+
+#: inc/theme-settings.php:790, inc/theme-settings.php:790
+msgid "Services CPT."
+msgstr ""
+
+#: inc/theme-settings.php:791, inc/theme-settings.php:791
+msgid "Team members CPT."
+msgstr ""
+
+#: inc/theme-settings.php:792, inc/theme-settings.php:792
+msgid "Client testimonials CPT."
+msgstr ""
+
+#: inc/theme-settings.php:793, inc/theme-settings.php:793
+msgid "Private booking/appointment CPT."
+msgstr ""
+
+#: inc/theme-settings.php:794, inc/theme-settings.php:794
+msgid "Work history CPT."
+msgstr ""
+
+#: inc/theme-settings.php:795, inc/theme-settings.php:795
+msgid "Academic credentials CPT."
+msgstr ""
+
+#: inc/theme-settings.php:796, inc/theme-settings.php:796
+msgid "FAQ entries CPT."
+msgstr ""
+
+#: inc/theme-settings.php:797, inc/theme-settings.php:797
+msgid "Case study CPT with meta boxes."
+msgstr ""
+
+#: inc/theme-settings.php:802, inc/theme-settings.php:802
+msgid "System status"
+msgstr ""
+
+#: inc/theme-settings.php:807, inc/theme-settings.php:807
+msgid "Theme version"
+msgstr ""
+
+#: inc/theme-settings.php:808, inc/theme-settings.php:808
+msgid "CPTs registered"
+msgstr ""
+
+#: inc/theme-settings.php:809, inc/theme-settings.php:809
+msgid "PHP version"
+msgstr ""
+
+#: inc/theme-settings.php:810, inc/theme-settings.php:810
+msgid "WordPress version"
+msgstr ""
+
+#: inc/content/case-study.php:43, inc/content/case-study.php:44, inc/content/case-study.php:43, inc/content/case-study.php:44
+msgid "Add New Case Study"
+msgstr ""
+
+#: inc/content/case-study.php:45, inc/content/case-study.php:45
+msgid "Edit Case Study"
+msgstr ""
+
+#: inc/content/case-study.php:46, inc/content/case-study.php:46
+msgid "New Case Study"
+msgstr ""
+
+#: inc/content/case-study.php:47, inc/content/case-study.php:47
+msgid "View Case Study"
+msgstr ""
+
+#: inc/content/case-study.php:48, inc/content/case-study.php:48
+msgid "Search Case Studies"
+msgstr ""
+
+#: inc/content/case-study.php:49, inc/content/case-study.php:49
+msgid "No case studies found."
+msgstr ""
+
+#: inc/content/case-study.php:50, inc/content/case-study.php:50
+msgid "No case studies found in trash."
+msgstr ""
+
+#: inc/content/case-study.php:51, inc/content/case-study.php:51
+msgid "All Case Studies"
+msgstr ""
+
+#: inc/content/case-study.php:86, inc/content/case-study.php:86
+msgid "Case Study Types"
+msgstr ""
+
+#: inc/content/case-study.php:87, inc/content/case-study.php:87
+msgid "Case Study Type"
+msgstr ""
+
+#: inc/content/case-study.php:88, inc/content/case-study.php:88
+msgid "Types"
+msgstr ""
+
+#: inc/content/case-study.php:89, inc/content/case-study.php:89
+msgid "All Types"
+msgstr ""
+
+#: inc/content/case-study.php:90, inc/content/case-study.php:90
+msgid "Edit Type"
+msgstr ""
+
+#: inc/content/case-study.php:91, inc/content/case-study.php:91
+msgid "Add New Type"
+msgstr ""
+
+#: inc/content/case-study.php:107, inc/content/case-study.php:109, inc/content/case-study.php:107, inc/content/case-study.php:109
+msgid "Industries"
+msgstr ""
+
+#: inc/content/case-study.php:108, inc/content/case-study.php:267, inc/content/case-study.php:108, inc/content/case-study.php:267
+msgid "Industry"
+msgstr ""
+
+#: inc/content/case-study.php:110, inc/content/case-study.php:110
+msgid "All Industries"
+msgstr ""
+
+#: inc/content/case-study.php:111, inc/content/case-study.php:111
+msgid "Edit Industry"
+msgstr ""
+
+#: inc/content/case-study.php:112, inc/content/case-study.php:112
+msgid "Add New Industry"
+msgstr ""
+
+#: inc/content/case-study.php:128, inc/content/case-study.php:130, inc/content/case-study.php:128, inc/content/case-study.php:130
+msgid "Technologies"
+msgstr ""
+
+#: inc/content/case-study.php:129, inc/content/case-study.php:129
+msgid "Technology"
+msgstr ""
+
+#: inc/content/case-study.php:131, inc/content/case-study.php:131
+msgid "All Technologies"
+msgstr ""
+
+#: inc/content/case-study.php:132, inc/content/case-study.php:132
+msgid "Edit Technology"
+msgstr ""
+
+#: inc/content/case-study.php:133, inc/content/case-study.php:133
+msgid "Add New Technology"
+msgstr ""
+
+#: inc/content/case-study.php:216, inc/content/case-study.php:216
+msgid "Project Information"
+msgstr ""
+
+#: inc/content/case-study.php:225, inc/content/case-study.php:225
+msgid "Case Study Details"
+msgstr ""
+
+#: inc/content/case-study.php:234, inc/content/case-study.php:234
+msgid "Results"
+msgstr ""
+
+#: inc/content/case-study.php:243, inc/content/case-study.php:243
+msgid "Links & Settings"
+msgstr ""
+
+#: inc/content/case-study.php:263, inc/content/case-study.php:263
+msgid "Project URL"
+msgstr ""
+
+#: inc/content/case-study.php:264, inc/content/case-study.php:264
+msgid "Year"
+msgstr ""
+
+#: inc/content/case-study.php:265, inc/content/case-study.php:265
+msgid "Duration"
+msgstr ""
+
+#: inc/content/case-study.php:268, inc/content/case-study.php:268
+msgid "Location"
+msgstr ""
+
+#: inc/content/case-study.php:270, inc/content/case-study.php:270
+msgid "Role"
+msgstr ""
+
+#: inc/content/case-study.php:296, inc/content/case-study.php:296
+msgid "Challenge"
+msgstr ""
+
+#: inc/content/case-study.php:297, inc/content/case-study.php:297
+msgid "Solution"
+msgstr ""
+
+#: inc/content/case-study.php:298, inc/content/case-study.php:298
+msgid "Process"
+msgstr ""
+
+#: inc/content/case-study.php:299, inc/content/case-study.php:299
+msgid "Conclusion"
+msgstr ""
+
+#: inc/content/case-study.php:328, inc/content/case-study.php:328
+msgid "Result"
+msgstr ""
+
+#: inc/content/case-study.php:349, inc/content/case-study.php:349
+msgid "Live URL"
+msgstr ""
+
+#: inc/content/case-study.php:354, inc/content/case-study.php:354
+msgid "Repository URL"
+msgstr ""
+
+#: inc/content/case-study.php:359, inc/content/case-study.php:359
+msgid "Featured"
+msgstr ""
+
+#: inc/content/case-study.php:361, inc/content/case-study.php:361
+msgid "Mark as featured case study"
+msgstr ""
+
+#: inc/content/cpt.php:86, inc/content/cpt.php:87, inc/content/cpt.php:86, inc/content/cpt.php:87
+msgid "Add New Project"
+msgstr ""
+
+#: inc/content/cpt.php:88, inc/content/cpt.php:88
+msgid "Edit Project"
+msgstr ""
+
+#: inc/content/cpt.php:89, inc/content/cpt.php:89
+msgid "New Project"
+msgstr ""
+
+#: inc/content/cpt.php:90, inc/content/cpt.php:90
+msgid "View Project"
+msgstr ""
+
+#: inc/content/cpt.php:91, inc/content/cpt.php:91
+msgid "Search Projects"
+msgstr ""
+
+#: inc/content/cpt.php:92, inc/content/cpt.php:92
+msgid "No projects found."
+msgstr ""
+
+#: inc/content/cpt.php:93, inc/content/cpt.php:93
+msgid "No projects found in trash."
+msgstr ""
+
+#: inc/content/cpt.php:94, inc/content/cpt.php:94
+msgid "All Projects"
+msgstr ""
+
+#: inc/content/cpt.php:118, inc/content/cpt.php:119, inc/content/cpt.php:118, inc/content/cpt.php:119
+msgid "Add New Service"
+msgstr ""
+
+#: inc/content/cpt.php:120, inc/content/cpt.php:120
+msgid "Edit Service"
+msgstr ""
+
+#: inc/content/cpt.php:121, inc/content/cpt.php:121
+msgid "New Service"
+msgstr ""
+
+#: inc/content/cpt.php:122, inc/content/cpt.php:122
+msgid "View Service"
+msgstr ""
+
+#: inc/content/cpt.php:123, inc/content/cpt.php:123
+msgid "Search Services"
+msgstr ""
+
+#: inc/content/cpt.php:124, inc/content/cpt.php:124
+msgid "No services found."
+msgstr ""
+
+#: inc/content/cpt.php:125, inc/content/cpt.php:125
+msgid "No services found in trash."
+msgstr ""
+
+#: inc/content/cpt.php:126, inc/content/cpt.php:126
+msgid "All Services"
+msgstr ""
+
+#: inc/content/cpt.php:150, inc/content/cpt.php:150
+msgid "Add New Member"
+msgstr ""
+
+#: inc/content/cpt.php:151, inc/content/cpt.php:151
+msgid "Add New Team Member"
+msgstr ""
+
+#: inc/content/cpt.php:152, inc/content/cpt.php:152
+msgid "Edit Team Member"
+msgstr ""
+
+#: inc/content/cpt.php:153, inc/content/cpt.php:153
+msgid "New Team Member"
+msgstr ""
+
+#: inc/content/cpt.php:154, inc/content/cpt.php:154
+msgid "View Team Member"
+msgstr ""
+
+#: inc/content/cpt.php:155, inc/content/cpt.php:155
+msgid "Search Team"
+msgstr ""
+
+#: inc/content/cpt.php:156, inc/content/cpt.php:156
+msgid "No team members found."
+msgstr ""
+
+#: inc/content/cpt.php:157, inc/content/cpt.php:157
+msgid "No team members found in trash."
+msgstr ""
+
+#: inc/content/cpt.php:158, inc/content/cpt.php:158
+msgid "All Team Members"
+msgstr ""
+
+#: inc/content/cpt.php:182, inc/content/cpt.php:183, inc/content/cpt.php:182, inc/content/cpt.php:183
+msgid "Add New Testimonial"
+msgstr ""
+
+#: inc/content/cpt.php:184, inc/content/cpt.php:184
+msgid "Edit Testimonial"
+msgstr ""
+
+#: inc/content/cpt.php:185, inc/content/cpt.php:185
+msgid "New Testimonial"
+msgstr ""
+
+#: inc/content/cpt.php:186, inc/content/cpt.php:186
+msgid "View Testimonial"
+msgstr ""
+
+#: inc/content/cpt.php:187, inc/content/cpt.php:187
+msgid "Search Testimonials"
+msgstr ""
+
+#: inc/content/cpt.php:188, inc/content/cpt.php:188
+msgid "No testimonials found."
+msgstr ""
+
+#: inc/content/cpt.php:189, inc/content/cpt.php:189
+msgid "No testimonials found in trash."
+msgstr ""
+
+#: inc/content/cpt.php:190, inc/content/cpt.php:190
+msgid "All Testimonials"
+msgstr ""
+
+#: inc/content/cpt.php:214, inc/content/cpt.php:240, inc/content/cpt.php:214, inc/content/cpt.php:240
+msgid "Add New"
+msgstr ""
+
+#: inc/content/cpt.php:215, inc/content/cpt.php:215
+msgid "Add New Experience"
+msgstr ""
+
+#: inc/content/cpt.php:216, inc/content/cpt.php:216
+msgid "Edit Experience"
+msgstr ""
+
+#: inc/content/cpt.php:217, inc/content/cpt.php:217
+msgid "All Experience"
+msgstr ""
+
+#: inc/content/cpt.php:241, inc/content/cpt.php:241
+msgid "Add New Education"
+msgstr ""
+
+#: inc/content/cpt.php:242, inc/content/cpt.php:242
+msgid "Edit Education"
+msgstr ""
+
+#: inc/content/cpt.php:243, inc/content/cpt.php:243
+msgid "All Education"
+msgstr ""
+
+#: inc/content/cpt.php:266, inc/content/cpt.php:267, inc/content/cpt.php:266, inc/content/cpt.php:267
+msgid "Add New FAQ"
+msgstr ""
+
+#: inc/content/cpt.php:268, inc/content/cpt.php:268
+msgid "Edit FAQ"
+msgstr ""
+
+#: inc/content/cpt.php:269, inc/content/cpt.php:269
+msgid "All FAQs"
+msgstr ""
+
+#: inc/content/cpt.php:293, inc/content/cpt.php:294, inc/content/cpt.php:293, inc/content/cpt.php:294
+msgid "Add New Booking"
+msgstr ""
+
+#: inc/content/cpt.php:295, inc/content/cpt.php:295
+msgid "Edit Booking"
+msgstr ""
+
+#: inc/content/cpt.php:296, inc/content/cpt.php:296
+msgid "All Bookings"
+msgstr ""
+
+#: inc/content/meta-fields.php:311, inc/content/meta-fields.php:311
+msgid "Header &amp; Footer Layout"
+msgstr ""
+
+#: inc/content/meta-fields.php:358, inc/content/meta-fields.php:358
+msgid "Site-wide default"
+msgstr ""
+
+#: inc/content/meta-fields.php:361, inc/content/meta-fields.php:361
+msgid "— Disable builder (use theme parts)"
+msgstr ""
+
+#: inc/content/meta-fields.php:364, inc/content/meta-fields.php:364
+msgid "Saved layouts"
+msgstr ""
+
+#: inc/content/meta-fields.php:376, inc/content/meta-fields.php:376
+msgid "No saved layouts yet — create one in Appearance → GoDevs Settings → Header/Footer Builder."
+msgstr ""
+
+#: inc/content/taxonomies.php:37, inc/content/taxonomies.php:37
+msgid "Project Categories"
+msgstr ""
+
+#: inc/content/taxonomies.php:38, inc/content/taxonomies.php:38
+msgid "Project Category"
+msgstr ""
+
+#: inc/content/taxonomies.php:39, inc/content/taxonomies.php:39
+msgid "Search Categories"
+msgstr ""
+
+#: inc/content/taxonomies.php:40, inc/content/taxonomies.php:87, inc/content/taxonomies.php:133, inc/content/taxonomies.php:40, inc/content/taxonomies.php:87, inc/content/taxonomies.php:133
+msgid "All Categories"
+msgstr ""
+
+#: inc/content/taxonomies.php:41, inc/content/taxonomies.php:88, inc/content/taxonomies.php:134, inc/content/taxonomies.php:41, inc/content/taxonomies.php:88, inc/content/taxonomies.php:134
+msgid "Edit Category"
+msgstr ""
+
+#: inc/content/taxonomies.php:42, inc/content/taxonomies.php:42
+msgid "Update Category"
+msgstr ""
+
+#: inc/content/taxonomies.php:43, inc/content/taxonomies.php:89, inc/content/taxonomies.php:135, inc/content/taxonomies.php:43, inc/content/taxonomies.php:89, inc/content/taxonomies.php:135
+msgid "Add New Category"
+msgstr ""
+
+#: inc/content/taxonomies.php:44, inc/content/taxonomies.php:44
+msgid "New Category Name"
+msgstr ""
+
+#: inc/content/taxonomies.php:45, inc/content/taxonomies.php:86, inc/content/taxonomies.php:132, inc/content/taxonomies.php:45, inc/content/taxonomies.php:86, inc/content/taxonomies.php:132
+msgid "Categories"
+msgstr ""
+
+#: inc/content/taxonomies.php:60, inc/content/taxonomies.php:60
+msgid "Project Tags"
+msgstr ""
+
+#: inc/content/taxonomies.php:61, inc/content/taxonomies.php:61
+msgid "Project Tag"
+msgstr ""
+
+#: inc/content/taxonomies.php:62, inc/content/taxonomies.php:62
+msgid "Search Tags"
+msgstr ""
+
+#: inc/content/taxonomies.php:63, inc/content/taxonomies.php:63
+msgid "All Tags"
+msgstr ""
+
+#: inc/content/taxonomies.php:64, inc/content/taxonomies.php:64
+msgid "Edit Tag"
+msgstr ""
+
+#: inc/content/taxonomies.php:65, inc/content/taxonomies.php:65
+msgid "Add New Tag"
+msgstr ""
+
+#: inc/content/taxonomies.php:66, inc/content/taxonomies.php:66
+msgid "Tags"
+msgstr ""
+
+#: inc/content/taxonomies.php:84, inc/content/taxonomies.php:84
+msgid "Service Categories"
+msgstr ""
+
+#: inc/content/taxonomies.php:85, inc/content/taxonomies.php:85
+msgid "Service Category"
+msgstr ""
+
+#: inc/content/taxonomies.php:107, inc/content/taxonomies.php:109, inc/content/taxonomies.php:107, inc/content/taxonomies.php:109
+msgid "Departments"
+msgstr ""
+
+#: inc/content/taxonomies.php:108, inc/content/taxonomies.php:108
+msgid "Department"
+msgstr ""
+
+#: inc/content/taxonomies.php:110, inc/content/taxonomies.php:110
+msgid "All Departments"
+msgstr ""
+
+#: inc/content/taxonomies.php:111, inc/content/taxonomies.php:111
+msgid "Edit Department"
+msgstr ""
+
+#: inc/content/taxonomies.php:112, inc/content/taxonomies.php:112
+msgid "Add New Department"
+msgstr ""
+
+#: inc/content/taxonomies.php:130, inc/content/taxonomies.php:130
+msgid "FAQ Categories"
+msgstr ""
+
+#: inc/content/taxonomies.php:131, inc/content/taxonomies.php:131
+msgid "FAQ Category"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:55, inc/admin/views/admin-cpt-manager.php:55
+msgid "Manage all your theme content types from one dashboard. View, edit, add, and preview projects, services, team, testimonials, and more."
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:78, inc/admin/views/admin-cpt-manager.php:78
+msgid "Add new"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:80, inc/admin/views/admin-cpt-manager.php:80
+msgid "Add"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:82, inc/admin/views/admin-cpt-manager.php:82
+msgid "Manage all"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:84, inc/admin/views/admin-cpt-manager.php:84
+msgid "All"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:87, inc/admin/views/admin-cpt-manager.php:87
+msgid "View archive"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:101, inc/admin/views/admin-cpt-manager.php:101
+msgid "Content"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:109, inc/admin/views/admin-cpt-manager.php:109
+msgid "Search…"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:115, inc/admin/views/admin-cpt-manager.php:115
+msgid "Add New %s"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:120, inc/admin/views/admin-cpt-manager.php:120
+msgid "Archive Settings"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:148, inc/admin/views/admin-cpt-manager.php:148
+msgid "Title"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:150, inc/admin/views/admin-cpt-manager.php:150
+msgid "Modified"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:151, inc/admin/views/admin-cpt-manager.php:151
+msgid "Actions"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:159, inc/admin/views/admin-cpt-manager.php:159
+msgid "Published"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:159, inc/admin/views/admin-cpt-manager.php:159
+msgid "Draft"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:172, inc/admin/views/admin-cpt-manager.php:172
+msgid "(no title) — ID #%d"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:198, inc/admin/views/admin-cpt-manager.php:200, inc/admin/views/admin-cpt-manager.php:198, inc/admin/views/admin-cpt-manager.php:200
+msgid "Edit"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:203, inc/admin/views/admin-cpt-manager.php:205, inc/admin/views/admin-cpt-manager.php:203, inc/admin/views/admin-cpt-manager.php:205
+msgid "View"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:208, inc/admin/views/admin-cpt-manager.php:208
+msgid "Trash"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:208, inc/admin/views/admin-cpt-manager.php:208
+msgid "Move this item to trash?"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:129, inc/admin/views/admin-cpt-manager.php:129
+msgid "No items found"
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:134, inc/admin/views/admin-cpt-manager.php:134
+msgid "There are no %s yet. Create your first one to get started."
+msgstr ""
+
+#: inc/admin/views/admin-cpt-manager.php:141, inc/admin/views/admin-cpt-manager.php:141
+msgid "Add First %s"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:47, inc/admin/views/admin-demos.php:47
+msgid "Premium Demo Library"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:50, inc/admin/views/admin-demos.php:50
+msgid "Production-ready websites."
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:51, inc/admin/views/admin-demos.php:51
+msgid "One click to import."
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:54, inc/admin/views/admin-demos.php:54
+msgid "Browse complete portfolio sites, preview them live in the browser, and import with all pages, navigation, and the recommended style variation applied. Your existing content is never deleted."
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:60, inc/admin/views/admin-demos.php:60
+msgid "Ready demos"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:64, inc/admin/views/admin-demos.php:64
+msgid "Coming soon"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:68, inc/admin/views/admin-demos.php:343, inc/admin/views/admin-demos.php:68, inc/admin/views/admin-demos.php:343
+msgid "Imported"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:77, inc/admin/views/admin-demos.php:77
+msgid "Search demos"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:85, inc/admin/views/admin-demos.php:85
+msgid "Search demos by name, category, or style…"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:91, inc/admin/views/admin-demos.php:91
+msgid "Filter by category"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:93, inc/admin/views/admin-demos.php:93
+msgid "All categories"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:101, inc/admin/views/admin-demos.php:101
+msgid "Filter by style variation"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:103, inc/admin/views/admin-demos.php:103
+msgid "All styles"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:112, inc/admin/views/admin-demos.php:112
+msgid "Clear filters"
+msgstr ""
+
+#. translators: 1: ready demo count, 2: total demo count.
+#: inc/admin/views/admin-demos.php:121, inc/admin/views/admin-demos.php:121
+msgid "%1$d ready · %2$d total"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:135, inc/admin/views/admin-demos.php:135
+msgid "Ready Demos"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:138, inc/admin/views/admin-demos.php:138
+msgid "Fully designed home + inner pages — ready to import with one click."
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:158, inc/admin/views/admin-demos.php:337, inc/admin/views/admin-demos.php:368, inc/admin/views/admin-demos.php:158, inc/admin/views/admin-demos.php:337, inc/admin/views/admin-demos.php:368
+msgid "Coming Soon"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:161, inc/admin/views/admin-demos.php:161
+msgid "Homepage patterns available — inner pages are being designed."
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:179, inc/admin/views/admin-demos.php:179
+msgid "No demos found"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:180, inc/admin/views/admin-demos.php:180
+msgid "No demos match your current filters. Try adjusting your search or category."
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:181, inc/admin/views/admin-demos.php:181
+msgid "Clear all filters"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:197, inc/admin/views/admin-demos.php:197
+msgid "Preview device"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:198, inc/admin/views/admin-demos.php:200, inc/admin/views/admin-demos.php:198, inc/admin/views/admin-demos.php:200
+msgid "Desktop"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:202, inc/admin/views/admin-demos.php:204, inc/admin/views/admin-demos.php:202, inc/admin/views/admin-demos.php:204
+msgid "Tablet"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:206, inc/admin/views/admin-demos.php:208, inc/admin/views/admin-demos.php:206, inc/admin/views/admin-demos.php:208
+msgid "Mobile"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:211, inc/admin/views/admin-demos.php:211
+msgid "Close preview"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:222, inc/admin/views/admin-demos.php:279, inc/admin/views/admin-demos.php:222, inc/admin/views/admin-demos.php:279
+msgid "Loading live preview…"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:227, inc/admin/views/admin-demos.php:227
+msgid "Demo live preview"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:241, inc/admin/views/admin-demos.php:243, inc/admin/views/admin-demos.php:241, inc/admin/views/admin-demos.php:243
+msgid "Open in new tab"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:246, inc/admin/views/admin-demos.php:273, inc/admin/views/admin-demos.php:246, inc/admin/views/admin-demos.php:273
+msgid "Import Demo"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:257, inc/admin/views/admin-demos.php:257
+msgid "Importing demo…"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:270, inc/admin/views/admin-demos.php:270
+msgid "Import Demo — Starter"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:271, inc/admin/views/admin-demos.php:271
+msgid "Import Demo — Safe"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:272, inc/admin/views/admin-demos.php:272
+msgid "Cancel"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:274, inc/admin/views/admin-demos.php:274
+msgid "Importing…"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:275, inc/admin/views/admin-demos.php:275
+msgid "Import complete"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:276, inc/admin/views/admin-demos.php:276
+msgid "Import failed"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:277, inc/admin/views/admin-demos.php:277
+msgid "Remove Demo"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:278, inc/admin/views/admin-demos.php:278
+msgid "Confirm Removal"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:280, inc/admin/views/admin-demos.php:280
+msgid "Network error. Please try again."
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:335, inc/admin/views/admin-demos.php:335
+msgid "Ready"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:349, inc/admin/views/admin-demos.php:349
+msgid "Re-import"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:349, inc/admin/views/admin-demos.php:349
+msgid "Import"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:354, inc/admin/views/admin-demos.php:354
+msgid "Preview"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:362, inc/admin/views/admin-demos.php:362
+msgid "Remove demo"
+msgstr ""
+
+#: inc/admin/views/admin-demos.php:407, inc/admin/views/admin-demos.php:407
+msgid "Preview Demo"
+msgstr ""
+
+#. translators: %d: page count.
+#: inc/admin/views/admin-demos.php:416, inc/admin/views/admin-demos.php:416
+msgid "%d page"
+msgid_plural "%d pages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/admin/views/admin-demos.php:420, inc/admin/views/admin-demos.php:420
+msgid "All pages"
 msgstr ""

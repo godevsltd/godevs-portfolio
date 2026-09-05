@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:buttons -->
 
 <!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|small"},"spacing":{"margin":{"top":"var:preset|spacing|20"}},"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--small);margin-top:var(--wp--preset--spacing--20)">// Placeholder form. Replace with Contact Form 7 or WPForms.</p>
+<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--small);margin-top:var(--wp--preset--spacing--20)">// Visual placeholder. Edit this page to add your contact details.</p>
 <!-- /wp:paragraph -->
 
 </div>
