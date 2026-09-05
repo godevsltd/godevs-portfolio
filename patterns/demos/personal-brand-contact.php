@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
 
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow">Contact</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -33,13 +33,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <!-- wp:column {"width":"40%"} -->
 <div class="wp-block-column" style="flex-basis:40%">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow">Email</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
 <p style="font-size:var(--wp--preset--font-size|medium)"><a href="mailto:hello@personal-brand.studio">hello@personal-brand.studio</a></p>
 <!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}},"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow" style="margin-top:var(--wp--preset--spacing--40)">Studio</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-column" style="flex-basis:60%">
 <!-- wp:group {"className":"is-style-card-bordered","style":{"spacing":{"padding":"var:preset|spacing|40","blockGap":"var:preset|spacing|20"}}} -->
 <div class="wp-block-group is-style-card-bordered" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow">Send a message</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"border":{"color":"var:preset|color|border","width":"1px","radius":"6px"},"spacing":{"padding":"var:preset|spacing|20"},"color":{"text":"var:preset|color|muted"}}} -->

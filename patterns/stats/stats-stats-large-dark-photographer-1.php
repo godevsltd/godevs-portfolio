@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-columns are-vertically-aligned-bottom">
 <!-- wp:column {"verticalAlignment":"bottom","width":"50%"} -->
 <div class="wp-block-column is-vertically-aligned-bottom" style="flex-basis:50%">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow">Series published</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(5rem, 14vw, 12rem)","lineHeight":"0.9","letterSpacing":"-0.04em","fontWeight":"700"}}} -->
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:column -->
 <!-- wp:column {"verticalAlignment":"bottom","width":"50%"} -->
 <div class="wp-block-column is-vertically-aligned-bottom" style="flex-basis:50%">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow">Years shooting</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(5rem, 14vw, 12rem)","lineHeight":"0.9","letterSpacing":"-0.04em","fontWeight":"700"}}} -->

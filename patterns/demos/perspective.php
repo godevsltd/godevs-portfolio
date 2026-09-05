@@ -21,10 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow">Agency / Consultancy</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"clamp(2.5rem, 6vw, 5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"400","fontStyle":"italic"}}} -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"var:preset|font-size|huge","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"400","fontStyle":"italic"}}} -->
 <h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--serif);font-size:clamp(2.5rem, 6vw, 5rem);line-height:1.1;letter-spacing:-0.02em;font-weight:400;font-style:italic">Perspective</h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"var:preset|font-size|large","lineHeight":"1.5"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
@@ -43,10 +43,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-                        <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+                        <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
                         <p class="is-style-eyebrow">Client work</p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:heading {"level":2} -->
+                        <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
                         <h2 class="wp-block-heading">Selected work.</h2>
                         <!-- /wp:heading -->
                 </div>
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Brand Launch Campaign</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Digital Product</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2023</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Website Redesign</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -107,10 +107,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-                        <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+                        <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
                         <p class="is-style-eyebrow">Studio projects</p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:heading {"level":2} -->
+                        <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
                         <h2 class="wp-block-heading">Recent engagements.</h2>
                         <!-- /wp:heading -->
                 </div>
@@ -125,7 +125,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Brand Launch Campaign</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -138,7 +138,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Digital Product</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -151,7 +151,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2023</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Website Redesign</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -171,10 +171,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50)">
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group">
-                        <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+                        <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
                         <p class="is-style-eyebrow">Start a project</p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
+                        <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
                         <h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">Have a brief to discuss?</h2>
                         <!-- /wp:heading -->
                 </div>

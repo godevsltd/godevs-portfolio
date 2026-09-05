@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"bottom":"var:preset|spacing|60"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}}} -->
 		<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--60)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 			<p class="is-style-eyebrow">Engagement models</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="wp-block-column is-vertically-aligned-top">
 				<!-- wp:group {"className":"is-style-card-bordered","style":{"spacing":{"padding":"var:preset|spacing|40","blockGap":"var:preset|spacing|20"}},"backgroundColor":"surface"} -->
 				<div class="wp-block-group is-style-card-bordered has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
-					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|muted"}}} -->
+					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"}}} -->
 					<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--muted)">Tier 1</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|large","letterSpacing":"-0.01em","fontWeight":"600"}}} -->
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="wp-block-column is-vertically-aligned-top">
 				<!-- wp:group {"className":"is-style-card-default","style":{"spacing":{"padding":"var:preset|spacing|40","blockGap":"var:preset|spacing|20"},"border":{"color":"var:preset|color|accent","width":"2px"}},"backgroundColor":"surface"} -->
 				<div class="wp-block-group is-style-card-default has-surface-background-color has-background" style="border-color:var(--wp--preset--color--accent);border-width:2px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
-					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"}}} -->
+					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"}}} -->
 					<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent)">Tier 2 · Most common</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|large","letterSpacing":"-0.01em","fontWeight":"600"}}} -->
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="wp-block-column is-vertically-aligned-top">
 				<!-- wp:group {"className":"is-style-card-bordered","style":{"spacing":{"padding":"var:preset|spacing|40","blockGap":"var:preset|spacing|20"}},"backgroundColor":"surface"} -->
 				<div class="wp-block-group is-style-card-bordered has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
-					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|muted"}}} -->
+					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"}}} -->
 					<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--muted)">Tier 3</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|large","letterSpacing":"-0.01em","fontWeight":"600"}}} -->

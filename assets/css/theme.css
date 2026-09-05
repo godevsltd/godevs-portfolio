@@ -305,10 +305,11 @@
 
 .wp-block-paragraph.is-style-eyebrow,
 p.is-style-eyebrow {
-        color: var(--wp--preset--color--muted, currentColor);
-        font-size: var(--wp--preset--font-size--small, 0.875rem);
-        letter-spacing: 0.08em;
-        margin-block-end: var(--wp--preset--spacing--40, 1rem);
+        color: var(--wp--preset--color--accent, currentColor);
+        font-size: var(--wp--preset--font-size--x-small, 0.75rem);
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        margin-block-end: var(--wp--preset--spacing--30, 0.75rem);
         text-transform: uppercase;
 }
 
@@ -843,13 +844,13 @@ html {
  * 13. Phase 10 — Premium pattern design refinements
  * -------------------------------------------------------------- */
 
-/* Premium eyebrow — better spacing and letter-spacing */
+/* Premium eyebrow — consistent accent color, tracked uppercase */
 .is-style-eyebrow {
-        letter-spacing: 0.1em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         font-weight: 600;
-        font-size: var(--wp--preset--font-size--small, 0.875rem);
-        color: var(--wp--preset--color--muted, #6b7280);
+        font-size: var(--wp--preset--font-size--x-small, 0.75rem);
+        color: var(--wp--preset--color--accent, currentColor);
         margin-bottom: var(--wp--preset--spacing--30, 0.75rem);
 }
 
@@ -1497,9 +1498,9 @@ p > a[href^="/"]:only-child,
 .godevs-archive-grid-2col,
 .godevs-archive-grid-3col,
 .godevs-archive-grid-4col {
-	display: grid;
-	gap: 2rem;
-	margin-bottom: 2rem;
+        display: grid;
+        gap: 2rem;
+        margin-bottom: 2rem;
 }
 
 .godevs-archive-grid-2col { grid-template-columns: repeat(2, 1fr); }
@@ -1508,24 +1509,24 @@ p > a[href^="/"]:only-child,
 
 /* Tablet — collapse to 2 columns */
 @media (max-width: 1024px) {
-	.godevs-archive-grid-3col,
-	.godevs-archive-grid-4col {
-		grid-template-columns: repeat(2, 1fr);
-	}
+        .godevs-archive-grid-3col,
+        .godevs-archive-grid-4col {
+                grid-template-columns: repeat(2, 1fr);
+        }
 }
 
 /* Mobile — single column */
 @media (max-width: 768px) {
-	.godevs-archive-grid-2col,
-	.godevs-archive-grid-3col,
-	.godevs-archive-grid-4col {
-		grid-template-columns: 1fr;
-	}
+        .godevs-archive-grid-2col,
+        .godevs-archive-grid-3col,
+        .godevs-archive-grid-4col {
+                grid-template-columns: 1fr;
+        }
 }
 
 /* List layout — full-width rows */
 .godevs-archive-list .wp-block-group {
-	margin-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -1538,189 +1539,189 @@ p > a[href^="/"]:only-child,
 
 /* ─── Card Pro — premium elevated card with hover lift ─────────── */
 .wp-block-group.is-style-card-pro {
-	background-color: var(--wp--preset--color--surface, #ffffff);
-	border: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	border-radius: var(--wp--custom--radius--md, 12px);
-	padding: var(--wp--preset--spacing--50, 1.5rem);
-	transition: transform var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1)),
-	            box-shadow var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
-	overflow: hidden;
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: var(--wp--custom--radius--md, 12px);
+        padding: var(--wp--preset--spacing--50, 1.5rem);
+        transition: transform var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1)),
+                    box-shadow var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        overflow: hidden;
 }
 .wp-block-group.is-style-card-pro:hover {
-	transform: translateY(-4px);
-	box-shadow: var(--wp--preset--shadow--elevated, 0 12px 32px rgba(10, 10, 10, 0.08));
+        transform: translateY(-4px);
+        box-shadow: var(--wp--preset--shadow--elevated, 0 12px 32px rgba(10, 10, 10, 0.08));
 }
 
 /* ─── Card Media — image-top card with content below ───────────── */
 .wp-block-group.is-style-card-media {
-	background-color: var(--wp--preset--color--surface, #ffffff);
-	border: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	border-radius: var(--wp--custom--radius--md, 12px);
-	overflow: hidden;
-	transition: box-shadow var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: var(--wp--custom--radius--md, 12px);
+        overflow: hidden;
+        transition: box-shadow var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 .wp-block-group.is-style-card-media:hover {
-	box-shadow: var(--wp--preset--shadow--elevated, 0 12px 32px rgba(10, 10, 10, 0.08));
+        box-shadow: var(--wp--preset--shadow--elevated, 0 12px 32px rgba(10, 10, 10, 0.08));
 }
 .wp-block-group.is-style-card-media > .wp-block-post-featured-image,
 .wp-block-group.is-style-card-media > .wp-block-image {
-	margin-bottom: 0;
+        margin-bottom: 0;
 }
 .wp-block-group.is-style-card-media > .wp-block-group {
-	padding: var(--wp--preset--spacing--50, 1.5rem);
+        padding: var(--wp--preset--spacing--50, 1.5rem);
 }
 
 /* ─── Card Overlay — image with text overlay ──────────────────── */
 .wp-block-group.is-style-card-overlay {
-	position: relative;
-	border-radius: var(--wp--custom--radius--md, 12px);
-	overflow: hidden;
-	background-color: var(--wp--preset--color--primary, #0a0a0a);
+        position: relative;
+        border-radius: var(--wp--custom--radius--md, 12px);
+        overflow: hidden;
+        background-color: var(--wp--preset--color--primary, #0a0a0a);
 }
 .wp-block-group.is-style-card-overlay .wp-block-post-featured-image img,
 .wp-block-group.is-style-card-overlay .wp-block-image img {
-	border-radius: 0;
+        border-radius: 0;
 }
 .wp-block-group.is-style-card-overlay > .wp-block-group {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	padding: var(--wp--preset--spacing--50, 1.5rem);
-	background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
-	color: #ffffff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: var(--wp--preset--spacing--50, 1.5rem);
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+        color: #ffffff;
 }
 .wp-block-group.is-style-card-overlay > .wp-block-group a,
 .wp-block-group.is-style-card-overlay > .wp-block-group .wp-block-post-title a {
-	color: #ffffff;
+        color: #ffffff;
 }
 
 /* ─── Card Compact — dense, scannable card for grids ──────────── */
 .wp-block-group.is-style-card-compact {
-	border: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	border-radius: var(--wp--custom--radius--md, 12px);
-	padding: var(--wp--preset--spacing--40, 1rem);
-	transition: border-color var(--wp--custom--motion--duration--fast, 150ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: var(--wp--custom--radius--md, 12px);
+        padding: var(--wp--preset--spacing--40, 1rem);
+        transition: border-color var(--wp--custom--motion--duration--fast, 150ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 .wp-block-group.is-style-card-compact:hover {
-	border-color: var(--wp--preset--color--accent, #2563eb);
+        border-color: var(--wp--preset--color--accent, #2563eb);
 }
 
 /* ─── Card Accent — colored left border + subtle bg ───────────── */
 .wp-block-group.is-style-card-accent {
-	background-color: var(--wp--preset--color--surface-muted, #f5f5f0);
-	border-left: 3px solid var(--wp--preset--color--accent, #2563eb);
-	border-radius: 0 var(--wp--custom--radius--md, 12px) var(--wp--custom--radius--md, 12px) 0;
-	padding: var(--wp--preset--spacing--50, 1.5rem);
-	transition: border-left-width var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        background-color: var(--wp--preset--color--surface-muted, #f5f5f0);
+        border-left: 3px solid var(--wp--preset--color--accent, #2563eb);
+        border-radius: 0 var(--wp--custom--radius--md, 12px) var(--wp--custom--radius--md, 12px) 0;
+        padding: var(--wp--preset--spacing--50, 1.5rem);
+        transition: border-left-width var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 .wp-block-group.is-style-card-accent:hover {
-	border-left-width: 5px;
+        border-left-width: 5px;
 }
 
 /* ─── Card Profile — circular avatar + info for team ───────────── */
 .wp-block-group.is-style-card-profile {
-	background-color: var(--wp--preset--color--surface, #ffffff);
-	border: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	border-radius: var(--wp--custom--radius--md, 12px);
-	padding: var(--wp--preset--spacing--60, 2rem);
-	text-align: center;
-	transition: box-shadow var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: var(--wp--custom--radius--md, 12px);
+        padding: var(--wp--preset--spacing--60, 2rem);
+        text-align: center;
+        transition: box-shadow var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 .wp-block-group.is-style-card-profile:hover {
-	box-shadow: var(--wp--preset--shadow--elevated, 0 12px 32px rgba(10, 10, 10, 0.08));
+        box-shadow: var(--wp--preset--shadow--elevated, 0 12px 32px rgba(10, 10, 10, 0.08));
 }
 .wp-block-group.is-style-card-profile .wp-block-post-featured-image img,
 .wp-block-group.is-style-card-profile .wp-block-image img {
-	border-radius: 999px;
-	margin: 0 auto var(--wp--preset--spacing--40, 1rem);
+        border-radius: 999px;
+        margin: 0 auto var(--wp--preset--spacing--40, 1rem);
 }
 
 /* ─── Card Quote — large quotation mark for testimonials ──────── */
 .wp-block-group.is-style-card-quote {
-	background-color: var(--wp--preset--color--surface, #ffffff);
-	border: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	border-radius: var(--wp--custom--radius--md, 12px);
-	padding: var(--wp--preset--spacing--60, 2rem);
-	position: relative;
-	transition: box-shadow var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: var(--wp--custom--radius--md, 12px);
+        padding: var(--wp--preset--spacing--60, 2rem);
+        position: relative;
+        transition: box-shadow var(--wp--custom--motion--duration--base, 300ms) var(--wp--custom--motion--ease, cubic-bezier(0.4, 0, 0.2, 1));
 }
 .wp-block-group.is-style-card-quote:hover {
-	box-shadow: var(--wp--preset--shadow--elevated, 0 12px 32px rgba(10, 10, 10, 0.08));
+        box-shadow: var(--wp--preset--shadow--elevated, 0 12px 32px rgba(10, 10, 10, 0.08));
 }
 .wp-block-group.is-style-card-quote::before {
-	content: "\201C";
-	font-family: var(--wp--preset--font-family--serif, Georgia, serif);
-	font-size: 4rem;
-	line-height: 1;
-	color: var(--wp--preset--color--accent, #2563eb);
-	opacity: 0.15;
-	position: absolute;
-	top: 0.5rem;
-	left: 1rem;
-	pointer-events: none;
+        content: "\201C";
+        font-family: var(--wp--preset--font-family--serif, Georgia, serif);
+        font-size: 4rem;
+        line-height: 1;
+        color: var(--wp--preset--color--accent, #2563eb);
+        opacity: 0.15;
+        position: absolute;
+        top: 0.5rem;
+        left: 1rem;
+        pointer-events: none;
 }
 
 /* ─── Card Stats — big number + label for case study results ───── */
 .wp-block-group.is-style-card-stats {
-	background-color: var(--wp--preset--color--surface, #ffffff);
-	border: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	border-radius: var(--wp--custom--radius--md, 12px);
-	padding: var(--wp--preset--spacing--60, 2rem);
-	text-align: center;
+        background-color: var(--wp--preset--color--surface, #ffffff);
+        border: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        border-radius: var(--wp--custom--radius--md, 12px);
+        padding: var(--wp--preset--spacing--60, 2rem);
+        text-align: center;
 }
 .wp-block-group.is-style-card-stats .wp-block-paragraph:first-child {
-	font-family: var(--wp--preset--font-family--display, sans-serif);
-	font-size: clamp(2rem, 5vw, 3.5rem);
-	font-weight: 700;
-	line-height: 1;
-	color: var(--wp--preset--color--accent, #2563eb);
+        font-family: var(--wp--preset--font-family--display, sans-serif);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--wp--preset--color--accent, #2563eb);
 }
 
 /* ─── Reusable grid layout utilities ───────────────────────────── */
 .godevs-grid-3 {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: var(--wp--preset--spacing--50, 1.5rem);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--wp--preset--spacing--50, 1.5rem);
 }
 .godevs-grid-4 {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: var(--wp--preset--spacing--50, 1.5rem);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--wp--preset--spacing--50, 1.5rem);
 }
 .godevs-list-clean {
-	display: flex;
-	flex-direction: column;
-	gap: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
 }
 .godevs-list-clean > .wp-block-group {
-	border-bottom: 1px solid var(--wp--preset--color--border, #e5e5e0);
-	padding: var(--wp--preset--spacing--40, 1rem) 0;
+        border-bottom: 1px solid var(--wp--preset--color--border, #e5e5e0);
+        padding: var(--wp--preset--spacing--40, 1rem) 0;
 }
 .godevs-list-clean > .wp-block-group:last-child {
-	border-bottom: none;
+        border-bottom: none;
 }
 
 /* Responsive grid breakpoints */
 @media (max-width: 1024px) {
-	.godevs-grid-3 { grid-template-columns: repeat(2, 1fr); }
-	.godevs-grid-4 { grid-template-columns: repeat(2, 1fr); }
+        .godevs-grid-3 { grid-template-columns: repeat(2, 1fr); }
+        .godevs-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-	.godevs-grid-3, .godevs-grid-4 { grid-template-columns: 1fr; }
+        .godevs-grid-3, .godevs-grid-4 { grid-template-columns: 1fr; }
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-	.wp-block-group.is-style-card-pro,
-	.wp-block-group.is-style-card-media,
-	.wp-block-group.is-style-card-compact,
-	.wp-block-group.is-style-card-accent,
-	.wp-block-group.is-style-card-profile,
-	.wp-block-group.is-style-card-quote {
-		transition: none !important;
-	}
-	.wp-block-group.is-style-card-pro:hover { transform: none; }
+        .wp-block-group.is-style-card-pro,
+        .wp-block-group.is-style-card-media,
+        .wp-block-group.is-style-card-compact,
+        .wp-block-group.is-style-card-accent,
+        .wp-block-group.is-style-card-profile,
+        .wp-block-group.is-style-card-quote {
+                transition: none !important;
+        }
+        .wp-block-group.is-style-card-pro:hover { transform: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -1732,100 +1733,100 @@ p > a[href^="/"]:only-child,
 /* 4. HEADER STICKY OFF — disable sticky positioning + transitions */
 body.godevs-header-sticky-off .site-header,
 body.godevs-header-sticky-off header.wp-block-template-part {
-	position: relative !important;
-	top: auto !important;
-	transition: none !important;
+        position: relative !important;
+        top: auto !important;
+        transition: none !important;
 }
 
 /* 11. MOTION OFF — disable all transitions + animations */
 body.godevs-motion-off *,
 body.godevs-motion-off *::before,
 body.godevs-motion-off *::after {
-	transition: none !important;
-	animation: none !important;
-	animation-duration: 0s !important;
+        transition: none !important;
+        animation: none !important;
+        animation-duration: 0s !important;
 }
 
 body.godevs-motion-off .godevs-reveal {
-	opacity: 1 !important;
-	transform: none !important;
+        opacity: 1 !important;
+        transform: none !important;
 }
 
 /* 12. REDUCED MOTION (forced) — same as prefers-reduced-motion but always on */
 body.godevs-force-reduced-motion *,
 body.godevs-force-reduced-motion *::before,
 body.godevs-force-reduced-motion *::after {
-	transition: none !important;
-	animation: none !important;
-	scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
 }
 
 body.godevs-force-reduced-motion .godevs-reveal {
-	opacity: 1 !important;
-	transform: none !important;
+        opacity: 1 !important;
+        transform: none !important;
 }
 
 /* 5 & 6. HEADER CTA — injected button styling */
 .godevs-header-cta-wrap {
-	display: flex;
-	align-items: center;
-	margin-left: auto;
-	padding-left: 16px;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        padding-left: 16px;
 }
 
 .godevs-header-cta {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: 8px 16px;
-	border-radius: var(--wp--custom--radius--sm, 6px);
-	font-size: 14px;
-	font-weight: 600;
-	text-decoration: none;
-	background: var(--wp--preset--color--accent, #2563EB);
-	color: var(--wp--preset--color--contrast, #fff);
-	border: 1px solid transparent;
-	transition: background 200ms ease, transform 200ms ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 16px;
+        border-radius: var(--wp--custom--radius--sm, 6px);
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        background: var(--wp--preset--color--accent, #2563EB);
+        color: var(--wp--preset--color--contrast, #fff);
+        border: 1px solid transparent;
+        transition: background 200ms ease, transform 200ms ease;
 }
 
 .godevs-header-cta:hover {
-	background: var(--wp--preset--color--accent-hover, #1d4ed8);
-	transform: translateY(-1px);
+        background: var(--wp--preset--color--accent-hover, #1d4ed8);
+        transform: translateY(-1px);
 }
 
 .godevs-header-cta:visited {
-	color: var(--wp--preset--color--contrast, #fff);
+        color: var(--wp--preset--color--contrast, #fff);
 }
 
 /* 7. FOOTER COPYRIGHT OFF */
 body .godevs-hide-copyright .wp-block-post-date,
 body .godevs-hide-copyright .godevs-footer-copyright,
 body .godevs-hide-copyright p:has(> .godevs-copyright-text) {
-	display: none !important;
+        display: none !important;
 }
 
 /* 8. FOOTER SOCIAL OFF */
 body .godevs-hide-social .wp-block-social-links,
 body .godevs-hide-social .godevs-footer-social {
-	display: none !important;
+        display: none !important;
 }
 
 /* 9. FOOTER CTA ON — show the CTA strip (off by default) */
 body .godevs-show-footer-cta .godevs-footer-cta {
-	display: block !important;
+        display: block !important;
 }
 
 .godevs-footer-cta {
-	display: none; /* Hidden by default; only shows when footer_cta='1' */
+        display: none; /* Hidden by default; only shows when footer_cta='1' */
 }
 
 /* 10. SERVICES SHOW_CTA OFF — hide CTA on services archive */
 body.godevs-services-cta-off .godevs-services-cta,
 body.godevs-services-cta-off .wp-block-query .godevs-cta-section {
-	display: none !important;
+        display: none !important;
 }
 
 /* Search match highlight (admin only — but harmless here) */
 .is-search-match {
-	animation: godevs-search-fade-in 200ms ease-out;
+        animation: godevs-search-fade-in 200ms ease-out;
 }

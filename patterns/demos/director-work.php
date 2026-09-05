@@ -18,10 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.25em","textTransform":"uppercase"}}} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.25em;text-transform:uppercase">Selected Work · 2017—2024</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":1,"textColor":"contrast","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.25rem, 6vw, 4.5rem)","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"600"}}} -->
+<!-- wp:heading {"level":1,"textColor":"contrast","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|huge","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"600"}}} -->
 <h1 class="wp-block-heading has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);font-family:var(--wp--preset--font-family--display);font-size:clamp(2.25rem, 6vw, 4.5rem);line-height:1;letter-spacing:-0.03em;font-weight:600">Films, shorts, and commercial work — kept current, archived honestly.</h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"textColor":"contrast","style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.7"},"layout":{"selfStretch":"fit","flexSize":"640px"}}} -->
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 <div class="wp-block-group">
-<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.25em","textTransform":"uppercase"}}} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow" style="letter-spacing:0.25em;text-transform:uppercase">2024 · Feature · 118 min</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2rem, 5vw, 3.5rem)","lineHeight":"1.05","letterSpacing":"-0.025em","fontWeight":"600"}}} -->
@@ -66,13 +66,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wp-block-column" style="flex-basis:40%">
 <!-- wp:group {"className":"godevs-project-meta","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group godevs-project-meta">
-<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.2em","textTransform":"uppercase"}}} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow" style="letter-spacing:0.2em;text-transform:uppercase">Credits</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.8"}}} -->
 <p style="font-size:var(--wp--preset--font-size--small);line-height:1.8"><strong>Director:</strong> M. Vance<br><strong>Writer:</strong> M. Vance &amp; E. Holm<br><strong>Producer:</strong> Northbound Films<br><strong>Runtime:</strong> 118 min<br><strong>Format:</strong> 35mm Kodak Vision3<br><strong>Aspect Ratio:</strong> 2.39:1<br><strong>Sound:</strong> Dolby 5.1</p>
 <!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.2em","textTransform":"uppercase"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|30"}},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow" style="letter-spacing:0.2em;text-transform:uppercase;margin-top:var(--wp--preset--spacing--30)">Festivals</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.8"}}} -->
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull has-surface-muted-background-color has-background">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow">Production Stills</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -144,7 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow">Archive</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(1.75rem, 4vw, 2.5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -162,7 +162,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 <p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2023 · Short · 14 min · 35mm</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
+<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 <h3 class="wp-block-heading" style="letter-spacing:-0.01em">The Quiet Hours</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"}}} -->
@@ -182,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 <p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2022 · Feature · 102 min · 16mm</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
+<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 <h3 class="wp-block-heading" style="letter-spacing:-0.01em">Northbound</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"}}} -->
@@ -202,7 +202,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 <p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2019 · Short · 8 min · Digital</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
+<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 <h3 class="wp-block-heading" style="letter-spacing:-0.01em">The Cold Room</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"}}} -->
@@ -224,7 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull godevs-next-project has-contrast-color has-primary-background-color has-text-color has-background">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap","justifyContent":"center","textAlign":"center"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.3em","textTransform":"uppercase"}}} -->
+<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow has-text-align-center has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.3em;text-transform:uppercase">In Development · 2025</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":2,"textAlign":"center","textColor":"contrast","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.25rem, 6vw, 4rem)","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"600"}}} -->

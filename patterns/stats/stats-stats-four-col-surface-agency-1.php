@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 \t\t<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"bottom":"var:preset|spacing|60"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}}} -->
 \t\t<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--60)">
-\t\t\t<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+\t\t\t<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 \t\t\t<p class="is-style-eyebrow">By the numbers</p>
 \t\t\t<!-- /wp:paragraph -->
 \t\t\t<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->

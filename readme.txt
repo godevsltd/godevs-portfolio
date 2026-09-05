@@ -3,7 +3,7 @@ Contributors: godevs
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: full-site-editing, block-patterns, block-styles, portfolio, editorial, accessibility-ready, translation-ready, threaded-comments, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options
@@ -64,6 +64,24 @@ Yes. Go to Appearance → GoDevs Settings → Colors and Typography to customize
 Go to Appearance → GoDevs Settings → Demo Library tab. Browse the available demos, click Preview to see a live preview, then click Import to import the demo content (pages, navigation, and style variation).
 
 == Changelog ==
+
+= 1.1.0 =
+* Design: Refined global design system in theme.json — added 9 fluid font sizes (including new 'huge' Display Hero size), 7 border radius presets, custom design tokens for shadows, transitions, and containers.
+* Design: All eyebrow paragraphs across 654 patterns and 32 templates now use a consistent accent color, uppercase transform, 0.12em letter-spacing, and 600 weight.
+* Design: Normalized H1 hero typography to use the new 'huge' fluid font size for stronger visual impact.
+* Design: Replaced hard-coded colors (#6B7280 muted, #2563EB accent, #E5E5E0 border) with design tokens throughout all patterns and templates.
+* Design: Added accent-hover color across all 11 style variations for consistent hover states.
+* Design: Refined header template parts — cleaner padding, consistent site-title typography, and "Get in touch" button now uses text-link style.
+* Design: Redesigned 404, search, archive, blog list, page, single post, and front-page templates with refined spacing, clearer hierarchy, and more premium typography.
+* Design: Redesigned footer template parts with subtle top border, clearer column hierarchy, and consistent muted copyright text.
+* Design: Redesigned 10 core patterns (hero, portfolio-grid, about, services, team, testimonials, faq, cta, contact, stats) with refined spacing, typography, and visual hierarchy.
+* Layout: Wider wideSize (1320px) and contentSize (680px) for fuller portfolios.
+* Layout: Section padding normalized to var:preset|spacing|80 across all section-tagged groups for consistent vertical rhythm.
+* Layout: Improved border radius usage — all images and cards now use the radius presets (var:preset|radius|md, lg) instead of hard-coded pixel values.
+* Performance: Removed 6 redundant PNG demo preview images (kept WebP versions).
+* Accessibility: Skip-to-content link preserved in all 12 header template parts.
+* Accessibility: All 32 templates retain `id="main"` anchor on the main element.
+* Compatibility: Tested up to WordPress 6.8.
 
 = 1.0.1 =
 * Security: Tightened sanitization for theme settings — color fields now use sanitize_hex_color(), numeric fields use absint(), URL fields use esc_url_raw().

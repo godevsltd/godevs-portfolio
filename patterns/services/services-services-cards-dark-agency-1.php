@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"bottom":"var:preset|spacing|50"}}}} -->
 		<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--50)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|muted"}}} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"}}} -->
 			<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--muted)">Services · By discipline</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<!-- Active tab panel (Identity) -->
 		<!-- wp:group {"className":"godevs-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|30"},"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"backgroundColor":"surface","layout":{"type":"constrained","contentSize":"640px"}} -->
 		<div class="wp-block-group godevs-reveal has-surface-background-color has-background" style="background-color:var(--wp--preset--color--surface);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|primary"}}} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"}}} -->
 			<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--primary)">01 · Identity</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","letterSpacing":"-0.02em","fontWeight":"600"},"color":{"text":"var:preset|color|primary"}}} -->

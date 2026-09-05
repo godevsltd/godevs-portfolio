@@ -6,19 +6,81 @@
 	"settings": {
 		"color": {
 			"palette": [
-				{ "slug": "primary", "color": "#FAFAF7", "name": "Primary" },
-				{ "slug": "secondary", "color": "#C8C8C5", "name": "Secondary" },
-				{ "slug": "accent", "color": "#60A5FA", "name": "Accent" },
-				{ "slug": "base", "color": "#0A0A0A", "name": "Base" },
-				{ "slug": "surface", "color": "#141414", "name": "Surface" },
-				{ "slug": "surface-elevated", "color": "#1E1E1E", "name": "Surface Elevated" },
-				{ "slug": "foreground", "color": "#FAFAF7", "name": "Foreground" },
-				{ "slug": "muted", "color": "#9CA3AF", "name": "Muted" },
-				{ "slug": "border", "color": "#262626", "name": "Border" },
-				{ "slug": "success", "color": "#4ADE80", "name": "Success" },
-				{ "slug": "warning", "color": "#FBBF24", "name": "Warning" },
-				{ "slug": "error", "color": "#F87171", "name": "Error" },
-				{ "slug": "contrast", "color": "#0A0A0A", "name": "Contrast" }
+				{
+					"slug": "primary",
+					"color": "#FAFAF7",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#C8C8C5",
+					"name": "Secondary"
+				},
+				{
+					"slug": "accent",
+					"color": "#60A5FA",
+					"name": "Accent"
+				},
+				{
+					"slug": "accent-hover",
+					"color": "#5491dc",
+					"name": "Accent Hover"
+				},
+				{
+					"slug": "base",
+					"color": "#0A0A0A",
+					"name": "Base"
+				},
+				{
+					"slug": "surface",
+					"color": "#141414",
+					"name": "Surface"
+				},
+				{
+					"slug": "surface-muted",
+					"color": "#131313",
+					"name": "Surface Muted"
+				},
+				{
+					"slug": "surface-elevated",
+					"color": "#1E1E1E",
+					"name": "Surface Elevated"
+				},
+				{
+					"slug": "foreground",
+					"color": "#FAFAF7",
+					"name": "Foreground"
+				},
+				{
+					"slug": "muted",
+					"color": "#9CA3AF",
+					"name": "Muted"
+				},
+				{
+					"slug": "border",
+					"color": "#262626",
+					"name": "Border"
+				},
+				{
+					"slug": "success",
+					"color": "#4ADE80",
+					"name": "Success"
+				},
+				{
+					"slug": "warning",
+					"color": "#FBBF24",
+					"name": "Warning"
+				},
+				{
+					"slug": "error",
+					"color": "#F87171",
+					"name": "Error"
+				},
+				{
+					"slug": "contrast",
+					"color": "#0A0A0A",
+					"name": "Contrast"
+				}
 			]
 		}
 	},
@@ -43,11 +105,17 @@
 		},
 		"elements": {
 			"link": {
-				"color": { "text": "#60A5FA" },
-				"typography": { "textDecoration": "underline" }
+				"color": {
+					"text": "#60A5FA"
+				},
+				"typography": {
+					"textDecoration": "underline"
+				}
 			},
 			"heading": {
-				"color": { "text": "#FAFAF7" },
+				"color": {
+					"text": "#FAFAF7"
+				},
 				"typography": {
 					"fontFamily": "var:preset|font-family|display",
 					"fontWeight": "700",
@@ -69,7 +137,9 @@
 				}
 			},
 			"button": {
-				"border": { "radius": "4px" },
+				"border": {
+					"radius": "4px"
+				},
 				"color": {
 					"background": "#FAFAF7",
 					"text": "#0A0A0A"
@@ -78,31 +148,49 @@
 					"fontWeight": "600"
 				},
 				":hover": {
-					"color": { "background": "#C8C8C5" }
+					"color": {
+						"background": "var:preset|color|accent-hover"
+					}
 				}
 			},
 			"caption": {
-				"color": { "text": "#9CA3AF" }
+				"color": {
+					"text": "#9CA3AF"
+				}
 			}
 		},
 		"blocks": {
 			"core/site-title": {
-				"color": { "text": "#FAFAF7" }
+				"color": {
+					"text": "#FAFAF7"
+				}
 			},
 			"core/post-date": {
-				"color": { "text": "#9CA3AF" }
+				"color": {
+					"text": "#9CA3AF"
+				}
 			},
 			"core/post-terms": {
-				"color": { "text": "#9CA3AF" },
+				"color": {
+					"text": "#9CA3AF"
+				},
 				"elements": {
-					"link": { "color": { "text": "#60A5FA" } }
+					"link": {
+						"color": {
+							"text": "#60A5FA"
+						}
+					}
 				}
 			},
 			"core/post-author-name": {
-				"color": { "text": "#9CA3AF" }
+				"color": {
+					"text": "#9CA3AF"
+				}
 			},
 			"core/separator": {
-				"color": { "text": "#262626" }
+				"color": {
+					"text": "#262626"
+				}
 			}
 		}
 	}

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"bottom":"var:preset|spacing|70"}}}} -->
 		<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 			<p class="is-style-eyebrow">What I do</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xx-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<!-- /wp:column -->
 				<!-- wp:column {"width":"55%","verticalAlignment":"center","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 				<div class="wp-block-column" style="flex-basis:55%">
-					<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="is-style-eyebrow">01 · Identity</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -63,7 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="wp-block-columns are-vertically-aligned-center">
 				<!-- wp:column {"width":"55%","verticalAlignment":"center","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 				<div class="wp-block-column" style="flex-basis:55%">
-					<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="is-style-eyebrow">02 · Editorial</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -100,7 +100,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<!-- /wp:column -->
 				<!-- wp:column {"width":"55%","verticalAlignment":"center","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 				<div class="wp-block-column" style="flex-basis:55%">
-					<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="is-style-eyebrow">03 · Engineering</p>
 					<!-- /wp:paragraph -->
 					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|x-large","letterSpacing":"-0.02em","fontWeight":"600"}}} -->

@@ -6,38 +6,160 @@
 	"settings": {
 		"color": {
 			"palette": [
-				{ "slug": "primary", "color": "#0F2A4A", "name": "Primary" },
-				{ "slug": "secondary", "color": "#3B556D", "name": "Secondary" },
-				{ "slug": "accent", "color": "#1D4ED8", "name": "Accent" },
-				{ "slug": "base", "color": "#FFFFFF", "name": "Base" },
-				{ "slug": "surface", "color": "#F4F6F8", "name": "Surface" },
-				{ "slug": "surface-elevated", "color": "#FFFFFF", "name": "Surface Elevated" },
-				{ "slug": "foreground", "color": "#0F2A4A", "name": "Foreground" },
-				{ "slug": "muted", "color": "#5C6B7A", "name": "Muted" },
-				{ "slug": "border", "color": "#D9DEE3", "name": "Border" },
-				{ "slug": "success", "color": "#0E7C5A", "name": "Success" },
-				{ "slug": "warning", "color": "#A85A0E", "name": "Warning" },
-				{ "slug": "error", "color": "#A93030", "name": "Error" },
-				{ "slug": "contrast", "color": "#FFFFFF", "name": "Contrast" }
+				{
+					"slug": "primary",
+					"color": "#0F2A4A",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#3B556D",
+					"name": "Secondary"
+				},
+				{
+					"slug": "accent",
+					"color": "#1D4ED8",
+					"name": "Accent"
+				},
+				{
+					"slug": "accent-hover",
+					"color": "#1944be",
+					"name": "Accent Hover"
+				},
+				{
+					"slug": "base",
+					"color": "#FFFFFF",
+					"name": "Base"
+				},
+				{
+					"slug": "surface",
+					"color": "#F4F6F8",
+					"name": "Surface"
+				},
+				{
+					"slug": "surface-muted",
+					"color": "#eceef0",
+					"name": "Surface Muted"
+				},
+				{
+					"slug": "surface-elevated",
+					"color": "#FFFFFF",
+					"name": "Surface Elevated"
+				},
+				{
+					"slug": "foreground",
+					"color": "#0F2A4A",
+					"name": "Foreground"
+				},
+				{
+					"slug": "muted",
+					"color": "#5C6B7A",
+					"name": "Muted"
+				},
+				{
+					"slug": "border",
+					"color": "#D9DEE3",
+					"name": "Border"
+				},
+				{
+					"slug": "success",
+					"color": "#0E7C5A",
+					"name": "Success"
+				},
+				{
+					"slug": "warning",
+					"color": "#A85A0E",
+					"name": "Warning"
+				},
+				{
+					"slug": "error",
+					"color": "#A93030",
+					"name": "Error"
+				},
+				{
+					"slug": "contrast",
+					"color": "#FFFFFF",
+					"name": "Contrast"
+				}
 			]
 		},
 		"typography": {
 			"fontSizes": [
-				{ "slug": "x-small", "size": "0.75rem", "name": "Caption" },
-				{ "slug": "small", "size": "0.875rem", "name": "Small" },
-				{ "slug": "normal", "size": "1rem", "name": "Body" },
-				{ "slug": "medium", "size": "1.125rem", "name": "Large Body", "fluid": { "min": "1rem", "max": "1.125rem" } },
-				{ "slug": "large", "size": "1.375rem", "name": "H3", "fluid": { "min": "1.125rem", "max": "1.5rem" } },
-				{ "slug": "x-large", "size": "1.875rem", "name": "H2", "fluid": { "min": "1.5rem", "max": "2.25rem" } },
-				{ "slug": "xx-large", "size": "2.5rem", "name": "H1", "fluid": { "min": "1.875rem", "max": "3rem" } },
-				{ "slug": "xxx-large", "size": "3.25rem", "name": "Display", "fluid": { "min": "2.25rem", "max": "4rem" } }
+				{
+					"slug": "x-small",
+					"size": "0.75rem",
+					"name": "Caption"
+				},
+				{
+					"slug": "small",
+					"size": "0.875rem",
+					"name": "Small"
+				},
+				{
+					"slug": "normal",
+					"size": "1rem",
+					"name": "Body"
+				},
+				{
+					"slug": "medium",
+					"size": "1.125rem",
+					"name": "Large Body",
+					"fluid": {
+						"min": "1rem",
+						"max": "1.125rem"
+					}
+				},
+				{
+					"slug": "large",
+					"size": "1.375rem",
+					"name": "H3",
+					"fluid": {
+						"min": "1.125rem",
+						"max": "1.5rem"
+					}
+				},
+				{
+					"slug": "x-large",
+					"size": "1.875rem",
+					"name": "H2",
+					"fluid": {
+						"min": "1.5rem",
+						"max": "2.25rem"
+					}
+				},
+				{
+					"slug": "xx-large",
+					"size": "2.5rem",
+					"name": "H1",
+					"fluid": {
+						"min": "1.875rem",
+						"max": "3rem"
+					}
+				},
+				{
+					"slug": "xxx-large",
+					"size": "3.25rem",
+					"name": "Display",
+					"fluid": {
+						"min": "2.25rem",
+						"max": "4rem"
+					}
+				}
 			]
 		}
 	},
 	"styles": {
-		"color": { "background": "#FFFFFF", "text": "#0F2A4A" },
+		"color": {
+			"background": "#FFFFFF",
+			"text": "#0F2A4A"
+		},
 		"spacing": {
-			"padding": { "top": "0", "right": "var:preset|spacing|50", "bottom": "0", "left": "var:preset|spacing|50" },
+			"padding": {
+				"top": "0",
+				"right": "var:preset|spacing|50",
+				"bottom": "0",
+				"left": "var:preset|spacing|50"
+			},
 			"blockGap": "var:preset|spacing|50"
 		},
 		"typography": {
@@ -46,9 +168,15 @@
 			"lineHeight": "1.6"
 		},
 		"elements": {
-			"link": { "color": { "text": "#1D4ED8" } },
+			"link": {
+				"color": {
+					"text": "#1D4ED8"
+				}
+			},
 			"heading": {
-				"color": { "text": "#0F2A4A" },
+				"color": {
+					"text": "#0F2A4A"
+				},
 				"typography": {
 					"fontFamily": "var:preset|font-family|display",
 					"fontWeight": "600",
@@ -56,19 +184,54 @@
 					"letterSpacing": "-0.015em"
 				}
 			},
-			"h1": { "typography": { "fontSize": "var:preset|font-size|xx-large", "lineHeight": "1.1", "letterSpacing": "-0.02em" } },
-			"h2": { "typography": { "fontSize": "var:preset|font-size|x-large", "lineHeight": "1.15" } },
+			"h1": {
+				"typography": {
+					"fontSize": "var:preset|font-size|xx-large",
+					"lineHeight": "1.1",
+					"letterSpacing": "-0.02em"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var:preset|font-size|x-large",
+					"lineHeight": "1.15"
+				}
+			},
 			"button": {
-				"border": { "radius": "4px" },
-				"color": { "background": "#1D4ED8", "text": "#FFFFFF" },
-				"typography": { "fontWeight": "600" },
-				":hover": { "color": { "background": "#0F2A4A" } }
+				"border": {
+					"radius": "4px"
+				},
+				"color": {
+					"background": "#1D4ED8",
+					"text": "#FFFFFF"
+				},
+				"typography": {
+					"fontWeight": "600"
+				},
+				":hover": {
+					"color": {
+						"background": "var:preset|color|accent-hover"
+					}
+				}
 			}
 		},
 		"blocks": {
-			"core/site-title": { "typography": { "fontWeight": "700", "letterSpacing": "-0.02em" } },
-			"core/post-title": { "typography": { "letterSpacing": "-0.02em" } },
-			"core/separator": { "color": { "text": "#D9DEE3" } }
+			"core/site-title": {
+				"typography": {
+					"fontWeight": "700",
+					"letterSpacing": "-0.02em"
+				}
+			},
+			"core/post-title": {
+				"typography": {
+					"letterSpacing": "-0.02em"
+				}
+			},
+			"core/separator": {
+				"color": {
+					"text": "#D9DEE3"
+				}
+			}
 		}
 	}
 }

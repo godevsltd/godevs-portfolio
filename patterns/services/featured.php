@@ -17,10 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 		<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 			<p class="is-style-eyebrow">Services</p>
 			<!-- /wp:paragraph -->
-			<!-- wp:heading {"level":2} -->
+			<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
 			<h2 class="wp-block-heading">What I lead with.</h2>
 			<!-- /wp:heading -->
 		</div>
@@ -32,10 +32,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="wp-block-column" style="flex-basis:60%">
 				<!-- wp:group {"className":"is-style-card-featured","style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"top":"var:preset|spacing|70","right":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"var:preset|spacing|70"}}},"backgroundColor":"surface","layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group is-style-card-featured has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70)">
-					<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+					<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="is-style-eyebrow">Featured · 01</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|x-large","lineHeight":"1.15"}}} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|x-large","lineHeight":"1.15","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large);line-height:1.15">Editorial design systems for publication sites.</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->

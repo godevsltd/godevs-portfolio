@@ -12,11 +12,11 @@
 <section class="wp-block-group godevs-process">
 	<!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|70"}}}} -->
 	<div class="wp-block-group">
-		<!-- wp:paragraph {"fontSize":"caption","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.1em"}}} -->
+		<!-- wp:paragraph {"fontSize":"x-small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 		<p class="has-caption-font-size" style="text-transform:uppercase;letter-spacing:0.1em">How we work</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:heading {"level":2} -->
+		<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
 		<h2 class="wp-block-heading">A short, deliberate process.</h2>
 		<!-- /wp:heading -->
 
@@ -34,7 +34,7 @@
 			<div class="wp-block-columns are-vertically-aligned-top">
 				<!-- wp:column {"verticalAlignment":"top","width":"20%"} -->
 				<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:20%">
-					<!-- wp:paragraph {"fontSize":"caption","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"var(--wp--preset--color--accent)"}}} -->
+					<!-- wp:paragraph {"fontSize":"x-small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="has-caption-font-size" style="color:var(--wp--preset--color--accent);text-transform:uppercase;letter-spacing:0.05em">Step 01</p>
 					<!-- /wp:paragraph -->
 				</div>
@@ -42,7 +42,7 @@
 
 				<!-- wp:column {"verticalAlignment":"top","width":"80%"} -->
 				<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:80%">
-					<!-- wp:heading {"level":3} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading">Discovery</h3>
 					<!-- /wp:heading -->
 
@@ -62,7 +62,7 @@
 			<div class="wp-block-columns are-vertically-aligned-top">
 				<!-- wp:column {"verticalAlignment":"top","width":"20%"} -->
 				<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:20%">
-					<!-- wp:paragraph {"fontSize":"caption","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"var(--wp--preset--color--accent)"}}} -->
+					<!-- wp:paragraph {"fontSize":"x-small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="has-caption-font-size" style="color:var(--wp--preset--color--accent);text-transform:uppercase;letter-spacing:0.05em">Step 02</p>
 					<!-- /wp:paragraph -->
 				</div>
@@ -70,7 +70,7 @@
 
 				<!-- wp:column {"verticalAlignment":"top","width":"80%"} -->
 				<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:80%">
-					<!-- wp:heading {"level":3} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading">Design system</h3>
 					<!-- /wp:heading -->
 
@@ -90,7 +90,7 @@
 			<div class="wp-block-columns are-vertically-aligned-top">
 				<!-- wp:column {"verticalAlignment":"top","width":"20%"} -->
 				<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:20%">
-					<!-- wp:paragraph {"fontSize":"caption","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"var(--wp--preset--color--accent)"}}} -->
+					<!-- wp:paragraph {"fontSize":"x-small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="has-caption-font-size" style="color:var(--wp--preset--color--accent);text-transform:uppercase;letter-spacing:0.05em">Step 03</p>
 					<!-- /wp:paragraph -->
 				</div>
@@ -98,7 +98,7 @@
 
 				<!-- wp:column {"verticalAlignment":"top","width":"80%"} -->
 				<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:80%">
-					<!-- wp:heading {"level":3} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading">Build</h3>
 					<!-- /wp:heading -->
 
@@ -118,7 +118,7 @@
 			<div class="wp-block-columns are-vertically-aligned-top">
 				<!-- wp:column {"verticalAlignment":"top","width":"20%"} -->
 				<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:20%">
-					<!-- wp:paragraph {"fontSize":"caption","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"var(--wp--preset--color--accent)"}}} -->
+					<!-- wp:paragraph {"fontSize":"x-small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="has-caption-font-size" style="color:var(--wp--preset--color--accent);text-transform:uppercase;letter-spacing:0.05em">Step 04</p>
 					<!-- /wp:paragraph -->
 				</div>
@@ -126,7 +126,7 @@
 
 				<!-- wp:column {"verticalAlignment":"top","width":"80%"} -->
 				<div class="wp-block-column is-vertically-aligned-top" style="flex-basis:80%">
-					<!-- wp:heading {"level":3} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading">Handover</h3>
 					<!-- /wp:heading -->
 

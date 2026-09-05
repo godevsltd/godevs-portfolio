@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: GoDevs <hello@godevs.net>\n"
 "Last-Translator: GoDevs <hello@godevs.net>\n"
-"POT-Creation-Date: 2026-09-05 02:40+0000\n"
+"POT-Creation-Date: 2026-09-05 03:23+0000\n"
 "Report-Msgid-Bugs-To: https://godevs.net/\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -89,7 +89,7 @@ msgstr ""
 msgid "If CPTs are not registered, visit Settings → Permalinks and click Save Changes to flush rewrite rules."
 msgstr ""
 
-#: functions.php:483, inc/demo-importer.php:289, inc/demo-importer.php:289, inc/demo-registry.php:646, inc/demo-registry.php:646, inc/admin/views/admin-demos.php:281, inc/admin/views/admin-demos.php:281
+#: functions.php:483, inc/demo-importer.php:290, inc/demo-importer.php:290, inc/demo-registry.php:646, inc/demo-registry.php:646, inc/admin/views/admin-demos.php:281, inc/admin/views/admin-demos.php:281
 msgid "Home"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Top-of-page introductions and opening sections."
 msgstr ""
 
-#: inc/block-patterns.php:61, inc/block-patterns.php:61, inc/demo-importer.php:290, inc/demo-importer.php:290
+#: inc/block-patterns.php:61, inc/block-patterns.php:61, inc/demo-importer.php:291, inc/demo-importer.php:291
 msgid "About"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Bio and about sections."
 msgstr ""
 
-#: inc/block-patterns.php:66, inc/block-patterns.php:66, inc/cpt-admin.php:87, inc/cpt-admin.php:87, inc/demo-importer.php:293, inc/demo-importer.php:293, inc/theme-settings.php:474, inc/theme-settings.php:626, inc/theme-settings.php:790, inc/theme-settings.php:474, inc/theme-settings.php:626, inc/theme-settings.php:790, inc/content/cpt.php:116, inc/content/cpt.php:127, inc/content/cpt.php:116, inc/content/cpt.php:127
+#: inc/block-patterns.php:66, inc/block-patterns.php:66, inc/cpt-admin.php:87, inc/cpt-admin.php:87, inc/demo-importer.php:294, inc/demo-importer.php:294, inc/theme-settings.php:474, inc/theme-settings.php:626, inc/theme-settings.php:790, inc/theme-settings.php:474, inc/theme-settings.php:626, inc/theme-settings.php:790, inc/content/cpt.php:116, inc/content/cpt.php:127, inc/content/cpt.php:116, inc/content/cpt.php:127
 msgid "Services"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Service offerings and feature lists."
 msgstr ""
 
-#: inc/block-patterns.php:71, inc/block-patterns.php:71, inc/demo-importer.php:292, inc/demo-importer.php:292, inc/theme-settings.php:473, inc/theme-settings.php:612, inc/theme-settings.php:473, inc/theme-settings.php:612
+#: inc/block-patterns.php:71, inc/block-patterns.php:71, inc/demo-importer.php:293, inc/demo-importer.php:293, inc/theme-settings.php:473, inc/theme-settings.php:612, inc/theme-settings.php:473, inc/theme-settings.php:612
 msgid "Portfolio"
 msgstr ""
 
@@ -141,7 +141,7 @@ msgstr ""
 msgid "Skill lists and proficiency displays."
 msgstr ""
 
-#: inc/block-patterns.php:86, inc/block-patterns.php:86, inc/cpt-admin.php:117, inc/cpt-admin.php:118, inc/cpt-admin.php:117, inc/cpt-admin.php:118, inc/demo-importer.php:300, inc/demo-importer.php:300, inc/theme-settings.php:477, inc/theme-settings.php:665, inc/theme-settings.php:794, inc/theme-settings.php:477, inc/theme-settings.php:665, inc/theme-settings.php:794, inc/content/cpt.php:212, inc/content/cpt.php:213, inc/content/cpt.php:218, inc/content/cpt.php:212, inc/content/cpt.php:213, inc/content/cpt.php:218
+#: inc/block-patterns.php:86, inc/block-patterns.php:86, inc/cpt-admin.php:117, inc/cpt-admin.php:118, inc/cpt-admin.php:117, inc/cpt-admin.php:118, inc/demo-importer.php:301, inc/demo-importer.php:301, inc/theme-settings.php:477, inc/theme-settings.php:665, inc/theme-settings.php:794, inc/theme-settings.php:477, inc/theme-settings.php:665, inc/theme-settings.php:794, inc/content/cpt.php:212, inc/content/cpt.php:213, inc/content/cpt.php:218, inc/content/cpt.php:212, inc/content/cpt.php:213, inc/content/cpt.php:218
 msgid "Experience"
 msgstr ""
 
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Numerical highlights, statistics, and metric grids."
 msgstr ""
 
-#: inc/block-patterns.php:116, inc/block-patterns.php:116, inc/demo-importer.php:296, inc/demo-importer.php:296, inc/theme-settings.php:472, inc/theme-settings.php:597, inc/theme-settings.php:472, inc/theme-settings.php:597
+#: inc/block-patterns.php:116, inc/block-patterns.php:116, inc/demo-importer.php:297, inc/demo-importer.php:297, inc/theme-settings.php:472, inc/theme-settings.php:597, inc/theme-settings.php:472, inc/theme-settings.php:597
 msgid "Blog"
 msgstr ""
 
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Call-to-action bands and sections."
 msgstr ""
 
-#: inc/block-patterns.php:131, inc/block-patterns.php:131, inc/booking-system.php:64, inc/booking-system.php:64, inc/demo-importer.php:301, inc/demo-importer.php:301
+#: inc/block-patterns.php:131, inc/block-patterns.php:131, inc/booking-system.php:64, inc/booking-system.php:64, inc/demo-importer.php:302, inc/demo-importer.php:302
 msgid "Contact"
 msgstr ""
 
@@ -506,7 +506,7 @@ msgstr ""
 msgid "Content Manager"
 msgstr ""
 
-#: inc/cpt-admin.php:52, inc/cpt-admin.php:52, inc/demo-importer.php:104, inc/demo-importer.php:152, inc/demo-importer.php:533, inc/demo-importer.php:832, inc/demo-importer.php:877, inc/demo-importer.php:928, inc/demo-importer.php:104, inc/demo-importer.php:152, inc/demo-importer.php:533, inc/demo-importer.php:832, inc/demo-importer.php:877, inc/demo-importer.php:928, inc/demo-renderer.php:430, inc/demo-renderer.php:430, inc/header-footer-builder.php:1117, inc/header-footer-builder.php:1141, inc/header-footer-builder.php:1165, inc/header-footer-builder.php:1184, inc/header-footer-builder.php:1215, inc/header-footer-builder.php:1487, inc/header-footer-builder.php:1117, inc/header-footer-builder.php:1141, inc/header-footer-builder.php:1165, inc/header-footer-builder.php:1184, inc/header-footer-builder.php:1215, inc/header-footer-builder.php:1487, inc/onboarding.php:166, inc/onboarding.php:432, inc/onboarding.php:166, inc/onboarding.php:432, inc/theme-settings.php:254, inc/theme-settings.php:311, inc/theme-settings.php:254, inc/theme-settings.php:311
+#: inc/cpt-admin.php:52, inc/cpt-admin.php:52, inc/demo-importer.php:104, inc/demo-importer.php:152, inc/demo-importer.php:535, inc/demo-importer.php:834, inc/demo-importer.php:879, inc/demo-importer.php:930, inc/demo-importer.php:104, inc/demo-importer.php:152, inc/demo-importer.php:535, inc/demo-importer.php:834, inc/demo-importer.php:879, inc/demo-importer.php:930, inc/demo-renderer.php:430, inc/demo-renderer.php:430, inc/header-footer-builder.php:1117, inc/header-footer-builder.php:1141, inc/header-footer-builder.php:1165, inc/header-footer-builder.php:1184, inc/header-footer-builder.php:1215, inc/header-footer-builder.php:1487, inc/header-footer-builder.php:1117, inc/header-footer-builder.php:1141, inc/header-footer-builder.php:1165, inc/header-footer-builder.php:1184, inc/header-footer-builder.php:1215, inc/header-footer-builder.php:1487, inc/onboarding.php:166, inc/onboarding.php:432, inc/onboarding.php:166, inc/onboarding.php:432, inc/theme-settings.php:254, inc/theme-settings.php:311, inc/theme-settings.php:254, inc/theme-settings.php:311
 msgid "Insufficient permissions."
 msgstr ""
 
@@ -522,7 +522,7 @@ msgstr ""
 msgid "Testimonial"
 msgstr ""
 
-#: inc/cpt-admin.php:137, inc/cpt-admin.php:137, inc/demo-importer.php:294, inc/demo-importer.php:294, inc/theme-settings.php:479, inc/theme-settings.php:689, inc/theme-settings.php:797, inc/theme-settings.php:479, inc/theme-settings.php:689, inc/theme-settings.php:797, inc/content/case-study.php:41, inc/content/case-study.php:52, inc/content/case-study.php:41, inc/content/case-study.php:52
+#: inc/cpt-admin.php:137, inc/cpt-admin.php:137, inc/demo-importer.php:295, inc/demo-importer.php:295, inc/theme-settings.php:479, inc/theme-settings.php:689, inc/theme-settings.php:797, inc/theme-settings.php:479, inc/theme-settings.php:689, inc/theme-settings.php:797, inc/content/case-study.php:41, inc/content/case-study.php:52, inc/content/case-study.php:41, inc/content/case-study.php:52
 msgid "Case Studies"
 msgstr ""
 
@@ -562,110 +562,110 @@ msgstr ""
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: inc/demo-importer.php:109, inc/demo-importer.php:162, inc/demo-importer.php:538, inc/demo-importer.php:837, inc/demo-importer.php:882, inc/demo-importer.php:935, inc/demo-importer.php:109, inc/demo-importer.php:162, inc/demo-importer.php:538, inc/demo-importer.php:837, inc/demo-importer.php:882, inc/demo-importer.php:935, inc/demo-renderer.php:438, inc/demo-renderer.php:438
+#: inc/demo-importer.php:109, inc/demo-importer.php:163, inc/demo-importer.php:540, inc/demo-importer.php:839, inc/demo-importer.php:884, inc/demo-importer.php:937, inc/demo-importer.php:109, inc/demo-importer.php:163, inc/demo-importer.php:540, inc/demo-importer.php:839, inc/demo-importer.php:884, inc/demo-importer.php:937, inc/demo-renderer.php:438, inc/demo-renderer.php:438
 msgid "Missing demo ID."
 msgstr ""
 
-#: inc/demo-importer.php:114, inc/demo-importer.php:171, inc/demo-importer.php:842, inc/demo-importer.php:887, inc/demo-importer.php:940, inc/demo-importer.php:114, inc/demo-importer.php:171, inc/demo-importer.php:842, inc/demo-importer.php:887, inc/demo-importer.php:940, inc/demo-renderer.php:445, inc/demo-renderer.php:445
+#: inc/demo-importer.php:114, inc/demo-importer.php:172, inc/demo-importer.php:844, inc/demo-importer.php:889, inc/demo-importer.php:942, inc/demo-importer.php:114, inc/demo-importer.php:172, inc/demo-importer.php:844, inc/demo-importer.php:889, inc/demo-importer.php:942, inc/demo-renderer.php:445, inc/demo-renderer.php:445
 msgid "Demo not found."
 msgstr ""
 
-#: inc/demo-importer.php:166, inc/demo-importer.php:166
+#: inc/demo-importer.php:167, inc/demo-importer.php:167
 msgid "Invalid import mode."
 msgstr ""
 
-#: inc/demo-importer.php:176, inc/demo-importer.php:176
+#: inc/demo-importer.php:177, inc/demo-importer.php:177
 msgid "This demo is coming soon and cannot be imported yet."
 msgstr ""
 
-#: inc/demo-importer.php:180, inc/demo-importer.php:180
+#: inc/demo-importer.php:181, inc/demo-importer.php:181
 msgid "Preparing demo"
 msgstr ""
 
-#: inc/demo-importer.php:181, inc/demo-importer.php:181
+#: inc/demo-importer.php:182, inc/demo-importer.php:182
 msgid "Creating pages"
 msgstr ""
 
-#: inc/demo-importer.php:182, inc/demo-importer.php:182
+#: inc/demo-importer.php:183, inc/demo-importer.php:183
 msgid "Creating navigation"
 msgstr ""
 
-#: inc/demo-importer.php:186, inc/demo-importer.php:186
+#: inc/demo-importer.php:187, inc/demo-importer.php:187
 msgid "Applying homepage"
 msgstr ""
 
-#: inc/demo-importer.php:189, inc/demo-importer.php:189
+#: inc/demo-importer.php:190, inc/demo-importer.php:190
 msgid "Applying demo layout"
 msgstr ""
 
-#: inc/demo-importer.php:192, inc/demo-importer.php:192
+#: inc/demo-importer.php:193, inc/demo-importer.php:193
 msgid "Applying style variation"
 msgstr ""
 
-#: inc/demo-importer.php:195, inc/demo-importer.php:195, inc/admin/views/admin-demos.php:333, inc/admin/views/admin-demos.php:333
+#: inc/demo-importer.php:196, inc/demo-importer.php:196, inc/admin/views/admin-demos.php:333, inc/admin/views/admin-demos.php:333
 msgid "Complete"
 msgstr ""
 
-#: inc/demo-importer.php:264, inc/demo-importer.php:264
+#: inc/demo-importer.php:265, inc/demo-importer.php:265
 msgid "Another import is in progress. Please wait a moment and try again."
 msgstr ""
 
-#: inc/demo-importer.php:280, inc/demo-importer.php:280
+#: inc/demo-importer.php:281, inc/demo-importer.php:281
 msgid "Could not read demo markup."
 msgstr ""
 
-#: inc/demo-importer.php:291, inc/demo-importer.php:291
+#: inc/demo-importer.php:292, inc/demo-importer.php:292
 msgid "Work"
 msgstr ""
 
-#: inc/demo-importer.php:295, inc/demo-importer.php:295
+#: inc/demo-importer.php:296, inc/demo-importer.php:296
 msgid "Journal"
 msgstr ""
 
-#: inc/demo-importer.php:297, inc/demo-importer.php:297
+#: inc/demo-importer.php:298, inc/demo-importer.php:298
 msgid "Insights"
 msgstr ""
 
-#: inc/demo-importer.php:298, inc/demo-importer.php:298
+#: inc/demo-importer.php:299, inc/demo-importer.php:299
 msgid "Research"
 msgstr ""
 
-#: inc/demo-importer.php:299, inc/demo-importer.php:299
+#: inc/demo-importer.php:300, inc/demo-importer.php:300
 msgid "Teaching"
 msgstr ""
 
 #. translators: 1: page slug, 2: error message.
-#: inc/demo-importer.php:359, inc/demo-importer.php:359
+#: inc/demo-importer.php:360, inc/demo-importer.php:360
 msgid "Page \"%1$s\": %2$s"
 msgstr ""
 
 #. translators: %s: demo name.
-#: inc/demo-importer.php:374, inc/demo-importer.php:374
+#: inc/demo-importer.php:375, inc/demo-importer.php:375
 msgid "%s — Navigation"
 msgstr ""
 
 #. translators: %s: error message.
-#: inc/demo-importer.php:389, inc/demo-importer.php:389
+#: inc/demo-importer.php:390, inc/demo-importer.php:390
 msgid "Navigation: %s"
 msgstr ""
 
-#: inc/demo-importer.php:514, inc/demo-importer.php:514
+#: inc/demo-importer.php:515, inc/demo-importer.php:515
 msgid "View Live Site →"
 msgstr ""
 
-#: inc/demo-importer.php:546, inc/demo-importer.php:546
+#: inc/demo-importer.php:548, inc/demo-importer.php:548
 msgid "Could not remove demo."
 msgstr ""
 
-#: inc/demo-importer.php:847, inc/demo-importer.php:847
+#: inc/demo-importer.php:849, inc/demo-importer.php:849
 msgid "Could not render demo."
 msgstr ""
 
-#: inc/demo-importer.php:946, inc/demo-importer.php:946
+#: inc/demo-importer.php:948, inc/demo-importer.php:948
 msgid "Page not found for this demo."
 msgstr ""
 
-#: inc/demo-importer.php:958, inc/demo-importer.php:958
+#: inc/demo-importer.php:960, inc/demo-importer.php:960
 msgid "Could not render page."
 msgstr ""
 

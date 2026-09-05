@@ -17,10 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 		<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 			<p class="is-style-eyebrow">Services</p>
 			<!-- /wp:paragraph -->
-			<!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large"}}} -->
+			<!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"var:preset|font-size|x-large","fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
 			<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--x-large)">What we offer.</h2>
 			<!-- /wp:heading -->
 		</div>
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 					<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">01 · Strategy</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":3} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading">Discovery &amp; positioning</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 					<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">02 · Design</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":3} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading">Identity &amp; system</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->
@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 					<p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">03 · Build</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":3} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading">Engineering &amp; ship</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->

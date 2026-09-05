@@ -1,41 +1,50 @@
 <!-- wp:template-part {"slug":"header","theme":"godevs-portfolio","tagName":"header"} /-->
 
-<!-- wp:group {"anchor":"main","tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"default"}} -->
+<!-- wp:group {"anchor":"main","tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"0"}},"layout":{"type":"constrained","contentSize":"640px"}} -->
 <main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap","verticalAlignment":"center","justifyContent":"center"}} -->
-	<div class="wp-block-group alignwide">
-		<!-- wp:paragraph {"fontSize":"xxx-large"} -->
-		<p class="has-xxx-large-font-size">404</p>
+	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40","margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|50"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--50)">
+		<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
+		<p class="is-style-eyebrow" style="text-transform:uppercase;letter-spacing:0.1em">Error 404</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:heading {"level":1,"textAlign":"center"} -->
-		<h1 class="wp-block-heading has-text-align-center">Page not found</h1>
+		<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|xxx-large","lineHeight":"1.05","letterSpacing":"-0.025em","fontWeight":"700"}}} -->
+		<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);line-height:1.05;letter-spacing:-0.025em;font-weight:700">This page is no longer here.</h1>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-		<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--60)">The page you're looking for doesn't exist or has been moved. Try searching for what you need, or head back to the homepage.</p>
+		<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.6"},"color":{"text":"var:preset|color|muted"}}} -->
+		<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--medium);line-height:1.6">The page may have been moved, renamed, or never existed. Try a search, or use one of the links below to find your way.</p>
 		<!-- /wp:paragraph -->
-
-		<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search articles and projects…","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|70"}}}} /-->
-
-		<!-- wp:separator {"className":"is-style-thin"} /-->
-
-		<!-- wp:heading {"level":2,"textAlign":"center"} -->
-		<h2 class="wp-block-heading has-text-align-center">Or explore</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","justifyContent":"center"}} -->
-		<!-- /wp:navigation -->
-
-		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-		<div class="wp-block-buttons">
-			<!-- wp:button -->
-			<div class="wp-block-button"><a href="/" class="wp-block-button__link wp-element-button">Back to homepage</a></div>
-			<!-- /wp:button -->
-		</div>
-		<!-- /wp:buttons -->
 	</div>
 	<!-- /wp:group -->
+
+	<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search articles, projects, and case studies…","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"style":{"border":{"radius":"var(--wp--custom--radius--md, 8px)"},"spacing":{"margin":{"bottom":"var:preset|spacing|70"}}}} /-->
+
+	<!-- wp:separator {"className":"is-style-thin","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} -->
+	<hr class="wp-block-separator has-alpha-channel-opacity is-style-thin" style="margin-bottom:var(--wp--preset--spacing--50)"/>
+	<!-- /wp:separator -->
+
+	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+	<div class="wp-block-group">
+		<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
+		<p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--muted);text-transform:uppercase;letter-spacing:0.1em">Quick links</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:navigation {"overlayMenu":"never","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+		<!-- /wp:navigation -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"flex"}} -->
+	<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60)">
+		<!-- wp:button -->
+		<div class="wp-block-button"><a href="/" class="wp-block-button__link wp-element-button">Back to homepage</a></div>
+		<!-- /wp:button -->
+		<!-- wp:button {"className":"is-style-outline"} -->
+		<div class="wp-block-button is-style-outline"><a href="/contact" class="wp-block-button__link wp-element-button">Get in touch</a></div>
+		<!-- /wp:button -->
+	</div>
+	<!-- /wp:buttons -->
 </main>
 <!-- /wp:group -->
 

@@ -21,10 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
-<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|muted"}}} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"}}} -->
 <p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--muted)">Developer / WordPress</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.25rem, 7vw, 4.5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"400"}}} -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|huge","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"400"}}} -->
 <h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.25rem, 7vw, 4.5rem);line-height:1.1;letter-spacing:-0.02em;font-weight:400">Gridline.</h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
@@ -53,10 +53,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-                        <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+                        <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
                         <p class="is-style-eyebrow">Services</p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:heading {"level":2} -->
+                        <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
                         <h2 class="wp-block-heading">What I do.</h2>
                         <!-- /wp:heading -->
                 </div>
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xxx-large","fontFamily":"var:preset|font-family|display","fontWeight":"700","lineHeight":"1"},"color":{"text":"var:preset|color|accent"}}} -->
                                         <p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);font-weight:700;line-height:1">01</p>
                                         <!-- /wp:paragraph -->
-                                        <!-- wp:heading {"level":3} -->
+                                        <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                         <h3 class="wp-block-heading">Strategy</h3>
                                         <!-- /wp:heading -->
                                         <!-- wp:paragraph -->
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xxx-large","fontFamily":"var:preset|font-family|display","fontWeight":"700","lineHeight":"1"},"color":{"text":"var:preset|color|accent"}}} -->
                                         <p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);font-weight:700;line-height:1">02</p>
                                         <!-- /wp:paragraph -->
-                                        <!-- wp:heading {"level":3} -->
+                                        <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                         <h3 class="wp-block-heading">Design</h3>
                                         <!-- /wp:heading -->
                                         <!-- wp:paragraph -->
@@ -104,7 +104,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xxx-large","fontFamily":"var:preset|font-family|display","fontWeight":"700","lineHeight":"1"},"color":{"text":"var:preset|color|accent"}}} -->
                                         <p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);font-weight:700;line-height:1">03</p>
                                         <!-- /wp:paragraph -->
-                                        <!-- wp:heading {"level":3} -->
+                                        <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                         <h3 class="wp-block-heading">Build</h3>
                                         <!-- /wp:heading -->
                                         <!-- wp:paragraph -->
@@ -131,7 +131,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="wp-block-columns">
                         <!-- wp:column -->
                         <div class="wp-block-column">
-                                <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em"}}} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">80+</h3>
                                 <!-- /wp:heading -->
                                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
@@ -141,7 +141,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
-                                <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em"}}} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">12</h3>
                                 <!-- /wp:heading -->
                                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
@@ -151,7 +151,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
-                                <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em"}}} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">5</h3>
                                 <!-- /wp:heading -->
                                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
@@ -161,7 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <!-- /wp:column -->
                         <!-- wp:column -->
                         <div class="wp-block-column">
-                                <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em"}}} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xx-large","lineHeight":"1","letterSpacing":"-0.02em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xx-large);line-height:1;letter-spacing:-0.02em">100%</h3>
                                 <!-- /wp:heading -->
                                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"}}} -->
@@ -182,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull">
         <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"}}},"layout":{"type":"default"}} -->
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-                <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+                <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
                 <p class="is-style-eyebrow">Get in touch</p>
                 <!-- /wp:paragraph -->
                 <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(3rem, 9vw, 7rem)","lineHeight":"1","letterSpacing":"-0.035em","fontWeight":"700"}}} -->

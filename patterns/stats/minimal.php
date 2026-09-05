@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group wp-block-godevs-stats-minimal alignfull">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-		<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+		<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 		<p class="is-style-eyebrow has-text-align-center">A working summary</p>
 		<!-- /wp:paragraph -->
 		<!-- wp:heading {"level":2,"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(4rem, 12vw, 8rem)","lineHeight":"1","letterSpacing":"-0.03em","fontWeight":"700"}}} -->

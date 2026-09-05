@@ -17,10 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 		<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 			<p class="is-style-eyebrow">Services</p>
 			<!-- /wp:paragraph -->
-			<!-- wp:heading {"level":2} -->
+			<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
 			<h2 class="wp-block-heading">Four areas of practice, often combined.</h2>
 			<!-- /wp:heading -->
 		</div>
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xxx-large","fontFamily":"var:preset|font-family|display","fontWeight":"700","lineHeight":"1"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);font-weight:700;line-height:1">01</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium)">Brand Strategy</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xxx-large","fontFamily":"var:preset|font-family|display","fontWeight":"700","lineHeight":"1"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);font-weight:700;line-height:1">02</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium)">Visual Identity</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->
@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xxx-large","fontFamily":"var:preset|font-family|display","fontWeight":"700","lineHeight":"1"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);font-weight:700;line-height:1">03</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium)">Web Design</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->
@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|xxx-large","fontFamily":"var:preset|font-family|display","fontWeight":"700","lineHeight":"1"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--xxx-large);font-weight:700;line-height:1">04</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium"}}} -->
+					<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 					<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium)">Engineering</h3>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph -->

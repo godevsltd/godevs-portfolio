@@ -21,10 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="wp-block-group alignfull">
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|muted"}}} -->
+<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"color":{"text":"var:preset|color|accent"},"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"}}} -->
 <p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--muted)">Personal / CTA Header</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2rem, 5vw, 4rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
+<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|huge","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
 <h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2rem, 5vw, 4rem);line-height:1.1;letter-spacing:-0.02em;font-weight:600">Text Link.</h1>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium"},"layout":{"selfStretch":"fit","flexSize":"520px"}}} -->
@@ -53,10 +53,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-                        <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+                        <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
                         <p class="is-style-eyebrow">Featured work</p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:heading {"level":2} -->
+                        <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
                         <h2 class="wp-block-heading">Selected work.</h2>
                         <!-- /wp:heading -->
                 </div>
@@ -71,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Selected Work</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Recent Project</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -97,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2023</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Ongoing Practice</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -117,10 +117,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--70)">
-                        <!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+                        <!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
                         <p class="is-style-eyebrow">Selected work</p>
                         <!-- /wp:paragraph -->
-                        <!-- wp:heading {"level":2} -->
+                        <!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"700"}}} -->
                         <h2 class="wp-block-heading">Practice highlights.</h2>
                         <!-- /wp:heading -->
                 </div>
@@ -135,7 +135,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Selected Work</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -148,7 +148,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2024</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Recent Project</h3>
                                 <!-- /wp:heading -->
                         </div>
@@ -161,7 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"},"typography":{"fontSize":"var:preset|font-size|small"}}} -->
                                 <p style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2023</p>
                                 <!-- /wp:paragraph -->
-                                <!-- wp:heading {"level":3} -->
+                                <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
                                 <h3 class="wp-block-heading">Ongoing Practice</h3>
                                 <!-- /wp:heading -->
                         </div>

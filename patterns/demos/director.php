@@ -27,10 +27,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="wp-block-cover__inner-container">
 				<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 				<div class="wp-block-group alignwide">
-					<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.25em","textTransform":"uppercase"}}} -->
+					<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 					<p class="is-style-eyebrow has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.25em;text-transform:uppercase">Film Director · Selected Work 2014—2024</p>
 					<!-- /wp:paragraph -->
-					<!-- wp:heading {"level":1,"textColor":"contrast","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 8vw, 6rem)","lineHeight":"0.95","letterSpacing":"-0.03em","fontWeight":"600"}}} -->
+					<!-- wp:heading {"level":1,"textColor":"contrast","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|huge","lineHeight":"0.95","letterSpacing":"-0.03em","fontWeight":"600"}}} -->
 					<h1 class="wp-block-heading has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 8vw, 6rem);line-height:0.95;letter-spacing:-0.03em;font-weight:600">Stories told<br>in light and shadow.</h1>
 					<!-- /wp:heading -->
 					<!-- wp:paragraph {"textColor":"contrast","style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.6"},"layout":{"selfStretch":"fit","flexSize":"540px"}}} -->
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
-				<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.25em","textTransform":"uppercase"}}} -->
+				<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 				<p class="is-style-eyebrow has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.25em;text-transform:uppercase">Featured · 2024</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":2,"textColor":"contrast","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2rem, 5vw, 3.5rem)","lineHeight":"1.05","letterSpacing":"-0.025em","fontWeight":"600"}}} -->
@@ -88,13 +88,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="wp-block-column" style="flex-basis:45%">
 					<!-- wp:group {"className":"godevs-project-meta","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
 					<div class="wp-block-group godevs-project-meta">
-						<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.2em","textTransform":"uppercase"}}} -->
+						<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 						<p class="is-style-eyebrow has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.2em;text-transform:uppercase">Credits</p>
 						<!-- /wp:paragraph -->
 						<!-- wp:paragraph {"textColor":"contrast","style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.8"}}} -->
 						<p class="has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);font-size:var(--wp--preset--font-size--small);line-height:1.8"><strong>Director:</strong> M. Vance<br><strong>Writer:</strong> M. Vance &amp; E. Holm<br><strong>Runtime:</strong> 118 min<br><strong>Format:</strong> 35mm Kodak Vision3<br><strong>Year:</strong> 2024<br><strong>Status:</strong> Festival circuit</p>
 						<!-- /wp:paragraph -->
-						<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.2em","textTransform":"uppercase"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+						<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|30"}},"color":{"text":"var:preset|color|accent"}}} -->
 						<p class="is-style-eyebrow has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.2em;text-transform:uppercase;margin-top:var(--wp--preset--spacing--30)">Festivals</p>
 						<!-- /wp:paragraph -->
 						<!-- wp:paragraph {"textColor":"contrast","style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.8"}}} -->
@@ -118,7 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
-				<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.25em","textTransform":"uppercase"}}} -->
+				<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 				<p class="is-style-eyebrow" style="letter-spacing:0.25em;text-transform:uppercase">Selected Work</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(1.75rem, 4vw, 2.5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -139,7 +139,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2023 · Short Film · 14 min</p>
 						<!-- /wp:paragraph -->
-						<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
+						<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 						<h3 class="wp-block-heading" style="letter-spacing:-0.01em">The Quiet Hours</h3>
 						<!-- /wp:heading -->
 					</div>
@@ -156,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2022 · Feature · 102 min</p>
 						<!-- /wp:paragraph -->
-						<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
+						<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 						<h3 class="wp-block-heading" style="letter-spacing:-0.01em">Northbound</h3>
 						<!-- /wp:heading -->
 					</div>
@@ -173,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
 						<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small)">2022 · Commercial · Foundry Co.</p>
 						<!-- /wp:paragraph -->
-						<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em"}}} -->
+						<!-- wp:heading {"level":3,"style":{"typography":{"letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 						<h3 class="wp-block-heading" style="letter-spacing:-0.01em">Foundry Co. — "Maker"</h3>
 						<!-- /wp:heading -->
 					</div>
@@ -198,7 +198,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
-				<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.25em","textTransform":"uppercase"}}} -->
+				<!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 				<p class="is-style-eyebrow has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.25em;text-transform:uppercase">Awards &amp; Recognition</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":2,"textColor":"contrast","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(1.75rem, 4vw, 2.5rem)","lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"600"}}} -->
@@ -261,7 +261,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<section class="wp-block-group alignfull">
 		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.25em","textTransform":"uppercase"}}} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 			<p class="is-style-eyebrow" style="letter-spacing:0.25em;text-transform:uppercase">Press</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:pullquote {"textAlign":"center","style":{"typography":{"fontFamily":"var:preset|font-family|serif","fontSize":"clamp(1.5rem, 3.5vw, 2.25rem)","lineHeight":"1.3","fontWeight":"400"}}} -->
@@ -283,7 +283,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<section class="wp-block-group alignfull has-contrast-color has-primary-background-color has-text-color has-background" id="contact">
 		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|90"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"var(--wp--style--root--content-size)"}} -->
 		<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--90)">
-			<!-- wp:paragraph {"className":"is-style-eyebrow","align":"center","textColor":"contrast","style":{"typography":{"letterSpacing":"0.3em","textTransform":"uppercase"}}} -->
+			<!-- wp:paragraph {"className":"is-style-eyebrow","align":"center","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 			<p class="is-style-eyebrow has-text-align-center has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);letter-spacing:0.3em;text-transform:uppercase">Available 2025</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":2,"textAlign":"center","textColor":"contrast","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2rem, 5vw, 3.5rem)","lineHeight":"1.1","letterSpacing":"-0.025em","fontWeight":"600"}}} -->

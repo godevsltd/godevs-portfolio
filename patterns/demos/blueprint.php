@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<!-- /wp:group -->
 
 			<!-- Document title -->
-			<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 6vw, 4.5rem)","lineHeight":"1.05","letterSpacing":"-0.025em","fontWeight":"600"}}} -->
+			<!-- wp:heading {"level":1,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|huge","lineHeight":"1.05","letterSpacing":"-0.025em","fontWeight":"600"}}} -->
 			<h1 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 6vw, 4.5rem);line-height:1.05;letter-spacing:-0.025em;font-weight:600">Architecting systems that survive their second year.</h1>
 			<!-- /wp:heading -->
 
@@ -89,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- /wp:column -->
 					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 					<div class="wp-block-column" style="flex-basis:55%">
-						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em"}}} -->
+						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);letter-spacing:-0.01em">Headless CMS Migration — Publishing Platform</h3>
 						<!-- /wp:heading -->
 						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- /wp:column -->
 					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 					<div class="wp-block-column" style="flex-basis:55%">
-						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em"}}} -->
+						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);letter-spacing:-0.01em">Event-Driven Ordering System — E-commerce</h3>
 						<!-- /wp:heading -->
 						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
@@ -169,7 +169,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- /wp:column -->
 					<!-- wp:column {"width":"55%","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 					<div class="wp-block-column" style="flex-basis:55%">
-						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em"}}} -->
+						<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|medium","letterSpacing":"-0.01em","fontFamily":"var:preset|font-family|display","fontWeight":"600"}}} -->
 						<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--medium);letter-spacing:-0.01em">Multi-Tenant SaaS Platform — B2B Analytics</h3>
 						<!-- /wp:heading -->
 						<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small"},"color":{"text":"var:preset|color|muted"}}} -->
