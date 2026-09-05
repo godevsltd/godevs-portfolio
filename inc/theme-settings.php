@@ -140,15 +140,78 @@ add_action( 'admin_menu', 'godevs_portfolio_settings_register_menu' );
 
 function godevs_portfolio_settings_register(): void {
         $defaults = godevs_portfolio_get_default_settings();
+
+        // Per-key sanitization map. Colors must be hex-validated, numeric
+        // values must be integers, URLs must be valid URLs, and text/select
+        // values get sanitize_text_field. Without this, a saved color value
+        // could leak unsanitized into the dynamic CSS output.
+        $sanitize_map = array(
+                // Colors (hex).
+                'accent_color'     => 'godevs_portfolio_sanitize_hex_color',
+                'accent_hover'     => 'godevs_portfolio_sanitize_hex_color',
+                'surface_color'    => 'godevs_portfolio_sanitize_hex_color',
+                'background_color' => 'godevs_portfolio_sanitize_hex_color',
+                'text_color'       => 'godevs_portfolio_sanitize_hex_color',
+                'muted_color'      => 'godevs_portfolio_sanitize_hex_color',
+                // URLs.
+                'header_cta_link'  => 'godevs_portfolio_sanitize_url',
+                // Numeric (px).
+                'container_width'  => 'absint',
+                'content_width'    => 'absint',
+                'card_radius'      => 'absint',
+                'button_radius'    => 'absint',
+        );
+
         foreach ( $defaults as $key => $val ) {
+                $sanitize = $sanitize_map[ $key ] ?? 'sanitize_text_field';
                 register_setting( 'godevs_portfolio_settings_group', 'godevs_portfolio_' . $key, array(
                         'type'              => 'string',
-                        'sanitize_callback' => 'sanitize_text_field',
+                        'sanitize_callback' => $sanitize,
                         'default'           => $val,
                 ) );
         }
 }
 add_action( 'admin_init', 'godevs_portfolio_settings_register' );
+
+/**
+ * Sanitize a hex color value (with or without leading #).
+ *
+ * Falls back to the default value if the input is not a valid hex color.
+ * This prevents CSS injection through the color-picker fields, since the
+ * saved value is later output inside a <style> block via
+ * godevs_portfolio_output_dynamic_css().
+ *
+ * @param mixed $value Raw input.
+ * @return string Sanitized hex color (e.g. '#2563eb') or empty string.
+ * @since 1.0.1
+ */
+function godevs_portfolio_sanitize_hex_color( $value ): string {
+        if ( ! is_string( $value ) || '' === $value ) {
+                return '';
+        }
+        // sanitize_hex_color() requires the leading #; sanitize_hex_color_no_hash() does not.
+        $with_hash = '#' === $value[0] ? $value : '#' . $value;
+        $sanitized = sanitize_hex_color( $with_hash );
+        if ( null === $sanitized ) {
+                // Not a valid hex color — return empty so the default is used.
+                return '';
+        }
+        return strtolower( $sanitized );
+}
+
+/**
+ * Sanitize a URL value, allowing it to be empty.
+ *
+ * @param mixed $value Raw input.
+ * @return string Sanitized URL or empty string.
+ * @since 1.0.1
+ */
+function godevs_portfolio_sanitize_url( $value ): string {
+        if ( ! is_string( $value ) || '' === $value ) {
+                return '';
+        }
+        return esc_url_raw( $value );
+}
 
 // ════════════════════════════════════════════════════════════════════════════
 // ENQUEUE ASSETS
@@ -194,8 +257,30 @@ function godevs_portfolio_ajax_save_settings(): void {
         $defaults = godevs_portfolio_get_default_settings();
         $saved    = 0;
 
+        // Per-key sanitizers — same map as godevs_portfolio_settings_register().
+        // Using the right sanitizer per field prevents CSS injection via the
+        // dynamic-CSS output (color values are written into a <style> block).
+        $sanitize_map = array(
+                'accent_color'     => 'godevs_portfolio_sanitize_hex_color',
+                'accent_hover'     => 'godevs_portfolio_sanitize_hex_color',
+                'surface_color'    => 'godevs_portfolio_sanitize_hex_color',
+                'background_color' => 'godevs_portfolio_sanitize_hex_color',
+                'text_color'       => 'godevs_portfolio_sanitize_hex_color',
+                'muted_color'      => 'godevs_portfolio_sanitize_hex_color',
+                'header_cta_link'  => 'godevs_portfolio_sanitize_url',
+                'container_width'  => 'absint',
+                'content_width'    => 'absint',
+                'card_radius'      => 'absint',
+                'button_radius'    => 'absint',
+        );
+
         foreach ( $defaults as $key => $default ) {
-                $val = isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : $default;
+                $sanitize = $sanitize_map[ $key ] ?? 'sanitize_text_field';
+                $raw      = isset( $_POST[ $key ] ) ? wp_unslash( $_POST[ $key ] ) : $default;
+                $val      = call_user_func( $sanitize, $raw );
+                if ( '' === $val ) {
+                        $val = $default;
+                }
                 update_option( 'godevs_portfolio_' . $key, $val );
                 $saved++;
         }
@@ -250,35 +335,58 @@ add_action( 'wp_ajax_godevs_portfolio_reset_settings', 'godevs_portfolio_ajax_re
  * WordPress's global-styles (priority 8) so our values win the cascade.
  */
 function godevs_portfolio_generate_dynamic_css(): void {
-        $accent     = godevs_portfolio_get_setting( 'accent_color' );
-        $accent_h   = godevs_portfolio_get_setting( 'accent_hover' );
-        $bg         = godevs_portfolio_get_setting( 'background_color' );
-        $surface    = godevs_portfolio_get_setting( 'surface_color' );
-        $text       = godevs_portfolio_get_setting( 'text_color' );
-        $muted      = godevs_portfolio_get_setting( 'muted_color' );
-        $card_r     = godevs_portfolio_get_setting( 'card_radius' );
-        $btn_r      = godevs_portfolio_get_setting( 'button_radius' );
-        $container  = godevs_portfolio_get_setting( 'container_width' );
-        $content    = godevs_portfolio_get_setting( 'content_width' );
+        // Defensive: re-validate colors here. Even though register_setting()
+        // and the AJAX handler both sanitize via sanitize_hex_color(), a
+        // pre-existing option value (saved by an older version of the theme
+        // before sanitization was tightened) could still contain arbitrary
+        // text. We never want that to leak into the <style> output, so we
+        // validate again at output time and fall back to the default if invalid.
+        $safe_hex = static function ( string $key ): string {
+                $val = godevs_portfolio_get_setting( $key );
+                if ( '' === $val ) {
+                        $defaults = godevs_portfolio_get_default_settings();
+                        $val = $defaults[ $key ] ?? '';
+                }
+                $with_hash = '#' === substr( $val, 0, 1 ) ? $val : '#' . $val;
+                $sanitized = sanitize_hex_color( $with_hash );
+                return null === $sanitized ? '#000000' : $sanitized;
+        };
 
-        $css = ":root{";
-        // Colors — override theme.json palette defaults.
+        $safe_int = static function ( string $key ): int {
+                $val = godevs_portfolio_get_setting( $key );
+                $int = absint( $val );
+                // Guard against zero (would break layout) — fall back to default.
+                if ( ! $int ) {
+                        $defaults = godevs_portfolio_get_default_settings();
+                        $int = absint( $defaults[ $key ] ?? 0 );
+                }
+                return $int;
+        };
+
+        $accent     = $safe_hex( 'accent_color' );
+        $accent_h   = $safe_hex( 'accent_hover' );
+        $bg         = $safe_hex( 'background_color' );
+        $surface    = $safe_hex( 'surface_color' );
+        $text       = $safe_hex( 'text_color' );
+        $muted      = $safe_hex( 'muted_color' );
+        $card_r     = $safe_int( 'card_radius' );
+        $btn_r      = $safe_int( 'button_radius' );
+        $container  = $safe_int( 'container_width' );
+        $content    = $safe_int( 'content_width' );
+
+        // All values are now guaranteed-safe (hex / int). Build the CSS.
+        $css  = ":root{";
         $css .= "--wp--preset--color--accent:{$accent};";
         $css .= "--wp--preset--color--accent-hover:{$accent_h};";
         $css .= "--wp--preset--color--base:{$bg};";
         $css .= "--wp--preset--color--surface:{$surface};";
         $css .= "--wp--preset--color--foreground:{$text};";
         $css .= "--wp--preset--color--muted:{$muted};";
-        // Radii — custom properties consumed by cards and buttons.
         $css .= "--wp--custom--radius--md:{$card_r}px;";
         $css .= "--wp--custom--radius--sm:{$btn_r}px;";
-        // Layout widths.
         $css .= "--wp--style--root--content-size:{$content}px;";
         $css .= "--wp--style--root--wide-size:{$container}px;";
         $css .= "}";
-
-        // Also emit a body-level override so theme.json's body styles
-        // pick up the new colors immediately.
         $css .= "body{background-color:{$bg};color:{$text};}";
         $css .= ".has-accent-color.has-text-color,.has-accent-color{color:{$accent}!important;}";
         $css .= ".has-text-color[style*=\"muted\"],.has-muted-color.has-text-color,.has-muted-color{color:{$muted}!important;}";
@@ -288,12 +396,18 @@ function godevs_portfolio_generate_dynamic_css(): void {
         $css .= ".is-style-card-bordered{border-radius:{$card_r}px;}";
         $css .= ".wp-block-image.has-custom-border img{border-radius:{$card_r}px;}";
 
+        // Strip any tags / HTML that may have slipped through (defense in depth).
+        $css = wp_strip_all_tags( $css );
+
         update_option( 'godevs_portfolio_dynamic_css', apply_filters( 'godevs_portfolio_dynamic_css', $css ) );
 }
 
 function godevs_portfolio_output_dynamic_css(): void {
         $css = get_option( 'godevs_portfolio_dynamic_css', '' );
         if ( $css ) {
+                // The CSS string is generated from sanitized hex colors and
+                // absint() integers, plus wp_strip_all_tags(). It is safe to
+                // output inside a <style> tag.
                 echo '<style id="godevs-dynamic-settings">' . $css . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
 }

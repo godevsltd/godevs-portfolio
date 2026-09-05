@@ -1,9 +1,9 @@
 === GoDevs Portfolio ===
 Contributors: godevs
 Requires at least: 6.5
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: full-site-editing, block-patterns, block-styles, portfolio, editorial, accessibility-ready, translation-ready, threaded-comments, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options
@@ -64,6 +64,15 @@ Yes. Go to Appearance → GoDevs Settings → Colors and Typography to customize
 Go to Appearance → GoDevs Settings → Demo Library tab. Browse the available demos, click Preview to see a live preview, then click Import to import the demo content (pages, navigation, and style variation).
 
 == Changelog ==
+
+= 1.0.1 =
+* Security: Tightened sanitization for theme settings — color fields now use sanitize_hex_color(), numeric fields use absint(), URL fields use esc_url_raw().
+* Security: Dynamic CSS output now re-validates all values at output time and applies wp_strip_all_tags() as defense in depth against CSS injection.
+* Bug fix: Theme activation no longer wipes previously-saved settings — settings are only seeded on a truly fresh install (no existing option).
+* Performance: Booking default-status hook moved from wp_insert_post (fires on every post type) to save_post_godevs_booking (post-type-specific).
+* Compatibility: Tested up to WordPress 6.8.
+* Maintenance: Removed duplicated theme tree inside the patterns/ directory (was adding ~11 MB of dead weight to the distribution ZIP).
+* Maintenance: Removed tests/ and docs/ directories from the distribution package.
 
 = 1.0.0 =
 * Initial release.

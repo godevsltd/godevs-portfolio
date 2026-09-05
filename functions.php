@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Theme version.
  */
 if ( ! defined( 'GODEVS_PORTFOLIO_VERSION' ) ) {
-        define( 'GODEVS_PORTFOLIO_VERSION', '1.0.0' );
+        define( 'GODEVS_PORTFOLIO_VERSION', '1.0.1' );
 }
 
 /**
@@ -235,7 +235,12 @@ function godevs_portfolio_diagnostic_notice(): void {
 
         echo '<p style="margin:4px 0;"><strong>' . esc_html__( 'Files loaded:', 'godevs-portfolio' ) . '</strong> ';
         if ( empty( $missing ) ) {
-                echo '<span style="color:green;">' . esc_html__( 'All 10 component files loaded ✓', 'godevs-portfolio' ) . '</span>';
+                $total_files = count( $loaded );
+                echo '<span style="color:green;">' . esc_html( sprintf(
+                        /* translators: %d: number of loaded component files. */
+                        __( 'All %d component files loaded ✓', 'godevs-portfolio' ),
+                        $total_files
+                ) ) . '</span>';
         } else {
                 echo '<span style="color:red;">' . esc_html__( 'Missing files:', 'godevs-portfolio' ) . '</span> ';
                 echo '<code>' . esc_html( implode( ', ', $missing ) ) . '</code>';
@@ -328,8 +333,18 @@ add_action( 'wp_ajax_godevs_portfolio_dismiss_diag', 'godevs_portfolio_dismiss_d
  * @since 1.1.0
  */
 function godevs_portfolio_seed_default_settings(): void {
-        // Delete any stale option first — ensures a clean slate after upgrade.
-        delete_option( 'godevs_portfolio_settings' );
+        // Only seed defaults when the option does NOT exist yet.
+        // Previously this called delete_option() unconditionally, which wiped
+        // any saved settings every time the theme was re-activated (e.g. the
+        // user briefly switched to Twenty Twenty-Four and back). That is
+        // destructive UX. Now we only seed on a truly fresh install, and we
+        // merge defaults with any existing values so previously-saved
+        // settings are preserved.
+        $existing = get_option( 'godevs_portfolio_settings', null );
+        if ( null !== $existing ) {
+                // Option already exists — leave saved settings intact and bail.
+                return;
+        }
 
         // Get defaults from theme-settings.php if available, else use fallback.
         if ( function_exists( 'godevs_portfolio_get_default_settings' ) ) {
