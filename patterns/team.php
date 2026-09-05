@@ -41,7 +41,7 @@
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|medium","lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->
 				<h3 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--medium);line-height:1.2;letter-spacing:-0.01em;font-weight:600;margin-top:var(--wp--preset--spacing--10)">Maya Okonkwo</h3>
 				<!-- /wp:heading -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6},"color":{"text":"var:preset|color|secondary"}}} -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6"},"color":{"text":"var:preset|color|secondary"}}} -->
 				<p class="has-text-color" style="color:var(--wp--preset--color--secondary);font-size:var(--wp--preset--font-size--small);line-height:1.6">Leads the design work on every engagement. Started the studio in 2020 after five years at a brand consultancy. Talks about typography more than is strictly necessary.</p>
 				<!-- /wp:paragraph -->
 			</div>

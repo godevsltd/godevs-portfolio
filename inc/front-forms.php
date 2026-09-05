@@ -343,10 +343,13 @@ function godevs_ajax_submit_booking(): void {
         }
         $email_body .= sprintf( "\n" . __( "Manage booking: %s\n", 'godevs-portfolio' ), admin_url( 'post.php?post=' . $post_id . '&action=edit' ) );
 
+        // Sanitize name for email header — strip <, >, newlines to prevent header injection.
+        $reply_name = str_replace( array( '<', '>', "\r", "\n", "%0d", "%0a" ), '', $name );
+
         $headers = array(
                 'From: ' . $site_name . ' <' . $admin_email . '>',
                 'Content-Type: text/plain; charset=UTF-8',
-                'Reply-To: ' . $name . ' <' . $email . '>',
+                'Reply-To: ' . $reply_name . ' <' . $email . '>',
         );
 
         wp_mail( $admin_email, $subject, $email_body, $headers );
@@ -409,10 +412,13 @@ function godevs_ajax_submit_proposal(): void {
         }
         $email_body .= sprintf( "\n" . __( "Project Details:\n%s\n", 'godevs-portfolio' ), $message );
 
+        // Sanitize name for email header — strip <, >, newlines to prevent header injection.
+        $reply_name = str_replace( array( '<', '>', "\r", "\n", "%0d", "%0a" ), '', $name );
+
         $headers = array(
                 'From: ' . $site_name . ' <' . $admin_email . '>',
                 'Content-Type: text/plain; charset=UTF-8',
-                'Reply-To: ' . $name . ' <' . $email . '>',
+                'Reply-To: ' . $reply_name . ' <' . $email . '>',
         );
 
         $sent = wp_mail( $admin_email, $subject, $email_body, $headers );

@@ -33,7 +33,7 @@
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|medium","lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
 				<h3 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--medium);line-height:1.2;letter-spacing:-0.01em;font-weight:600;margin-top:var(--wp--preset--spacing--30)">Editorial strategy</h3>
 				<!-- /wp:heading -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|normal","lineHeight":"1.7},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|20"}}}} -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|normal","lineHeight":"1.7"},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|20"}}}} -->
 				<p class="has-text-color" style="color:var(--wp--preset--color--secondary);font-size:var(--wp--preset--font-size--normal);line-height:1.7;margin-top:var(--wp--preset--spacing--20)">A short engagement to define voice, content structure, and the three or four pages that actually matter. We end with a written brief you can hand to anyone.</p>
 				<!-- /wp:paragraph -->
 			</div>

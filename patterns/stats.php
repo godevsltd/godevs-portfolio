@@ -30,7 +30,7 @@
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|huge","lineHeight":"1","letterSpacing":"-0.04em","fontWeight":"700"},"color":{"text":"var:preset|color|accent"}}} -->
 				<p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--huge);line-height:1;letter-spacing:-0.04em;font-weight:700">12</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6"},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
 				<p class="has-text-color" style="color:var(--wp--preset--color--secondary);font-size:var(--wp--preset--font-size--small);line-height:1.6;margin-top:var(--wp--preset--spacing--30)">Projects shipped in the last 12 months — small to mid-size portfolio sites and a handful of editorial systems.</p>
 				<!-- /wp:paragraph -->
 			</div>
@@ -41,7 +41,7 @@
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|huge","lineHeight":"1","letterSpacing":"-0.04em","fontWeight":"700"},"color":{"text":"var:preset|color|accent"}}} -->
 				<p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--huge);line-height:1;letter-spacing:-0.04em;font-weight:700">6</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6"},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
 				<p class="has-text-color" style="color:var(--wp--preset--color--secondary);font-size:var(--wp--preset--font-size--small);line-height:1.6;margin-top:var(--wp--preset--spacing--30)">Years working with WordPress — long enough to remember the classic theme era and to appreciate the block editor.</p>
 				<!-- /wp:paragraph -->
 			</div>
@@ -52,7 +52,7 @@
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"var:preset|font-size|huge","lineHeight":"1","letterSpacing":"-0.04em","fontWeight":"700"},"color":{"text":"var:preset|color|accent"}}} -->
 				<p style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--display);font-size:var(--wp--preset--font-size--huge);line-height:1;letter-spacing:-0.04em;font-weight:700">3</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6"},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
 				<p class="has-text-color" style="color:var(--wp--preset--color--secondary);font-size:var(--wp--preset--font-size--small);line-height:1.6;margin-top:var(--wp--preset--spacing--30)">Active engagements at any one time — kept small on purpose, so each site gets actual attention rather than a templated pass.</p>
 				<!-- /wp:paragraph -->
 			</div>

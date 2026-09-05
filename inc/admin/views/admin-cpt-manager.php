@@ -164,7 +164,7 @@ $total_pages  = $posts_query->max_num_pages;
                                                 <td class="godevs-cpt-col-title">
                                                         <div class="godevs-cpt-title-cell">
                                                                 <?php if ( $has_thumb ) : ?>
-                                                                        <div class="godevs-cpt-thumb"><?php echo get_the_post_thumbnail( $post->ID, array( 40, 40 ) ); ?></div>
+                                                                        <div class="godevs-cpt-thumb"><?php echo get_the_post_thumbnail( $post->ID, array( 40, 40 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — core function returns safe HTML. ?></div>
                                                                 <?php else : ?>
                                                                         <div class="godevs-cpt-thumb godevs-cpt-thumb-placeholder"><span class="dashicons <?php echo esc_attr( $cpt_info['icon'] ?? 'dashicons-admin-post' ); ?>"></span></div>
                                                                 <?php endif; ?>
@@ -219,7 +219,7 @@ $total_pages  = $posts_query->max_num_pages;
                         <?php if ( $total_pages > 1 ) : ?>
                         <div class="godevs-cpt-pagination tablenav-pages">
                                 <?php
-                                echo paginate_links(
+                                echo paginate_links( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — core function returns safe HTML.
                                         array(
                                                 'base'      => add_query_arg( array( 'paged' => '%#%' ) ),
                                                 'format'    => '',

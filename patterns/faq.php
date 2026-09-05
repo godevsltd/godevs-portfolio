@@ -29,7 +29,7 @@
 		<!-- wp:details {"summary":"What is the typical project timeline?","style":{"border":{"top":{"color":"var:preset|color|border","style":"solid","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}},"typography":{"fontSize":"var:preset|font-size|medium","fontWeight":"600","fontFamily":"var:preset|font-family|display"}}} -->
 		<details class="wp-block-details">
 			<summary>What is the typical project timeline?</summary>
-			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}},"typography":{"fontSize":"var:preset|font-size|normal","lineHeight":"1.7},"color":{"text":"var:preset|color|secondary"}}} -->
+			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}},"typography":{"fontSize":"var:preset|font-size|normal","lineHeight":"1.7"},"color":{"text":"var:preset|color|secondary"}}} -->
 			<p class="has-text-color" style="color:var(--wp--preset--color--secondary);font-size:var(--wp--preset--font-size--normal);line-height:1.7;margin-top:var(--wp--preset--spacing--30)">Six to ten weeks end to end for a portfolio or small business site. Larger engagements with structured content types run twelve to sixteen. We work on one project at a time per designer, which is the main reason timelines do not compress beyond that.</p>
 			<!-- /wp:paragraph -->
 		</details>

@@ -28,7 +28,7 @@
 				<p class="has-text-color" style="color:var(--wp--preset--color--secondary);font-size:var(--wp--preset--font-size--medium);line-height:1.6;margin-top:var(--wp--preset--spacing--40)">The studio is a handful of designers and engineers who prefer long, focused engagements over fast turnaround work. We take on a small number of projects each year, and ship them carefully — design system first, content second, polish last.</p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|normal","lineHeight":"1.7},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|normal","lineHeight":"1.7"},"color":{"text":"var:preset|color|secondary"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
 				<p class="has-text-color" style="color:var(--wp--preset--color--secondary);font-size:var(--wp--preset--font-size--normal);line-height:1.7;margin-top:var(--wp--preset--spacing--40)">Most of what we make runs on WordPress, simply because it lets us hand the keys back to the team who owns the site. The Site Editor does most of the heavy lifting; we fill in the design system and the editorial patterns.</p>
 				<!-- /wp:paragraph -->
 

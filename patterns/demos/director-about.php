@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <figure class="wp-block-image has-custom-border"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/placeholder-portrait.jpg' ); ?>" alt="M. Vance — portrait" style="border-radius:4px;aspect-ratio:3/4;object-fit:cover"/></figure>
 <!-- /wp:image -->
 </div>
-<!-- /wp:column-->
+<!-- /wp:column -->
 <!-- wp:column {"width":"58%","verticalAlignment":"center"} -->
 <div class="wp-block-column" style="flex-basis:58%">
 <!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"contrast","style":{"typography":{"letterSpacing":"0.12em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
@@ -45,13 +45,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="has-contrast-color has-text-color" style="color:var(--wp--preset--color--contrast);font-size:var(--wp--preset--font-size--small);letter-spacing:0.1em;text-transform:uppercase;margin-top:var(--wp--preset--spacing--40)">Berlin · Tromsø · Worldwide</p>
 <!-- /wp:paragraph -->
 </div>
-<!-- /wp:column-->
+<!-- /wp:column -->
 </div>
-<!-- /wp:columns-->
+<!-- /wp:columns -->
 </div>
-<!-- /wp:group-->
+<!-- /wp:group -->
 </section>
-<!-- /wp:group-->
+<!-- /wp:group -->
 
 <!-- ═══ PRACTICE — Three areas ═══ -->
 <!-- wp:group {"tagName":"section","layout":{"type":"default"}} -->

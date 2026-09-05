@@ -303,9 +303,9 @@ function godevs_onboarding_render_dashboard_widget(): void {
                 </div>
                 <ul style="margin:0;padding:0;list-style:none;">
                         <?php foreach ( $steps as $step ) : ?>
-                                <li style="margin:0 0 6px;padding:8px 10px;border:1px solid #dcdcde;border-radius:6px;display:flex;align-items:center;gap:8px;background:<?php echo $step['done'] ? '#f0f8f0' : '#fff'; ?>;">
-                                        <span class="dashicons <?php echo $step['done'] ? 'dashicons-yes-alt' : esc_attr( $step['icon'] ); ?>" style="color:<?php echo $step['done'] ? '#00a32a' : '#2563EB'; ?>;font-size:18px;width:18px;height:18px;"></span>
-                                        <span style="flex:1;font-size:13px;<?php echo $step['done'] ? 'text-decoration:line-through;color:#50575e;' : ''; ?>"><?php echo esc_html( $step['label'] ); ?></span>
+                                <li style="margin:0 0 6px;padding:8px 10px;border:1px solid #dcdcde;border-radius:6px;display:flex;align-items:center;gap:8px;background:<?php echo esc_attr( $step['done'] ? '#f0f8f0' : '#fff' ); ?>;">
+                                        <span class="dashicons <?php echo $step['done'] ? 'dashicons-yes-alt' : esc_attr( $step['icon'] ); ?>" style="color:<?php echo esc_attr( $step['done'] ? '#00a32a' : '#2563EB' ); ?>;font-size:18px;width:18px;height:18px;"></span>
+                                        <span style="flex:1;font-size:13px;<?php echo esc_attr( $step['done'] ? 'text-decoration:line-through;color:#50575e;' : '' ); ?>"><?php echo esc_html( $step['label'] ); ?></span>
                                         <?php if ( ! $step['done'] ) : ?>
                                                 <a href="<?php echo esc_url( $step['url'] ); ?>" style="font-size:12px;text-decoration:none;"><?php esc_html_e( 'Do it →', 'godevs-portfolio'); ?></a>
                                         <?php endif; ?>
