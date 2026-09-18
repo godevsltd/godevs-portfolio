@@ -8,8 +8,8 @@
 		<div class="wp-block-columns are-vertically-aligned-bottom" style="margin-bottom:var(--wp--preset--spacing--80)">
 			<!-- wp:column {"verticalAlignment":"bottom","width":"64%"} -->
 			<div class="wp-block-column" style="flex-basis:64%">
-				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">- Start a journey</p>
+				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|accent"}}} -->
+				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">- Start a journey</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":2,"className":"hor-display","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 6vw, 5.5rem)","lineHeight":"0.98","letterSpacing":"-0.04em","fontWeight":"600"}}} -->
 				<h2 class="wp-block-heading hor-display" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 6vw, 5.5rem);line-height:0.98;letter-spacing:-0.04em;font-weight:600">Let's go <span class="hor-accent-text">somewhere.</span></h2>
@@ -23,8 +23,8 @@
 				<!-- /wp:paragraph -->
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
-					<!-- wp:button {"style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"500","letterSpacing":"0.18em"}}} -->
-					<div class="wp-block-button"><a href="/contact" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">Start a conversation →</a></div>
+					<!-- wp:button {"backgroundColor":"accent","textColor":"contrast","style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"500","letterSpacing":"0.18em"}}} -->
+					<div class="wp-block-button"><a href="/contact" class="wp-block-button__link has-accent-background-color has-contrast-color wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">Start a conversation →</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -33,26 +33,41 @@
 		</div>
 		<!-- /wp:columns -->
 
+		<!-- Coordinates strip -->
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|60"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+		<div class="wp-block-group alignwide" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
+			<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">N 38°43' · W 9°08'</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">Lisbon, PT · UTC+0</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">37 countries · 142 destinations</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
 		<!-- Link columns -->
 		<!-- wp:columns {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|60"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}}} -->
 		<div class="wp-block-columns" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
 			<!-- wp:column {"width":"45%"} -->
 			<div class="wp-block-column" style="flex-basis:45%">
-				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"1.5rem","fontWeight":"700","letterSpacing":"-0.04em"}}} -->
-				<p style="font-family:var(--wp--preset--font-family--display);font-size:1.5rem;font-weight:700;letter-spacing:-0.04em">Horizon</p>
+				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"2rem","fontWeight":"700","letterSpacing":"-0.04em","lineHeight":"1"}}} -->
+				<p style="font-family:var(--wp--preset--font-family--display);font-size:2rem;font-weight:700;letter-spacing:-0.04em;line-height:1">Horizon</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);line-height:1.7">Travel photography, stories and visual journeys from around the world. Photographing places, people and the spaces between them.</p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);line-height:1.7;margin-top:var(--wp--preset--spacing--30)">Travel photography, stories and visual journeys from around the world. Photographing places, people and the spaces between them.</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">Lisbon · Worldwide · 38°N 9°W</p>
+				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;margin-top:var(--wp--preset--spacing--40)">Lisbon · Worldwide · 38°N 9°W</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"20%"} -->
 			<div class="wp-block-column" style="flex-basis:20%">
-				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">Index</p>
+				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Index</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.9"}}} -->
 				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.9"><a href="/journeys">Journeys</a><br><a href="/stories">Stories</a><br><a href="/places">Places</a><br><a href="/photography">Photography</a><br><a href="/about">About</a></p>
@@ -61,18 +76,23 @@
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"20%"} -->
 			<div class="wp-block-column" style="flex-basis:20%">
-				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">Elsewhere</p>
+				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Elsewhere</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.9"}}} -->
-				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.9"><a href="/contact/">Instagram</a><br><a href="/contact/">Vimeo</a><br><a href="/contact/">Behance</a><br><a href="/contact/">Email</a></p>
-				<!-- /wp:paragraph -->
+				<!-- wp:social-icons {"iconColor":"foreground","iconColorValue":"var:preset|color|foreground","size":"has-small-icon-size","style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20"}}}} -->
+				<ul class="wp-block-social-links has-small-icon-size has-foreground-color" style="margin-top:var(--wp--preset--spacing--20)">
+					<!-- wp:social-link {"url":"/contact/","service":"instagram"} /-->
+					<!-- wp:social-link {"url":"/contact/","service":"vimeo"} /-->
+					<!-- wp:social-link {"url":"/contact/","service":"behance"} /-->
+					<!-- wp:social-link {"url":"/contact/","service":"mail"} /-->
+				</ul>
+				<!-- /wp:social-icons -->
 			</div>
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"15%"} -->
 			<div class="wp-block-column" style="flex-basis:15%">
-				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500">Inquiries</p>
+				<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Inquiries</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.7"}}} -->
 				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.7"><a href="mailto:alex@horizon.photo">alex@horizon.photo</a></p>
@@ -83,8 +103,8 @@
 		<!-- /wp:columns -->
 
 		<!-- Bottom copyright -->
-		<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40)">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+		<div class="wp-block-group alignwide" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--40)">
 			<!-- wp:paragraph {"className":"is-style-hor-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.6875rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
 			<p class="is-style-hor-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.6875rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500">© 2026 Horizon - Alex Morgan - Demo content for GoDevs Portfolio</p>
 			<!-- /wp:paragraph -->

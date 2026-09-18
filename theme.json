@@ -1042,6 +1042,27 @@
                         "title": "Footer Large Type",
                         "description": "Footer dominated by an oversized brand wordmark and minimal supporting text.",
                         "area": "footer"
-                }
+                },
+                { "name": "header-nova", "title": "Header Nova", "area": "header", "description": "NOVA demo header." },
+                { "name": "header-atelier", "title": "Header Atelier", "area": "header", "description": "ATELIER demo header." },
+                { "name": "header-pulse", "title": "Header Pulse", "area": "header", "description": "PULSE demo header." },
+                { "name": "header-frame", "title": "Header Frame", "area": "header", "description": "FRAME demo header." },
+                { "name": "header-architect", "title": "Header Architect", "area": "header", "description": "ARCHITECT demo header." },
+                { "name": "header-noir", "title": "Header Noir", "area": "header", "description": "NOIR demo header." },
+                { "name": "header-mono", "title": "Header Mono", "area": "header", "description": "MONO demo header." },
+                { "name": "header-luxe", "title": "Header Luxe", "area": "header", "description": "LUXE demo header." },
+                { "name": "header-journal", "title": "Header Journal", "area": "header", "description": "JOURNAL demo header." },
+                { "name": "header-horizon", "title": "Header Horizon", "area": "header", "description": "HORIZON demo header." },
+                { "name": "footer-nova", "title": "Footer Nova", "area": "footer", "description": "NOVA demo footer." },
+                { "name": "footer-atelier", "title": "Footer Atelier", "area": "footer", "description": "ATELIER demo footer." },
+                { "name": "footer-pulse", "title": "Footer Pulse", "area": "footer", "description": "PULSE demo footer." },
+                { "name": "footer-frame", "title": "Footer Frame", "area": "footer", "description": "FRAME demo footer." },
+                { "name": "footer-architect", "title": "Footer Architect", "area": "footer", "description": "ARCHITECT demo footer." },
+                { "name": "footer-noir", "title": "Footer Noir", "area": "footer", "description": "NOIR demo footer." },
+                { "name": "footer-mono", "title": "Footer Mono", "area": "footer", "description": "MONO demo footer." },
+                { "name": "footer-luxe", "title": "Footer Luxe", "area": "footer", "description": "LUXE demo footer." },
+                { "name": "footer-journal", "title": "Footer Journal", "area": "footer", "description": "JOURNAL demo footer." },
+                { "name": "footer-horizon", "title": "Footer Horizon", "area": "footer", "description": "HORIZON demo footer." },
+                { "name": "mobile-menu", "title": "Mobile Menu", "area": "uncategorized", "description": "Mobile slide-out navigation menu." }
         ]
 }

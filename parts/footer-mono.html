@@ -8,8 +8,8 @@
 		<div class="wp-block-columns are-vertically-aligned-bottom" style="margin-bottom:var(--wp--preset--spacing--80)">
 			<!-- wp:column {"verticalAlignment":"bottom","width":"64%"} -->
 			<div class="wp-block-column" style="flex-basis:64%">
-				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">- Start a project</p>
+				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|accent"}}} -->
+				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">- Start a project</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":2,"className":"mono-display","style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 6vw, 5.5rem)","lineHeight":"1.0","letterSpacing":"-0.03em","fontWeight":"600"}}} -->
 				<h2 class="wp-block-heading mono-display" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 6vw, 5.5rem);line-height:1.0;letter-spacing:-0.03em;font-weight:600">Let's build something <span class="mono-accent-text">useful.</span></h2>
@@ -19,12 +19,12 @@
 			<!-- wp:column {"verticalAlignment":"bottom","width":"36%"} -->
 			<div class="wp-block-column" style="flex-basis:36%">
 				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|medium","lineHeight":"1.6"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--medium);line-height:1.6">From first idea to production-ready product. Available for selected freelance development, product engineering and technical consulting.</p>
+				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size|medium);line-height:1.6">From first idea to production-ready product. Available for selected freelance development, product engineering and technical consulting.</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
-					<!-- wp:button {"style":{"border":{"radius":"4px"},"typography":{"fontSize":"0.875rem","fontWeight":"500"}}} -->
-					<div class="wp-block-button"><a href="/contact" class="wp-block-button__link wp-element-button" style="border-radius:4px;font-size:0.875rem;font-weight:500">Get in touch →</a></div>
+					<!-- wp:button {"backgroundColor":"accent","textColor":"contrast","style":{"border":{"radius":"4px"},"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.875rem","fontWeight":"500"}}} -->
+					<div class="wp-block-button"><a href="/contact" class="wp-block-button__link has-accent-background-color has-contrast-color wp-element-button" style="border-radius:4px;font-family:var(--wp--preset--font-family--mono);font-size:0.875rem;font-weight:500">Get in touch →</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -33,46 +33,66 @@
 		</div>
 		<!-- /wp:columns -->
 
+		<!-- Status line strip -->
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|60"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+		<div class="wp-block-group alignwide" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">
+			<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">$ status</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">uptime 99.97% · builds passing · 0 incidents</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
+			<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">v1.0.0 · MIT</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
 		<!-- Link columns -->
 		<!-- wp:columns {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|60"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}}} -->
 		<div class="wp-block-columns" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
 			<!-- wp:column {"width":"45%"} -->
 			<div class="wp-block-column" style="flex-basis:45%">
-				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"1.5rem","fontWeight":"700","letterSpacing":"-0.04em"}}} -->
-				<p style="font-family:var(--wp--preset--font-family--display);font-size:1.5rem;font-weight:700;letter-spacing:-0.04em">Mono</p>
+				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"1.5rem","fontWeight":"700","letterSpacing":"-0.04em","lineHeight":"1"}}} -->
+				<p style="font-family:var(--wp--preset--font-family--mono);font-size:1.5rem;font-weight:700;letter-spacing:-0.04em;line-height:1">Mono</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);line-height:1.7">Independent developer building digital products - full-stack engineering, frontend craft and technical consulting.</p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.7"},"color":{"text":"var:preset|color|muted"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);line-height:1.7;margin-top:var(--wp--preset--spacing--30)">Independent developer building digital products - full-stack engineering, frontend craft and technical consulting.</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">Europe / Asia · Working globally · 10+ years</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
-			<!-- wp:column {"width":"20%"} -->
-			<div class="wp-block-column" style="flex-basis:20%">
-				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">Index</p>
-				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.9"}}} -->
-				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.9"><a href="/work">Work</a><br><a href="/about">About</a><br><a href="/stack">Stack</a><br><a href="/writing">Writing</a><br><a href="/contact">Contact</a></p>
+				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500;margin-top:var(--wp--preset--spacing--40)">Europe / Asia · Working globally · 10+ years</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"20%"} -->
 			<div class="wp-block-column" style="flex-basis:20%">
-				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">Elsewhere</p>
+				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:600">// index</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.9"}}} -->
-				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.9"><a href="/contact/">GitHub</a><br><a href="/contact/">LinkedIn</a><br><a href="/contact/">Email</a><br><a href="/contact/">RSS</a></p>
+				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|small","lineHeight":"1.9"}}} -->
+				<p style="font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--small);line-height:1.9"><a href="/work">work</a><br><a href="/about">about</a><br><a href="/stack">stack</a><br><a href="/writing">writing</a><br><a href="/contact">contact</a></p>
 				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+			<!-- wp:column {"width":"20%"} -->
+			<div class="wp-block-column" style="flex-basis:20%">
+				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:600">// elsewhere</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:social-icons {"iconColor":"foreground","iconColorValue":"var:preset|color|foreground","size":"has-small-icon-size","style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20"}}}} -->
+				<ul class="wp-block-social-links has-small-icon-size has-foreground-color" style="margin-top:var(--wp--preset--spacing--20)">
+					<!-- wp:social-link {"url":"/contact/","service":"github"} /-->
+					<!-- wp:social-link {"url":"/contact/","service":"linkedin"} /-->
+					<!-- wp:social-link {"url":"/contact/","service":"mail"} /-->
+					<!-- wp:social-link {"url":"/contact/","service":"rss"} /-->
+				</ul>
+				<!-- /wp:social-icons -->
 			</div>
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"15%"} -->
 			<div class="wp-block-column" style="flex-basis:15%">
-				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">Status</p>
+				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:600">// status</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|foreground"}}} -->
 				<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500"><span class="mono-dot" aria-hidden="true"></span>Available</p>
@@ -83,8 +103,8 @@
 		<!-- /wp:columns -->
 
 		<!-- Bottom copyright -->
-		<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40)">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+		<div class="wp-block-group alignwide" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--40)">
 			<!-- wp:paragraph {"className":"is-style-mono-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.01em","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
 			<p class="is-style-mono-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.01em;font-weight:500">© 2026 Mono - Demo content for GoDevs Portfolio</p>
 			<!-- /wp:paragraph -->

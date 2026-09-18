@@ -8,8 +8,8 @@
 		<div class="wp-block-columns are-vertically-aligned-bottom" style="margin-bottom:var(--wp--preset--spacing--80)">
 			<!-- wp:column {"verticalAlignment":"bottom","width":"66%"} -->
 			<div class="wp-block-column" style="flex-basis:66%">
-				<!-- wp:paragraph {"className":"is-style-pulse-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-pulse-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500">Start a project</p>
+				<!-- wp:paragraph {"className":"is-style-pulse-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|accent"}}} -->
+				<p class="is-style-pulse-label has-text-color" style="color:var(--wp--preset--color--accent);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500">Start a project</p>
 				<!-- /wp:paragraph -->
 				<!-- wp:heading {"level":2,"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"clamp(2.5rem, 6vw, 5rem)","lineHeight":"1.0","letterSpacing":"-0.035em","fontWeight":"600"}}} -->
 				<h2 class="wp-block-heading" style="font-family:var(--wp--preset--font-family--display);font-size:clamp(2.5rem, 6vw, 5rem);line-height:1.0;letter-spacing:-0.035em;font-weight:600">Have a product worth building?</h2>
@@ -23,8 +23,8 @@
 				<!-- /wp:paragraph -->
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
-					<!-- wp:button {"style":{"border":{"radius":"6px"},"typography":{"fontSize":"0.875rem","fontWeight":"500"}}} -->
-					<div class="wp-block-button"><a href="/contact" class="wp-block-button__link wp-element-button" style="border-radius:6px;font-size:0.875rem;font-weight:500">Start a project →</a></div>
+					<!-- wp:button {"backgroundColor":"accent","textColor":"contrast","style":{"border":{"radius":"6px"},"typography":{"fontSize":"0.875rem","fontWeight":"500"}}} -->
+					<div class="wp-block-button"><a href="/contact" class="wp-block-button__link has-accent-background-color has-contrast-color wp-element-button" style="border-radius:6px;font-size:0.875rem;font-weight:500">Start a project →</a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
@@ -32,6 +32,24 @@
 			<!-- /wp:column -->
 		</div>
 		<!-- /wp:columns -->
+
+		<!-- Metrics strip -->
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|60"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+		<div class="wp-block-group alignwide" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"1.75rem","fontWeight":"600","letterSpacing":"-0.03em"}}} -->
+			<p style="font-family:var(--wp--preset--font-family--display);font-size:1.75rem;font-weight:600;letter-spacing:-0.03em">12+ <span style="font-family:var(--wp--preset--font-family--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--wp--preset--color--muted);font-weight:500">years</span></p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"1.75rem","fontWeight":"600","letterSpacing":"-0.03em"}}} -->
+			<p style="font-family:var(--wp--preset--font-family--display);font-size:1.75rem;font-weight:600;letter-spacing:-0.03em">80+ <span style="font-family:var(--wp--preset--font-family--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--wp--preset--color--muted);font-weight:500">projects</span></p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"1.75rem","fontWeight":"600","letterSpacing":"-0.03em"}}} -->
+			<p style="font-family:var(--wp--preset--font-family--display);font-size:1.75rem;font-weight:600;letter-spacing:-0.03em">24 <span style="font-family:var(--wp--preset--font-family--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--wp--preset--color--muted);font-weight:500">products shipped</span></p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"1.75rem","fontWeight":"600","letterSpacing":"-0.03em"}}} -->
+			<p style="font-family:var(--wp--preset--font-family--display);font-size:1.75rem;font-weight:600;letter-spacing:-0.03em">UTC+1 <span style="font-family:var(--wp--preset--font-family--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--wp--preset--color--muted);font-weight:500">berlin</span></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
 
 		<!-- Link columns -->
 		<!-- wp:columns {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|60"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}}} -->
@@ -41,50 +59,57 @@
 				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|display","fontSize":"1.5rem","fontWeight":"700","letterSpacing":"-0.04em"}}} -->
 				<p style="font-family:var(--wp--preset--font-family--display);font-size:1.5rem;font-weight:700;letter-spacing:-0.04em">Pulse</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);line-height:1.6">Product & UX design for ambitious teams. Case-study-driven practice focused on outcomes that matter.</p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.6"},"color":{"text":"var:preset|color|muted"},"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-size:var(--wp--preset--font-size--small);line-height:1.6;margin-top:var(--wp--preset--spacing--30)">Product & UX design for ambitious teams. Case-study-driven practice focused on outcomes that matter.</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.02em"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.02em">Berlin · Remote · UTC+1</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
-			<!-- wp:column {"width":"20%"} -->
-			<div class="wp-block-column" style="flex-basis:20%">
-				<!-- wp:paragraph {"className":"is-style-pulse-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-pulse-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500">Index</p>
-				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.8"}}} -->
-				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.8"><a href="/work">Work</a><br><a href="/about">About</a><br><a href="/journal">Insights</a><br><a href="/contact">Contact</a></p>
+				<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.02em"},"color":{"text":"var:preset|color|muted"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+				<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.02em;margin-top:var(--wp--preset--spacing--40)">Berlin · Remote · UTC+1</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"20%"} -->
 			<div class="wp-block-column" style="flex-basis:20%">
-				<!-- wp:paragraph {"className":"is-style-pulse-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-pulse-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500">Focus</p>
+				<!-- wp:paragraph {"className":"is-style-pulse-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-pulse-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:600">Index</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.8"}}} -->
-				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.8"><a href="/work">Product Design</a><br><a href="/work">UX Research</a><br><a href="/work">Design Systems</a><br><a href="/work">Prototyping</a></p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.9"}}} -->
+				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.9"><a href="/work">Work</a><br><a href="/about">About</a><br><a href="/journal">Insights</a><br><a href="/contact">Contact</a></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"20%"} -->
 			<div class="wp-block-column" style="flex-basis:20%">
-				<!-- wp:paragraph {"className":"is-style-pulse-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"500"},"color":{"text":"var:preset|color|muted"}}} -->
-				<p class="is-style-pulse-label has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500">Connect</p>
+				<!-- wp:paragraph {"className":"is-style-pulse-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-pulse-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:600">Focus</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.8"}}} -->
-				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.8"><a href="mailto:hello@pulse.design">hello@pulse.design</a><br><a href="/contact/">LinkedIn</a><br><a href="/contact/">Dribbble</a><br><a href="/contact/">Read.cv</a></p>
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.9"}}} -->
+				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.9"><a href="/work">Product Design</a><br><a href="/work">UX Research</a><br><a href="/work">Design Systems</a><br><a href="/work">Prototyping</a></p>
 				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+			<!-- wp:column {"width":"20%"} -->
+			<div class="wp-block-column" style="flex-basis:20%">
+				<!-- wp:paragraph {"className":"is-style-pulse-label","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.06em","textTransform":"uppercase","fontWeight":"600"},"color":{"text":"var:preset|color|foreground"}}} -->
+				<p class="is-style-pulse-label has-text-color" style="color:var(--wp--preset--color--foreground);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:600">Connect</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|small","lineHeight":"1.9"}}} -->
+				<p style="font-size:var(--wp--preset--font-size--small);line-height:1.9"><a href="mailto:hello@pulse.design">hello@pulse.design</a></p>
+				<!-- /wp:paragraph -->
+				<!-- wp:social-icons {"iconColor":"foreground","iconColorValue":"var:preset|color|foreground","size":"has-small-icon-size","style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20"}}}} -->
+				<ul class="wp-block-social-links has-small-icon-size has-foreground-color" style="margin-top:var(--wp--preset--spacing--20)">
+					<!-- wp:social-link {"url":"/contact/","service":"linkedin"} /-->
+					<!-- wp:social-link {"url":"/contact/","service":"dribbble"} /-->
+					<!-- wp:social-link {"url":"/contact/","service":"mail"} /-->
+				</ul>
+				<!-- /wp:social-icons -->
 			</div>
 			<!-- /wp:column -->
 		</div>
 		<!-- /wp:columns -->
 
 		<!-- Bottom copyright -->
-		<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
-		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40)">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+		<div class="wp-block-group alignwide" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--40)">
 			<!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"0.75rem","letterSpacing":"0.02em"},"color":{"text":"var:preset|color|muted"}}} -->
 			<p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:0.75rem;letter-spacing:0.02em">© 2026 Pulse - Demo content for GoDevs Portfolio</p>
 			<!-- /wp:paragraph -->
