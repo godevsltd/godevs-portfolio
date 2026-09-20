@@ -63,7 +63,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:query-no-results --></div>
 <!-- /wp:query -->
 
-<!-- wp:separator {"className":"is-style-thin","style":{"color":{"background":"var:preset|color|line"},"spacing":{"margin":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|50"}}}} /-->
+<!-- wp:separator {"className":"is-style-thin","style":{"color":{"background":"var:preset|color|line"},"spacing":{"margin":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|50"}}}} -->
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-thin" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--50)"/>
+<!-- /wp:separator -->
 
 <!-- wp:paragraph {"style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|x-small","letterSpacing":"0.14em","textTransform":"uppercase"},"color":{"text":"var:preset|color|muted"}}} -->
 <p class="has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--x-small);letter-spacing:0.14em;text-transform:uppercase">More from the index</p>

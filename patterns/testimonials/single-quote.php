@@ -39,7 +39,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:separator {"className":"is-style-thin","style":{"color":{"background":"var:preset|color|line"}}} /-->
+<!-- wp:separator {"className":"is-style-thin","style":{"color":{"background":"var:preset|color|line"}}} -->
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-thin"/>
+<!-- /wp:separator -->
 
 <!-- wp:paragraph {"align":"center","style":{"typography":{"fontFamily":"var:preset|font-family|mono","fontSize":"var:preset|font-size|x-small","letterSpacing":"0.14em","textTransform":"uppercase"},"color":{"text":"var:preset|color|muted"}}} -->
 <p class="has-text-align-center has-text-color" style="color:var(--wp--preset--color--muted);font-family:var(--wp--preset--font-family--mono);font-size:var(--wp--preset--font-size--x-small);letter-spacing:0.14em;text-transform:uppercase">Studio Field - Brand &amp; product design · Engaged 2020–2022</p>
