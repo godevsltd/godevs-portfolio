@@ -329,3 +329,72 @@ Bump the theme version to **1.0.1** and release as a patch. The two Site Editor 
 ---
 
 _End of report._
+
+## PR #3 Verification - v1.0.1 (2026-09-20)
+
+Independent final verification of PR #3 (commit `8f05204` + follow-up `de5c7f4`) on
+WordPress 7.1.1 / PHP 8.0.30 (XAMPP), performed live in the browser against both the
+main QA install and a clean install (`godevs_clean`, zero plugins).
+
+### Root causes (confirmed)
+
+- **Pattern Editor crash**: pattern categories were registered with a `title` key.
+  WordPress core (`view-config.php`) reads `label`; the missing label propagated into
+  the editor's category search and crashed with `.toLowerCase()` on undefined. Core PHP
+  warnings `Undefined array key "label"` from 2026-09-18 confirm the mechanism. PR #3
+  correctly renames all 21 category registrations to `label`.
+- **Edit Site / Content block crash**: same missing labels fed the Site Editor's
+  category filtering; additionally the redesigned footers introduced block markup that
+  failed client-side save/serialization validation (details below), producing
+  "Block contains unexpected or invalid content" notices on the Content area.
+
+### Issues found during this verification pass (fixed in `de5c7f4`)
+
+1. Decorative HTML comments (`<!-- Top: brand ... -->`, `<!-- === CONTENT === -->`)
+   inside block content in 11 footers and 6 templates caused editor block-validation
+   failures. Removed.
+2. `style.padding` placed outside `style.spacing` in `parts/footer.html`,
+   `patterns/cta.php`, `patterns/about/editorial.php` (schema violation; the editor
+   drops it on re-serialization). Corrected.
+3. Footer columns with `verticalAlignment` attributes missing the corresponding
+   `is-vertically-aligned-*` class. Added.
+4. 56 button anchors using custom (non-preset) font sizes missing the
+   `has-custom-font-size` class across footers, headers and demo patterns. Added.
+5. Version inconsistency: `style.css` said 1.0.1 while `GODEVS_PORTFOLIO_VERSION`,
+   `readme.txt` stable tag and CHANGELOG still said 1.0.0. All aligned to **1.0.1**
+   (release strategy: merge PR #3 as the next public release).
+
+### Verified results (live browser testing)
+
+| Area | Result |
+|---|---|
+| Pattern Editor page | PASS - loads, 146 patterns, 21 categories + core categories all labeled, no React/`.toLowerCase()` error |
+| Pattern search / preview | PASS - search filters live, iframe previews render, no error notices |
+| Edit Site (Templates) | PASS - Templates list, Front Page template opens; 0 invalid blocks after fixes |
+| Template Parts | PASS - all 44 registered in theme.json and present on disk (no missing/unused); default header/footer, 10 demo headers, 10 demo footers, mobile-menu all open in editor with 0 invalid blocks (settled state) |
+| Navigation blocks | PASS - 26 navigation blocks across parts/templates/patterns; full-theme markup scan of 222 files / 5,841 attribute blobs: **0 malformed block structures** |
+| 10 demo frontends (preview renderer) | PASS - all render with header, nav, content and footer; internal links and anchor targets present |
+| 10 demo footers | PASS - structurally and visually distinct (unique headings, classes, typography; NOIR 2 CTAs, JOURNAL newsletter-only, MONO mono-font labels, PULSE metrics strip, HORIZON coordinates strip); screenshots archived |
+| Responsive footers | PASS - 10 demos x 10 widths (1440/1280/1024/768/600/430/390/375/360/320) = 100 checks, **0 horizontal overflow**; `flexWrap:"wrap"` stacks correctly |
+| 1240px container | PASS - header, constrained main content and footer `align="wide"` all share the same left edge (36px @1440) and width |
+| Dynamic CSS regression | PASS - custom accent `#00A3A3` applied after settings save; importing NOVA replaced it with Nova's `#FF5A30` palette; no residual override (last action wins) |
+| Demo import | PASS - Pulse -> Nova import completed ("Demo Ready"), pages created, style variation applied |
+| Clean install (WP + theme only, no plugins) | PASS - activation, frontend, Site Editor, Patterns (146/44), Templates, Template Parts, footer editing, Theme Settings all functional; footer part 0 invalid blocks; no debug.log entries |
+| PHP | PASS - no new theme-generated fatals/warnings in debug.log (only pre-existing WP.org connectivity notices) |
+| REST API | PASS - `/wp-json/wp/v2/types` 200 on both installs |
+| JavaScript console | PASS - no theme-generated errors observed on Editor, Patterns, template/part editing or frontend; no error overlays in DOM |
+| WordPress.org safety | PASS - no core modifications, no console.log/var_dump leftovers, no external JS dependencies, no dev URLs (only linkedin/twitter profile links in social blocks), no credentials, user-facing strings translated |
+
+### Notes / follow-ups
+
+- The default header's "Get in touch" button briefly shows a validation notice during
+  initial editor load; the saved and serialized markup are byte-identical and the
+  notice clears once validation settles (pre-existing v1.0.0 behavior, cosmetic only).
+- Block `isValid` flags are transiently false during editor load; all checks above
+  were re-read after settling.
+- Local QA credentials were reset for this pass only (`godevsteam`, `qa_admin` on both
+  installs).
+
+---
+
+_End of PR #3 verification._
