@@ -519,3 +519,16 @@ automatically and the markup is byte-identical to released v1.0.0
 behavior. Not a submission blocker.
 
 _End of submission audit._
+
+# Final Release Version - v1.0.0 (2026-09-20)
+
+The final WordPress.org submission version is **1.0.0**. The fixes documented
+above under "v1.0.1" were developed during the 1.0.1 work stream but were
+never published as a separate release; they are all included in the submitted
+**GoDevs Portfolio v1.0.0** package (see CHANGELOG.md, consolidated 1.0.0
+entry). References to 1.0.1 in the QA history above describe that internal
+development process, not a released version.
+
+- Release metadata: style.css, GODEVS_PORTFOLIO_VERSION, readme.txt stable
+  tag and changelog all identify 1.0.0.
+- Production package: `godevs-portfolio-1.0.0.zip`.

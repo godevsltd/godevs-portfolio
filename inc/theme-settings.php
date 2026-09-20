@@ -190,7 +190,7 @@ add_action( 'admin_init', 'godevs_portfolio_settings_register' );
  *
  * @param mixed $value Raw input.
  * @return string Sanitized hex color (e.g. '#2563eb') or empty string.
- * @since 1.0.1
+ * @since 1.0.0
  */
 function godevs_portfolio_sanitize_hex_color( $value ): string {
         if ( ! is_string( $value ) || '' === $value ) {
@@ -211,7 +211,7 @@ function godevs_portfolio_sanitize_hex_color( $value ): string {
  *
  * @param mixed $value Raw input.
  * @return string Sanitized URL or empty string.
- * @since 1.0.1
+ * @since 1.0.0
  */
 function godevs_portfolio_sanitize_url( $value ): string {
         if ( ! is_string( $value ) || '' === $value ) {

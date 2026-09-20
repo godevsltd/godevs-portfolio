@@ -3,7 +3,7 @@ Contributors: godevs
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: full-site-editing, block-patterns, block-styles, portfolio, editorial, accessibility-ready, translation-ready, threaded-comments, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options
@@ -65,19 +65,11 @@ Go to Appearance → GoDevs Settings → Demo Library tab. Browse the available 
 
 == Changelog ==
 
-= 1.0.1 =
-
-* Fixed the Pattern Editor crash (categories now register with the `label` key WordPress core expects) and the related Edit Site / Content block crash.
-* Fixed pattern slug validation regex (`A-z` -> `A-Za-z`) and navigation block JSON attributes in the demo headers.
-* Registered all demo headers and footers as template parts in theme.json.
-* Redesigned all ten demo footers and the default footer with reliable responsive wrapping down to 320px.
-* Fixed block markup that triggered editor validation notices (decorative comments, invalid padding structure, missing alignment and font-size classes).
-* Verified: 0 malformed block structures across 222 theme files, 0 horizontal overflow across 100 responsive checks, clean install with no plugins.
-
 = 1.0.0 =
 
 * Initial release on WordPress.org.
-* Ten complete portfolio demos with one-click import (NOVA, ATELIER, PULSE, FRAME, ARCHITECT, NOIR, MONO, LUXE, JOURNAL, HORIZON).
+* Ten complete portfolio demos with one-click import (NOVA, ATELIER, PULSE, FRAME, ARCHITECT, NOIR, MONO, LUXE, JOURNAL, HORIZON) with redesigned, responsive demo footers down to 320px.
 * Project proposal system with spam protection, rate limiting and an admin workflow.
-* Full Site Editing native: 32 templates, 42 template parts, 146 patterns, 21 style variations.
-* Service details seeding, premium import progress experience, accessibility-ready contrast and responsive layouts from 1920px to 320px.
+* Full Site Editing native: 32 templates, 44 template parts, 146 patterns, 21 style variations; all demo headers and footers registered as template parts.
+* Site Editor and Pattern Editor compatibility hardening: pattern category registration, navigation block JSON, slug validation regex, and block markup validation (0 malformed block structures across 222 theme files).
+* Accessibility-ready contrast, dynamic color settings via CSS custom properties, responsive layouts from 1920px to 320px (0 horizontal overflow across 100 checks).
