@@ -532,3 +532,50 @@ development process, not a released version.
 - Release metadata: style.css, GODEVS_PORTFOLIO_VERSION, readme.txt stable
   tag and changelog all identify 1.0.0.
 - Production package: `godevs-portfolio-1.0.0.zip`.
+
+# Final Release Verification - v1.0.0 (2026-09-20)
+
+## Version reset
+
+Current release metadata reset from 1.0.1 to 1.0.0 (commit `3f7e254`,
+pushed to origin/main as a fast-forward). All functional fixes remain:
+pattern category label fix, Edit Site / Content block fix, template-part
+registrations, navigation JSON, footer redesign, block-validation fixes,
+empty separator fixes (8ccb573), responsive and dynamic CSS behavior.
+Release commit `3f7e254`; production package `godevs-portfolio-1.0.0.zip`
+(508 files, 14.2 MB) - ZIP-vs-tree diff confirmed only metadata files
+changed relative to the audited 1.0.1 build (style.css, functions.php,
+readme.txt, CHANGELOG.md, inc/theme-settings.php @since tags).
+
+## Clean-install smoke test of the exact 1.0.0 ZIP
+
+Installed via Appearance -> Themes -> Add New -> Upload on the
+`godevs_clean` install (WP 7.1.1, PHP 8.0.30, no plugins), then activated.
+
+| Check | Result |
+|---|---|
+| Install / activation | PASS ("Theme installed successfully", stylesheet = godevs-portfolio, Version 1.0.0) |
+| Frontend | PASS - header/footer render, 0 horizontal overflow |
+| Site Editor | PASS |
+| Patterns | PASS - 146 patterns / 44 template parts, no errors |
+| Footer template part | PASS - 26 blocks, 0 invalid |
+| Mobile Menu template part | PASS - 7 blocks, 0 invalid; separator block carries a real `<hr>` element |
+| Case Study template | PASS - 14 blocks, 0 invalid |
+| Theme Settings | PASS - loads, no fatals |
+| Demo page render | PASS - footer present, 0 broken images, 0 overflow |
+| PHP errors | PASS - no debug.log entries on the install |
+
+Note: the earlier low "40 patterns / 4 template parts" reading observed
+during this pass was taken while Twenty Twenty-Four was still the active
+theme (the first Activate click had not registered); after proper
+activation the counts returned to 146/44.
+
+## Final version audit
+
+No current-release references to 1.0.1 (or 1.0.2/beta/RC) remain in
+style.css, functions.php, readme.txt, CHANGELOG.md, theme-settings.php or
+the ZIP. Remaining "1.0.1" mentions exist only in this QA report's
+historical verification sections, which document the development process
+and are clearly contextualized by the note above.
+
+_GoDevs Portfolio v1.0.0 - READY FOR WORDPRESS.ORG SUBMISSION._
