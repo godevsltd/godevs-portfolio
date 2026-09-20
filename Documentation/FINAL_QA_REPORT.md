@@ -466,3 +466,56 @@ _End of PR #3 verification._
   changes`) for independent review; it is not part of v1.0.1.
 
 _End of final release verification._
+
+# WordPress.org Submission Audit - v1.0.1 (2026-09-20, final)
+
+Read-only submission audit against current WordPress.org Theme Review
+requirements, plus a lightweight behavioral smoke test on the ZIP-installed
+clean install (WP 7.1.1 / PHP 8.0.30 / zero plugins).
+
+## Compliance findings
+
+- Licensing: GPLv2 or later (LICENSE + style.css + readme.txt agree).
+- style.css metadata: complete and correct (name, URI, author, description,
+  version 1.0.1, requires 6.5, tested 7.1, PHP 7.4, license, text domain,
+  valid tags). Stable tag: 1.0.1 with a `= 1.0.1 =` changelog section.
+- Screenshot: 1200x900 PNG, frontend-only, regenerated after the footer
+  redesign (2026-09-18).
+- No plugin dependency, no bundled proprietary assets, no external resource
+  dependency in theme output (only WordPress-core endpoints), no tracking,
+  no credentials, no dev/test files in the ZIP, no debug output, no core
+  modifications, no obfuscated code (no eval/base64/gzinflate).
+- Escaping/sanitization/i18n spot checks clean; text domain consistent
+  (966 usages).
+- ZIP integrity: byte-identical to the release tree, 508 files, no
+  `.git`/`scripts`/`tests`/`Documentation`/dotfiles; upload-install path
+  previously proven on this exact artifact.
+
+## One compliance fix applied (commit `8ccb573`)
+
+The audit's smoke test found a real block-validation error in
+`parts/mobile-menu.html`: a self-closing `<!-- wp:separator {...} /-->`
+delimiter with no `<hr>` element fails core validation ("Expected
+StartTag, instead saw end of content"). The same pre-existing (v1.0.0)
+pattern existed in 12 more templates/patterns. All 13 were converted to
+valid separator markup (open delimiter + `<hr>` + close delimiter).
+Re-verified live: mobile-menu part 7 blocks / 0 invalid;
+single-godevs_case_study template 14 blocks / 0 invalid. Full-theme scan:
+0 malformed attribute blobs, 0 empty separators remaining. ZIP rebuilt
+from the release tree and re-verified.
+
+## Final smoke results (ZIP install)
+
+Homepage 0 overflow; Site Editor, Patterns (146/44, search clean),
+Templates, Template Parts, footer and mobile-menu editing, Theme Settings,
+demo page render (0 broken images, 0 overflow) - all PASS. PHP debug.log
+on both installs shows no theme-generated errors.
+
+## Known non-blocking issue (unchanged, documented)
+
+The default header CTA button can briefly show a transient block
+validation notice while the Site Editor finishes loading; it clears
+automatically and the markup is byte-identical to released v1.0.0
+behavior. Not a submission blocker.
+
+_End of submission audit._
