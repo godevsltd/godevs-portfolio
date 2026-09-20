@@ -55,10 +55,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                                         <!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
                                         <div class="wp-block-buttons">
                                                 <!-- wp:button {"style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"500","letterSpacing":"0.18em"}}} -->
-                                                <div class="wp-block-button"><a href="#latest" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">Read the Journal →</a></div>
+                                                <div class="wp-block-button"><a href="#latest" class="wp-block-button__link wp-element-button has-custom-font-size" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">Read the Journal →</a></div>
                                                 <!-- /wp:button -->
                                                 <!-- wp:button {"className":"is-style-outline","style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"500","letterSpacing":"0.18em"}}} -->
-                                                <div class="wp-block-button is-style-outline"><a href="/about" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">About the Author →</a></div>
+                                                <div class="wp-block-button is-style-outline"><a href="/about" class="wp-block-button__link wp-element-button has-custom-font-size" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">About the Author →</a></div>
                                                 <!-- /wp:button -->
                                         </div>
                                         <!-- /wp:buttons -->

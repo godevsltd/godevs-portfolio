@@ -13,7 +13,7 @@
 <p class="alignwide has-text-color" style="color:var(--wp--preset--color--secondary);font-family:var(--wp--preset--font-family--display);font-size:clamp(6rem, 18vw, 14rem);line-height:0.8;letter-spacing:-0.04em;font-weight:700;margin-bottom:var(--wp--preset--spacing--70)">Let’s talk</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:group {"align":"wide","className":"godevs-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|40"},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}},"padding":{"top":"var:preset|spacing|50"}},"layout":{"type":"constrained","contentSize":"820px","justifyContent":"left"}} -->
+<!-- wp:group {"align":"wide","className":"godevs-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"top":"var:preset|spacing|50"}},"border":{"top":{"color":"var:preset|color|line","style":"solid","width":"1px"}}},"layout":{"type":"constrained","contentSize":"820px","justifyContent":"left"}} -->
 <div class="wp-block-group alignwide godevs-reveal-stagger" style="border-top-color:var(--wp--preset--color--line);border-top-style:solid;border-top-width:1px;padding-top:var(--wp--preset--spacing--50)"><!-- wp:paragraph {"className":"is-style-eyebrow","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em","fontWeight":"600"},"color":{"text":"var:preset|color|accent"}}} -->
 <p class="is-style-eyebrow has-text-color" style="color:var(--wp--preset--color--accent);text-transform:uppercase;letter-spacing:0.12em;font-weight:600">Next step</p>
 <!-- /wp:paragraph -->

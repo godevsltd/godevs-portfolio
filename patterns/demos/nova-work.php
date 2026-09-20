@@ -288,7 +288,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
 				<!-- wp:button {"style":{"border":{"radius":"2px"},"typography":{"fontSize":"0.9375rem","fontWeight":"500"},"color":{"background":"var:preset|color|accent","text":"var:preset|color|primary"}}} -->
-				<div class="wp-block-button"><a href="/contact" class="wp-block-button__link has-accent-background-color has-background has-primary-color has-text-color wp-element-button" style="border-radius:2px;font-size:0.9375rem;font-weight:500">Start a Project →</a></div>
+				<div class="wp-block-button"><a href="/contact" class="wp-block-button__link has-accent-background-color has-background has-primary-color has-text-color wp-element-button has-custom-font-size" style="border-radius:2px;font-size:0.9375rem;font-weight:500">Start a Project →</a></div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->

@@ -64,10 +64,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|20"}}} -->
 					<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60)">
 						<!-- wp:button {"style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"500","letterSpacing":"0.18em","textTransform":"uppercase"}}} -->
-						<div class="wp-block-button"><a href="/" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase">Back to home →</a></div>
+						<div class="wp-block-button"><a href="/" class="wp-block-button__link wp-element-button has-custom-font-size" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase">Back to home →</a></div>
 						<!-- /wp:button -->
 						<!-- wp:button {"className":"is-style-outline","style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"500","letterSpacing":"0.18em","textTransform":"uppercase"}}} -->
-						<div class="wp-block-button is-style-outline"><a href="/archive" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase">Read the journal →</a></div>
+						<div class="wp-block-button is-style-outline"><a href="/archive" class="wp-block-button__link wp-element-button has-custom-font-size" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase">Read the journal →</a></div>
 						<!-- /wp:button -->
 					</div>
 					<!-- /wp:buttons -->

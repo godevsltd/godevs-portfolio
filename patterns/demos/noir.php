@@ -44,10 +44,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|30"}}} -->
                                 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
                                         <!-- wp:button {"style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"600","letterSpacing":"0.2em"}}} -->
-                                        <div class="wp-block-button"><a href="#showreel" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:600;letter-spacing:0.2em">Watch Selected Work →</a></div>
+                                        <div class="wp-block-button"><a href="#showreel" class="wp-block-button__link wp-element-button has-custom-font-size" style="border-radius:0;font-size:0.6875rem;font-weight:600;letter-spacing:0.2em">Watch Selected Work →</a></div>
                                         <!-- /wp:button -->
                                         <!-- wp:button {"className":"is-style-outline","style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"600","letterSpacing":"0.2em"}}} -->
-                                        <div class="wp-block-button is-style-outline"><a href="#showreel" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:600;letter-spacing:0.2em">View Reel</a></div>
+                                        <div class="wp-block-button is-style-outline"><a href="#showreel" class="wp-block-button__link wp-element-button has-custom-font-size" style="border-radius:0;font-size:0.6875rem;font-weight:600;letter-spacing:0.2em">View Reel</a></div>
                                         <!-- /wp:button -->
                                 </div>
                                 <!-- /wp:buttons -->

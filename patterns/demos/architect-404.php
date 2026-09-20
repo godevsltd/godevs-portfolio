@@ -42,10 +42,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|20"}}} -->
                                                 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
                                                         <!-- wp:button {"style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"500","letterSpacing":"0.18em"}}} -->
-                                                        <div class="wp-block-button"><a href="/" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">Back to home →</a></div>
+                                                        <div class="wp-block-button"><a href="/" class="wp-block-button__link wp-element-button has-custom-font-size" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">Back to home →</a></div>
                                                         <!-- /wp:button -->
                                                         <!-- wp:button {"className":"is-style-arch-outline","style":{"border":{"radius":"0"},"typography":{"fontSize":"0.6875rem","fontWeight":"500","letterSpacing":"0.18em"}}} -->
-                                                        <div class="wp-block-button is-style-arch-outline"><a href="/projects" class="wp-block-button__link wp-element-button" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">Explore projects →</a></div>
+                                                        <div class="wp-block-button is-style-arch-outline"><a href="/projects" class="wp-block-button__link wp-element-button has-custom-font-size" style="border-radius:0;font-size:0.6875rem;font-weight:500;letter-spacing:0.18em">Explore projects →</a></div>
                                                         <!-- /wp:button -->
                                                 </div>
                                                 <!-- /wp:buttons -->
