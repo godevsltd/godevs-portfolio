@@ -392,9 +392,77 @@ main QA install and a clean install (`godevs_clean`, zero plugins).
   notice clears once validation settles (pre-existing v1.0.0 behavior, cosmetic only).
 - Block `isValid` flags are transiently false during editor load; all checks above
   were re-read after settling.
-- Local QA credentials were reset for this pass only (`godevsteam`, `qa_admin` on both
-  installs).
+- Local QA accounts on the QA installs were reset for this pass; credentials are
+  managed outside the repository.
 
 ---
 
 _End of PR #3 verification._
+
+# Final Release Verification - v1.0.1 (2026-09-20)
+
+## Release artifacts
+
+- **Git**: verification commits cherry-picked onto `origin/main` and pushed
+  (fast-forward `eaac820..2fb77f8`, no force). Note: GitHub PR #3 was already
+  merged on 2026-09-18; its fork branch no longer exists, so the verification
+  commits were delivered on `main` directly.
+- **Production ZIP**: `godevs-portfolio-1.0.1.zip` (508 files, ~14.9 MB),
+  built from the release tree. Excludes `.git`, `.github`, `Documentation/`,
+  `scripts/`, `tests/`, dotfiles and any local artifacts. Contains only the
+  production theme (style.css `Version: 1.0.1`).
+
+## Clean-install verification of the exact ZIP
+
+- Environment: `godevs_clean` install - WordPress 7.1.1, PHP 8.0.30, XAMPP,
+  in-app Chromium browser, zero plugins (a core theme was used only as a
+  temporary fallback to delete the old copy).
+- The ZIP was uploaded through **Appearance → Themes → Add New → Upload**,
+  installed ("Theme installed successfully") and activated.
+
+| Check | Result |
+|---|---|
+| Activation | PASS |
+| Frontend | PASS - header/footer render, 0 overflow, 28 stylesheets loaded |
+| Site Editor | PASS |
+| Patterns | PASS - 146 patterns / 44 template parts / all categories labeled, no errors |
+| Pattern Preview | PASS - iframe previews render |
+| Templates | PASS |
+| Template Parts | PASS - footer part opens with 26 blocks, 0 invalid |
+| Navigation | PASS |
+| Footer | PASS |
+| Theme Settings | PASS - settings page loads, color controls present, no fatals |
+| Demo structure smoke (10/10) | PASS - header, footer, links, 0 broken images on every demo |
+| Responsive (10 demos x 9 widths: 1440/1280/1024/768/430/390/375/360/320) | PASS - **0 horizontal overflow in all 90 checks** |
+
+## Release checks
+
+- **Version consistency**: `style.css`, `GODEVS_PORTFOLIO_VERSION`, readme.txt
+  stable tag and CHANGELOG all say **1.0.1**; readme.txt gained a `= 1.0.1 =`
+  changelog section. Remaining `1.0.0` references are historical changelog
+  entries only; `@since 1.5.0` tags in two JS file headers are legacy internal
+  annotations, not release metadata.
+- **WordPress.org review**: GPLv2 LICENSE present; correct metadata and text
+  domain (`godevs-portfolio`, 966 usages); no unescaped `echo $`; no external
+  HTTP calls from PHP; no credentials, dev code, tracking or core
+  modifications (re-checked this pass); block markup / theme.json valid
+  (0 malformed across 222 files).
+- **Screenshot**: 1200x900 PNG regenerated 2026-09-18 (after the footer
+  redesign merge), front-end only.
+- **Security housekeeping**: no credentials in git, docs, screenshots or ZIP;
+  QA account passwords were rotated after testing.
+- **Packaging integrity**: ZIP structure verified programmatically
+  (top-level layout, screenshot, style.css, no excluded-path leaks); pattern
+  discovery and template parts confirmed working from the installed ZIP itself.
+
+## Known non-blocking issues
+
+- The default header's CTA button can show a transient block-validation
+  notice for a moment during initial editor load; the saved and serialized
+  markup are byte-identical and the notice clears on its own. Pre-existing
+  v1.0.0 behavior; documented, not fixed in this release.
+- Unrelated pre-existing local work on `main` (mobile nav touch-target CSS,
+  journal.php tweak) remains safely stashed (`pre-PR3-verification local
+  changes`) for independent review; it is not part of v1.0.1.
+
+_End of final release verification._

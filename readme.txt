@@ -65,6 +65,15 @@ Go to Appearance → GoDevs Settings → Demo Library tab. Browse the available 
 
 == Changelog ==
 
+= 1.0.1 =
+
+* Fixed the Pattern Editor crash (categories now register with the `label` key WordPress core expects) and the related Edit Site / Content block crash.
+* Fixed pattern slug validation regex (`A-z` -> `A-Za-z`) and navigation block JSON attributes in the demo headers.
+* Registered all demo headers and footers as template parts in theme.json.
+* Redesigned all ten demo footers and the default footer with reliable responsive wrapping down to 320px.
+* Fixed block markup that triggered editor validation notices (decorative comments, invalid padding structure, missing alignment and font-size classes).
+* Verified: 0 malformed block structures across 222 theme files, 0 horizontal overflow across 100 responsive checks, clean install with no plugins.
+
 = 1.0.0 =
 
 * Initial release on WordPress.org.
